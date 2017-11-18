@@ -29,5 +29,20 @@ public class UserAccountDirectory {
         this.userAccountList = userAccountList;
     }
     
+    public UserAccount authenticateUser(String username, String password){
+        for(UserAccount ua : userAccountList){
+            if(ua.getUserID().equals(username) && ua.getUserPWD().equals(password)){
+                return ua;
+            }
+        }
+        return null;
+    }
     
+    public boolean checkIfUsernameIsUnique(String username){
+        for (UserAccount ua : userAccountList){
+            if (ua.getUserID().equals(username))
+                return false;
+        }
+        return true;
+    }
 }

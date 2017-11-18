@@ -5,10 +5,41 @@
  */
 package Business.Network;
 
+import Business.Enterpise.Enterprise;
+import Business.Enterpise.EnterpriseDirectory;
+import java.util.ArrayList;
+
 /**
  *
  * @author Rahul Zore
  */
 public class Network {
+    
+    private String name;
+    private EnterpriseDirectory enterpriseDirectory;
+    
+    public Network(){
+        enterpriseDirectory = new EnterpriseDirectory();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public EnterpriseDirectory getEnterpriseDirectory() {
+        return enterpriseDirectory;
+    }
+
+    public void setEnterpriseDirectory(EnterpriseDirectory enterpriseDirectory) {
+        this.enterpriseDirectory = enterpriseDirectory;
+    }
+
+  
+    
+    
     
 }

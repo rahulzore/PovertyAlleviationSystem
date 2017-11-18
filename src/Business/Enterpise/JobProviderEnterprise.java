@@ -12,9 +12,9 @@ import java.util.ArrayList;
  *
  * @author Rahul Zore
  */
-public class DataCollectorEnterprise extends Enterprise{
+public class JobProviderEnterprise extends Enterprise{
 
-    DataCollectorEnterprise(String name) {
+    JobProviderEnterprise(String name) {
         super(name);
     }
 
@@ -22,7 +22,5 @@ public class DataCollectorEnterprise extends Enterprise{
     public ArrayList<Role> getSupportedRole() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    
     
 }

@@ -5,6 +5,8 @@
  */
 package Business.UserAccount;
 
+import Business.Role.Role;
+
 /**
  *
  * @author Rahul Zore
@@ -12,7 +14,10 @@ package Business.UserAccount;
 public class UserAccount {
     private String userID;
     private String userPWD;
-
+    private Role role;
+    
+    
+    
     public String getUserID() {
         return userID;
     }
@@ -27,6 +32,14 @@ public class UserAccount {
 
     public void setUserPWD(String userPWD) {
         this.userPWD = userPWD;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
     
     
