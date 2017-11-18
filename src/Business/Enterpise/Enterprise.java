@@ -1,0 +1,55 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Business.Enterpise;
+
+import Business.Organization.Organization;
+import Business.Organization.OrganizationDirectory;
+
+/**
+ *
+ * @author Rahul Zore
+ */
+public abstract class Enterprise extends Organization {
+
+    private OrganizationDirectory organizationList;
+    private EnterpriseType enterpriseType;
+
+    public Enterprise(String name) {
+        super(null);
+        organizationList = new OrganizationDirectory();
+    }
+
+    public enum EnterpriseType {
+
+        DataCollector("Data Collector"),
+        JobProvider("Job Provider");
+
+        private String value;
+
+        private EnterpriseType(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return this.value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    }
+
+    public OrganizationDirectory getOrganizationList() {
+        return organizationList;
+    }
+    
+   
+    public EnterpriseType getEnterpriseType() {
+        return enterpriseType;
+    }
+
+}
