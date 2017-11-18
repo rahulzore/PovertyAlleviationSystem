@@ -39,7 +39,11 @@ public class EcoSystem extends Organization{
         return networkList;
     }
 
-   
+    public Network createAndAddNetwork() {
+        Network network = new Network();
+        networkList.add(network);
+        return network;
+    }
     
     
     @Override
