@@ -5,7 +5,9 @@
  */
 package Business.UserAccount;
 
+import Business.Employee.Employee;
 import Business.Role.Role;
+import Business.WorkQueue.WorkQueue;
 
 /**
  *
@@ -15,8 +17,12 @@ public class UserAccount {
     private String userID;
     private String userPWD;
     private Role role;
+    private Employee employee;
+    private WorkQueue workQueue;
     
-    
+    public UserAccount(){
+        workQueue = new WorkQueue();
+    }
     
     public String getUserID() {
         return userID;
@@ -40,6 +46,14 @@ public class UserAccount {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
     
     

@@ -8,6 +8,7 @@ package Business;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Role.Role;
+import Business.Role.SystemAdminRole;
 import java.nio.channels.NetworkChannel;
 import java.util.ArrayList;
 
@@ -28,21 +29,23 @@ public class EcoSystem extends Organization{
         return business;
     }
     
-    public EcoSystem(){
+    private EcoSystem(){
         super(null);
+        networkList = new ArrayList<>();
+            
     }
 
     public ArrayList<Network> getNetworkList() {
         return networkList;
     }
 
-    public void setNetworkList(ArrayList<Network> networkList) {
-        this.networkList = networkList;
-    }
+   
     
     
     @Override
     public ArrayList<Role> getSupportedRole() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Role> roleList = new ArrayList<>();
+        roleList.add(new SystemAdminRole());
+        return roleList;
     }
 }

@@ -33,6 +33,27 @@ public abstract class Organization {
         this.name = name;
     }
     
+    public enum Type{
+        Admin("Admin Organiztion"),
+        DataCollector("Data Collector Organization"),
+        JobProvider("Job Provider Organization");
+        
+        private String value;
+        
+        private Type(String value){
+            this.value = value;
+        }
+        
+        public String getValue(){
+            return value;
+        }
+        
+        @Override
+        public String toString(){
+            return value;
+        }
+    }
+    
     public abstract ArrayList<Role> getSupportedRole();
 
     public String getName() {

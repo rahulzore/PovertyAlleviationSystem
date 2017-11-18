@@ -5,6 +5,8 @@
  */
 package Business.UserAccount;
 
+import Business.Employee.Employee;
+import Business.Role.Role;
 import com.db4o.collections.ActivatableArrayList;
 import java.util.ArrayList;
 
@@ -44,5 +46,15 @@ public class UserAccountDirectory {
                 return false;
         }
         return true;
+    }
+    
+     public UserAccount createUserAccount(String username, String password, Employee employee, Role role) {
+        UserAccount userAccount = new UserAccount();
+        userAccount.setUserID(username);
+        userAccount.setUserPWD(password);
+        userAccount.setEmployee(employee);
+        userAccount.setRole(role);
+        userAccountList.add(userAccount);
+        return userAccount;
     }
 }

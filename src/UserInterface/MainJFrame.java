@@ -13,6 +13,7 @@ import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -128,6 +129,21 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void logoutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutJButtonActionPerformed
         // TODO add your handling code here:
+        
+        logoutJButton.setEnabled(false);
+        userNameJTextField.setEnabled(true);
+        passwordField.setEnabled(true);
+        loginJButton.setEnabled(true);
+
+        userNameJTextField.setText("");
+        passwordField.setText("");
+
+        userProcessContainer.removeAll();
+        JPanel blankJP = new JPanel();
+        userProcessContainer.add("blank", blankJP);
+        CardLayout crdLyt = (CardLayout) userProcessContainer.getLayout();
+        crdLyt.next(userProcessContainer);
+        dB4OUtil.storeSystem(system);
     }//GEN-LAST:event_logoutJButtonActionPerformed
 
     private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
@@ -161,9 +177,9 @@ public class MainJFrame extends javax.swing.JFrame {
                         }
                     } else {
                         inEnterprise = enterprise;
-                         if ( Enterprise.EnterpriseType.CDC.equals(enterprise.getEnterpriseType())){
+                         if ( Enterprise.EnterpriseType.JobProvider.equals(enterprise.getEnterpriseType())){
                              for (Organization organization : enterprise.getOrganizationList().getOrganizationList()) {
-                                 if(Organization.Type.CDC.getValue().equalsIgnoreCase(organization.getName())){
+                                 if(Organization.Type.JobProvider.getValue().equalsIgnoreCase(organization.getName())){
                                 inOrganization = organization;
                                 break;
                                  }
@@ -186,9 +202,9 @@ public class MainJFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Invalid Credentails!");
             return;
         } else {
-            CardLayout layout = (CardLayout) container.getLayout();
-            container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, system));
-            layout.next(container);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            userProcessContainer.add("workArea", userAccount.getRole().createWorkPanel(userProcessContainer, userAccount, inOrganization, inEnterprise, system));
+            layout.next(userProcessContainer);
         }
          loginJButton.setEnabled(false);
         logoutJButton.setEnabled(true);

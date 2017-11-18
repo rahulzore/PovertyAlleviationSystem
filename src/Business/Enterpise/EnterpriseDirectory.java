@@ -32,7 +32,9 @@ public class EnterpriseDirectory {
         }
         else if (type == Enterprise.EnterpriseType.JobProvider){
             enterprise = new JobProviderEnterprise(name);
+            enterpriseList.add(enterprise);
         }
+        
         return enterprise;
     }
 }

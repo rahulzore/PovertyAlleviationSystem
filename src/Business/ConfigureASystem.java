@@ -5,6 +5,10 @@
  */
 package Business;
 
+import Business.Employee.Employee;
+import Business.Role.SystemAdminRole;
+import Business.UserAccount.UserAccount;
+
 /**
  *
  * @author Rahul Zore
@@ -13,6 +17,9 @@ public class ConfigureASystem {
     
     public static EcoSystem configure(){
         EcoSystem system = EcoSystem.getInstance();
+        
+        Employee employee = system.getEmployeeList().createEmployee("Fanqi");
+        UserAccount ua = system.getUserAccountList().createUserAccount("a1", "a1", employee, new SystemAdminRole());
         return system;
     }
 }
