@@ -8,6 +8,7 @@ package UserInterface.CuratorOrganization.DataCollectorRole;
 import Business.EcoSystem;
 import Business.Enterpise.Enterprise;
 import Business.Organization.DataCollectorOrganization;
+
 import Business.Organization.JobRequestManagerOrganization;
 import Business.Organization.Organization;
 import Business.Organization.TrainingRequestManagerOrganization;
@@ -18,6 +19,7 @@ import Business.WorkQueue.TrainingRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
+
 import javax.swing.JPanel;
 
 /**
