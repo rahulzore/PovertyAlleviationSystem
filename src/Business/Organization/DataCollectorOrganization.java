@@ -15,8 +15,8 @@ import java.util.ArrayList;
  */
 public class DataCollectorOrganization extends Organization{
 
-    public DataCollectorOrganization(String name,String networkName) {
-        super(null,"");
+    public DataCollectorOrganization(String name) {
+        super(name,"");
     }
 
     @Override

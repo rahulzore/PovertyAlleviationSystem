@@ -20,7 +20,7 @@ public class UserAccountDirectory {
     private ArrayList<UserAccount> userAccountList;
     
     public UserAccountDirectory(){
-        userAccountList = new ActivatableArrayList<>();
+        userAccountList = new ArrayList<>();
     }
 
     public ArrayList<UserAccount> getUserAccountList() {

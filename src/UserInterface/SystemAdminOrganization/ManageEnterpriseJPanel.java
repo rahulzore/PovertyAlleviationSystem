@@ -5,6 +5,9 @@
 package UserInterface.SystemAdminOrganization;
 
 import Business.EcoSystem;
+import Business.Enterpise.Enterprise;
+import Business.Enterpise.Enterprise.EnterpriseType;
+import Business.Enterpise.EnterpriseDirectory;
 
 import Business.Network.Network;
 import com.db4o.collections.ActivatableArrayList;
@@ -58,45 +61,48 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         ArrayList<EnterpriseType> e = new ArrayList<>();
         for (Network network : system.getNetworkList()) {
             networkJComboBox.addItem(network);
-        
-        EnterpriseDirectory elist =  network.getEnterpriseDirectory();
-        
-        for (Enterprise.EnterpriseType type : Enterprise.EnterpriseType.values()) {
-            
-             if (!elist.getEnterpriseList().stream().anyMatch(x -> x.getEnterpriseType().equals(type))){
-                            //.findFirst().orElse(null);
-                            if(!e.contains(type)){
-                                e.add(type);
-                            //enterpriseTypeJComboBox.addItem(type);
-                            //break;
-                            }
-             }
+
+            EnterpriseDirectory elist = network.getEnterpriseDirectory();
+
+            for (Enterprise.EnterpriseType type : Enterprise.EnterpriseType.values()) {
+
+                if (!elist.getEnterpriseList().stream().anyMatch(x -> x.getEnterpriseType().equals(type))) {
+                    //.findFirst().orElse(null);
+                    if (!e.contains(type)) {
+                        e.add(type);
+                        //enterpriseTypeJComboBox.addItem(type);
+                        //break;
+                    }
+                }
+            }
         }
+        for (EnterpriseType et : e) {
+            enterpriseTypeJComboBox.addItem(et);
         }
-        for (EnterpriseType et : e){
-        enterpriseTypeJComboBox.addItem(et);}
     }
-        private void populateEnterpriseBox(Network nt,Enterprise et){
-             enterpriseTypeJComboBox.removeAllItems();
+
+    private void populateEnterpriseBox(Network nt, Enterprise et) {
+        enterpriseTypeJComboBox.removeAllItems();
 //        for (Enterprise.EnterpriseType type : Enterprise.EnterpriseType.values()) {
 //             if(!nt.getEnterpriseDirectory().getEnterpriseList().contains(et))
 //             {
 //            enterpriseTypeJComboBox.addItem(type);
 //             }
 //        }
-            EnterpriseDirectory elist =  nt.getEnterpriseDirectory();
-                    //ArrayList<EnterpriseType> e = new ArrayList<>();
-                    for (Enterprise.EnterpriseType type : Enterprise.EnterpriseType.values()) {
+        EnterpriseDirectory elist = nt.getEnterpriseDirectory();
+        //ArrayList<EnterpriseType> e = new ArrayList<>();
+        for (Enterprise.EnterpriseType type : Enterprise.EnterpriseType.values()) {
 
-                         if (!elist.getEnterpriseList().stream().anyMatch(x -> x.getEnterpriseType().equals(type))){
-                                        //.findFirst().orElse(null);
-                                        //if(!e.contains(type)){
-                                       //e.add(type);
-                                        enterpriseTypeJComboBox.addItem(type);
-                                        }
-                         }
-                    
+            if (!elist.getEnterpriseList().stream().anyMatch(x -> x.getEnterpriseType().equals(type))) {
+                //.findFirst().orElse(null);
+                //if(!e.contains(type)){
+                //e.add(type);
+                enterpriseTypeJComboBox.addItem(type);
+            }
+        }
+
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -225,20 +231,21 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Invalid Input!");
             return;
         }
-        
+
         String name = nameJTextField.getText();
-        if (name == ""){ 
+        if (name == "") {
             JOptionPane.showMessageDialog(null, "Invalid Input!");
         }
-        Enterprise enterprise = network.getEnterpriseDirectory().createAndAddEnterprise(name, type,network.getName());
+        Enterprise enterprise = network.getEnterpriseDirectory().createAndAddEnterprise(name, type, network.getName());
         populateEnterpriseBox(network,enterprise);
         populateTable();
+        nameJTextField.setText("");
 
     }//GEN-LAST:event_submitJButtonActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
         userProcessContainer.remove(this);
-         Component[] componentArray = userProcessContainer.getComponents();
+        Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
         sysAdminwjp.populateTree();

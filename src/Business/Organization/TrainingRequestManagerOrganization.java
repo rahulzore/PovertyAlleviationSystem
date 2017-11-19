@@ -15,8 +15,8 @@ import java.util.ArrayList;
  */
 public class TrainingRequestManagerOrganization extends Organization {
 
-    public TrainingRequestManagerOrganization(String name,String networkName) {
-        super(null,"");
+    public TrainingRequestManagerOrganization(String name) {
+        super(name,"");
     }
 
     @Override

@@ -6,13 +6,12 @@ package UserInterface.SystemAdminOrganization;
 
 import Business.EcoSystem;
 import Business.Employee.Employee;
-import Business.Enterprise.Enterprise;
+import Business.Enterpise.Enterprise;
+
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Role.AdminRole;
-import Business.Role.CDCRole;
-import Business.Role.ClinicRole;
-import Business.Role.DistributorRole;
+
 import Business.Role.Role;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -20,6 +19,7 @@ import java.awt.Component;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import Business.Organization.Organization.Type;
+import Business.Role.JobProviderRole;
 import javax.swing.JOptionPane;
 
 /**
@@ -50,11 +50,11 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         for (Network network : system.getNetworkList()) {
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
-                for (UserAccount userAccount : enterprise.getUserAccountDirectory().getUserAccountList()) {
+                for (UserAccount userAccount : enterprise.getUserAccountList().getUserAccountList()) {
                     Object[] row = new Object[3];
                     row[0] = enterprise.getName();
                     row[1] = network.getName();
-                    row[2] = userAccount.getUsername();
+                    row[2] = userAccount.getUserID();
 
                     model.addRow(row);
                 }
@@ -74,7 +74,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         enterpriseJComboBox.removeAllItems();
         
         for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()){
-            enterpriseJComboBox.addItem(enterprise);
+            enterpriseJComboBox.addItem(enterprise.getName());
         }
         
     }
@@ -264,11 +264,11 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
        else
        {
         Role r =null;
-        Employee employee = enterprise.getEmployeeDirectory().createEmployee(name);
-        if ( Enterprise.EnterpriseType.CDC.equals(enterprise.getEnterpriseType())){
+        Employee employee = enterprise.getEmployeeList().createEmployee(name);
+        if ( Enterprise.EnterpriseType.JobProvider.equals(enterprise.getEnterpriseType())){
             
-                r = new CDCRole();
-               enterprise.getOrganizationDirectory().createOrganization(Type.CDC,"");
+                r = new JobProviderRole();
+               enterprise.getOrganizationList().createOrganization(Type.JobProvider,"");
             
         }
         else
@@ -278,7 +278,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             
         }
         //if(enterprise.getEnterpriseType().Clinic )
-        UserAccount account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, r);
+        UserAccount account = enterprise.getUserAccountList().createUserAccount(username, password, employee, r);
         populateTable();
         JOptionPane.showMessageDialog(null, "UserAccount created successfully");
     }//GEN-LAST:event_submitJButtonActionPerformed

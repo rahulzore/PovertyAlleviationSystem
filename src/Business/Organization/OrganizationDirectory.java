@@ -27,5 +27,17 @@ public class OrganizationDirectory {
         this.organizationList = organizationList;
     }
     
-    
+     public Organization createOrganization(Organization.Type type,String name){
+        Organization organization = null;
+        if (type.getValue().equals(Organization.Type.DataCollector.getValue())){
+            organization = new DataCollectorOrganization(name);
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(Organization.Type.JobProvider.getValue())){
+            organization = new JobProviderOrganization(name);
+            organizationList.add(organization);
+        }
+        
+        return organization;
+    }
 }
