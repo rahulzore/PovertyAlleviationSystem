@@ -23,16 +23,23 @@ public abstract class Organization {
     private UserAccountDirectory userAccountList;
     private int organizationID;
     private static int counter;
+    private String networkName;
     
-    public Organization(String name){
+    public Organization(String name, String networkName){
         counter++;
         organizationID = counter;
         workQueue = new WorkQueue();
         employeeList = new EmployeeDirectory();
         userAccountList = new UserAccountDirectory();
         this.name = name;
+        this.networkName = networkName;
     }
-    
+
+    public String getNetworkName() {
+        return networkName;
+    }
+
+       
     public enum Type{
         Admin("Admin Organiztion"),
         DataCollector("Data Collector Organization"),

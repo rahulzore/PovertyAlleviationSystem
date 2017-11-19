@@ -23,15 +23,15 @@ public class EnterpriseDirectory {
         return enterpriseList;
     }
 
-    public Enterprise createAndAddEnterprise(String name, Enterprise.EnterpriseType type) {
+    public Enterprise createAndAddEnterprise(String name, Enterprise.EnterpriseType type, String networkName) {
         Enterprise enterprise = null;
 
         if (type ==Enterprise.EnterpriseType.DataCollector) {
-            enterprise = new DataCollectorEnterprise(name);
+            enterprise = new DataCollectorEnterprise(name, networkName);
             enterpriseList.add(enterprise);            
         }
         else if (type == Enterprise.EnterpriseType.JobProvider){
-            enterprise = new JobProviderEnterprise(name);
+            enterprise = new JobProviderEnterprise(name, networkName);
             enterpriseList.add(enterprise);
         }
         

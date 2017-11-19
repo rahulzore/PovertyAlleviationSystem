@@ -16,8 +16,8 @@ import java.util.ArrayList;
  */
 public class JobRequestManagerOrganization extends Organization{
 
-    public JobRequestManagerOrganization(String name) {
-        super(null);
+    public JobRequestManagerOrganization(String name,String networkName) {
+        super(null,"");
     }
 
     @Override

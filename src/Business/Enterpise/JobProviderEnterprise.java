@@ -14,8 +14,8 @@ import java.util.ArrayList;
  */
 public class JobProviderEnterprise extends Enterprise{
 
-    JobProviderEnterprise(String name) {
-        super(name);
+    JobProviderEnterprise(String name, String networkName) {
+        super(name,EnterpriseType.JobProvider, networkName);
     }
 
     @Override

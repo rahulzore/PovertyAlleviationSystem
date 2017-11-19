@@ -15,8 +15,8 @@ import java.util.ArrayList;
  */
 public class AdminOrganization extends Organization{
 
-    public AdminOrganization(String name) {
-        super(null);
+    public AdminOrganization(String name, String networkName) {
+        super(null,"");
     }
 
     @Override

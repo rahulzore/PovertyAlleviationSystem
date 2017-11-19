@@ -17,8 +17,9 @@ public abstract class Enterprise extends Organization {
     private OrganizationDirectory organizationList;
     private EnterpriseType enterpriseType;
 
-    public Enterprise(String name) {
-        super(null);
+    public Enterprise(String name, EnterpriseType type,String networkName) {
+        super(name,networkName);
+        this.enterpriseType = type;
         organizationList = new OrganizationDirectory();
     }
 
