@@ -268,7 +268,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         if ( Enterprise.EnterpriseType.JobProvider.equals(enterprise.getEnterpriseType())){
             
                 r = new JobProviderRole();
-               enterprise.getOrganizationList().createOrganization(Type.JobProvider,"");
+               //enterprise.getOrganizationList().createOrganization(Type.JobProvider,"");
             
         }
         else
