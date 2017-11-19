@@ -177,15 +177,15 @@ public class MainJFrame extends javax.swing.JFrame {
                         }
                     } else {
                         inEnterprise = enterprise;
-                         if ( Enterprise.EnterpriseType.JobProvider.equals(enterprise.getEnterpriseType())){
-                             for (Organization organization : enterprise.getOrganizationList().getOrganizationList()) {
-                                 if(Organization.Type.JobProvider.getValue().equalsIgnoreCase(organization.getName())){
-                                inOrganization = organization;
-                                break;
-                                 }
-                             
-                         }
-                         }
+//                         if ( Enterprise.EnterpriseType.JobProvider.equals(enterprise.getEnterpriseType())){
+//                             for (Organization organization : enterprise.getOrganizationList().getOrganizationList()) {
+//                                 if(Organization.Type.JobProvider.getValue().equalsIgnoreCase(organization.getName())){
+//                                inOrganization = organization;
+//                                break;
+//                                 }
+//                             
+//                         }
+//                         }
                         break;
                     }
                     if (inOrganization != null) {

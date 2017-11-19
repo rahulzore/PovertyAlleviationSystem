@@ -56,6 +56,9 @@ public class UserAccount {
         this.employee = employee;
     }
     
-    
+    @Override
+    public String toString(){
+        return userID;
+    }
     
 }

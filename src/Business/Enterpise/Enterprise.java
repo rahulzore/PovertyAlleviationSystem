@@ -25,7 +25,7 @@ public abstract class Enterprise extends Organization {
 
     public enum EnterpriseType {
 
-        DataCollector("Data Collector"),
+        Curator("Curator"),
         JobProvider("Job Provider");
 
         private String value;
@@ -53,4 +53,8 @@ public abstract class Enterprise extends Organization {
         return enterpriseType;
     }
 
+    @Override
+    public String toString(){
+       return this.getName();
+    }
 }

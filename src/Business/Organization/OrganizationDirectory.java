@@ -37,6 +37,14 @@ public class OrganizationDirectory {
             organization = new JobProviderOrganization(name);
             organizationList.add(organization);
         }
+        else if (type.getValue().equals(Organization.Type.JobManager.getValue())){
+            organization = new JobRequestManagerOrganization(name);
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(Organization.Type.TrainingManager.getValue())){
+            organization = new TrainingRequestManagerOrganization(name);
+            organizationList.add(organization);
+        }
         
         return organization;
     }

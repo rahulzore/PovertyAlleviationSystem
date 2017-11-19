@@ -10,7 +10,7 @@ import Business.Enterpise.Enterprise;
 
 import Business.Network.Network;
 import Business.Organization.Organization;
-import Business.Role.AdminRole;
+import Business.Role.EnterpriseAdminRole;
 
 import Business.Role.Role;
 import Business.UserAccount.UserAccount;
@@ -74,7 +74,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         enterpriseJComboBox.removeAllItems();
         
         for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()){
-            enterpriseJComboBox.addItem(enterprise.getName());
+            enterpriseJComboBox.addItem(enterprise);
         }
         
     }
@@ -274,7 +274,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         else
         {
             
-                r = new AdminRole();
+                r = new EnterpriseAdminRole();
             
         }
         //if(enterprise.getEnterpriseType().Clinic )
