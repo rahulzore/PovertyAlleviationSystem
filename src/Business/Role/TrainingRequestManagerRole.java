@@ -9,6 +9,8 @@ import Business.EcoSystem;
 import Business.Enterpise.Enterprise;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import UserInterface.CuratorOrganization.TrainingManagerRole.TrainingRequestWorkAreaJPanel;
+import UserInterface.JobRequestManager.JobRequestManagerWorkAreaJPanel;
 import javax.swing.JPanel;
 
 /**
@@ -19,7 +21,8 @@ public class TrainingRequestManagerRole extends Role{
 
     @Override
     public JPanel createWorkPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem ecoSystem) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new TrainingRequestWorkAreaJPanel(userProcessContainer,userAccount,organization,enterprise,ecoSystem);
+//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

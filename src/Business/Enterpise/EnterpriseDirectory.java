@@ -26,8 +26,8 @@ public class EnterpriseDirectory {
     public Enterprise createAndAddEnterprise(String name, Enterprise.EnterpriseType type, String networkName) {
         Enterprise enterprise = null;
 
-        if (type ==Enterprise.EnterpriseType.DataCollector) {
-            enterprise = new DataCollectorEnterprise(name, networkName);
+        if (type ==Enterprise.EnterpriseType.Curator) {
+            enterprise = new CuratorEnterprise(name, networkName);
             enterpriseList.add(enterprise);            
         }
         else if (type == Enterprise.EnterpriseType.JobProvider){

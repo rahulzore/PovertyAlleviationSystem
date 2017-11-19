@@ -43,6 +43,8 @@ public abstract class Organization {
     public enum Type{
         Admin("Admin Organiztion"),
         DataCollector("Data Collector Organization"),
+        JobManager("Job Manager Organization"),
+        TrainingManager("Training Manager Organization"),
         JobProvider("Job Provider Organization");
         
         private String value;
@@ -93,6 +95,15 @@ public abstract class Organization {
 
     public void setUserAccountList(UserAccountDirectory userAccountList) {
         this.userAccountList = userAccountList;
+    }
+
+    public int getOrganizationID() {
+        return organizationID;
+    }
+    
+    @Override
+    public String toString(){
+        return name;
     }
     
     

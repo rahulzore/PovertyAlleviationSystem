@@ -55,7 +55,18 @@ public class UserAccount {
     public void setEmployee(Employee employee) {
         this.employee = employee;
     }
+
+    public WorkQueue getWorkQueue() {
+        return workQueue;
+    }
+
+    public void setWorkQueue(WorkQueue workQueue) {
+        this.workQueue = workQueue;
+    }
     
-    
+    @Override
+    public String toString(){
+        return userID;
+    }
     
 }
