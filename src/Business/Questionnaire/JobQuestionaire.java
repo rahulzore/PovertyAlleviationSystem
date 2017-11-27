@@ -10,29 +10,22 @@ package Business.Questionnaire;
  * @author Nishad
  */
 public class JobQuestionaire {
-    private boolean isRead;
-    private boolean isWrite;
+    
     private String basicKnowledge;
+    private boolean isComputer;
     public JobQuestionaire(){
         
     }
 
-    public boolean isIsRead() {
-        return isRead;
+    public boolean isIsComputer() {
+        return isComputer;
     }
 
-    public void setIsRead(boolean isRead) {
-        this.isRead = isRead;
+    public void setIsComputer(boolean isComputer) {
+        this.isComputer = isComputer;
     }
 
-    public boolean isIsWrite() {
-        return isWrite;
-    }
-
-    public void setIsWrite(boolean isWrite) {
-        this.isWrite = isWrite;
-    }
-
+   
     public String isBasicKnowledge() {
         return basicKnowledge;
     }

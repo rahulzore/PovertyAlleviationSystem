@@ -11,6 +11,10 @@ import Business.Network.Network;
 import Business.Organization.JobProcessOrganization;
 import Business.Organization.JobRequestManagerOrganization;
 import Business.Organization.Organization;
+import Business.Questionnaire.CriminalRelatedQuestionaire;
+import Business.Questionnaire.DrugAbuseQuestionaire;
+import Business.Questionnaire.EducationQuestionaire;
+import Business.Questionnaire.FamilyBackgroundQuestionaire;
 import Business.Questionnaire.JobQuestionaire;
 import Business.Questionnaire.Questionnaire;
 import Business.UserAccount.UserAccount;
@@ -59,9 +63,43 @@ private JPanel userProcessContainer;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroupRead = new javax.swing.ButtonGroup();
+        buttonGroupWrite = new javax.swing.ButtonGroup();
+        buttonGroupCrime = new javax.swing.ButtonGroup();
+        buttonGroupDrugs = new javax.swing.ButtonGroup();
+        buttonGroupCommDrugs = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         btnRequestJob = new javax.swing.JButton();
         backJBtn = new javax.swing.JButton();
+        jTabbedPane = new javax.swing.JTabbedPane();
+        jobPanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        rbComputerNo = new javax.swing.JRadioButton();
+        rbComputerYes = new javax.swing.JRadioButton();
+        educationPanel = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        rbReadNo = new javax.swing.JRadioButton();
+        rbReadYes = new javax.swing.JRadioButton();
+        jLabel8 = new javax.swing.JLabel();
+        rbWriteNo = new javax.swing.JRadioButton();
+        rbWriteYes = new javax.swing.JRadioButton();
+        familyBackPanel = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jChkNuclear = new javax.swing.JCheckBox();
+        chkSibHld = new javax.swing.JCheckBox();
+        chkSingleParent = new javax.swing.JCheckBox();
+        chkExtended = new javax.swing.JCheckBox();
+        criminalPanel = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        rbConvictedNo = new javax.swing.JRadioButton();
+        rbConvictedYes = new javax.swing.JRadioButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        rbDrugsYes = new javax.swing.JRadioButton();
+        rbDrugsNo = new javax.swing.JRadioButton();
+        rbChkDrugCommNo = new javax.swing.JRadioButton();
+        rbChkDrugCommYes = new javax.swing.JRadioButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Enter Individual job Details");
@@ -80,6 +118,218 @@ private JPanel userProcessContainer;
             }
         });
 
+        jLabel2.setText("Can you use computer?");
+
+        rbComputerNo.setText("No");
+
+        rbComputerYes.setText("Yes");
+
+        javax.swing.GroupLayout jobPanelLayout = new javax.swing.GroupLayout(jobPanel);
+        jobPanel.setLayout(jobPanelLayout);
+        jobPanelLayout.setHorizontalGroup(
+            jobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jobPanelLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(jobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jobPanelLayout.createSequentialGroup()
+                        .addComponent(rbComputerYes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rbComputerNo))
+                    .addComponent(jLabel2))
+                .addContainerGap(549, Short.MAX_VALUE))
+        );
+        jobPanelLayout.setVerticalGroup(
+            jobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jobPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbComputerYes)
+                    .addComponent(rbComputerNo))
+                .addContainerGap(99, Short.MAX_VALUE))
+        );
+
+        jTabbedPane.addTab("Job Information", jobPanel);
+
+        jLabel7.setText("Can you read?");
+
+        rbReadNo.setText("No");
+
+        rbReadYes.setText("Yes");
+
+        jLabel8.setText("Can you write?");
+
+        rbWriteNo.setText("No");
+
+        rbWriteYes.setText("Yes");
+
+        javax.swing.GroupLayout educationPanelLayout = new javax.swing.GroupLayout(educationPanel);
+        educationPanel.setLayout(educationPanelLayout);
+        educationPanelLayout.setHorizontalGroup(
+            educationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(educationPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(educationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addGroup(educationPanelLayout.createSequentialGroup()
+                        .addComponent(rbWriteYes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rbWriteNo))
+                    .addComponent(jLabel7)
+                    .addGroup(educationPanelLayout.createSequentialGroup()
+                        .addComponent(rbReadYes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rbReadNo)))
+                .addContainerGap(607, Short.MAX_VALUE))
+        );
+        educationPanelLayout.setVerticalGroup(
+            educationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(educationPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(educationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbReadYes)
+                    .addComponent(rbReadNo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(educationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbWriteYes)
+                    .addComponent(rbWriteNo))
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+
+        jTabbedPane.addTab("Education Information", educationPanel);
+
+        jLabel3.setText("What Type of family you are in: ");
+
+        jChkNuclear.setText("Nuclear");
+
+        chkSibHld.setText("Sibling HouseHold");
+
+        chkSingleParent.setText("Single Parent");
+
+        chkExtended.setText("Extended");
+
+        javax.swing.GroupLayout familyBackPanelLayout = new javax.swing.GroupLayout(familyBackPanel);
+        familyBackPanel.setLayout(familyBackPanelLayout);
+        familyBackPanelLayout.setHorizontalGroup(
+            familyBackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(familyBackPanelLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jChkNuclear)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(chkSibHld)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(chkSingleParent)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(chkExtended)
+                .addContainerGap(190, Short.MAX_VALUE))
+        );
+        familyBackPanelLayout.setVerticalGroup(
+            familyBackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(familyBackPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(familyBackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jChkNuclear)
+                    .addComponent(chkSibHld)
+                    .addComponent(chkSingleParent)
+                    .addComponent(chkExtended))
+                .addContainerGap(119, Short.MAX_VALUE))
+        );
+
+        jTabbedPane.addTab("Family Background Information", familyBackPanel);
+
+        jLabel6.setText("Do you ever convicted for a crime:");
+
+        rbConvictedNo.setText("No");
+
+        rbConvictedYes.setText("Yes");
+
+        javax.swing.GroupLayout criminalPanelLayout = new javax.swing.GroupLayout(criminalPanel);
+        criminalPanel.setLayout(criminalPanelLayout);
+        criminalPanelLayout.setHorizontalGroup(
+            criminalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(criminalPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(criminalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addGroup(criminalPanelLayout.createSequentialGroup()
+                        .addComponent(rbConvictedYes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rbConvictedNo)))
+                .addContainerGap(523, Short.MAX_VALUE))
+        );
+        criminalPanelLayout.setVerticalGroup(
+            criminalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(criminalPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(criminalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbConvictedYes)
+                    .addComponent(rbConvictedNo))
+                .addContainerGap(99, Short.MAX_VALUE))
+        );
+
+        jTabbedPane.addTab("Criminal Information", criminalPanel);
+
+        jLabel4.setText("Do you use drugs:");
+
+        jLabel5.setText("Do you know atleast one teenager of your community that uses drugs?");
+
+        rbDrugsYes.setText("Yes");
+
+        rbDrugsNo.setText("No");
+
+        rbChkDrugCommNo.setText("No");
+
+        rbChkDrugCommYes.setText("Yes");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(rbChkDrugCommYes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(rbChkDrugCommNo))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(rbDrugsYes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rbDrugsNo)))
+                .addContainerGap(348, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbDrugsYes)
+                    .addComponent(rbDrugsNo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbChkDrugCommYes)
+                    .addComponent(rbChkDrugCommNo))
+                .addContainerGap(53, Short.MAX_VALUE))
+        );
+
+        jTabbedPane.addTab("DrugAbuse Information", jPanel1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -87,24 +337,33 @@ private JPanel userProcessContainer;
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(btnRequestJob))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(106, 106, 106)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(backJBtn)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(backJBtn)))
-                .addContainerGap(108, Short.MAX_VALUE))
+                        .addComponent(jTabbedPane)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(292, 292, 292)
+                .addComponent(btnRequestJob)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTabbedPane)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRequestJob)
-                .addGap(21, 21, 21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(backJBtn)
                 .addContainerGap())
         );
@@ -115,9 +374,24 @@ private JPanel userProcessContainer;
        
         Questionnaire questionnaire = request.getQuestionaire();//business.getQuestionnaireList().addQuestionnaire();
         JobQuestionaire jobQuestionaire = questionnaire.getJobQuestionaire() ;
-        jobQuestionaire.setIsRead(true);
-        jobQuestionaire.setIsWrite(true);
-        jobQuestionaire.setBasicKnowledge("Computer");
+        jobQuestionaire.setIsComputer(rbComputerYes.isSelected());
+        
+        EducationQuestionaire  EducationQuestionaire = questionnaire.getEducationQuestionaire();
+        EducationQuestionaire.setIsRead(rbReadYes.isSelected());
+        EducationQuestionaire.setIsWrite(rbWriteYes.isSelected());
+        
+        FamilyBackgroundQuestionaire FamilyBackgroundQuestionaire = questionnaire.getFamilyBackgroundQuestionaire();
+        FamilyBackgroundQuestionaire.setFamilyBackground("");
+        
+        CriminalRelatedQuestionaire CriminalRelatedQuestionaire=questionnaire.getCriminalRelatedQuestionaire();
+        CriminalRelatedQuestionaire.setIsConvCrime(rbConvictedYes.isSelected());
+        
+        DrugAbuseQuestionaire DrugAbuseQuestionaire = questionnaire.getDrugAbuseQuestionaire();
+        DrugAbuseQuestionaire.setIsConsumeDrug(rbDrugsYes.isSelected());
+        DrugAbuseQuestionaire.setIsComDrug(rbChkDrugCommYes.isSelected());
+        //CriminalRelatedQuestionaire.set
+        //jobQuestionaire.setIsWrite(true);
+        //jobQuestionaire.setBasicKnowledge("Computer");
         Organization org = null;
         for(Network network :business.getNetworkList()){
             if(network.getName().equalsIgnoreCase(enterprise.getNetworkName())){
@@ -169,6 +443,40 @@ private JPanel userProcessContainer;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJBtn;
     private javax.swing.JButton btnRequestJob;
+    private javax.swing.ButtonGroup buttonGroupCommDrugs;
+    private javax.swing.ButtonGroup buttonGroupCrime;
+    private javax.swing.ButtonGroup buttonGroupDrugs;
+    private javax.swing.ButtonGroup buttonGroupRead;
+    private javax.swing.ButtonGroup buttonGroupWrite;
+    private javax.swing.JCheckBox chkExtended;
+    private javax.swing.JCheckBox chkSibHld;
+    private javax.swing.JCheckBox chkSingleParent;
+    private javax.swing.JPanel criminalPanel;
+    private javax.swing.JPanel educationPanel;
+    private javax.swing.JPanel familyBackPanel;
+    private javax.swing.JCheckBox jChkNuclear;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTabbedPane jTabbedPane;
+    private javax.swing.JPanel jobPanel;
+    private javax.swing.JRadioButton rbChkDrugCommNo;
+    private javax.swing.JRadioButton rbChkDrugCommYes;
+    private javax.swing.JRadioButton rbComputerNo;
+    private javax.swing.JRadioButton rbComputerYes;
+    private javax.swing.JRadioButton rbConvictedNo;
+    private javax.swing.JRadioButton rbConvictedYes;
+    private javax.swing.JRadioButton rbDrugsNo;
+    private javax.swing.JRadioButton rbDrugsYes;
+    private javax.swing.JRadioButton rbReadNo;
+    private javax.swing.JRadioButton rbReadYes;
+    private javax.swing.JRadioButton rbWriteNo;
+    private javax.swing.JRadioButton rbWriteYes;
     // End of variables declaration//GEN-END:variables
 }

@@ -10,5 +10,14 @@ package Business.Questionnaire;
  * @author Nishad
  */
 public class CriminalRelatedQuestionaire {
-    
+ private boolean isConvCrime;
+
+    public boolean isIsConvCrime() {
+        return isConvCrime;
+    }
+
+    public void setIsConvCrime(boolean isConvCrime) {
+        this.isConvCrime = isConvCrime;
+    }
+ 
 }

@@ -10,5 +10,23 @@ package Business.Questionnaire;
  * @author Nishad
  */
 public class DrugAbuseQuestionaire {
+    private boolean isConsumeDrug;
+    private boolean isComDrug;
+
+    public boolean isIsConsumeDrug() {
+        return isConsumeDrug;
+    }
+
+    public void setIsConsumeDrug(boolean isConsumeDrug) {
+        this.isConsumeDrug = isConsumeDrug;
+    }
+
+    public boolean isIsComDrug() {
+        return isComDrug;
+    }
+
+    public void setIsComDrug(boolean isComDrug) {
+        this.isComDrug = isComDrug;
+    }
     
 }

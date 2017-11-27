@@ -10,5 +10,14 @@ package Business.Questionnaire;
  * @author Nishad
  */
 public class FamilyBackgroundQuestionaire {
+    private String familyBackground;
+
+    public String getFamilyBackground() {
+        return familyBackground;
+    }
+
+    public void setFamilyBackground(String familyBackground) {
+        this.familyBackground = familyBackground;
+    }
     
 }
