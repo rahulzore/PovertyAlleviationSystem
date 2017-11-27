@@ -5,6 +5,10 @@
  */
 package Business.Organization;
 
+import Business.Organization.NGO.ChildrenNGOOrganization;
+import Business.Organization.NGO.HomelessNGOOrganization;
+import Business.Organization.NGO.OldAgeNGOOrganization;
+import Business.Organization.NGO.RaceNGOOrganization;
 import com.db4o.collections.ActivatableArrayList;
 import java.util.ArrayList;
 
@@ -43,6 +47,26 @@ public class OrganizationDirectory {
         }
         else if (type.getValue().equals(Organization.Type.TrainingManager.getValue())){
             organization = new TrainingRequestManagerOrganization(name);
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(Organization.Type.Restaurant.getValue())){
+            organization = new RestaurantOrganization(name);
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(Organization.Type.OldAge.getValue())){
+            organization = new OldAgeNGOOrganization(name);
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(Organization.Type.RaceBased.getValue())){
+            organization = new RaceNGOOrganization(name);
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(Organization.Type.Childern.getValue())){
+            organization = new ChildrenNGOOrganization(name);
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(Organization.Type.Homeless.getValue())){
+            organization = new HomelessNGOOrganization(name);
             organizationList.add(organization);
         }
         

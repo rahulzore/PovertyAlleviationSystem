@@ -8,10 +8,10 @@ package UserInterface.CuratorOrganization.DataCollectorRole;
 import Business.EcoSystem;
 import Business.Enterpise.Enterprise;
 import Business.Organization.DataCollectorOrganization;
-
 import Business.Organization.JobRequestManagerOrganization;
 import Business.Organization.Organization;
 import Business.Organization.TrainingRequestManagerOrganization;
+import Business.Questionnaire.PersonalQuestionnaire;
 import Business.Questionnaire.Questionnaire;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.JobWorkRequest;
@@ -19,7 +19,6 @@ import Business.WorkQueue.TrainingRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
-
 import javax.swing.JPanel;
 
 /**
@@ -206,13 +205,15 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
        int income = Integer.parseInt(txtIncome.getText());
        String requestType=jobRadioButton.isSelected() ? "job":"edu";
        
-       Questionnaire questionnaire = business.getQuestionnaireList().addQuestionnaire();
+       Questionnaire qt = business.getQuestionnaireList().addQuestionnaire();
+        PersonalQuestionnaire questionnaire = new PersonalQuestionnaire();
        questionnaire.setName(name);
        questionnaire.setAge(age);
        questionnaire.setEducation(requestType);
        questionnaire.setGender(gender);
        questionnaire.setIncome(income);
        questionnaire.setRequestType(requestType);
+       qt.setPersonalQuestionnaire(questionnaire);
        Organization org = null;
        
        for (Organization organization : enterprise.getOrganizationList().getOrganizationList()){
@@ -234,7 +235,7 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
                     JobWorkRequest request = new JobWorkRequest();
                     request.setSender(userAccount);
                     request.setStatus("Sent");
-                    request.setQuestionaire(questionnaire);
+                    request.setQuestionaire(qt);
                     org.getWorkQueue().getWorkRequestList().add(request);
                     userAccount.getWorkQueue().getWorkRequestList().add(request);
                 }
@@ -242,7 +243,7 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
                     TrainingRequest request = new TrainingRequest();
                     request.setSender(userAccount);
                     request.setStatus("Sent");
-                    request.setQuestionaire(questionnaire);
+                    request.setQuestionaire(qt);
                     org.getWorkQueue().getWorkRequestList().add(request);
                     userAccount.getWorkQueue().getWorkRequestList().add(request);
                 }

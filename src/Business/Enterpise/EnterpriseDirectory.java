@@ -26,7 +26,7 @@ public class EnterpriseDirectory {
     public Enterprise createAndAddEnterprise(String name, Enterprise.EnterpriseType type, String networkName) {
         Enterprise enterprise = null;
 
-        if (type ==Enterprise.EnterpriseType.Curator) {
+        if (type == Enterprise.EnterpriseType.Curator) {
             enterprise = new CuratorEnterprise(name, networkName);
             enterpriseList.add(enterprise);            
         }
@@ -34,7 +34,18 @@ public class EnterpriseDirectory {
             enterprise = new JobProviderEnterprise(name, networkName);
             enterpriseList.add(enterprise);
         }
-        
+        else if (type == Enterprise.EnterpriseType.JobProcessManager){
+            enterprise = new JobProcessManagerEnterprise(name, networkName);
+            enterpriseList.add(enterprise);
+        }
+		 else if (type == Enterprise.EnterpriseType.Restaurant){
+            enterprise = new RestaurantEnterprise(name, networkName);
+            enterpriseList.add(enterprise);
+        }
+        else if (type == Enterprise.EnterpriseType.NGO){
+            enterprise = new NGOEnterprise(name, networkName);
+            enterpriseList.add(enterprise);
+        }
         return enterprise;
     }
 }

@@ -3,20 +3,52 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UserInterface.JobRequestManager;
+package UserInterface.CuratorOrganization.JobManagerRole;
+
+import Business.EcoSystem;
+import Business.Enterpise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.JobProcessOrganization;
+import Business.Organization.JobRequestManagerOrganization;
+import Business.Organization.Organization;
+import Business.Questionnaire.JobQuestionaire;
+import Business.Questionnaire.Questionnaire;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.JobWorkRequest;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
  * @author sanch
  */
 public class AddJobRequestDetailsJPanel extends javax.swing.JPanel {
-
+private JPanel userProcessContainer;
+    private JobRequestManagerOrganization organization;
+    private Enterprise enterprise;
+    private UserAccount userAccount;
+    EcoSystem business;
+    JobWorkRequest request;
     /**
      * Creates new form ManageJobRequestDetailsJPanel
      */
     public AddJobRequestDetailsJPanel() {
         initComponents();
     }
+
+    AddJobRequestDetailsJPanel(JPanel userProcessContainer, UserAccount userAccount, JobRequestManagerOrganization organization, Enterprise enterprise, EcoSystem business,JobWorkRequest workrequest) {
+        initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.organization =(JobRequestManagerOrganization) organization;
+        this.enterprise = enterprise;
+        this.userAccount = userAccount;
+        this.business = business;
+        this.request = workrequest;
+//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,19 +59,116 @@ public class AddJobRequestDetailsJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        btnRequestJob = new javax.swing.JButton();
+        backJBtn = new javax.swing.JButton();
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setText("Enter Individual job Details");
+
+        btnRequestJob.setText("Request Job");
+        btnRequestJob.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRequestJobActionPerformed(evt);
+            }
+        });
+
+        backJBtn.setText("<< Back");
+        backJBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backJBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(106, 106, 106)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(btnRequestJob))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(backJBtn)))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
+                .addComponent(btnRequestJob)
+                .addGap(21, 21, 21)
+                .addComponent(backJBtn)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnRequestJobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestJobActionPerformed
+        // TODO add your handling code here:
+       
+        Questionnaire questionnaire = request.getQuestionaire();//business.getQuestionnaireList().addQuestionnaire();
+        JobQuestionaire jobQuestionaire = questionnaire.getJobQuestionaire() ;
+        jobQuestionaire.setIsRead(true);
+        jobQuestionaire.setIsWrite(true);
+        jobQuestionaire.setBasicKnowledge("Computer");
+        Organization org = null;
+        for(Network network :business.getNetworkList()){
+            if(network.getName().equalsIgnoreCase(enterprise.getNetworkName())){
+                for(Enterprise et : network.getEnterpriseDirectory().getEnterpriseList()){
+
+                    for (Organization organization : et.getOrganizationList().getOrganizationList()){
+                        
+                            if (organization instanceof JobProcessOrganization){
+                                org = organization;
+                                break;
+                            }
+                        
+                        
+                    }
+                }   
+            }
+        }
+        if (org!=null){
+            //if(requestType.equalsIgnoreCase("job")){
+            //    JobWorkRequest request = new JobWorkRequest();
+                request.setSender(userAccount);
+                request.setStatus("Sent");
+                request.setQuestionaire(questionnaire);
+                org.getWorkQueue().getWorkRequestList().add(request);
+                userAccount.getWorkQueue().getWorkRequestList().add(request);
+            //}
+//            else if(requestType.equalsIgnoreCase("edu")){
+//                TrainingRequest request = new TrainingRequest();
+//                request.setSender(userAccount);
+//                request.setStatus("Sent");
+//                request.setQuestionaire(questionnaire);
+//                org.getWorkQueue().getWorkRequestList().add(request);
+//                userAccount.getWorkQueue().getWorkRequestList().add(request);
+//            }
+
+        }
+        JOptionPane.showMessageDialog(null, "Individual request created successfully", "Warning", JOptionPane.INFORMATION_MESSAGE);
+
+    }//GEN-LAST:event_btnRequestJobActionPerformed
+
+    private void backJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJBtnActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backJBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backJBtn;
+    private javax.swing.JButton btnRequestJob;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

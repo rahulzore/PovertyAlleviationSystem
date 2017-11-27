@@ -26,7 +26,10 @@ public abstract class Enterprise extends Organization {
     public enum EnterpriseType {
 
         Curator("Curator"),
-        JobProvider("Job Provider");
+        JobProvider("Job Provider"),
+        JobProcessManager("Job Process Manager"),
+	Restaurant("Restaurant"),
+        NGO("NGO");
 
         private String value;
 

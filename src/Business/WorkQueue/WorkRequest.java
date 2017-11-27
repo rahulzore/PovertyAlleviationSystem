@@ -81,9 +81,9 @@ public abstract class WorkRequest {
     public void setQuestionaire(Questionnaire questionaire) {
         this.questionaire = questionaire;
     }
-
+    
     @Override
     public String toString() {
-        return questionaire.name;
+        return String .valueOf(this.requestID);
     }
 }

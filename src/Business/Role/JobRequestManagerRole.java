@@ -10,7 +10,7 @@ import Business.Enterpise.Enterprise;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import UserInterface.CuratorOrganization.DataCollectorRole.DataCollectorWorkAreaJPanel;
-import UserInterface.JobRequestManager.JobRequestManagerWorkAreaJPanel;
+import UserInterface.CuratorOrganization.JobManagerRole.JobRequestManagerWorkAreaJPanel;
 import javax.swing.JPanel;
 
 /**

@@ -19,6 +19,7 @@ import java.awt.Component;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import Business.Organization.Organization.Type;
+import Business.Role.JobProcessManagerRole;
 import Business.Role.JobProviderRole;
 import javax.swing.JOptionPane;
 
@@ -268,6 +269,13 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         if ( Enterprise.EnterpriseType.JobProvider.equals(enterprise.getEnterpriseType())){
             
                 r = new JobProviderRole();
+               //enterprise.getOrganizationList().createOrganization(Type.JobProvider,"");
+            
+        }
+        if ( Enterprise.EnterpriseType.JobProcessManager.equals(enterprise.getEnterpriseType())){
+            
+                r = new JobProcessManagerRole();
+                enterprise.getOrganizationList().createOrganization(Type.JobProcessManager,"");
                //enterprise.getOrganizationList().createOrganization(Type.JobProvider,"");
             
         }

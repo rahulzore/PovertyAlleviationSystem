@@ -12,8 +12,20 @@ import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 /**
  *
@@ -30,7 +42,60 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         system = dB4OUtil.retrieveSystem();
-        logoutJButton.setEnabled(false);
+        //logoutJButton.setEnabled(false);
+          
+        createMenuBar();
+
+        setTitle("Simple menu");
+        setSize(300, 200);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+            setBounds(0,0,screenSize.width-50, screenSize.height-50);
+         //ma.setIconImage(img.getImage());
+    }
+    
+    private void createMenuBar() {
+
+        JMenuBar menubar = new JMenuBar();
+        
+        ImageIcon icon1 = new ImageIcon("src\\Resource\\login.png");
+        Image image1 = icon1.getImage(); // transform it 
+        Image newimg1 = image1.getScaledInstance(20, 20,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+        icon1 = new ImageIcon(newimg1);
+        
+        JMenuItem eMenuItem1 = new JMenuItem("Login", icon1);
+        eMenuItem1.setMnemonic(KeyEvent.VK_L);
+        eMenuItem1.setToolTipText("Login application");
+        eMenuItem1.addActionListener((ActionEvent event) -> {
+            LoginPageJPanel panel = new LoginPageJPanel(userProcessContainer, system);
+        
+        userProcessContainer.add("LoginPageJPanel",panel);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        loginBtn.setEnabled(false);
+        btnLogout.setEnabled(true);
+        });
+        JMenu file = new JMenu("File");
+        file.setMnemonic(KeyEvent.VK_F);
+        
+        file.add(eMenuItem1);
+
+        menubar.add(file);
+        ImageIcon icon2 = new ImageIcon("src\\Resource\\exit.jpg");
+        Image image = icon2.getImage(); // transform it 
+        Image newimg = image.getScaledInstance(20, 20,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+        icon2 = new ImageIcon(newimg);
+        
+        JMenuItem eMenuItem2 = new JMenuItem("Exit", icon2);
+        eMenuItem2.setMnemonic(KeyEvent.VK_E);
+        eMenuItem2.setToolTipText("Exit application");
+        eMenuItem2.addActionListener((ActionEvent event) -> {
+            System.exit(0);
+        });
+        file.add(eMenuItem2);
+        menubar.add(file);
+        setJMenuBar(menubar);
     }
 
     /**
@@ -44,32 +109,26 @@ public class MainJFrame extends javax.swing.JFrame {
 
         SplitPane = new javax.swing.JSplitPane();
         loginPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        userNameJTextField = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        loginJButton = new javax.swing.JButton();
-        logoutJButton = new javax.swing.JButton();
-        passwordField = new javax.swing.JPasswordField();
+        loginBtn = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
         userProcessContainer = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Username");
-
-        jLabel2.setText("Password");
-
-        loginJButton.setText("Login");
-        loginJButton.addActionListener(new java.awt.event.ActionListener() {
+        loginBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        loginBtn.setText("Login");
+        loginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginJButtonActionPerformed(evt);
+                loginBtnActionPerformed(evt);
             }
         });
 
-        logoutJButton.setText("Logout");
-        logoutJButton.setEnabled(false);
-        logoutJButton.addActionListener(new java.awt.event.ActionListener() {
+        btnLogout.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnLogout.setText("Logout");
+        btnLogout.setEnabled(false);
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutJButtonActionPerformed(evt);
+                btnLogoutActionPerformed(evt);
             }
         });
 
@@ -77,35 +136,21 @@ public class MainJFrame extends javax.swing.JFrame {
         loginPanel.setLayout(loginPanelLayout);
         loginPanelLayout.setHorizontalGroup(
             loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createSequentialGroup()
+            .addGroup(loginPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(passwordField)
-                    .addComponent(userNameJTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(loginJButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, loginPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(logoutJButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(loginBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
                 .addContainerGap())
         );
         loginPanelLayout.setVerticalGroup(
             loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginPanelLayout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(userNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(228, 228, 228)
+                .addComponent(loginBtn)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(loginJButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(logoutJButton)
-                .addContainerGap(295, Short.MAX_VALUE))
+                .addComponent(btnLogout)
+                .addContainerGap(306, Short.MAX_VALUE))
         );
 
         SplitPane.setLeftComponent(loginPanel);
@@ -127,90 +172,35 @@ public class MainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void logoutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutJButtonActionPerformed
+    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         // TODO add your handling code here:
+        LoginPageJPanel panel = new LoginPageJPanel(userProcessContainer, system);
         
-        logoutJButton.setEnabled(false);
-        userNameJTextField.setEnabled(true);
-        passwordField.setEnabled(true);
-        loginJButton.setEnabled(true);
+        userProcessContainer.add("LoginPageJPanel",panel);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        loginBtn.setEnabled(false);
+        btnLogout.setEnabled(true);
+    }//GEN-LAST:event_loginBtnActionPerformed
 
-        userNameJTextField.setText("");
-        passwordField.setText("");
-
-        userProcessContainer.removeAll();
-        JPanel blankJP = new JPanel();
-        userProcessContainer.add("blank", blankJP);
-        CardLayout crdLyt = (CardLayout) userProcessContainer.getLayout();
-        crdLyt.next(userProcessContainer);
-        dB4OUtil.storeSystem(system);
-    }//GEN-LAST:event_logoutJButtonActionPerformed
-
-    private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
-        
-         // Get user name
-        String userName = userNameJTextField.getText();
-        // Get Password
-        char[] passwordCharArray = passwordField.getPassword();
-        String password = String.valueOf(passwordCharArray);
-
-        //Step1: Check in the system user account directory if you have the user
-        UserAccount userAccount = system.getUserAccountList().authenticateUser(userName, password);
-        Enterprise inEnterprise = null;
-        Organization inOrganization = null;
-        if (userAccount == null) {
-            //Step2: Go inside each network to check each enterprise
-            for (Network network : system.getNetworkList()) {
-                //Step 2-a: Check against each enterprise
-                for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
-                    userAccount = enterprise.getUserAccountList().authenticateUser(userName, password);
-                    if (userAccount == null) {
-                        //Step3: Check against each organization inside that enterprise
-                        for (Organization organization : enterprise.getOrganizationList().getOrganizationList()) {
-                            userAccount = organization.getUserAccountList().authenticateUser(userName, password);
-                            if (userAccount != null) {
-                                inEnterprise = enterprise;
-                                inOrganization = organization;
-                                break;
-                            }
-                        }
-                    } else {
-                        inEnterprise = enterprise;
-//                         if ( Enterprise.EnterpriseType.JobProvider.equals(enterprise.getEnterpriseType())){
-//                             for (Organization organization : enterprise.getOrganizationList().getOrganizationList()) {
-//                                 if(Organization.Type.JobProvider.getValue().equalsIgnoreCase(organization.getName())){
-//                                inOrganization = organization;
-//                                break;
-//                                 }
-//                             
-//                         }
-//                         }
-                        break;
-                    }
-                    if (inOrganization != null) {
-                        break;
-                    }
-                }
-                if (inEnterprise != null) {
-                    break;
-                }
+        Component[] components = userProcessContainer.getComponents();
+        int a=userProcessContainer.countComponents();
+        for(int i = 0; i < components.length; i++) {
+            if(a> 0){
+                userProcessContainer.remove(0);
+                --a;
             }
-        }
+            //        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+            //        layout.removeLayoutComponent(components[i]);
 
-        if (userAccount == null) {
-            JOptionPane.showMessageDialog(null, "Invalid Credentails!");
-            return;
-        } else {
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            userProcessContainer.add("workArea", userAccount.getRole().createWorkPanel(userProcessContainer, userAccount, inOrganization, inEnterprise, system));
-            layout.next(userProcessContainer);
         }
-         loginJButton.setEnabled(false);
-        logoutJButton.setEnabled(true);
-        userNameJTextField.setEnabled(false);
-        passwordField.setEnabled(false);
-    }//GEN-LAST:event_loginJButtonActionPerformed
+        userProcessContainer.removeAll();
+        loginBtn.setEnabled(true);
+        btnLogout.setEnabled(false);
+        //toggleLogin(false);
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,13 +239,9 @@ public class MainJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSplitPane SplitPane;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JButton loginJButton;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton loginBtn;
     private javax.swing.JPanel loginPanel;
-    private javax.swing.JButton logoutJButton;
-    private javax.swing.JPasswordField passwordField;
-    private javax.swing.JTextField userNameJTextField;
     private javax.swing.JPanel userProcessContainer;
     // End of variables declaration//GEN-END:variables
 }

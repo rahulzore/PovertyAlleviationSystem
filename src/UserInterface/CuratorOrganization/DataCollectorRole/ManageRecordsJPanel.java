@@ -67,7 +67,7 @@ private void populateRequestTable(){
                  for(WorkRequest request :worklist){
                      Object[] row = new Object[2];
                      row[0] =request;
-                     row[1] = request.getQuestionaire().getRequestType();
+                     row[1] = request.getQuestionaire().getPersonalQuestionnaire().getRequestType();
                      model.addRow(row);
                  }
     }

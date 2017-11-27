@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UserInterface.JobRequestManager;
+package UserInterface.CuratorOrganization.JobManagerRole;
 
 import Business.EcoSystem;
 import Business.Enterpise.Enterprise;
@@ -38,7 +38,7 @@ public class JobRequestManagerWorkAreaJPanel extends javax.swing.JPanel {
         this.organization =(JobRequestManagerOrganization) organization;
         this.enterprise = enterprise;
         this.userAccount = userAccount;
-        this.business = business;
+        this.business = ecoSystem;
         valueLabel.setText(enterprise.getName());
     }
 
@@ -54,6 +54,7 @@ public class JobRequestManagerWorkAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
         btnManageRequest = new javax.swing.JButton();
+        backJBtn = new javax.swing.JButton();
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("EnterPrise :");
@@ -64,6 +65,13 @@ public class JobRequestManagerWorkAreaJPanel extends javax.swing.JPanel {
         btnManageRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageRequestActionPerformed(evt);
+            }
+        });
+
+        backJBtn.setText("<< Back");
+        backJBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backJBtnActionPerformed(evt);
             }
         });
 
@@ -80,7 +88,10 @@ public class JobRequestManagerWorkAreaJPanel extends javax.swing.JPanel {
                         .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(169, 169, 169)
-                        .addComponent(btnManageRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnManageRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(backJBtn)))
                 .addContainerGap(210, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -92,7 +103,9 @@ public class JobRequestManagerWorkAreaJPanel extends javax.swing.JPanel {
                     .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addComponent(btnManageRequest)
-                .addGap(193, 193, 193))
+                .addGap(159, 159, 159)
+                .addComponent(backJBtn)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -104,8 +117,16 @@ public class JobRequestManagerWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageRequestActionPerformed
 
+    private void backJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJBtnActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backJBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backJBtn;
     private javax.swing.JButton btnManageRequest;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel valueLabel;

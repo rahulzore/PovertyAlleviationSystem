@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UserInterface.JobRequestManager;
+package UserInterface.CuratorOrganization.JobManagerRole;
 
 import Business.EcoSystem;
 import Business.Enterpise.Enterprise;
@@ -13,6 +13,7 @@ import Business.UserAccount.UserAccount;
 import Business.WorkQueue.JobWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -51,7 +52,7 @@ private JPanel userProcessContainer;
                  for(WorkRequest request :organization.getWorkQueue().getWorkRequestList()){
                      Object[] row = new Object[2];
                      row[0] =request;
-                     row[1] = ((JobWorkRequest)request).getQuestionaire().getRequestType();
+                     row[1] = ((JobWorkRequest)request).getQuestionaire().getPersonalQuestionnaire().getRequestType();
                       model.addRow(row);
                  }
     }
@@ -167,7 +168,21 @@ private JPanel userProcessContainer;
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewRecordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewRecordButtonActionPerformed
-
+            int selectedRow = requestTable.getSelectedRow();
+        JobWorkRequest request= null;
+        if(selectedRow<0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        if (selectedRow >= 0) {
+             request = (JobWorkRequest) requestTable.getValueAt(selectedRow, 0);
+             AddJobRequestDetailsJPanel AddJobRequestDetailsJPanel = new AddJobRequestDetailsJPanel(userProcessContainer,userAccount,organization, enterprise,business,request);
+            userProcessContainer.add("AddJobRequestDetailsJPanel", AddJobRequestDetailsJPanel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+            //request.setStatus("Processing");
+        }
     }//GEN-LAST:event_viewRecordButtonActionPerformed
 
     private void backJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJBtnActionPerformed

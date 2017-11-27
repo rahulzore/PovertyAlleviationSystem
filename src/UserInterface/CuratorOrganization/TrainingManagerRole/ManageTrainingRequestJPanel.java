@@ -49,7 +49,7 @@ private void populateRequestTable(){
                  for(WorkRequest request :organization.getWorkQueue().getWorkRequestList()){
                      Object[] row = new Object[2];
                      row[0] =request;
-                     row[1] = ((TrainingRequest)request).getQuestionaire().getRequestType();
+                     row[1] = ((TrainingRequest)request).getQuestionaire().getPersonalQuestionnaire().getRequestType();
                       model.addRow(row);
                  }
     }

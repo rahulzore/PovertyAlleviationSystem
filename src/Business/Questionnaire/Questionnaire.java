@@ -10,60 +10,123 @@ package Business.Questionnaire;
  * @author sanch
  */
 public class Questionnaire {
+    private PersonalQuestionnaire personalQuestionnaire;
+    private CriminalRelatedQuestionaire criminalRelatedQuestionaire;
+    private DrugAbuseQuestionaire drugAbuseQuestionaire;
+    private EducationQuestionaire educationQuestionaire;
+    private FamilyBackgroundQuestionaire familyBackgroundQuestionaire;
+    private JobQuestionaire jobQuestionaire;
     
-    public String name;
-    public int age;
-    public String gender;
-    public int income;
-    public String education;
-    public String requestType;
+    public Questionnaire(){
+        personalQuestionnaire = new PersonalQuestionnaire();
+        criminalRelatedQuestionaire = new CriminalRelatedQuestionaire();
+        drugAbuseQuestionaire = new DrugAbuseQuestionaire();
+        educationQuestionaire = new EducationQuestionaire();
+        familyBackgroundQuestionaire = new FamilyBackgroundQuestionaire();
+        jobQuestionaire = new JobQuestionaire();
+    }
+    
+//    public String name;
+//    public int age;
+//    public String gender;
+//    public int income;
+//    public String education;
+//    public String requestType;
+//    
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
+//    public int getAge() {
+//        return age;
+//    }
+//
+//    public void setAge(int age) {
+//        this.age = age;
+//    }
+//
+//    public String getGender() {
+//        return gender;
+//    }
+//
+//    public void setGender(String gender) {
+//        this.gender = gender;
+//    }
+//
+//    public int getIncome() {
+//        return income;
+//    }
+//
+//    public void setIncome(int income) {
+//        this.income = income;
+//    }
+//
+//    public String getEducation() {
+//        return education;
+//    }
+//
+//    public void setEducation(String education) {
+//        this.education = education;
+//    }
+//
+//    public String getRequestType() {
+//        return requestType;
+//    }
+//
+//    public void setRequestType(String requestType) {
+//        this.requestType = requestType;
+//    }
 
-    public String getName() {
-        return name;
+    public PersonalQuestionnaire getPersonalQuestionnaire() {
+        return personalQuestionnaire;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPersonalQuestionnaire(PersonalQuestionnaire personalQuestionnaire) {
+        this.personalQuestionnaire = personalQuestionnaire;
     }
 
-    public int getAge() {
-        return age;
+    public CriminalRelatedQuestionaire getCriminalRelatedQuestionaire() {
+        return criminalRelatedQuestionaire;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setCriminalRelatedQuestionaire(CriminalRelatedQuestionaire criminalRelatedQuestionaire) {
+        this.criminalRelatedQuestionaire = criminalRelatedQuestionaire;
     }
 
-    public String getGender() {
-        return gender;
+    public DrugAbuseQuestionaire getDrugAbuseQuestionaire() {
+        return drugAbuseQuestionaire;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setDrugAbuseQuestionaire(DrugAbuseQuestionaire drugAbuseQuestionaire) {
+        this.drugAbuseQuestionaire = drugAbuseQuestionaire;
     }
 
-    public int getIncome() {
-        return income;
+    public EducationQuestionaire getEducationQuestionaire() {
+        return educationQuestionaire;
     }
 
-    public void setIncome(int income) {
-        this.income = income;
+    public void setEducationQuestionaire(EducationQuestionaire educationQuestionaire) {
+        this.educationQuestionaire = educationQuestionaire;
     }
 
-    public String getEducation() {
-        return education;
+    public FamilyBackgroundQuestionaire getFamilyBackgroundQuestionaire() {
+        return familyBackgroundQuestionaire;
     }
 
-    public void setEducation(String education) {
-        this.education = education;
+    public void setFamilyBackgroundQuestionaire(FamilyBackgroundQuestionaire familyBackgroundQuestionaire) {
+        this.familyBackgroundQuestionaire = familyBackgroundQuestionaire;
     }
 
-    public String getRequestType() {
-        return requestType;
+    public JobQuestionaire getJobQuestionaire() {
+        return jobQuestionaire;
     }
 
-    public void setRequestType(String requestType) {
-        this.requestType = requestType;
+    public void setJobQuestionaire(JobQuestionaire jobQuestionaire) {
+        this.jobQuestionaire = jobQuestionaire;
     }
     
 }

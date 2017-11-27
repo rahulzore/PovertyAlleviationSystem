@@ -43,9 +43,15 @@ public abstract class Organization {
     public enum Type{
         Admin("Admin Organiztion"),
         DataCollector("Data Collector Organization"),
+        JobProcessManager("Job Process Manager Organization"),
         JobManager("Job Manager Organization"),
         TrainingManager("Training Manager Organization"),
-        JobProvider("Job Provider Organization");
+        JobProvider("Job Provider Organization"),
+        Restaurant("Restaurant Organization"),
+        OldAge("Old Age NGO"),
+        RaceBased("Race Based NGO"),
+        Childern("Children NGO"),
+        Homeless("Homeless NGO");
         
         private String value;
         

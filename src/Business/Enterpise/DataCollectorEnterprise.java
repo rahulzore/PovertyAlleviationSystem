@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class DataCollectorEnterprise extends Enterprise{
 
     DataCollectorEnterprise(String name, String networkName) {
-        super(name,EnterpriseType.DataCollector,networkName);
+        super(name,EnterpriseType.Curator,networkName);
     }
 
     @Override

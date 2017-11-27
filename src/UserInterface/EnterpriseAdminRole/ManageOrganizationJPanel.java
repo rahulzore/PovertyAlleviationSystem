@@ -9,6 +9,7 @@ import Business.Employee.Employee;
 import Business.Enterpise.CuratorEnterprise;
 import Business.Enterpise.Enterprise;
 import Business.Enterpise.Enterprise.EnterpriseType;
+import Business.Enterpise.NGOEnterprise;
 
 import Business.Organization.Organization;
 import Business.Organization.Organization.Type;
@@ -53,8 +54,17 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
                 organizationJComboBox.addItem(cType);
             }
         }
+        else if(enterprise.getEnterpriseType().getValue().equals(EnterpriseType.NGO.getValue())){
+            NGOEnterprise.NGOType type[]= NGOEnterprise.NGOType.values();
+            for(NGOEnterprise.NGOType nType : type){
+                organizationJComboBox.addItem(nType);
+            }
+        }
         else if(enterprise.getEnterpriseType().getValue().equals(EnterpriseType.JobProvider.getValue())){
             organizationJComboBox.addItem(Organization.Type.JobProvider);
+        }
+        else if (enterprise.getEnterpriseType().getValue().equals(EnterpriseType.Restaurant.getValue())){
+            organizationJComboBox.addItem(Organization.Type.Restaurant);
         }
 
     }
