@@ -38,12 +38,12 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     private EcoSystem system;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
-    
+    JMenuBar menubar = null;
     public MainJFrame() {
         initComponents();
         system = dB4OUtil.retrieveSystem();
         //logoutJButton.setEnabled(false);
-          
+          menubar = new JMenuBar();
         createMenuBar();
 
         setTitle("Simple menu");
@@ -57,7 +57,7 @@ public class MainJFrame extends javax.swing.JFrame {
     
     private void createMenuBar() {
 
-        JMenuBar menubar = new JMenuBar();
+        
         
         ImageIcon icon1 = new ImageIcon("src\\Resource\\login.png");
         Image image1 = icon1.getImage(); // transform it 
@@ -96,6 +96,13 @@ public class MainJFrame extends javax.swing.JFrame {
         file.add(eMenuItem2);
         menubar.add(file);
         setJMenuBar(menubar);
+    }
+    
+    private void createEcosystemMenu(){
+        JMenu menu=new JMenu("Ecosytem");
+        menu.setMnemonic(KeyEvent.VK_E);
+        
+        menubar.add(menu);
     }
 
     /**

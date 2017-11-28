@@ -68,6 +68,7 @@ private JPanel userProcessContainer;
         buttonGroupCrime = new javax.swing.ButtonGroup();
         buttonGroupDrugs = new javax.swing.ButtonGroup();
         buttonGroupCommDrugs = new javax.swing.ButtonGroup();
+        buttonGroupComp = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         btnRequestJob = new javax.swing.JButton();
         backJBtn = new javax.swing.JButton();
@@ -120,8 +121,10 @@ private JPanel userProcessContainer;
 
         jLabel2.setText("Can you use computer?");
 
+        buttonGroupComp.add(rbComputerNo);
         rbComputerNo.setText("No");
 
+        buttonGroupComp.add(rbComputerYes);
         rbComputerYes.setText("Yes");
 
         javax.swing.GroupLayout jobPanelLayout = new javax.swing.GroupLayout(jobPanel);
@@ -154,14 +157,18 @@ private JPanel userProcessContainer;
 
         jLabel7.setText("Can you read?");
 
+        buttonGroupRead.add(rbReadNo);
         rbReadNo.setText("No");
 
+        buttonGroupRead.add(rbReadYes);
         rbReadYes.setText("Yes");
 
         jLabel8.setText("Can you write?");
 
+        buttonGroupWrite.add(rbWriteNo);
         rbWriteNo.setText("No");
 
+        buttonGroupWrite.add(rbWriteYes);
         rbWriteYes.setText("Yes");
 
         javax.swing.GroupLayout educationPanelLayout = new javax.swing.GroupLayout(educationPanel);
@@ -247,8 +254,10 @@ private JPanel userProcessContainer;
 
         jLabel6.setText("Do you ever convicted for a crime:");
 
+        buttonGroupCrime.add(rbConvictedNo);
         rbConvictedNo.setText("No");
 
+        buttonGroupCrime.add(rbConvictedYes);
         rbConvictedYes.setText("Yes");
 
         javax.swing.GroupLayout criminalPanelLayout = new javax.swing.GroupLayout(criminalPanel);
@@ -283,12 +292,16 @@ private JPanel userProcessContainer;
 
         jLabel5.setText("Do you know atleast one teenager of your community that uses drugs?");
 
+        buttonGroupDrugs.add(rbDrugsYes);
         rbDrugsYes.setText("Yes");
 
+        buttonGroupDrugs.add(rbDrugsNo);
         rbDrugsNo.setText("No");
 
+        buttonGroupCommDrugs.add(rbChkDrugCommNo);
         rbChkDrugCommNo.setText("No");
 
+        buttonGroupCommDrugs.add(rbChkDrugCommYes);
         rbChkDrugCommYes.setText("Yes");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -444,6 +457,7 @@ private JPanel userProcessContainer;
     private javax.swing.JButton backJBtn;
     private javax.swing.JButton btnRequestJob;
     private javax.swing.ButtonGroup buttonGroupCommDrugs;
+    private javax.swing.ButtonGroup buttonGroupComp;
     private javax.swing.ButtonGroup buttonGroupCrime;
     private javax.swing.ButtonGroup buttonGroupDrugs;
     private javax.swing.ButtonGroup buttonGroupRead;

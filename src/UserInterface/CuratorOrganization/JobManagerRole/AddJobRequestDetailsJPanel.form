@@ -12,6 +12,8 @@
     </Component>
     <Component class="javax.swing.ButtonGroup" name="buttonGroupCommDrugs">
     </Component>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroupComp">
+    </Component>
   </NonVisualComponents>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -151,11 +153,17 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbComputerNo">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroupComp"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="No"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbComputerYes">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroupComp"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Yes"/>
               </Properties>
             </Component>
@@ -223,11 +231,17 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbReadNo">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroupRead"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="No"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbReadYes">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroupRead"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Yes"/>
               </Properties>
             </Component>
@@ -238,11 +252,17 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbWriteNo">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroupWrite"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="No"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbWriteYes">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroupWrite"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Yes"/>
               </Properties>
             </Component>
@@ -368,11 +388,17 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbConvictedNo">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroupCrime"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="No"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbConvictedYes">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroupCrime"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Yes"/>
               </Properties>
             </Component>
@@ -445,21 +471,33 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbDrugsYes">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroupDrugs"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Yes"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbDrugsNo">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroupDrugs"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="No"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbChkDrugCommNo">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroupCommDrugs"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="No"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbChkDrugCommYes">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroupCommDrugs"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Yes"/>
               </Properties>
             </Component>
