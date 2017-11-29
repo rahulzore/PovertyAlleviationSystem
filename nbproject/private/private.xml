@@ -3,24 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Nishad/Desktop/Poverty_Alleviation_System/src/Business/Questionnaire/Questionnaire.java</file>
-            <file>file:/C:/Users/Nishad/Desktop/Poverty_Alleviation_System/src/Business/Questionnaire/CriminalRelatedQuestionaire.java</file>
-            <file>file:/C:/Users/Nishad/Desktop/Poverty_Alleviation_System/src/Business/Questionnaire/FamilyBackgroundQuestionaire.java</file>
-            <file>file:/C:/Users/Nishad/Desktop/Poverty_Alleviation_System/src/Business/Questionnaire/EducationQuestionaire.java</file>
-            <file>file:/C:/Users/Nishad/Desktop/Poverty_Alleviation_System/src/Business/WorkQueue/JobWorkRequest.java</file>
-            <file>file:/C:/Users/Nishad/Desktop/Poverty_Alleviation_System/src/Business/WorkQueue/TrainingRequest.java</file>
-            <file>file:/C:/Users/Nishad/Desktop/Poverty_Alleviation_System/src/Business/Questionnaire/QuestionnaireDirectory.java</file>
-            <file>file:/C:/Users/Nishad/Desktop/Poverty_Alleviation_System/src/UserInterface/CuratorOrganization/JobManagerRole/AddJobRequestDetailsJPanel.java</file>
-            <file>file:/C:/Users/Nishad/Desktop/Poverty_Alleviation_System/src/Business/Questionnaire/DrugAbuseQuestionaire.java</file>
-            <file>file:/C:/Users/Nishad/Desktop/Poverty_Alleviation_System/src/Business/WorkQueue/WorkQueue.java</file>
-            <file>file:/C:/Users/Nishad/Desktop/Poverty_Alleviation_System/src/UserInterface/CuratorOrganization/JobManagerRole/ManageJobRequestJPanel.java</file>
-            <file>file:/C:/Users/Nishad/Desktop/Poverty_Alleviation_System/src/UserInterface/CuratorOrganization/DataCollectorRole/DataCollectorWorkAreaJPanel.java</file>
-            <file>file:/C:/Users/Nishad/Desktop/Poverty_Alleviation_System/src/UserInterface/CuratorOrganization/DataCollectorRole/ManageRecordsJPanel.java</file>
-            <file>file:/C:/Users/Nishad/Desktop/Poverty_Alleviation_System/src/UserInterface/CuratorOrganization/DataCollectorRole/UpdateRecordJPanel.java</file>
-            <file>file:/C:/Users/Nishad/Desktop/Poverty_Alleviation_System/src/UserInterface/CuratorOrganization/DataCollectorRole/ManageIndividualDetailsJPanel.java</file>
-            <file>file:/C:/Users/Nishad/Desktop/Poverty_Alleviation_System/src/UserInterface/CuratorOrganization/JobManagerRole/JobRequestManagerWorkAreaJPanel.java</file>
-            <file>file:/C:/Users/Nishad/Desktop/Poverty_Alleviation_System/src/Business/Questionnaire/JobQuestionaire.java</file>
-            <file>file:/C:/Users/Nishad/Desktop/Poverty_Alleviation_System/src/Business/WorkQueue/WorkRequest.java</file>
+            <file>file:/S:/AED_Final/New%20folder/poverty_alleviation_project/src/UserInterface/JobProviderOrganization/JobProviderWorkAreaJPanel.java</file>
+            <file>file:/S:/AED_Final/New%20folder/poverty_alleviation_project/src/UserInterface/DataCollectorOrganization/ManageRecordsJPanel.java</file>
+            <file>file:/S:/AED_Final/New%20folder/poverty_alleviation_project/src/UserInterface/DataCollectorOrganization/ManageIndividualDetailsJPanel.java</file>
+            <file>file:/S:/AED_Final/New%20folder/poverty_alleviation_project/src/UserInterface/CuratorOrganization/JobManagerRole/AddJobRequestDetailsJPanel.java</file>
+            <file>file:/S:/AED_Final/New%20folder/poverty_alleviation_project/src/UserInterface/DataCollectorOrganization/DataCollectorWorkAreaJPanel.java</file>
         </group>
     </open-files>
 </project-private>
