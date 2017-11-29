@@ -12,6 +12,7 @@ import Business.UserAccount.UserAccount;
 import Business.WorkQueue.FoodRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -49,8 +50,8 @@ public class ManageNGOFoodRequestJPanel extends javax.swing.JPanel {
             row[0]=request;
             row[1]=((FoodRequest)request).getFoodName();
             row[2]=request.getSender();
-            row[3]=request.getReceiver()==null?"Waiting to be assigned":request.getReceiver();
-            row[4]=request.getStatus();
+            row[3]=request.getReceiver()==null?"Unassigned":request.getReceiver();
+            row[4]=request.getStatus()==null?"Waiting":request.getStatus();
             dtm.addRow(row);
         }
     }    
@@ -67,6 +68,7 @@ public class ManageNGOFoodRequestJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         foodRequestJTable = new javax.swing.JTable();
         backJBtn = new javax.swing.JButton();
+        processJBtn = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Manage Food Request");
@@ -103,22 +105,31 @@ public class ManageNGOFoodRequestJPanel extends javax.swing.JPanel {
             }
         });
 
+        processJBtn.setText("Process Request");
+        processJBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                processJBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(228, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(301, 301, 301))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(220, 220, 220))))
-            .addGroup(layout.createSequentialGroup()
                 .addComponent(backJBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(228, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(processJBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(301, 301, 301))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(220, 220, 220)))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,7 +138,9 @@ public class ManageNGOFoodRequestJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(38, 38, 38)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 327, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(processJBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 286, Short.MAX_VALUE)
                 .addComponent(backJBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -140,11 +153,28 @@ public class ManageNGOFoodRequestJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJBtnActionPerformed
 
+    private void processJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJBtnActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = foodRequestJTable.getSelectedRow();
+        if(selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row to process request!!");
+            return;
+        }
+        else{
+            WorkRequest request = (WorkRequest) foodRequestJTable.getValueAt(selectedRow, 0);
+            request.setStatus("Completed");
+            request.setReceiver(userAccount);
+            JOptionPane.showMessageDialog(null, "Food request processing is completed. Food will be collected and will be distributed to the needful people!!");
+            populateFoodReqTable();
+        }
+    }//GEN-LAST:event_processJBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJBtn;
     private javax.swing.JTable foodRequestJTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton processJBtn;
     // End of variables declaration//GEN-END:variables
 }

@@ -21,7 +21,7 @@ public abstract class WorkRequest {
     private Date requestDate;
     private Date resolveDate;
     private Questionnaire questionaire;
-    private static int counter;
+    private static int counter=0;
     private int requestID;
     public WorkRequest(){
         requestDate = new Date();
