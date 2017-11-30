@@ -16,6 +16,7 @@ public class Questionnaire {
     private EducationQuestionaire educationQuestionaire;
     private FamilyBackgroundQuestionaire familyBackgroundQuestionaire;
     private JobQuestionaire jobQuestionaire;
+    private TrainingQuestionaire trainingQuestionaire;
     
     public Questionnaire(){
         personalQuestionnaire = new PersonalQuestionnaire();
@@ -24,6 +25,15 @@ public class Questionnaire {
         educationQuestionaire = new EducationQuestionaire();
         familyBackgroundQuestionaire = new FamilyBackgroundQuestionaire();
         jobQuestionaire = new JobQuestionaire();
+        trainingQuestionaire = new TrainingQuestionaire();
+    }
+
+    public TrainingQuestionaire getTrainingQuestionaire() {
+        return trainingQuestionaire;
+    }
+
+    public void setTrainingQuestionaire(TrainingQuestionaire trainingQuestionaire) {
+        this.trainingQuestionaire = trainingQuestionaire;
     }
     
 //    public String name;
