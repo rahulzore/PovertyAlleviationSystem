@@ -8,6 +8,7 @@ package Business.Organization;
 import Business.Role.JobProcessManagerRole;
 import Business.Role.Role;
 import Business.Role.TrainingProcessManagerRole;
+
 import java.util.ArrayList;
 
 /**

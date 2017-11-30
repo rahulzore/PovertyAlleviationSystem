@@ -9,17 +9,18 @@ import Business.EcoSystem;
 import Business.Enterpise.Enterprise;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import UserInterface.TrainingProcessOrganization.TrainingProcessManagerWorkAreaJPanel;
 import javax.swing.JPanel;
 
 /**
  *
  * @author sanch
  */
+
 public class TrainingProcessManagerRole extends Role {
 
     @Override
     public JPanel createWorkPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem ecoSystem) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+          return new TrainingProcessManagerWorkAreaJPanel(userProcessContainer,userAccount,organization,enterprise,ecoSystem);
     }
-    
 }
