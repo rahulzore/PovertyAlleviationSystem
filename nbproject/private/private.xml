@@ -3,11 +3,32 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/S:/AED_Final/New%20folder/poverty_alleviation_project/src/UserInterface/JobProviderOrganization/JobProviderWorkAreaJPanel.java</file>
-            <file>file:/S:/AED_Final/New%20folder/poverty_alleviation_project/src/UserInterface/DataCollectorOrganization/ManageRecordsJPanel.java</file>
-            <file>file:/S:/AED_Final/New%20folder/poverty_alleviation_project/src/UserInterface/DataCollectorOrganization/ManageIndividualDetailsJPanel.java</file>
-            <file>file:/S:/AED_Final/New%20folder/poverty_alleviation_project/src/UserInterface/CuratorOrganization/JobManagerRole/AddJobRequestDetailsJPanel.java</file>
-            <file>file:/S:/AED_Final/New%20folder/poverty_alleviation_project/src/UserInterface/DataCollectorOrganization/DataCollectorWorkAreaJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/DataCollectorOrganization/UpdateRecordJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/CuratorOrganization/DataCollectorRole/ManageIndividualDetailsJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/JobProcessOrganization/JobProcessManagerWorkAreaJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/JobProcessOrganization/ProcessJobRequestJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/CuratorOrganization/TrainingManagerRole/ManageTrainingRequestJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/CuratorOrganization/JobManagerRole/ManageJobRequestJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/Business/WorkQueue/TrainingRequest.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/Business/WorkQueue/WorkRequest.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/DataCollectorOrganization/ManageRecordsJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/CuratorOrganization/TrainingManagerRole/TrainingRequestWorkAreaJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/CuratorOrganization/DataCollectorRole/ManageRecordsJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/CuratorOrganization/JobManagerRole/JobRequestManagerWorkAreaJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/CuratorOrganization/DataCollectorRole/UpdateRecordJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/JobRequestManager/JobRequestManagerWorkAreaJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/EnterpriseAdminRole/EnterpriseAdminWorkAreaJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/Business/WorkQueue/JobWorkRequest.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/EnterpriseAdminRole/ManageEnterpriseEmployeeJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/DataCollectorOrganization/DataCollectorWorkAreaJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/CuratorOrganization/TrainingManagerRole/AddTrainingRequestDetailsJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/DataCollectorOrganization/ManageIndividualDetailsJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/CuratorOrganization/JobManagerRole/AddJobRequestDetailsJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/JobRequestManager/AddJobRequestDetailsJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/CuratorOrganization/DataCollectorRole/DataCollectorWorkAreaJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/JobRequestManager/ManageJobRequestJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/TrainingRequestManager/ManageTrainingRequestJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/TrainingRequestManager/AddTrainingRequestDetailsJPanel.java</file>
         </group>
     </open-files>
 </project-private>
