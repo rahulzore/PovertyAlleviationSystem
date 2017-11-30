@@ -36,6 +36,12 @@ private JPanel userProcessContainer;
      */
     public AddTrainingRequestDetailsJPanel(JPanel userProcessContainer, UserAccount userAccount, TrainingRequestManagerOrganization organization, Enterprise enterprise, EcoSystem business,TrainingRequest workrequest) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.organization =(TrainingRequestManagerOrganization) organization;
+        this.enterprise = enterprise;
+        this.userAccount = userAccount;
+        this.business = business;
+        this.request = workrequest;
     }
 
     /**
@@ -377,16 +383,8 @@ private JPanel userProcessContainer;
         trainingQuestionaire.setInterest(specificInterestTxt.getSelectedText());
         trainingQuestionaire.setTrainingDuration((String) trainingDurationCombo.getSelectedItem());
         trainingQuestionaire.setTrainingField((String) trainingType.getSelectedItem());
-        
-        
-
-       
         FamilyBackgroundQuestionaire FamilyBackgroundQuestionaire = questionnaire.getFamilyBackgroundQuestionaire();
         FamilyBackgroundQuestionaire.setFamilyBackground("");
-
-        //CriminalRelatedQuestionaire.set
-        //jobQuestionaire.setIsWrite(true);
-        //jobQuestionaire.setBasicKnowledge("Computer");
         Organization org = null;
         for(Network network :business.getNetworkList()){
             if(network.getName().equalsIgnoreCase(enterprise.getNetworkName())){
@@ -404,22 +402,13 @@ private JPanel userProcessContainer;
             }
         }
         if (org!=null){
-            //if(requestType.equalsIgnoreCase("job")){
-                //    JobWorkRequest request = new JobWorkRequest();
+         
                 request.setSender(userAccount);
                 request.setStatus("Sent");
                 request.setQuestionaire(questionnaire);
                 org.getWorkQueue().getWorkRequestList().add(request);
                 userAccount.getWorkQueue().getWorkRequestList().add(request);
-                //}
-            //            else if(requestType.equalsIgnoreCase("edu")){
-                //                TrainingRequest request = new TrainingRequest();
-                //                request.setSender(userAccount);
-                //                request.setStatus("Sent");
-                //                request.setQuestionaire(questionnaire);
-                //                org.getWorkQueue().getWorkRequestList().add(request);
-                //                userAccount.getWorkQueue().getWorkRequestList().add(request);
-                //            }
+               
 
         }
         JOptionPane.showMessageDialog(null, "Individual request created successfully", "Warning", JOptionPane.INFORMATION_MESSAGE);

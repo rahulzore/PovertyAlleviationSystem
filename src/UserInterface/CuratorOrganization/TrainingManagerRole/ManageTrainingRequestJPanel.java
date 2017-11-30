@@ -14,7 +14,9 @@ import Business.UserAccount.UserAccount;
 import Business.WorkQueue.JobWorkRequest;
 import Business.WorkQueue.TrainingRequest;
 import Business.WorkQueue.WorkRequest;
+import UserInterface.CuratorOrganization.JobManagerRole.AddJobRequestDetailsJPanel;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -147,6 +149,22 @@ private void populateRequestTable(){
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewRecordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewRecordButtonActionPerformed
+int selectedRow = requestTable.getSelectedRow();
+TrainingRequest request = null;
+if(selectedRow<0)
+{
+    JOptionPane.showMessageDialog(null, "Please select a row", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+
+}
+if(selectedRow>=0)
+{
+             request = (TrainingRequest) requestTable.getValueAt(selectedRow, 0);
+             AddTrainingRequestDetailsJPanel AddTrainingRequestDetailsJPanel = new AddTrainingRequestDetailsJPanel(userProcessContainer,userAccount,organization, enterprise,business,request);
+            userProcessContainer.add("AddTrainingRequestDetailsJPanel", AddTrainingRequestDetailsJPanel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+}
         
     }//GEN-LAST:event_viewRecordButtonActionPerformed
 

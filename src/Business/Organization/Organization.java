@@ -48,6 +48,7 @@ public abstract class Organization {
         TrainingManager("Training Manager Organization"),
         TrainingProvider("Training Provider Organization"),
         TrainingProcessManager("Training Process Manager Organization"),
+        TrainingRequestManager("Training Request Manager Organization"),
         JobProvider("Job Provider Organization"),
         Restaurant("Restaurant Organization"),
         OldAge("Old Age NGO"),

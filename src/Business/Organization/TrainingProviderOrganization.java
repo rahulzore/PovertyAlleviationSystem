@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class TrainingProviderOrganization extends Organization{
     public TrainingProviderOrganization(String name)
     {
-        super(Organization.Type.TrainingProvider.getValue(),"");
+        super(name,"");
     }
 
     @Override
