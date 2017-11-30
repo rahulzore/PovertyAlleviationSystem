@@ -105,7 +105,7 @@ public class TrainingProviderWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageTrainingRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageTrainingRequestActionPerformed
         // TODO add your handling code here:
-        ProcessTrainingRequestJPanel ProcessTrainingRequestJPanel = new ProcessTrainingRequestJPanel(userProcessContainer,userAccount,organization, enterprise,business);
+        ProvideTrainingRequestJPanel ProcessTrainingRequestJPanel = new ProvideTrainingRequestJPanel(userProcessContainer,userAccount,organization, enterprise,business);
         userProcessContainer.add("ProcessTrainingRequestJPanel", ProcessTrainingRequestJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

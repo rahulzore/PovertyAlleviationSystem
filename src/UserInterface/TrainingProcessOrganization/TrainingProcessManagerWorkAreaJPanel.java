@@ -11,7 +11,7 @@ import Business.Organization.JobProcessOrganization;
 import Business.Organization.Organization;
 import Business.Organization.TrainingProcessOrganization;
 import Business.UserAccount.UserAccount;
-import UserInterface.TrainerProviderOrganization.ProcessTrainingRequestJPanel;
+import UserInterface.TrainerProviderOrganization.ProvideTrainingRequestJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -129,7 +129,7 @@ private JPanel userProcessContainer;
 
     private void btnManageRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRequestActionPerformed
         // TODO add your handling code here:
-        ProcessTrainingRequestJPanel ProcessTrainingRequestJPanel = new ProcessTrainingRequestJPanel(userProcessContainer,userAccount,organization, enterprise,business);
+        ProvideTrainingRequestJPanel ProcessTrainingRequestJPanel = new ProvideTrainingRequestJPanel(userProcessContainer,userAccount,organization, enterprise,business);
         userProcessContainer.add("ProcessTrainingRequestJPanel", ProcessTrainingRequestJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

@@ -9,40 +9,55 @@ import Business.EcoSystem;
 import Business.Enterpise.Enterprise;
 import Business.Organization.JobProviderOrganization;
 import Business.Organization.Organization;
+import Business.Organization.TrainingProviderOrganization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.JobWorkRequest;
 import Business.WorkQueue.TrainingRequest;
+import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author sanch
  */
-public class ProcessTrainingRequestJPanel extends javax.swing.JPanel {
+public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
  private JPanel userProcessContainer;
-    private JobProviderOrganization organization;
+    private TrainingProviderOrganization organization;
     private Enterprise enterprise;
     private UserAccount userAccount;
     EcoSystem business;
     /**
      * Creates new form ProcessTrainingRequestJPanel
      */
-    public ProcessTrainingRequestJPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem ecoSystem) {
+    public ProvideTrainingRequestJPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem ecoSystem) {
         initComponents();
            this.userProcessContainer = userProcessContainer;
-        this.organization =(JobProviderOrganization) organization;
+        this.organization =(TrainingProviderOrganization) organization;
         this.enterprise = enterprise;
         this.userAccount = userAccount;
         this.business = ecoSystem;
-        valueLabel.setText(enterprise.getName());
+        populateRequestTable();
         
     }
-
-    ProcessTrainingRequestJPanel(JPanel userProcessContainer, UserAccount userAccount, JobProviderOrganization organization, Enterprise enterprise, EcoSystem business) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+ private void populateRequestTable(){
+        DefaultTableModel model = (DefaultTableModel) requestTable.getModel();
+        
+        model.setRowCount(0);
+         //WorkRequest request =organization.getWorkQueue().getWorkRequestList()
+                 for(WorkRequest request :organization.getWorkQueue().getWorkRequestList()){
+                     Object[] row = new Object[5];
+                     row[0] =request;
+                     row[1] = ((TrainingRequest)request).getQuestionaire().getPersonalQuestionnaire().getRequestType();
+                      row[2]=request.getSender();
+                    row[3]=request.getReceiver()==null?"Waiting to be assigned":request.getReceiver();
+                    row[4]=request.getStatus();
+                    model.addRow(row);
+                 }
     }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -185,11 +200,7 @@ public class ProcessTrainingRequestJPanel extends javax.swing.JPanel {
 
         if (selectedRow >= 0) {
             request = (TrainingRequest) requestTable.getValueAt(selectedRow, 0);
-            //             AddJobRequestDetailsJPanel AddJobRequestDetailsJPanel = new AddJobRequestDetailsJPanel(userProcessContainer,userAccount,organization, enterprise,business,request);
-            //            userProcessContainer.add("AddJobRequestDetailsJPanel", AddJobRequestDetailsJPanel);
-            //            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            //            layout.next(userProcessContainer);
-            //request.setStatus("Processing");
+           
         }
     }//GEN-LAST:event_btnAssignJobActionPerformed
 
