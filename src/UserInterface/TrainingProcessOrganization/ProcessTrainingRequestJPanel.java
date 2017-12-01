@@ -34,12 +34,15 @@ private JPanel userProcessContainer;
      * Creates new form ProcessTrainingRequestJPanel
      */
     public ProcessTrainingRequestJPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem business, TrainingRequest request) {
+
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.organization =(TrainingProcessOrganization) organization;
         this.enterprise = enterprise;
         this.userAccount = userAccount;
+
         this.business = business;
+
         this.request = request;
         valueLabel.setText(enterprise.getName());
         populateTrainingRequestTable();

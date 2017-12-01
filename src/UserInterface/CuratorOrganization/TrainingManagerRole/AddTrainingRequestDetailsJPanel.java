@@ -88,6 +88,7 @@ private JPanel userProcessContainer;
         specificComboNo = new javax.swing.JRadioButton();
         seekLabel = new javax.swing.JLabel();
         trainingInterestCombo = new javax.swing.JComboBox<>();
+        seekLabel = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Enter Individual job Details");
@@ -314,8 +315,12 @@ private JPanel userProcessContainer;
         seekLabel.setText("Please enter your field of Interest.");
         seekLabel.setEnabled(false);
 
+
         trainingInterestCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carpentry", "Security", "Construction", "Other" }));
         trainingInterestCombo.setEnabled(false);
+        seekLabel.setText("Please enter your field of Interest.");
+        seekLabel.setEnabled(false);
+
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -330,7 +335,10 @@ private JPanel userProcessContainer;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(specificComboNo))
                     .addComponent(seekLabel)
+
                     .addComponent(trainingInterestCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+
+
                 .addContainerGap(412, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -347,6 +355,8 @@ private JPanel userProcessContainer;
                 .addGap(18, 18, 18)
                 .addComponent(trainingInterestCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(165, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+  
         );
 
         jTabbedPane.addTab("Specific Interests", jPanel2);
@@ -427,7 +437,9 @@ private JPanel userProcessContainer;
             trainingQuestionaire.setDisability("None");
         }
         if(specificComboYes.isSelected()){
+
         trainingQuestionaire.setInterest((String) trainingInterestCombo.getSelectedItem());
+
         }
         else if(specificComboNo.isSelected()){
             trainingQuestionaire.setInterest("None");
@@ -481,13 +493,13 @@ private JPanel userProcessContainer;
     private void specificComboYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specificComboYesActionPerformed
         // TODO add your handling code here:
           seekLabel.setEnabled(true);
-          
+
     }//GEN-LAST:event_specificComboYesActionPerformed
 
     private void specificComboNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specificComboNoActionPerformed
         // TODO add your handling code here:
              seekLabel.setEnabled(false);
-   
+
     }//GEN-LAST:event_specificComboNoActionPerformed
 
     private void disabilityYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disabilityYesActionPerformed
