@@ -82,7 +82,7 @@ public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
 
         valueLabel.setText("<value>");
 
-        btnAssignJob.setText("Assign Training");
+        btnAssignJob.setText("Confirm Training");
         btnAssignJob.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssignJobActionPerformed(evt);

@@ -58,7 +58,7 @@ private JPanel userProcessContainer;
 
         valueLabel.setText("<value>");
 
-        btnManageRequest.setText("Manage Individual Job Request");
+        btnManageRequest.setText("Process Individual Training Request");
         btnManageRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageRequestActionPerformed(evt);

@@ -53,6 +53,9 @@ private JPanel userProcessContainer;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        trainingCombo = new javax.swing.ButtonGroup();
+        disabilityCombo = new javax.swing.ButtonGroup();
+        specificCombo = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnRequestJob = new javax.swing.JButton();
@@ -62,13 +65,13 @@ private JPanel userProcessContainer;
         jLabel2 = new javax.swing.JLabel();
         receivedTrainingNo = new javax.swing.JRadioButton();
         receivedTrainingYes = new javax.swing.JRadioButton();
-        jLabel9 = new javax.swing.JLabel();
+        skillLabel = new javax.swing.JLabel();
         trainingType = new javax.swing.JComboBox<>();
         educationPanel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         disabilityNo = new javax.swing.JRadioButton();
         disabilityYes = new javax.swing.JRadioButton();
-        jLabel8 = new javax.swing.JLabel();
+        disableLabel = new javax.swing.JLabel();
         disabilityType = new javax.swing.JComboBox<>();
         familyBackPanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -83,8 +86,8 @@ private JPanel userProcessContainer;
         jLabel4 = new javax.swing.JLabel();
         specificComboYes = new javax.swing.JRadioButton();
         specificComboNo = new javax.swing.JRadioButton();
-        specificInterestTxt = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        seekLabel = new javax.swing.JLabel();
+        trainingInterestCombo = new javax.swing.JComboBox<>();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Enter Individual job Details");
@@ -105,12 +108,24 @@ private JPanel userProcessContainer;
 
         jLabel2.setText("Have you ever received any specific skill training ?");
 
+        trainingCombo.add(receivedTrainingNo);
         receivedTrainingNo.setText("No");
+        receivedTrainingNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                receivedTrainingNoActionPerformed(evt);
+            }
+        });
 
+        trainingCombo.add(receivedTrainingYes);
         receivedTrainingYes.setText("Yes");
+        receivedTrainingYes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                receivedTrainingYesActionPerformed(evt);
+            }
+        });
 
-        jLabel9.setText("In which field have you received training ?");
-        jLabel9.setEnabled(false);
+        skillLabel.setText("In which field have you received training ?");
+        skillLabel.setEnabled(false);
 
         trainingType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Physical Labor", "Carpentry", "Mechanic", "Security", "Construction", "Cleaning", "Other" }));
         trainingType.setEnabled(false);
@@ -123,7 +138,7 @@ private JPanel userProcessContainer;
                 .addGap(37, 37, 37)
                 .addGroup(jobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(trainingType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
+                    .addComponent(skillLabel)
                     .addGroup(jobPanelLayout.createSequentialGroup()
                         .addComponent(receivedTrainingYes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -141,7 +156,7 @@ private JPanel userProcessContainer;
                     .addComponent(receivedTrainingYes)
                     .addComponent(receivedTrainingNo))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel9)
+                .addComponent(skillLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(trainingType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(161, Short.MAX_VALUE))
@@ -151,12 +166,24 @@ private JPanel userProcessContainer;
 
         jLabel7.setText("Do you have any kind of disability ?");
 
+        disabilityCombo.add(disabilityNo);
         disabilityNo.setText("No");
+        disabilityNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                disabilityNoActionPerformed(evt);
+            }
+        });
 
+        disabilityCombo.add(disabilityYes);
         disabilityYes.setText("Yes");
+        disabilityYes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                disabilityYesActionPerformed(evt);
+            }
+        });
 
-        jLabel8.setText("What kind of disability do you have ?");
-        jLabel8.setEnabled(false);
+        disableLabel.setText("What kind of disability do you have ?");
+        disableLabel.setEnabled(false);
 
         disabilityType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vision", "Physical", "Speaking", "Hearing", "Other" }));
         disabilityType.setEnabled(false);
@@ -173,7 +200,7 @@ private JPanel userProcessContainer;
                         .addComponent(disabilityYes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(disabilityNo))
-                    .addComponent(jLabel8)
+                    .addComponent(disableLabel)
                     .addComponent(disabilityType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(533, Short.MAX_VALUE))
         );
@@ -187,7 +214,7 @@ private JPanel userProcessContainer;
                     .addComponent(disabilityYes)
                     .addComponent(disabilityNo))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel8)
+                .addComponent(disableLabel)
                 .addGap(18, 18, 18)
                 .addComponent(disabilityType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(154, Short.MAX_VALUE))
@@ -268,14 +295,27 @@ private JPanel userProcessContainer;
 
         jLabel4.setText("Do you  have any specific interest in which you seek training ?");
 
+        specificCombo.add(specificComboYes);
         specificComboYes.setText("Yes");
+        specificComboYes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                specificComboYesActionPerformed(evt);
+            }
+        });
 
+        specificCombo.add(specificComboNo);
         specificComboNo.setText("No");
+        specificComboNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                specificComboNoActionPerformed(evt);
+            }
+        });
 
-        specificInterestTxt.setEnabled(false);
+        seekLabel.setText("Please enter your field of Interest.");
+        seekLabel.setEnabled(false);
 
-        jLabel5.setText("Please enter your field of Interest.");
-        jLabel5.setEnabled(false);
+        trainingInterestCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carpentry", "Security", "Construction", "Other" }));
+        trainingInterestCombo.setEnabled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -289,8 +329,8 @@ private JPanel userProcessContainer;
                         .addComponent(specificComboYes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(specificComboNo))
-                    .addComponent(jLabel5)
-                    .addComponent(specificInterestTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(seekLabel)
+                    .addComponent(trainingInterestCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(412, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -303,10 +343,10 @@ private JPanel userProcessContainer;
                     .addComponent(specificComboYes)
                     .addComponent(specificComboNo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
-                .addGap(15, 15, 15)
-                .addComponent(specificInterestTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addComponent(seekLabel)
+                .addGap(18, 18, 18)
+                .addComponent(trainingInterestCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(165, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Specific Interests", jPanel2);
@@ -379,10 +419,27 @@ private JPanel userProcessContainer;
         trainingQuestionaire.setTrained(receivedTrainingYes.isSelected());
         trainingQuestionaire.setDisabled(disabilityYes.isSelected());
         trainingQuestionaire.setSpecificInterest(specificComboYes.isSelected());
+        if(disabilityYes.isSelected())
+        {
         trainingQuestionaire.setDisability((String) disabilityType.getSelectedItem());
-        trainingQuestionaire.setInterest(specificInterestTxt.getSelectedText());
+        }
+        else if(disabilityNo.isSelected()){
+            trainingQuestionaire.setDisability("None");
+        }
+        if(specificComboYes.isSelected()){
+        trainingQuestionaire.setInterest((String) trainingInterestCombo.getSelectedItem());
+        }
+        else if(specificComboNo.isSelected()){
+            trainingQuestionaire.setInterest("None");
+        }
         trainingQuestionaire.setTrainingDuration((String) trainingDurationCombo.getSelectedItem());
-        trainingQuestionaire.setTrainingField((String) trainingType.getSelectedItem());
+        if(receivedTrainingYes.isSelected()){
+              trainingQuestionaire.setTrainingField((String) trainingType.getSelectedItem());
+        }
+        else if(receivedTrainingNo.isSelected()){
+             trainingQuestionaire.setTrainingField("None");
+        }
+      
         FamilyBackgroundQuestionaire FamilyBackgroundQuestionaire = questionnaire.getFamilyBackgroundQuestionaire();
         FamilyBackgroundQuestionaire.setFamilyBackground("");
         Organization org = null;
@@ -421,6 +478,42 @@ private JPanel userProcessContainer;
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJBtnActionPerformed
 
+    private void specificComboYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specificComboYesActionPerformed
+        // TODO add your handling code here:
+          seekLabel.setEnabled(true);
+          
+    }//GEN-LAST:event_specificComboYesActionPerformed
+
+    private void specificComboNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specificComboNoActionPerformed
+        // TODO add your handling code here:
+             seekLabel.setEnabled(false);
+   
+    }//GEN-LAST:event_specificComboNoActionPerformed
+
+    private void disabilityYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disabilityYesActionPerformed
+        // TODO add your handling code here:
+         disabilityType.setEnabled(true);
+            disableLabel.setEnabled(true);
+    }//GEN-LAST:event_disabilityYesActionPerformed
+
+    private void disabilityNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disabilityNoActionPerformed
+        // TODO add your handling code here:
+         disabilityType.setEnabled(false);
+            disableLabel.setEnabled(false);
+    }//GEN-LAST:event_disabilityNoActionPerformed
+
+    private void receivedTrainingYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_receivedTrainingYesActionPerformed
+        // TODO add your handling code here:
+         skillLabel.setEnabled(true);
+            trainingType.setEnabled(true);
+    }//GEN-LAST:event_receivedTrainingYesActionPerformed
+
+    private void receivedTrainingNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_receivedTrainingNoActionPerformed
+  skillLabel.setEnabled(false);
+            trainingType.setEnabled(false);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_receivedTrainingNoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJBtn;
@@ -429,9 +522,11 @@ private JPanel userProcessContainer;
     private javax.swing.JCheckBox chkSibHld;
     private javax.swing.JCheckBox chkSingleParent;
     private javax.swing.JPanel criminalPanel;
+    private javax.swing.ButtonGroup disabilityCombo;
     private javax.swing.JRadioButton disabilityNo;
     private javax.swing.JComboBox<String> disabilityType;
     private javax.swing.JRadioButton disabilityYes;
+    private javax.swing.JLabel disableLabel;
     private javax.swing.JPanel educationPanel;
     private javax.swing.JPanel familyBackPanel;
     private javax.swing.JCheckBox jChkNuclear;
@@ -439,21 +534,22 @@ private JPanel userProcessContainer;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JPanel jobPanel;
     private javax.swing.JRadioButton receivedTrainingNo;
     private javax.swing.JRadioButton receivedTrainingYes;
+    private javax.swing.JLabel seekLabel;
+    private javax.swing.JLabel skillLabel;
+    private javax.swing.ButtonGroup specificCombo;
     private javax.swing.JRadioButton specificComboNo;
     private javax.swing.JRadioButton specificComboYes;
-    private javax.swing.JTextField specificInterestTxt;
+    private javax.swing.ButtonGroup trainingCombo;
     private javax.swing.JComboBox<String> trainingDurationCombo;
+    private javax.swing.JComboBox<String> trainingInterestCombo;
     private javax.swing.JComboBox<String> trainingType;
     // End of variables declaration//GEN-END:variables
 }

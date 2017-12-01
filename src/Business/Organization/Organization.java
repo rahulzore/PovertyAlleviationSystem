@@ -24,6 +24,7 @@ public abstract class Organization {
     private int organizationID;
     private static int counter;
     private String networkName;
+    private Type type;
     
     public Organization(String name, String networkName){
         counter++;
@@ -48,13 +49,16 @@ public abstract class Organization {
         TrainingManager("Training Manager Organization"),
         TrainingProvider("Training Provider Organization"),
         TrainingProcessManager("Training Process Manager Organization"),
-        TrainingRequestManager("Training Request Manager Organization"),
         JobProvider("Job Provider Organization"),
         Restaurant("Restaurant Organization"),
         OldAge("Old Age NGO"),
         RaceBased("Race Based NGO"),
         Childern("Children NGO"),
-        Homeless("Homeless NGO");
+        Homeless("Homeless NGO"),
+        Carpentry("Carpentry Organization"),
+        Security("Security Organization"),
+        Construction("Construction Organization"),
+        General("General Organization");
         
         private String value;
         
@@ -76,6 +80,10 @@ public abstract class Organization {
 
     public String getName() {
         return name;
+    }
+
+    public Type getType() {
+        return type;
     }
 
     public void setName(String name) {

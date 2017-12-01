@@ -12,9 +12,11 @@ import Business.Organization.Organization;
 import Business.Organization.TrainingProcessOrganization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.TrainingRequest;
+import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -26,20 +28,38 @@ private JPanel userProcessContainer;
     private Enterprise enterprise;
     private UserAccount userAccount;
     EcoSystem business;
+    TrainingRequest request;
     
     /**
      * Creates new form ProcessTrainingRequestJPanel
      */
-    public ProcessTrainingRequestJPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem ecoSystem) {
+    public ProcessTrainingRequestJPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem business, TrainingRequest request) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.organization =(TrainingProcessOrganization) organization;
         this.enterprise = enterprise;
         this.userAccount = userAccount;
-        this.business = ecoSystem;
+        this.business = business;
+        this.request = request;
         valueLabel.setText(enterprise.getName());
+        populateTrainingRequestTable();
     }
-
+private void populateTrainingRequestTable(){
+        DefaultTableModel model = (DefaultTableModel) requestTable.getModel();
+        
+        model.setRowCount(0);
+         //WorkRequest request =organization.getWorkQueue().getWorkRequestList()
+                 for(WorkRequest request :organization.getWorkQueue().getWorkRequestList()){
+                     Object[] row = new Object[6];
+                     row[0] =request;
+                     row[1] = ((TrainingRequest)request).getQuestionaire().getPersonalQuestionnaire().getName();
+                      row[2]=((TrainingRequest)request).getQuestionaire().getTrainingQuestionaire().getTrainingField();
+                    row[3]=((TrainingRequest)request).getQuestionaire().getTrainingQuestionaire().getInterest();
+                    row[4]=((TrainingRequest)request).getQuestionaire().getTrainingQuestionaire().getDisability();
+                    row[5]=((TrainingRequest)request).getQuestionaire().getTrainingQuestionaire().getTrainingDuration();
+                    model.addRow(row);
+                 }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,7 +73,7 @@ private JPanel userProcessContainer;
         jPanel2 = new javax.swing.JPanel();
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
-        btnAssignJob = new javax.swing.JButton();
+        btnAssignTraining = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         requestTable = new javax.swing.JTable();
         backJBtn = new javax.swing.JButton();
@@ -63,10 +83,10 @@ private JPanel userProcessContainer;
 
         valueLabel.setText("<value>");
 
-        btnAssignJob.setText("Assign Job");
-        btnAssignJob.addActionListener(new java.awt.event.ActionListener() {
+        btnAssignTraining.setText("Assign Training");
+        btnAssignTraining.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAssignJobActionPerformed(evt);
+                btnAssignTrainingActionPerformed(evt);
             }
         });
 
@@ -75,11 +95,11 @@ private JPanel userProcessContainer;
 
             },
             new String [] {
-                "Individual Name", "Request Type"
+                "Request Id", "Individual Name", "Training Received", "Training Interest", "Disabilty", "Availability"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -101,22 +121,20 @@ private JPanel userProcessContainer;
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 68, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(149, 149, 149))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(backJBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAssignJob)
-                        .addGap(230, 230, 230))))
+                .addComponent(backJBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 370, Short.MAX_VALUE)
+                .addComponent(btnAssignTraining)
+                .addGap(230, 230, 230))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(76, 76, 76)
                 .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(88, 88, 88))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,7 +147,7 @@ private JPanel userProcessContainer;
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAssignJob)
+                    .addComponent(btnAssignTraining)
                     .addComponent(backJBtn))
                 .addContainerGap(144, Short.MAX_VALUE))
         );
@@ -154,7 +172,7 @@ private JPanel userProcessContainer;
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 786, Short.MAX_VALUE)
+            .addGap(0, 808, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -172,7 +190,7 @@ private JPanel userProcessContainer;
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAssignJobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignJobActionPerformed
+    private void btnAssignTrainingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignTrainingActionPerformed
         int selectedRow = requestTable.getSelectedRow();
         TrainingRequest request= null;
         if(selectedRow<0) {
@@ -182,13 +200,9 @@ private JPanel userProcessContainer;
 
         if (selectedRow >= 0) {
             request = (TrainingRequest) requestTable.getValueAt(selectedRow, 0);
-            //             AddJobRequestDetailsJPanel AddJobRequestDetailsJPanel = new AddJobRequestDetailsJPanel(userProcessContainer,userAccount,organization, enterprise,business,request);
-            //            userProcessContainer.add("AddJobRequestDetailsJPanel", AddJobRequestDetailsJPanel);
-            //            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            //            layout.next(userProcessContainer);
-            //request.setStatus("Processing");
+            
         }
-    }//GEN-LAST:event_btnAssignJobActionPerformed
+    }//GEN-LAST:event_btnAssignTrainingActionPerformed
 
     private void backJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJBtnActionPerformed
         // TODO add your handling code here:
@@ -200,7 +214,7 @@ private JPanel userProcessContainer;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJBtn;
-    private javax.swing.JButton btnAssignJob;
+    private javax.swing.JButton btnAssignTraining;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

@@ -33,7 +33,7 @@ private JPanel userProcessContainer;
     /**
      * Creates new form ManageTraining
      */
-    public ManageTrainingRequestJPanel (JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem ecoSystem) {
+    public ManageTrainingRequestJPanel (JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem business) {
          initComponents();
          this.userProcessContainer = userProcessContainer;
         this.organization =(TrainingRequestManagerOrganization) organization;

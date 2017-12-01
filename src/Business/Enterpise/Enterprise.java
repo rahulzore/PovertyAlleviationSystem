@@ -28,6 +28,8 @@ public abstract class Enterprise extends Organization {
         Curator("Curator"),
         JobProvider("Job Provider"),
         JobProcessManager("Job Process Manager"),
+        TrainingProcessManager("Training Process Manager"),
+        TrainingProvider("Training Provider"),
 	Restaurant("Restaurant"),
         NGO("NGO");
 

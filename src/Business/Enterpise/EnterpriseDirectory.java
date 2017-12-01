@@ -46,6 +46,14 @@ public class EnterpriseDirectory {
             enterprise = new NGOEnterprise(name, networkName);
             enterpriseList.add(enterprise);
         }
+         else if (type == Enterprise.EnterpriseType.TrainingProcessManager){
+            enterprise = new TrainingProcessManagerEnterprise(name, networkName);
+            enterpriseList.add(enterprise);
+        }
+         else if (type == Enterprise.EnterpriseType.TrainingProvider){
+            enterprise = new TrainingProviderEnterprise(name, networkName);
+            enterpriseList.add(enterprise);
+        }
         return enterprise;
     }
 }
