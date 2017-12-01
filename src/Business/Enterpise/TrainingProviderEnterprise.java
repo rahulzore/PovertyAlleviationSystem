@@ -19,10 +19,10 @@ public class TrainingProviderEnterprise extends Enterprise{
     }
 
     public enum TrainingProviderType{
-        Construction("Construction Training Provider"),
-        Carpentry("Carpentry Training Provider"),
-        General("General Training Provider"),
-        Secuity("Security Training Provider");
+        Carpentry("Carpentry"),
+        Security("Security"),
+        Construction("Construction"),
+        General("General");
         
         private String value;
         

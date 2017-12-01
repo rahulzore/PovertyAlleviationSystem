@@ -40,10 +40,10 @@ private JPanel userProcessContainer;
     }
     private void populateTrainingCombo(){
         availabeInstCombo.removeAllItems();
-        if(tinteresttxt.getText().equalsIgnoreCase("Carpentry"))
+        if(request.getQuestionaire().getTrainingQuestionaire().getInterest().equalsIgnoreCase("Carpentry"))
         {
             for(Organization org : enterprise.getOrganizationList().getOrganizationList()){
-                if(org.getType().getValue().equalsIgnoreCase("Carpentry Organization")){
+                if(org.getType().getValue().equalsIgnoreCase("Carpentry")){
                     availabeInstCombo.addItem(org);
                 }
             }
@@ -51,7 +51,7 @@ private JPanel userProcessContainer;
         else if (tinteresttxt.getText().equalsIgnoreCase("Security"))
         {
             for(Organization org : enterprise.getOrganizationList().getOrganizationList()){
-                if(org.getType().getValue().equalsIgnoreCase("Security Organization")){
+                if(org.getType().getValue().equalsIgnoreCase("Security")){
                     availabeInstCombo.addItem(org);
                 }
             }
@@ -59,7 +59,7 @@ private JPanel userProcessContainer;
         else if (tinteresttxt.getText().equalsIgnoreCase("Construction"))
         {
             for(Organization org : enterprise.getOrganizationList().getOrganizationList()){
-                if(org.getType().getValue().equalsIgnoreCase("Construction Organization")){
+                if(org.getType().getValue().equalsIgnoreCase("Construction")){
                     availabeInstCombo.addItem(org);
                 }
             }
@@ -67,7 +67,7 @@ private JPanel userProcessContainer;
         else if (tinteresttxt.getText().equalsIgnoreCase("General"))
         {
             for(Organization org : enterprise.getOrganizationList().getOrganizationList()){
-                if(org.getType().getValue().equalsIgnoreCase("General Organization")){
+                if(org.getType().getValue().equalsIgnoreCase("General")){
                     availabeInstCombo.addItem(org);
                 }
             }

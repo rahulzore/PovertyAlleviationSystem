@@ -55,10 +55,10 @@ public abstract class Organization {
         RaceBased("Race Based NGO"),
         Childern("Children NGO"),
         Homeless("Homeless NGO"),
-        Carpentry("Carpentry Organization"),
-        Security("Security Organization"),
-        Construction("Construction Organization"),
-        General("General Organization");
+        Carpentry("Carpentry"),
+        Security("Security"),
+        Construction("Construction"),
+        General("General");
         
         private String value;
         
