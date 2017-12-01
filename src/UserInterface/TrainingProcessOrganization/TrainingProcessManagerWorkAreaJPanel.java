@@ -11,6 +11,7 @@ import Business.Organization.JobProcessOrganization;
 import Business.Organization.Organization;
 import Business.Organization.TrainingProcessOrganization;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.TrainingRequest;
 import UserInterface.TrainerProviderOrganization.ProvideTrainingRequestJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -25,16 +26,18 @@ private JPanel userProcessContainer;
     private Enterprise enterprise;
     private UserAccount userAccount;
     EcoSystem business;
+    TrainingRequest request;
     /**
      * Creates new form TrainingProcessManagerWorkAreaJPanel
      */
-    public TrainingProcessManagerWorkAreaJPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem ecoSystem) {
+    public TrainingProcessManagerWorkAreaJPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem ecoSystem,TrainingRequest request) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.organization =(TrainingProcessOrganization) organization;
         this.enterprise = enterprise;
         this.userAccount = userAccount;
         this.business = ecoSystem;
+        this.request = request;
         valueLabel.setText(enterprise.getName());
     }
 
@@ -129,7 +132,7 @@ private JPanel userProcessContainer;
 
     private void btnManageRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRequestActionPerformed
         // TODO add your handling code here:
-        ProvideTrainingRequestJPanel ProcessTrainingRequestJPanel = new ProvideTrainingRequestJPanel(userProcessContainer,userAccount,organization, enterprise,business);
+        ProcessTrainingRequestJPanel ProcessTrainingRequestJPanel = new ProcessTrainingRequestJPanel(userProcessContainer, userAccount, organization, enterprise,  business, request);
         userProcessContainer.add("ProcessTrainingRequestJPanel", ProcessTrainingRequestJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
