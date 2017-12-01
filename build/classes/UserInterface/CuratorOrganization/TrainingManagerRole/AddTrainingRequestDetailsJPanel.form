@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="trainingCombo">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="disabilityCombo">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="specificCombo">
+    </Component>
+  </NonVisualComponents>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -135,7 +143,7 @@
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="trainingType" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                              <Component id="skillLabel" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="receivedTrainingYes" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -158,7 +166,7 @@
                               <Component id="receivedTrainingNo" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                          <Component id="skillLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="trainingType" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="161" max="32767" attributes="0"/>
@@ -174,15 +182,27 @@
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="receivedTrainingNo">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="trainingCombo"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="No"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="receivedTrainingNoActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="receivedTrainingYes">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="trainingCombo"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Yes"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="receivedTrainingYesActionPerformed"/>
+                  </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel9">
+                <Component class="javax.swing.JLabel" name="skillLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="In which field have you received training ?"/>
                     <Property name="enabled" type="boolean" value="false"/>
@@ -230,7 +250,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="disabilityNo" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="disableLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="disabilityType" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="533" max="32767" attributes="0"/>
@@ -248,7 +268,7 @@
                               <Component id="disabilityNo" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                          <Component id="disableLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="disabilityType" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="154" max="32767" attributes="0"/>
@@ -264,15 +284,27 @@
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="disabilityNo">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="disabilityCombo"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="No"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="disabilityNoActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="disabilityYes">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="disabilityCombo"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Yes"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="disabilityYesActionPerformed"/>
+                  </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel8">
+                <Component class="javax.swing.JLabel" name="disableLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="What kind of disability do you have ?"/>
                     <Property name="enabled" type="boolean" value="false"/>
@@ -450,7 +482,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="specificComboNo" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="seekLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="specificInterestTxt" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="412" max="32767" attributes="0"/>
@@ -468,7 +500,7 @@
                               <Component id="specificComboNo" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          <Component id="seekLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Component id="specificInterestTxt" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="168" max="32767" attributes="0"/>
@@ -484,20 +516,32 @@
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="specificComboYes">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="specificCombo"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Yes"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="specificComboYesActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="specificComboNo">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="specificCombo"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="No"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="specificComboNoActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="specificInterestTxt">
                   <Properties>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel5">
+                <Component class="javax.swing.JLabel" name="seekLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Please enter your field of Interest."/>
                     <Property name="enabled" type="boolean" value="false"/>

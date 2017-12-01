@@ -3,20 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/sanch/AEDFinalProject/poverty_alleviation_project/src/Business/WorkQueue/WorkQueue.java</file>
-            <file>file:/C:/Users/sanch/AEDFinalProject/poverty_alleviation_project/src/UserInterface/JobProcessOrganization/ProcessJobRequestJPanel.java</file>
-            <file>file:/C:/Users/sanch/AEDFinalProject/poverty_alleviation_project/src/UserInterface/TrainingProcessOrganization/ProcessTrainingRequestJPanel.java</file>
-            <file>file:/C:/Users/sanch/AEDFinalProject/poverty_alleviation_project/src/Business/Network/Network.java</file>
-            <file>file:/C:/Users/sanch/AEDFinalProject/poverty_alleviation_project/src/Business/Organization/Organization.java</file>
-            <file>file:/C:/Users/sanch/AEDFinalProject/poverty_alleviation_project/src/UserInterface/JobProcessOrganization/JobProcessManagerWorkAreaJPanel.java</file>
-            <file>file:/C:/Users/sanch/AEDFinalProject/poverty_alleviation_project/src/Business/Questionnaire/TrainingQuestionaire.java</file>
-            <file>file:/C:/Users/sanch/AEDFinalProject/poverty_alleviation_project/src/Business/Role/JobProcessManagerRole.java</file>
-            <file>file:/C:/Users/sanch/AEDFinalProject/poverty_alleviation_project/src/Business/Organization/TrainingProcessOrganization.java</file>
-            <file>file:/C:/Users/sanch/AEDFinalProject/poverty_alleviation_project/src/UserInterface/TrainingProcessOrganization/TrainingProcessManagerWorkAreaJPanel.java</file>
-            <file>file:/C:/Users/sanch/AEDFinalProject/poverty_alleviation_project/src/Business/Organization/OrganizationDirectory.java</file>
-            <file>file:/C:/Users/sanch/AEDFinalProject/poverty_alleviation_project/src/Business/Role/Role.java</file>
-            <file>file:/C:/Users/sanch/AEDFinalProject/poverty_alleviation_project/src/Business/Role/TrainingProcessManagerRole.java</file>
-            <file>file:/C:/Users/sanch/AEDFinalProject/poverty_alleviation_project/src/Business/WorkQueue/WorkRequest.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/Business/WorkQueue/TrainingRequest.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/JobProviderOrganization/ProvideJobRequestJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/TrainerProviderOrganization/TrainingProviderWorkAreaJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/CuratorOrganization/JobManagerRole/ManageJobRequestJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/TrainingRequestManager/TrainingRequestWorkAreaJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/Business/WorkQueue/WorkRequest.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/JobProcessOrganization/JobProcessManagerWorkAreaJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/CuratorOrganization/TrainingManagerRole/ManageTrainingRequestJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/CuratorOrganization/TrainingManagerRole/TrainingRequestWorkAreaJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/CuratorOrganization/JobManagerRole/JobRequestManagerWorkAreaJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/TrainerProviderOrganization/ProcessTrainingRequestJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/Business/WorkQueue/JobWorkRequest.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/TrainingRequestManager/AddTrainingRequestDetailsJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/JobProcessOrganization/ProcessJobRequestJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/CuratorOrganization/TrainingManagerRole/AddTrainingRequestDetailsJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/TrainingRequestManager/ManageTrainingRequestJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/JobProviderOrganization/JobProviderWorkAreaJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/TrainingProcessOrganization/ProcessTrainingRequestJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/TrainingProcessOrganization/TrainingProcessManagerWorkAreaJPanel.java</file>
+            <file>file:/S:/AED_Final/poverty_alleviation_project/src/UserInterface/CuratorOrganization/JobManagerRole/AddJobRequestDetailsJPanel.java</file>
         </group>
     </open-files>
 </project-private>

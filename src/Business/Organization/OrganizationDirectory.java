@@ -69,6 +69,15 @@ public class OrganizationDirectory {
             organization = new HomelessNGOOrganization(name);
             organizationList.add(organization);
         }
+        else if (type.getValue().equals(Organization.Type.TrainingProcessManager.getValue())){
+            organization = new TrainingProcessOrganization(name);
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(Organization.Type.TrainingProvider.getValue())){
+            organization = new TrainingProviderOrganization(name);
+            organizationList.add(organization);
+        }
+        
         
         return organization;
     }
