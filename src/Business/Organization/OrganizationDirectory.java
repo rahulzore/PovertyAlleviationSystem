@@ -9,6 +9,10 @@ import Business.Organization.NGO.ChildrenNGOOrganization;
 import Business.Organization.NGO.HomelessNGOOrganization;
 import Business.Organization.NGO.OldAgeNGOOrganization;
 import Business.Organization.NGO.RaceNGOOrganization;
+import Business.Organization.TrainingProvider.CarpentryTrainingOrganization;
+import Business.Organization.TrainingProvider.ConstructionTrainingOrganization;
+import Business.Organization.TrainingProvider.GeneralTrainingOrganization;
+import Business.Organization.TrainingProvider.SecurityTrainingOrganization;
 import com.db4o.collections.ActivatableArrayList;
 import java.util.ArrayList;
 
@@ -75,6 +79,22 @@ public class OrganizationDirectory {
         }
         else if (type.getValue().equals(Organization.Type.TrainingProvider.getValue())){
             organization = new TrainingProviderOrganization(name);
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(Organization.Type.Carpentry.getValue())){
+            organization = new CarpentryTrainingOrganization(name);
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(Organization.Type.Construction.getValue())){
+            organization = new ConstructionTrainingOrganization(name);
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(Organization.Type.Security.getValue())){
+            organization = new SecurityTrainingOrganization(name);
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(Organization.Type.General.getValue())){
+            organization = new GeneralTrainingOrganization(name);
             organizationList.add(organization);
         }
         

@@ -28,22 +28,18 @@ private JPanel userProcessContainer;
     private Enterprise enterprise;
     private UserAccount userAccount;
     EcoSystem business;
-    TrainingRequest request;
-    
+
     /**
      * Creates new form ProcessTrainingRequestJPanel
      */
-    public ProcessTrainingRequestJPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem business, TrainingRequest request) {
+    public ProcessTrainingRequestJPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem business) {
 
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.organization =(TrainingProcessOrganization) organization;
         this.enterprise = enterprise;
         this.userAccount = userAccount;
-
         this.business = business;
-
-        this.request = request;
         valueLabel.setText(enterprise.getName());
         populateTrainingRequestTable();
     }
@@ -203,7 +199,10 @@ private void populateTrainingRequestTable(){
 
         if (selectedRow >= 0) {
             request = (TrainingRequest) requestTable.getValueAt(selectedRow, 0);
-            
+            TrainingSelectionJPanel panel = new TrainingSelectionJPanel(userProcessContainer, userAccount, organization, enterprise, business, request);
+            userProcessContainer.add("TrainingSelectionJPanel",panel);
+            CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
         }
     }//GEN-LAST:event_btnAssignTrainingActionPerformed
 

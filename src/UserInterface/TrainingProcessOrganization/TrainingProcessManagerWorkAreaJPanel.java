@@ -30,14 +30,13 @@ private JPanel userProcessContainer;
     /**
      * Creates new form TrainingProcessManagerWorkAreaJPanel
      */
-    public TrainingProcessManagerWorkAreaJPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem ecoSystem,TrainingRequest request) {
+    public TrainingProcessManagerWorkAreaJPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem ecoSystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.organization =(TrainingProcessOrganization) organization;
         this.enterprise = enterprise;
         this.userAccount = userAccount;
         this.business = ecoSystem;
-        this.request = request;
         valueLabel.setText(enterprise.getName());
     }
 
@@ -132,7 +131,7 @@ private JPanel userProcessContainer;
 
     private void btnManageRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRequestActionPerformed
         // TODO add your handling code here:
-        ProcessTrainingRequestJPanel ProcessTrainingRequestJPanel = new ProcessTrainingRequestJPanel(userProcessContainer, userAccount, organization, enterprise,  business, request);
+        ProcessTrainingRequestJPanel ProcessTrainingRequestJPanel = new ProcessTrainingRequestJPanel(userProcessContainer, userAccount, organization, enterprise,  business);
         userProcessContainer.add("ProcessTrainingRequestJPanel", ProcessTrainingRequestJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
