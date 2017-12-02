@@ -483,11 +483,11 @@
                                   <Component id="specificComboNo" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="seekLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
+
                               <Component id="trainingInterestCombo" alignment="0" min="-2" max="-2" attributes="0"/>
-=======
-                              <Component id="specificInterestTxt" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
->>>>>>> 6b90e50bec1b6f2c30e2b9a5f19db77bf1db2119
+
+                              
+
                           </Group>
                           <EmptySpace pref="412" max="32767" attributes="0"/>
                       </Group>
@@ -505,15 +505,13 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="seekLabel" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
+
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="trainingInterestCombo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="165" max="32767" attributes="0"/>
-=======
-                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                          <Component id="specificInterestTxt" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="168" max="32767" attributes="0"/>
->>>>>>> 6b90e50bec1b6f2c30e2b9a5f19db77bf1db2119
+
+                          
+
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -553,9 +551,9 @@
                   </Properties>
                 </Component>
 
-                <Component class="javax.swing.JComboBox" name="trainingInterestCombo">
+                <Component class="javax.swing.JComboBox" name="trainingInterestCombo"/>
 
-                <Component class="javax.swing.JLabel" name="seekLabel">
+                <Component class="javax.swing.JLabel" name="seekLabel"/>
 
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -578,5 +576,5 @@
         </Container>
       </SubComponents>
     </Container>
-  </SubComponents>
+  
 </Form>

@@ -484,10 +484,6 @@
                               </Group>
                               <Component id="seekLabel" alignment="0" min="-2" max="-2" attributes="0"/>
 
-                              <Component id="trainingInterestCombo" alignment="0" min="-2" max="-2" attributes="0"/>
-
-                              
-
                           </Group>
                           <EmptySpace pref="412" max="32767" attributes="0"/>
                       </Group>
@@ -505,12 +501,6 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="seekLabel" min="-2" max="-2" attributes="0"/>
-
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="trainingInterestCombo" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="165" max="32767" attributes="0"/>
-
-                          
 
                       </Group>
                   </Group>
@@ -544,37 +534,12 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="specificComboNoActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="seekLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Please enter your field of Interest."/>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-
-                <Component class="javax.swing.JComboBox" name="trainingInterestCombo"/>
-
-                <Component class="javax.swing.JLabel" name="seekLabel"/>
-
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="Carpentry"/>
-                        <StringItem index="1" value="Security"/>
-                        <StringItem index="2" value="Construction"/>
-                        <StringItem index="3" value="Other"/>
-                      </StringArray>
-                    </Property>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
+                
               </SubComponents>
             </Container>
           </SubComponents>
         </Container>
       </SubComponents>
     </Container>
-  
+  </SubComponents>
 </Form>
