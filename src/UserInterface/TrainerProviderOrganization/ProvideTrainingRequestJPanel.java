@@ -9,6 +9,7 @@ import Business.EcoSystem;
 import Business.Enterpise.Enterprise;
 import Business.Organization.JobProviderOrganization;
 import Business.Organization.Organization;
+import Business.Organization.TrainingProvider.SecurityTrainingOrganization;
 import Business.Organization.TrainingProviderOrganization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.JobWorkRequest;
@@ -25,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
  private JPanel userProcessContainer;
-    private TrainingProviderOrganization organization;
+    private SecurityTrainingOrganization organization;
     private Enterprise enterprise;
     private UserAccount userAccount;
     EcoSystem business;
@@ -35,25 +36,26 @@ public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
     public ProvideTrainingRequestJPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem ecoSystem) {
         initComponents();
            this.userProcessContainer = userProcessContainer;
-        this.organization =(TrainingProviderOrganization) organization;
+        this.organization =(SecurityTrainingOrganization) organization;
         this.enterprise = enterprise;
         this.userAccount = userAccount;
         this.business = ecoSystem;
         populateRequestTable();
         
     }
- private void populateRequestTable(){
+ public void populateRequestTable(){
         DefaultTableModel model = (DefaultTableModel) requestTable.getModel();
         
         model.setRowCount(0);
          //WorkRequest request =organization.getWorkQueue().getWorkRequestList()
                  for(WorkRequest request :organization.getWorkQueue().getWorkRequestList()){
-                     Object[] row = new Object[5];
+                     Object[] row = new Object[6];
                      row[0] =request;
                      row[1] = ((TrainingRequest)request).getQuestionaire().getPersonalQuestionnaire().getRequestType();
                       row[2]=request.getSender();
                     row[3]=request.getReceiver()==null?"Waiting to be assigned":request.getReceiver();
                     row[4]=request.getStatus();
+                    row[5]=((TrainingRequest)request).getTrainingResult();
                     model.addRow(row);
                  }
     }
@@ -94,11 +96,11 @@ public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Request ID", "Request Type", "Sender", "Receiver", "Status"
+                "Request ID", "Request Type", "Sender", "Receiver", "Status", "Result"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -106,6 +108,14 @@ public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(requestTable);
+        if (requestTable.getColumnModel().getColumnCount() > 0) {
+            requestTable.getColumnModel().getColumn(0).setResizable(false);
+            requestTable.getColumnModel().getColumn(1).setResizable(false);
+            requestTable.getColumnModel().getColumn(2).setResizable(false);
+            requestTable.getColumnModel().getColumn(3).setResizable(false);
+            requestTable.getColumnModel().getColumn(4).setResizable(false);
+            requestTable.getColumnModel().getColumn(5).setResizable(false);
+        }
 
         backJBtn.setText("<< Back");
         backJBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -200,7 +210,15 @@ public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
 
         if (selectedRow >= 0) {
             request = (TrainingRequest) requestTable.getValueAt(selectedRow, 0);
-           
+            if(request.getStatus().equalsIgnoreCase("Rejected") && request.getTrainingResult().equalsIgnoreCase("Sorry we can not process the request"))
+            {
+                JOptionPane.showMessageDialog(null, "Please select different request to process", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+           ConfirmTrainingRequestJPanel ConfirmTrainingRequestJPanel = new ConfirmTrainingRequestJPanel(userProcessContainer,userAccount,organization, enterprise,request);
+        userProcessContainer.add("ConfirmTrainingRequestJPanel", ConfirmTrainingRequestJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
         }
     }//GEN-LAST:event_btnAssignJobActionPerformed
 

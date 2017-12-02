@@ -552,11 +552,11 @@
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
-<<<<<<< HEAD
+
                 <Component class="javax.swing.JComboBox" name="trainingInterestCombo">
-=======
+
                 <Component class="javax.swing.JLabel" name="seekLabel">
->>>>>>> 6b90e50bec1b6f2c30e2b9a5f19db77bf1db2119
+
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">

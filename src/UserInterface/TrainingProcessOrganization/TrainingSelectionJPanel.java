@@ -8,10 +8,17 @@ package UserInterface.TrainingProcessOrganization;
 
 import Business.EcoSystem;
 import Business.Enterpise.Enterprise;
+import Business.Enterpise.TrainingProviderEnterprise;
+import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Organization.TrainingProcessOrganization;
+import Business.Organization.TrainingProvider.CarpentryTrainingOrganization;
+import Business.Organization.TrainingProvider.ConstructionTrainingOrganization;
+import Business.Organization.TrainingProvider.GeneralTrainingOrganization;
+import Business.Organization.TrainingProvider.SecurityTrainingOrganization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.TrainingRequest;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -40,38 +47,86 @@ private JPanel userProcessContainer;
     }
     private void populateTrainingCombo(){
         availabeInstCombo.removeAllItems();
-        if(request.getQuestionaire().getTrainingQuestionaire().getInterest().equalsIgnoreCase("Carpentry"))
-        {
-            for(Organization org : enterprise.getOrganizationList().getOrganizationList()){
-                if(org.getType().getValue().equalsIgnoreCase("Carpentry")){
-                    availabeInstCombo.addItem(org);
+        Enterprise tm =null;
+        for (Network network : business.getNetworkList()) {
+                for (Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()) {
+                    if(ent instanceof TrainingProviderEnterprise){
+                        tm = ent;
+                        break;
+                    }
                 }
+        }
+        if(request.getQuestionaire().getTrainingQuestionaire().getInterest() != null ){
+            if(request.getQuestionaire().getTrainingQuestionaire().getInterest().equalsIgnoreCase("Carpentry"))
+            {
+                for (Organization org : tm.getOrganizationList().getOrganizationList()) {
+                 if(org instanceof CarpentryTrainingOrganization )
+                        availabeInstCombo.addItem(org);
+                    }
+            }
+            else if(request.getQuestionaire().getTrainingQuestionaire().getInterest().equalsIgnoreCase("Security"))
+            {
+                for (Organization org : tm.getOrganizationList().getOrganizationList()) {
+                 if(org instanceof SecurityTrainingOrganization )
+                        availabeInstCombo.addItem(org);
+                    }
+            }
+            else if(request.getQuestionaire().getTrainingQuestionaire().getInterest().equalsIgnoreCase("Construction"))
+            {
+                for (Organization org : tm.getOrganizationList().getOrganizationList()) {
+                 if(org instanceof ConstructionTrainingOrganization )
+                        availabeInstCombo.addItem(org);
+                    }
+            }
+            else if(request.getQuestionaire().getTrainingQuestionaire().getInterest().equalsIgnoreCase("General"))
+            {
+                for (Organization org : tm.getOrganizationList().getOrganizationList()) {
+                 if(org instanceof GeneralTrainingOrganization )
+                        availabeInstCombo.addItem(org);
+                    }
             }
         }
-        else if (tinteresttxt.getText().equalsIgnoreCase("Security"))
+        else
         {
-            for(Organization org : enterprise.getOrganizationList().getOrganizationList()){
-                if(org.getType().getValue().equalsIgnoreCase("Security")){
-                    availabeInstCombo.addItem(org);
-                }
-            }
-    }
-        else if (tinteresttxt.getText().equalsIgnoreCase("Construction"))
-        {
-            for(Organization org : enterprise.getOrganizationList().getOrganizationList()){
-                if(org.getType().getValue().equalsIgnoreCase("Construction")){
-                    availabeInstCombo.addItem(org);
-                }
-            }
-    }
-        else if (tinteresttxt.getText().equalsIgnoreCase("General"))
-        {
-            for(Organization org : enterprise.getOrganizationList().getOrganizationList()){
-                if(org.getType().getValue().equalsIgnoreCase("General")){
-                    availabeInstCombo.addItem(org);
-                }
-            }
-    }
+            
+                    for (Organization org : tm.getOrganizationList().getOrganizationList()) {
+                        availabeInstCombo.addItem(org);
+                    }
+                
+        }
+        
+//        if(request.getQuestionaire().getTrainingQuestionaire().getInterest().equalsIgnoreCase("Carpentry"))
+//        {
+//            for(Organization org : enterprise.getOrganizationList().getOrganizationList()){
+//                if(org.getType().getValue().equalsIgnoreCase("Carpentry")){
+//                    availabeInstCombo.addItem(org);
+//                }
+//            }
+//        }
+//        else if (tinteresttxt.getText().equalsIgnoreCase("Security"))
+//        {
+//            for(Organization org : enterprise.getOrganizationList().getOrganizationList()){
+//                if(org.getType().getValue().equalsIgnoreCase("Security")){
+//                    availabeInstCombo.addItem(org);
+//                }
+//            }
+//    }
+//        else if (tinteresttxt.getText().equalsIgnoreCase("Construction"))
+//        {
+//            for(Organization org : enterprise.getOrganizationList().getOrganizationList()){
+//                if(org.getType().getValue().equalsIgnoreCase("Construction")){
+//                    availabeInstCombo.addItem(org);
+//                }
+//            }
+//    }
+//        else if (tinteresttxt.getText().equalsIgnoreCase("General"))
+//        {
+//            for(Organization org : enterprise.getOrganizationList().getOrganizationList()){
+//                if(org.getType().getValue().equalsIgnoreCase("General")){
+//                    availabeInstCombo.addItem(org);
+//                }
+//            }
+//    }
     }
     private void populateDetails(){
         nametxt.setText(request.getQuestionaire().getPersonalQuestionnaire().getName());
@@ -253,7 +308,20 @@ private JPanel userProcessContainer;
 
     private void assignTrainerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignTrainerBtnActionPerformed
         // TODO add your handling code here:
-        
+        Organization org = ( Organization) availabeInstCombo.getSelectedItem();
+        if(org != null){
+            org.getWorkQueue().getWorkRequestList().add(request);
+        }
+//        if(org instanceof CarpentryTrainingOrganization){
+//            
+//        }
+        //request.setMessage(message);
+        UserAccount res = org.getUserAccountList().getUserAccountList().get(0);
+        request.setReceiver(res);
+        request.setStatus("assigned");
+        UserAccount sd= request.getSender();
+    JOptionPane.showMessageDialog(null, "Distributor assigned successfully", "Warning", JOptionPane.INFORMATION_MESSAGE);
+
     }//GEN-LAST:event_assignTrainerBtnActionPerformed
 
     private void availabeInstComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_availabeInstComboActionPerformed

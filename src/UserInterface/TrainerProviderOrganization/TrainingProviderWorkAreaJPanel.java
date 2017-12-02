@@ -9,6 +9,7 @@ import Business.EcoSystem;
 import Business.Enterpise.Enterprise;
 import Business.Organization.JobProviderOrganization;
 import Business.Organization.Organization;
+import Business.Organization.TrainingProvider.SecurityTrainingOrganization;
 import Business.Organization.TrainingProviderOrganization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -20,7 +21,7 @@ import javax.swing.JPanel;
  */
 public class TrainingProviderWorkAreaJPanel extends javax.swing.JPanel {
  private JPanel userProcessContainer;
-    private TrainingProviderOrganization organization;
+    private SecurityTrainingOrganization organization;
     private Enterprise enterprise;
     private UserAccount userAccount;
     EcoSystem business;
@@ -30,7 +31,7 @@ public class TrainingProviderWorkAreaJPanel extends javax.swing.JPanel {
     public TrainingProviderWorkAreaJPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem ecoSystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.organization =(TrainingProviderOrganization) organization;
+        this.organization =(SecurityTrainingOrganization) organization;
         this.enterprise = enterprise;
         this.userAccount = userAccount;
         this.business = ecoSystem;

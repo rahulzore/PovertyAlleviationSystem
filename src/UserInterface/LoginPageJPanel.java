@@ -33,13 +33,26 @@ Enterprise enterprise;
     /**
      * Creates new form LoginPageJPanel
      */
-    public LoginPageJPanel(JPanel userProcessContainer,EcoSystem business) {
+    
+
+    LoginPageJPanel(JPanel userProcessContainer, EcoSystem system, String name) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
 //        this.userAccount = userAccount;
 //        this.organization = organization;
 //        this.enterprise = enterprise;
-        this.system = business;        
+        this.system = system; 
+        if(name.isEmpty())
+        {
+            userNameJTextField.setEditable(true);
+            userNameJTextField.setEnabled(true);
+        }
+        else
+        {
+            userNameJTextField.setEnabled(false);
+            userNameJTextField.setEditable(false);
+            userNameJTextField.setText(name);
+        }
     }
 
     
@@ -157,6 +170,15 @@ Enterprise enterprise;
                                 if(Organization.Type.JobProcessManager.getValue().equalsIgnoreCase(organization.getName())){
                                     inOrganization = organization;
                                     break;
+                                }
+
+                            }
+                        }
+                        else if ( Enterprise.EnterpriseType.TrainingProcessManager.equals(enterprise.getEnterpriseType())){
+                            for (Organization organization : enterprise.getOrganizationList().getOrganizationList()) {
+                                if(Organization.Type.TrainingProcessManager.getValue().equalsIgnoreCase(organization.getName())){
+                                    inOrganization = organization;
+                                    //break;
                                 }
 
                             }

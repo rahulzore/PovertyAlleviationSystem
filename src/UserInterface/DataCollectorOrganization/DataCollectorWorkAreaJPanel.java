@@ -110,7 +110,7 @@ public class DataCollectorWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(manageDetailsJButton)
                 .addGap(30, 30, 30)
                 .addComponent(manageRecordJButton)
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addGap(138, 138, 138))
         );
     }// </editor-fold>//GEN-END:initComponents
 

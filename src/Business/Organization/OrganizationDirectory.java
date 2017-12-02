@@ -74,7 +74,7 @@ public class OrganizationDirectory {
             organizationList.add(organization);
         }
         else if (type.getValue().equals(Organization.Type.TrainingProcessManager.getValue())){
-            organization = new TrainingProcessOrganization(name);
+            organization = new TrainingProcessOrganization(Organization.Type.TrainingProcessManager.getValue());
             organizationList.add(organization);
         }
         else if (type.getValue().equals(Organization.Type.TrainingProvider.getValue())){
@@ -97,7 +97,6 @@ public class OrganizationDirectory {
             organization = new GeneralTrainingOrganization(name);
             organizationList.add(organization);
         }
-        
         
         return organization;
     }
