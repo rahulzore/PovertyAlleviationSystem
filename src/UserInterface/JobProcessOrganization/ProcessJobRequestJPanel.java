@@ -46,7 +46,7 @@ private JPanel userProcessContainer;
         populateRequestTable();
     }
 
-    private void populateRequestTable(){
+    public void populateRequestTable(){
         DefaultTableModel model = (DefaultTableModel) requestTable.getModel();
         
         model.setRowCount(0);

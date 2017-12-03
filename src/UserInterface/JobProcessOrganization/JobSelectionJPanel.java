@@ -17,6 +17,8 @@ import Business.Organization.JobProviderOrganization;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.JobWorkRequest;
+import java.awt.CardLayout;
+import java.awt.Component;
 //import Business.WorkQueue.TrainingRequest;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -129,6 +131,7 @@ private JPanel userProcessContainer;
         nametxt = new javax.swing.JTextField();
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
+        backJBtn = new javax.swing.JButton();
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Assign Job Organization");
@@ -170,6 +173,13 @@ private JPanel userProcessContainer;
 
         valueLabel.setText("<value>");
 
+        backJBtn.setText("<< Back");
+        backJBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backJBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -185,22 +195,26 @@ private JPanel userProcessContainer;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(65, 65, 65)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel6)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(backJBtn)))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(assignTrainerBtn)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(availabeInstCombo, 0, 218, Short.MAX_VALUE)
-                                .addComponent(nametxt)
-                                .addComponent(tTypetxt)
-                                .addComponent(tDurationtxt)
-                                .addComponent(seatstxt)))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(availabeInstCombo, 0, 218, Short.MAX_VALUE)
+                            .addComponent(nametxt)
+                            .addComponent(tTypetxt)
+                            .addComponent(tDurationtxt)
+                            .addComponent(seatstxt)
+                            .addComponent(assignTrainerBtn, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap(285, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -235,7 +249,9 @@ private JPanel userProcessContainer;
                     .addComponent(jLabel6)
                     .addComponent(seatstxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54)
-                .addComponent(assignTrainerBtn)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(assignTrainerBtn)
+                    .addComponent(backJBtn))
                 .addContainerGap(170, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -267,10 +283,22 @@ private JPanel userProcessContainer;
 //        }
     }//GEN-LAST:event_availabeInstComboActionPerformed
 
+    private void backJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJBtnActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        Component componentArray[]=userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length-1];
+        ProcessJobRequestJPanel processJobRequestJPanel = (ProcessJobRequestJPanel)component;
+        processJobRequestJPanel.populateRequestTable();
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backJBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton assignTrainerBtn;
     private javax.swing.JComboBox availabeInstCombo;
+    private javax.swing.JButton backJBtn;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
