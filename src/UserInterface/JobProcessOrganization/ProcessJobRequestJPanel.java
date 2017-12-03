@@ -52,11 +52,10 @@ private JPanel userProcessContainer;
         model.setRowCount(0);
          //WorkRequest request =organization.getWorkQueue().getWorkRequestList()
                  for(WorkRequest request :organization.getWorkQueue().getWorkRequestList()){
-                     Object[] row = new Object[4];
+                     Object[] row = new Object[3];
                      row[0] =request;
-                     row[1] = ((JobWorkRequest)request).getQuestionaire().getPersonalQuestionnaire().getName();
-                     row[2] = ((JobWorkRequest)request).getQuestionaire().getPersonalQuestionnaire().getRequestType();
-                     row[3] = ((JobWorkRequest)request).getStatus();
+                     row[1] = ((JobWorkRequest)request).getQuestionaire().getPersonalQuestionnaire().getRequestType();
+                     row[2] = ((JobWorkRequest)request).getStatus();
                       model.addRow(row);
                  }
     }
@@ -95,11 +94,11 @@ private JPanel userProcessContainer;
 
             },
             new String [] {
-                "Request ID", "Individual Name", "Request Type", "Status"
+                "Individual Name", "Request Type", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -111,7 +110,6 @@ private JPanel userProcessContainer;
             requestTable.getColumnModel().getColumn(0).setResizable(false);
             requestTable.getColumnModel().getColumn(1).setResizable(false);
             requestTable.getColumnModel().getColumn(2).setResizable(false);
-            requestTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
         backJBtn.setText("<< Back");
@@ -187,11 +185,11 @@ private JPanel userProcessContainer;
 
         if (selectedRow >= 0) {
             request = (JobWorkRequest) requestTable.getValueAt(selectedRow, 0);
-            if(request.getStatus().equalsIgnoreCase("Processed"))
-            {
-                JOptionPane.showMessageDialog(null, "Job already assigned", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-            }
+//            if(request.getStatus().equalsIgnoreCase("Assigned"))
+//            {
+//                JOptionPane.showMessageDialog(null, "Job already assigned", "Warning", JOptionPane.WARNING_MESSAGE);
+//            return;
+//            }
             JobSelectionJPanel panel = new JobSelectionJPanel(userProcessContainer, userAccount, organization, enterprise, business, request);
             userProcessContainer.add("JobSelectionJPanel",panel);
             CardLayout layout = (CardLayout)userProcessContainer.getLayout();

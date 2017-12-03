@@ -209,7 +209,7 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
         PersonalQuestionnaire questionnaire = qt.getPersonalQuestionnaire();
        questionnaire.setName(name);
        questionnaire.setAge(age);
-       questionnaire.setEducation(educationCombo.getSelectedItem().toString());
+       questionnaire.setEducation(requestType);
        questionnaire.setGender(gender);
        questionnaire.setIncome(income);
        questionnaire.setRequestType(requestType);

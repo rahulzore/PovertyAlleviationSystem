@@ -26,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
  private JPanel userProcessContainer;
-    private Organization organization;
+    private SecurityTrainingOrganization organization;
     private Enterprise enterprise;
     private UserAccount userAccount;
     EcoSystem business;
@@ -36,7 +36,7 @@ public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
     public ProvideTrainingRequestJPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem ecoSystem) {
         initComponents();
            this.userProcessContainer = userProcessContainer;
-        this.organization =(Organization) organization;
+        this.organization =(SecurityTrainingOrganization) organization;
         this.enterprise = enterprise;
         this.userAccount = userAccount;
         this.business = ecoSystem;
@@ -206,7 +206,6 @@ public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
         if(selectedRow<0) {
             JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
-            
         }
 
         if (selectedRow >= 0) {
@@ -216,11 +215,6 @@ public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Please select different request to process", "Warning", JOptionPane.WARNING_MESSAGE);
                 return;
             }
-               if(request.getTrainingResult().equalsIgnoreCase("Accepted to Institute"))
-        {
-            JOptionPane.showMessageDialog(null, "Training Assigned already, please select a different row.","Warning", JOptionPane.PLAIN_MESSAGE);
-            return;
-        }
            ConfirmTrainingRequestJPanel ConfirmTrainingRequestJPanel = new ConfirmTrainingRequestJPanel(userProcessContainer,userAccount,organization, enterprise,request);
         userProcessContainer.add("ConfirmTrainingRequestJPanel", ConfirmTrainingRequestJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
