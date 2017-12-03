@@ -15,9 +15,10 @@ import java.util.ArrayList;
  * @author sanch
  */
 public class SecurityTrainingOrganization extends Organization {
-
+private int seats;
     public SecurityTrainingOrganization(String name) {
         super(name, "");
+        seats = 0;
     }
 
     @Override
@@ -27,5 +28,11 @@ public class SecurityTrainingOrganization extends Organization {
        return roles;
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+     public int getSeats() {
+        return seats;
+    }
+
+    public void setSeats(int seats) {
+        this.seats = seats;
+    }
 }

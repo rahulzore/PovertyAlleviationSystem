@@ -8,10 +8,13 @@ package UserInterface.TrainerProviderOrganization;
 import Business.Enterpise.Enterprise;
 import Business.Organization.Organization;
 import Business.Organization.TrainingProvider.SecurityTrainingOrganization;
+import Business.Organization.TrainingProviderOrganization;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.JobWorkRequest;
 import Business.WorkQueue.TrainingRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -20,7 +23,7 @@ import javax.swing.JPanel;
  */
 public class ConfirmTrainingRequestJPanel extends javax.swing.JPanel {
  private JPanel userProcessContainer;
-    private SecurityTrainingOrganization organization;
+    private Organization organization;
     private Enterprise enterprise;
     private UserAccount userAccount;
     private TrainingRequest request;
@@ -30,7 +33,7 @@ public class ConfirmTrainingRequestJPanel extends javax.swing.JPanel {
     public ConfirmTrainingRequestJPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise,TrainingRequest request) {
         initComponents();
          this.userProcessContainer = userProcessContainer;
-        this.organization =(SecurityTrainingOrganization) organization;
+        this.organization =organization;
         this.enterprise = enterprise;
         this.userAccount = userAccount;
         this.request = request;
@@ -46,9 +49,9 @@ public class ConfirmTrainingRequestJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtRequestType = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtSender = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         confirmationField = new javax.swing.JComboBox<>();
         backJBtn = new javax.swing.JButton();
@@ -57,13 +60,13 @@ public class ConfirmTrainingRequestJPanel extends javax.swing.JPanel {
 
         jLabel1.setText("Request Type:");
 
-        jTextField1.setText("jTextField1");
-        jTextField1.setEnabled(false);
+        txtRequestType.setText("jTextField1");
+        txtRequestType.setEnabled(false);
 
         jLabel2.setText("Sender:");
 
-        jTextField2.setText("jTextField1");
-        jTextField2.setEnabled(false);
+        txtSender.setText("jTextField1");
+        txtSender.setEnabled(false);
 
         jLabel3.setText("Confirm:");
 
@@ -109,8 +112,8 @@ public class ConfirmTrainingRequestJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnConfirm)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField1)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                                .addComponent(txtRequestType)
+                                .addComponent(txtSender, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
                                 .addComponent(confirmationField, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(118, Short.MAX_VALUE))
         );
@@ -122,11 +125,11 @@ public class ConfirmTrainingRequestJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRequestType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -148,6 +151,8 @@ public class ConfirmTrainingRequestJPanel extends javax.swing.JPanel {
         sysAdminwjp.populateRequestTable();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
+        txtRequestType.setText(((TrainingRequest)request).getQuestionaire().getPersonalQuestionnaire().getRequestType());
+        txtSender.setText(((TrainingRequest)request).getSender().getUserID());
     }//GEN-LAST:event_backJBtnActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
@@ -155,13 +160,16 @@ public class ConfirmTrainingRequestJPanel extends javax.swing.JPanel {
         String str = (String)confirmationField.getSelectedItem();
         if(str.equalsIgnoreCase("Yes"))
         {
+            request.setStatus("Processed");
             request.setTrainingResult("Accepted to Institute");
+            //((TrainingProviderOrganization) organization).
         }
         else
         {
             request.setStatus("Rejected");
             request.setTrainingResult("Sorry we can not process the request");
         }
+        JOptionPane.showMessageDialog(null, "Confirmed", "Warning", JOptionPane.PLAIN_MESSAGE);
     }//GEN-LAST:event_btnConfirmActionPerformed
 
 
@@ -173,7 +181,7 @@ public class ConfirmTrainingRequestJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txtRequestType;
+    private javax.swing.JTextField txtSender;
     // End of variables declaration//GEN-END:variables
 }

@@ -130,7 +130,7 @@ public class EnterpriseAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageEmployeeJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeJButtonActionPerformed
 
-        ManageEnterpriseEmployeeJPanel manageEmployeeJPanel = new ManageEnterpriseEmployeeJPanel(userProcessContainer, enterprise.getOrganizationList());
+        ManageEnterpriseEmployeeJPanel manageEmployeeJPanel = new ManageEnterpriseEmployeeJPanel(userProcessContainer, enterprise.getOrganizationList(),enterprise);
         userProcessContainer.add("manageEmployeeJPanel", manageEmployeeJPanel);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();

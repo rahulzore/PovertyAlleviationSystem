@@ -25,7 +25,7 @@ import javax.swing.JPanel;
  */
 public class JobProviderWorkAreaJPanel extends javax.swing.JPanel {
  private JPanel userProcessContainer;
-    private JobProviderOrganization organization;
+    private Organization organization;
     private Enterprise enterprise;
     private UserAccount userAccount;
     EcoSystem business;
@@ -40,7 +40,7 @@ public class JobProviderWorkAreaJPanel extends javax.swing.JPanel {
     public JobProviderWorkAreaJPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem ecoSystem) {
          initComponents();
          this.userProcessContainer = userProcessContainer;
-        this.organization =(JobProviderOrganization) organization;
+        this.organization =(Organization) organization;
         this.enterprise = enterprise;
         this.userAccount = userAccount;
         this.business = ecoSystem;

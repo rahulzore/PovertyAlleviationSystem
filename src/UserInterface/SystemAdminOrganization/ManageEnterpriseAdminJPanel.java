@@ -287,14 +287,14 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         if ( Enterprise.EnterpriseType.JobProcessManager.equals(enterprise.getEnterpriseType())){
             
                 r = new JobProcessManagerRole();
-                enterprise.getOrganizationList().createOrganization(Type.JobProcessManager,"");
+                enterprise.getOrganizationList().createOrganization(Type.JobProcessManager,null,"");
                //enterprise.getOrganizationList().createOrganization(Type.JobProvider,"");
             
         }
-        if ( Enterprise.EnterpriseType.TrainingProcessManager.equals(enterprise.getEnterpriseType())){
+        else if ( Enterprise.EnterpriseType.TrainingProcessManager.equals(enterprise.getEnterpriseType())){
             
                 r = new TrainingProcessManagerRole();
-                enterprise.getOrganizationList().createOrganization(Type.TrainingProcessManager,"");
+                enterprise.getOrganizationList().createOrganization(Type.TrainingProcessManager,null,"");
                
         }
         else

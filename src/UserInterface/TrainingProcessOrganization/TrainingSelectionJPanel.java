@@ -14,8 +14,10 @@ import Business.Organization.Organization;
 import Business.Organization.TrainingProcessOrganization;
 import Business.Organization.TrainingProvider.CarpentryTrainingOrganization;
 import Business.Organization.TrainingProvider.ConstructionTrainingOrganization;
+//import Business.Organization.TrainingProvider.CossssnstructionTrainingOrganization;
 import Business.Organization.TrainingProvider.GeneralTrainingOrganization;
 import Business.Organization.TrainingProvider.SecurityTrainingOrganization;
+import Business.Organization.TrainingProviderOrganization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.TrainingRequest;
 import javax.swing.JOptionPane;
@@ -32,6 +34,7 @@ private JPanel userProcessContainer;
     private UserAccount userAccount;
     EcoSystem business;
     TrainingRequest request;
+    private TrainingProviderOrganization selecteddropdownOrg;
     /** Creates new form TrainingSelectionJPanel */
     public TrainingSelectionJPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem business, TrainingRequest request) {
         initComponents();
@@ -132,7 +135,7 @@ private JPanel userProcessContainer;
         nametxt.setText(request.getQuestionaire().getPersonalQuestionnaire().getName());
        treceivedtxt.setText(request.getQuestionaire().getTrainingQuestionaire().getTrainingField());
        tinteresttxt.setText(request.getQuestionaire().getTrainingQuestionaire().getInterest());
-        
+        //seatstxt.setText(String.valueOf(selecteddropdownOrg.getSeats()));
         
     }
     
@@ -326,6 +329,11 @@ private JPanel userProcessContainer;
 
     private void availabeInstComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_availabeInstComboActionPerformed
         // TODO add your handling code here:
+        selecteddropdownOrg = (TrainingProviderOrganization) availabeInstCombo.getSelectedItem();
+//        if(selecteddropdownOrg != null)
+//        {
+//            seatstxt.setText(String.valueOf( selecteddropdownOrg.getSeats()));
+//        }
     }//GEN-LAST:event_availabeInstComboActionPerformed
 
 

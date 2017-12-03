@@ -75,7 +75,28 @@ public abstract class Organization {
             return value;
         }
     }
-    
+    public enum JobProviderType{
+        Carpentry("Carpentry"),
+        Security("Security"),
+        Construction("Construction"),
+        General("General"),
+        IT("IT");
+        
+        private String value;
+        
+        private JobProviderType(String value){
+            this.value = value;
+        }
+        
+        public String getValue(){
+            return value;
+        }
+        
+        @Override
+        public String toString(){
+            return value;
+        }
+    }
     public abstract ArrayList<Role> getSupportedRole();
 
     public String getName() {

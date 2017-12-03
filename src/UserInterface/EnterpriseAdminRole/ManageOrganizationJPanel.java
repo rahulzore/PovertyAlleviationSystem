@@ -9,10 +9,13 @@ import Business.Employee.Employee;
 import Business.Enterpise.CuratorEnterprise;
 import Business.Enterpise.Enterprise;
 import Business.Enterpise.Enterprise.EnterpriseType;
+import Business.Enterpise.JobProviderEnterprise;
+
 import Business.Enterpise.NGOEnterprise;
 import Business.Enterpise.TrainingProviderEnterprise;
 
 import Business.Organization.Organization;
+import Business.Organization.Organization.JobProviderType;
 import Business.Organization.Organization.Type;
 
 import Business.Organization.OrganizationDirectory;
@@ -68,7 +71,10 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
             }
         }
         else if(enterprise.getEnterpriseType().getValue().equals(EnterpriseType.JobProvider.getValue())){
-            organizationJComboBox.addItem(Organization.Type.JobProvider);
+            JobProviderEnterprise.JobProviderType type[]= JobProviderEnterprise.JobProviderType.values();
+            for(JobProviderEnterprise.JobProviderType nType : type){
+                organizationJComboBox.addItem(nType);
+            }
         }
         else if (enterprise.getEnterpriseType().getValue().equals(EnterpriseType.Restaurant.getValue())){
             organizationJComboBox.addItem(Organization.Type.Restaurant);
@@ -227,11 +233,21 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
             return;
 
         }
-        
+        if(enterprise instanceof JobProviderEnterprise)
+        {
+            for (JobProviderType jt : Organization.JobProviderType.values()){
+                if(jt.toString().equals(type)){
+                directory.createOrganization(null,jt, sname);
+            }
+            }
+        }
+        else
+        {
         for(Type t : Organization.Type.values()){
             if(t.toString().equals(type)){
-                directory.createOrganization(t, sname);
+                directory.createOrganization(t,null, sname);
             }
+        }
         }
 //        Object obj = (Object) organizationJComboBox.getSelectedItem();
 //        if(obj instanceof Organization.Type)
