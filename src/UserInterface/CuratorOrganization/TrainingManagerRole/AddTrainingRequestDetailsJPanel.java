@@ -42,6 +42,7 @@ private JPanel userProcessContainer;
         this.userAccount = userAccount;
         this.business = business;
         this.request = workrequest;
+        populateWorkRequestData();
     }
 
     /**
@@ -420,11 +421,51 @@ private JPanel userProcessContainer;
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    private void populateWorkRequestData(){
+        Questionnaire questionaire = request.getQuestionaire();
+        if(questionaire.isIsDetailsSet()){
+        String training = questionaire.getTrainingQuestionaire().getTrainingField().equalsIgnoreCase("None") ?"":questionaire.getTrainingQuestionaire().getTrainingField();
+        if(!training.equalsIgnoreCase("")){
+        trainingType.setSelectedItem(training );
+        trainingType.setEnabled(true);
+        receivedTrainingYes.setSelected(true);
+        
+        }
+        else
+        {
+            receivedTrainingYes.setSelected(false);
+        }
+        String disability = questionaire.getTrainingQuestionaire().getDisability().equalsIgnoreCase("None") ?"":questionaire.getTrainingQuestionaire().getDisability();
+        if(!disability.equalsIgnoreCase("")){
+            disabilityType.setEnabled(true);
+        disabilityType.setSelectedItem(disability );
+        disabilityYes.setSelected(true);
+        }
+        else
+        {
+            disabilityYes.setSelected(false);
+        }
+        String Interest = questionaire.getTrainingQuestionaire().getInterest().equalsIgnoreCase("None") ?"":questionaire.getTrainingQuestionaire().getDisability();
+        if(!Interest.equalsIgnoreCase("")){
+            trainingInterestCombo.setEnabled(true);
+        trainingInterestCombo.setSelectedItem(Interest );
+        specificComboYes.setSelected(true);
+        seekLabel.setEnabled(true);
+        }
+        else
+        {
+            specificComboYes.setSelected(false);
+        }
+         String duration =questionaire.getTrainingQuestionaire().getTrainingDuration().equalsIgnoreCase("None") ?"":questionaire.getTrainingQuestionaire().getTrainingDuration();
+        trainingDurationCombo.setSelectedItem(duration);
+        }
+        
+    }
     private void btnRequestJobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestJobActionPerformed
         // TODO add your handling code here:
 
         Questionnaire questionnaire = request.getQuestionaire();//business.getQuestionnaireList().addQuestionnaire();
+        questionnaire.setIsDetailsSet(true);
         TrainingQuestionaire trainingQuestionaire = questionnaire.getTrainingQuestionaire() ;
         trainingQuestionaire.setTrained(receivedTrainingYes.isSelected());
         trainingQuestionaire.setDisabled(disabilityYes.isSelected());
@@ -493,13 +534,13 @@ private JPanel userProcessContainer;
     private void specificComboYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specificComboYesActionPerformed
         // TODO add your handling code here:
           seekLabel.setEnabled(true);
-
+specificComboYes.setSelected(true);
     }//GEN-LAST:event_specificComboYesActionPerformed
 
     private void specificComboNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specificComboNoActionPerformed
         // TODO add your handling code here:
              seekLabel.setEnabled(false);
-
+            specificComboYes.setSelected(false);
     }//GEN-LAST:event_specificComboNoActionPerformed
 
     private void disabilityYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disabilityYesActionPerformed

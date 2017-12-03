@@ -10,6 +10,7 @@ package Business.Questionnaire;
  * @author sanch
  */
 public class Questionnaire {
+    private boolean isDetailsSet;
     private PersonalQuestionnaire personalQuestionnaire;
     private CriminalRelatedQuestionaire criminalRelatedQuestionaire;
     private DrugAbuseQuestionaire drugAbuseQuestionaire;
@@ -26,6 +27,7 @@ public class Questionnaire {
         familyBackgroundQuestionaire = new FamilyBackgroundQuestionaire();
         jobQuestionaire = new JobQuestionaire();
         trainingQuestionaire = new TrainingQuestionaire();
+        isDetailsSet = false;
     }
 
     public TrainingQuestionaire getTrainingQuestionaire() {
@@ -137,6 +139,14 @@ public class Questionnaire {
 
     public void setJobQuestionaire(JobQuestionaire jobQuestionaire) {
         this.jobQuestionaire = jobQuestionaire;
+    }
+
+    public boolean isIsDetailsSet() {
+        return isDetailsSet;
+    }
+
+    public void setIsDetailsSet(boolean isDetailsSet) {
+        this.isDetailsSet = isDetailsSet;
     }
     
 }

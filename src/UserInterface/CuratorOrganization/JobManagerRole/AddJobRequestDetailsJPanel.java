@@ -49,6 +49,7 @@ private JPanel userProcessContainer;
         this.userAccount = userAccount;
         this.business = business;
         this.request = workrequest;
+        populateWorkRequestData();
 //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -69,6 +70,7 @@ private JPanel userProcessContainer;
         buttonGroupDrugs = new javax.swing.ButtonGroup();
         buttonGroupCommDrugs = new javax.swing.ButtonGroup();
         buttonGroupComp = new javax.swing.ButtonGroup();
+        buttonGroupFamily = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         btnRequestJob = new javax.swing.JButton();
         backJBtn = new javax.swing.JButton();
@@ -86,10 +88,10 @@ private JPanel userProcessContainer;
         rbWriteYes = new javax.swing.JRadioButton();
         familyBackPanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jChkNuclear = new javax.swing.JCheckBox();
-        chkSibHld = new javax.swing.JCheckBox();
-        chkSingleParent = new javax.swing.JCheckBox();
-        chkExtended = new javax.swing.JCheckBox();
+        rbNuclear = new javax.swing.JRadioButton();
+        rbSibling = new javax.swing.JRadioButton();
+        rbSingleParent = new javax.swing.JRadioButton();
+        rbExtended = new javax.swing.JRadioButton();
         criminalPanel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         rbConvictedNo = new javax.swing.JRadioButton();
@@ -150,7 +152,7 @@ private JPanel userProcessContainer;
                 .addGroup(jobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbComputerYes)
                     .addComponent(rbComputerNo))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Job Information", jobPanel);
@@ -205,20 +207,24 @@ private JPanel userProcessContainer;
                 .addGroup(educationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbWriteYes)
                     .addComponent(rbWriteNo))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Education Information", educationPanel);
 
         jLabel3.setText("What Type of family you are in: ");
 
-        jChkNuclear.setText("Nuclear");
+        buttonGroupFamily.add(rbNuclear);
+        rbNuclear.setText("Nuclear");
 
-        chkSibHld.setText("Sibling HouseHold");
+        buttonGroupComp.add(rbSibling);
+        rbSibling.setText("Sibling HouseHold");
 
-        chkSingleParent.setText("Single Parent");
+        buttonGroupComp.add(rbSingleParent);
+        rbSingleParent.setText("Single Parent");
 
-        chkExtended.setText("Extended");
+        buttonGroupComp.add(rbExtended);
+        rbExtended.setText("Extended");
 
         javax.swing.GroupLayout familyBackPanelLayout = new javax.swing.GroupLayout(familyBackPanel);
         familyBackPanel.setLayout(familyBackPanelLayout);
@@ -227,15 +233,15 @@ private JPanel userProcessContainer;
             .addGroup(familyBackPanelLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jChkNuclear)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(chkSibHld)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(chkSingleParent)
+                .addComponent(rbNuclear)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(chkExtended)
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addComponent(rbSibling)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rbSingleParent)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rbExtended)
+                .addContainerGap(188, Short.MAX_VALUE))
         );
         familyBackPanelLayout.setVerticalGroup(
             familyBackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,11 +249,11 @@ private JPanel userProcessContainer;
                 .addContainerGap()
                 .addGroup(familyBackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jChkNuclear)
-                    .addComponent(chkSibHld)
-                    .addComponent(chkSingleParent)
-                    .addComponent(chkExtended))
-                .addContainerGap(119, Short.MAX_VALUE))
+                    .addComponent(rbNuclear)
+                    .addComponent(rbSibling)
+                    .addComponent(rbSingleParent)
+                    .addComponent(rbExtended))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Family Background Information", familyBackPanel);
@@ -283,7 +289,7 @@ private JPanel userProcessContainer;
                 .addGroup(criminalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbConvictedYes)
                     .addComponent(rbConvictedNo))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Criminal Information", criminalPanel);
@@ -338,7 +344,7 @@ private JPanel userProcessContainer;
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbChkDrugCommYes)
                     .addComponent(rbChkDrugCommNo))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("DrugAbuse Information", jPanel1);
@@ -381,11 +387,45 @@ private JPanel userProcessContainer;
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    private void populateWorkRequestData(){
+        Questionnaire questionaire = request.getQuestionaire();
+        if(questionaire.isIsDetailsSet()){
+        rbComputerYes.setSelected(questionaire.getJobQuestionaire().isIsComputer());
+        rbReadYes.setSelected(questionaire.getEducationQuestionaire().isIsRead());
+        rbWriteYes.setSelected(questionaire.getEducationQuestionaire().isIsWrite());
+        rbConvictedYes.setSelected(questionaire.getCriminalRelatedQuestionaire().isIsConvCrime());
+        rbDrugsYes.setSelected(questionaire.getDrugAbuseQuestionaire().isIsConsumeDrug());
+        rbChkDrugCommYes.setSelected(questionaire.getDrugAbuseQuestionaire().isIsComDrug());
+        rbComputerNo.setSelected(!questionaire.getJobQuestionaire().isIsComputer());
+        rbReadNo.setSelected(!questionaire.getEducationQuestionaire().isIsRead());
+        rbWriteNo.setSelected(!questionaire.getEducationQuestionaire().isIsWrite());
+        rbConvictedNo.setSelected(!questionaire.getCriminalRelatedQuestionaire().isIsConvCrime());
+        rbDrugsNo.setSelected(!questionaire.getDrugAbuseQuestionaire().isIsConsumeDrug());
+        rbChkDrugCommNo.setSelected(!questionaire.getDrugAbuseQuestionaire().isIsComDrug());
+        String str =questionaire.getFamilyBackgroundQuestionaire().getFamilyBackground();
+        if(str != null && str.equalsIgnoreCase("Nuclear"))
+        {
+            rbNuclear.setSelected(true);
+        }
+        else if(str != null && str.equalsIgnoreCase("Sibling"))
+        {
+            rbSibling.setSelected(true);
+        } 
+        else if(str != null && str.equalsIgnoreCase("Extended"))
+        {
+            rbExtended.setSelected(true);
+        } 
+        else if(str != null && str.equalsIgnoreCase("SingleParent"))
+        {
+            rbSingleParent.setSelected(true);
+        }
+        }
+    }
     private void btnRequestJobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestJobActionPerformed
         // TODO add your handling code here:
        
         Questionnaire questionnaire = request.getQuestionaire();//business.getQuestionnaireList().addQuestionnaire();
+        questionnaire.setIsDetailsSet(true);
         JobQuestionaire jobQuestionaire = questionnaire.getJobQuestionaire() ;
         jobQuestionaire.setIsComputer(rbComputerYes.isSelected());
         
@@ -394,7 +434,20 @@ private JPanel userProcessContainer;
         EducationQuestionaire.setIsWrite(rbWriteYes.isSelected());
         
         FamilyBackgroundQuestionaire FamilyBackgroundQuestionaire = questionnaire.getFamilyBackgroundQuestionaire();
-        FamilyBackgroundQuestionaire.setFamilyBackground("");
+        String strfamily="";
+        if(rbNuclear.isSelected()){
+        strfamily = rbNuclear.isSelected() ? "Nuclear" : "";
+        }
+        else if (rbSibling.isSelected()){
+            strfamily = rbSibling.isSelected() ? "Sibling" : "";
+        }
+        else if (rbExtended.isSelected()){
+            strfamily = rbExtended.isSelected() ? "Extended" : "";
+        }
+        else if (rbSingleParent.isSelected()){
+            strfamily = rbSingleParent.isSelected() ? "SingleParent" : "";
+        }
+        FamilyBackgroundQuestionaire.setFamilyBackground(strfamily);
         
         CriminalRelatedQuestionaire CriminalRelatedQuestionaire=questionnaire.getCriminalRelatedQuestionaire();
         CriminalRelatedQuestionaire.setIsConvCrime(rbConvictedYes.isSelected());
@@ -460,15 +513,12 @@ private JPanel userProcessContainer;
     private javax.swing.ButtonGroup buttonGroupComp;
     private javax.swing.ButtonGroup buttonGroupCrime;
     private javax.swing.ButtonGroup buttonGroupDrugs;
+    private javax.swing.ButtonGroup buttonGroupFamily;
     private javax.swing.ButtonGroup buttonGroupRead;
     private javax.swing.ButtonGroup buttonGroupWrite;
-    private javax.swing.JCheckBox chkExtended;
-    private javax.swing.JCheckBox chkSibHld;
-    private javax.swing.JCheckBox chkSingleParent;
     private javax.swing.JPanel criminalPanel;
     private javax.swing.JPanel educationPanel;
     private javax.swing.JPanel familyBackPanel;
-    private javax.swing.JCheckBox jChkNuclear;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -488,8 +538,12 @@ private JPanel userProcessContainer;
     private javax.swing.JRadioButton rbConvictedYes;
     private javax.swing.JRadioButton rbDrugsNo;
     private javax.swing.JRadioButton rbDrugsYes;
+    private javax.swing.JRadioButton rbExtended;
+    private javax.swing.JRadioButton rbNuclear;
     private javax.swing.JRadioButton rbReadNo;
     private javax.swing.JRadioButton rbReadYes;
+    private javax.swing.JRadioButton rbSibling;
+    private javax.swing.JRadioButton rbSingleParent;
     private javax.swing.JRadioButton rbWriteNo;
     private javax.swing.JRadioButton rbWriteYes;
     // End of variables declaration//GEN-END:variables
