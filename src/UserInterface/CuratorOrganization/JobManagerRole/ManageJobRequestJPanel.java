@@ -50,9 +50,11 @@ private JPanel userProcessContainer;
         model.setRowCount(0);
          //WorkRequest request =organization.getWorkQueue().getWorkRequestList()
                  for(WorkRequest request :organization.getWorkQueue().getWorkRequestList()){
-                     Object[] row = new Object[2];
+                     Object[] row = new Object[4];
                      row[0] =request;
-                     row[1] = ((JobWorkRequest)request).getQuestionaire().getPersonalQuestionnaire().getRequestType();
+                     row[1] = ((JobWorkRequest)request).getQuestionaire().getPersonalQuestionnaire().getName();
+                     row[2] = ((JobWorkRequest)request).getQuestionaire().getPersonalQuestionnaire().getRequestType();
+                     row[3] = ((JobWorkRequest)request).getStatus();
                       model.addRow(row);
                  }
     }
@@ -91,11 +93,11 @@ private JPanel userProcessContainer;
 
             },
             new String [] {
-                "Individual Name", "Request Type"
+                "Request ID", "Individual Name", "Request Type", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

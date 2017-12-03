@@ -437,7 +437,7 @@ private JPanel userProcessContainer;
             trainingQuestionaire.setDisability("None");
         }
         if(specificComboYes.isSelected()){
-
+        trainingInterestCombo.setEnabled(true);
         trainingQuestionaire.setInterest((String) trainingInterestCombo.getSelectedItem());
 
         }
@@ -493,6 +493,9 @@ private JPanel userProcessContainer;
     private void specificComboYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specificComboYesActionPerformed
         // TODO add your handling code here:
           seekLabel.setEnabled(true);
+          trainingInterestCombo.setEnabled(true);
+          
+          
 
     }//GEN-LAST:event_specificComboYesActionPerformed
 

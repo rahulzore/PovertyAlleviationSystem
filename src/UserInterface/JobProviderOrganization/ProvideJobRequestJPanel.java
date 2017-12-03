@@ -55,12 +55,13 @@ private JPanel userProcessContainer;
         model.setRowCount(0);
          //WorkRequest request =organization.getWorkQueue().getWorkRequestList()
                  for(WorkRequest request :organization.getWorkQueue().getWorkRequestList()){
-                     Object[] row = new Object[5];
+                     Object[] row = new Object[6];
                      row[0] =request;
-                     row[1] = ((JobWorkRequest)request).getQuestionaire().getPersonalQuestionnaire().getRequestType();
-                      row[2]=request.getSender();
-                    row[3]=request.getReceiver()==null?"Waiting to be assigned":request.getReceiver();
-                    row[4]=request.getStatus();
+                     row[1] = ((JobWorkRequest)request).getQuestionaire().getPersonalQuestionnaire().getName();
+                     row[2] = ((JobWorkRequest)request).getQuestionaire().getPersonalQuestionnaire().getRequestType();
+                      row[3]=request.getSender();
+                    row[4]=request.getReceiver()==null?"Waiting to be assigned":request.getReceiver();
+                    row[5]=request.getStatus();
                     model.addRow(row);
                  }
     }
@@ -99,11 +100,11 @@ private JPanel userProcessContainer;
 
             },
             new String [] {
-                "Request ID", "Request Type", "Sender", "Receiver", "Status"
+                "Request ID", "Individual Name", "Request Type", "Sender", "Receiver", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -190,6 +191,11 @@ private JPanel userProcessContainer;
                 JOptionPane.showMessageDialog(null, "Please select different request to process", "Warning", JOptionPane.WARNING_MESSAGE);
                 return;
             }
+                if((request.getStatus()).equalsIgnoreCase("Processed"))
+        {
+            JOptionPane.showMessageDialog(null, "Job Assigned already, please select a different row.","Warning", JOptionPane.PLAIN_MESSAGE);
+            return;
+        }
         ConfirmJobRequestJPanel ConfirmJobRequestJPanel = new ConfirmJobRequestJPanel(userProcessContainer,userAccount,organization, enterprise,request);
         userProcessContainer.add("ConfirmJobRequestJPanel", ConfirmJobRequestJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();

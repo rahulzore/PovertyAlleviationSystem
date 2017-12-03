@@ -65,9 +65,11 @@ private void populateRequestTable(){
                         
          //WorkRequest request =organization.getWorkQueue().getWorkRequestList()
                  for(WorkRequest request :worklist){
-                     Object[] row = new Object[2];
+                     Object[] row = new Object[4];
                      row[0] =request;
-                     row[1] = request.getQuestionaire().getPersonalQuestionnaire().getRequestType();
+                     row[1] = request.getQuestionaire().getPersonalQuestionnaire().getName();
+                     row[2] = request.getQuestionaire().getPersonalQuestionnaire().getRequestType();
+                     row[3] = request.getStatus();
                      model.addRow(row);
                  }
     }
@@ -92,11 +94,11 @@ private void populateRequestTable(){
 
             },
             new String [] {
-                "Individual Name", "Request Type"
+                "Request ID", "Individual Name", "Request Type", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
