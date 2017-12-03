@@ -15,11 +15,11 @@ import java.util.ArrayList;
  * @author sanch
  */
 public class GeneralTrainingOrganization extends Organization{
-    
+    private int seats;
 
     public GeneralTrainingOrganization(String name) {
         super(name, "");
-       
+        seats = 0;
     }
 
 
@@ -28,5 +28,11 @@ public class GeneralTrainingOrganization extends Organization{
   ArrayList<Role> roles = new ArrayList<>();
        roles.add(new TrainingProviderRole());
        return roles;    }
-    
+    public int getSeats() {
+        return seats;
+    }
+
+    public void setSeats(int seats) {
+        this.seats = seats;
+    }
 }

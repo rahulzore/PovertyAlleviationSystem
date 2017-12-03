@@ -13,6 +13,7 @@ import Business.Organization.DataCollectorOrganization;
 import Business.Organization.JobProcessOrganization;
 import Business.Organization.JobProviderOrganization;
 import Business.Organization.JobRequestManagerOrganization;
+import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.JobWorkRequest;
 import Business.WorkQueue.WorkRequest;
@@ -27,7 +28,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ProvideJobRequestJPanel extends javax.swing.JPanel {
 private JPanel userProcessContainer;
-    private JobProviderOrganization organization;
+    private Organization organization;
     private Enterprise enterprise;
     private UserAccount userAccount;
     EcoSystem business;
@@ -38,17 +39,17 @@ private JPanel userProcessContainer;
         initComponents();
     }
 
-    ProvideJobRequestJPanel(JPanel userProcessContainer, UserAccount userAccount, JobProviderOrganization organization, Enterprise enterprise, EcoSystem business) {
+    ProvideJobRequestJPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem business) {
         initComponents();
          this.userProcessContainer = userProcessContainer;
-        this.organization =(JobProviderOrganization) organization;
+        this.organization =organization;
         this.enterprise = enterprise;
         this.userAccount = userAccount;
         this.business = business;
         populateRequestTable();
     }
 
-    private void populateRequestTable(){
+    public void populateRequestTable(){
         DefaultTableModel model = (DefaultTableModel) requestTable.getModel();
         
         model.setRowCount(0);
@@ -184,11 +185,15 @@ private JPanel userProcessContainer;
         
         if (selectedRow >= 0) {
              request = (JobWorkRequest) requestTable.getValueAt(selectedRow, 0);
-//             AddJobRequestDetailsJPanel AddJobRequestDetailsJPanel = new AddJobRequestDetailsJPanel(userProcessContainer,userAccount,organization, enterprise,business,request);
-//            userProcessContainer.add("AddJobRequestDetailsJPanel", AddJobRequestDetailsJPanel);
-//            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-//            layout.next(userProcessContainer);
-            //request.setStatus("Processing");
+             if(request.getStatus().equalsIgnoreCase("Rejected") && request.getTestResult().equalsIgnoreCase("Sorry we can not process the request"))
+            {
+                JOptionPane.showMessageDialog(null, "Please select different request to process", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+        ConfirmJobRequestJPanel ConfirmJobRequestJPanel = new ConfirmJobRequestJPanel(userProcessContainer,userAccount,organization, enterprise,request);
+        userProcessContainer.add("ConfirmJobRequestJPanel", ConfirmJobRequestJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
         }
     }//GEN-LAST:event_btnAssignJobActionPerformed
 

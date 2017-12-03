@@ -206,7 +206,7 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
        String requestType=jobRadioButton.isSelected() ? "job":"edu";
        
        Questionnaire qt = business.getQuestionnaireList().addQuestionnaire();
-        PersonalQuestionnaire questionnaire = new PersonalQuestionnaire();
+        PersonalQuestionnaire questionnaire = qt.getPersonalQuestionnaire();
        questionnaire.setName(name);
        questionnaire.setAge(age);
        questionnaire.setEducation(requestType);
@@ -216,16 +216,16 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
        qt.setPersonalQuestionnaire(questionnaire);
        Organization org = null;
        
-       for (Organization organization : enterprise.getOrganizationList().getOrganizationList()){
+       for (Organization og : enterprise.getOrganizationList().getOrganizationList()){
             if(requestType.equalsIgnoreCase("job")){
-           if (organization instanceof JobRequestManagerOrganization){
-                org = organization;
+           if (og instanceof JobRequestManagerOrganization){
+                org = og;
                 break;
             }
             }
             else{
-               if (organization instanceof TrainingRequestManagerOrganization){
-                org = organization;
+               if (og instanceof TrainingRequestManagerOrganization){
+                org = og;
                 break;
             }
             }

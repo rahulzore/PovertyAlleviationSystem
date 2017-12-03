@@ -15,9 +15,11 @@ import java.util.ArrayList;
  * @author sanch
  */
 public class TrainingProviderOrganization extends Organization{
+    
     public TrainingProviderOrganization(String name)
     {
         super(name,"");
+        
     }
 
     @Override
@@ -25,5 +27,8 @@ public class TrainingProviderOrganization extends Organization{
  ArrayList<Role> roles = new ArrayList<>();
        roles.add(new TrainingProviderRole());
        return roles;    }
+
+   
+    
     
 }

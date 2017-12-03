@@ -5,12 +5,18 @@
  */
 package Business.Organization;
 
+import Business.Organization.JobProvider.CarpentryJobOrganization;
+import Business.Organization.JobProvider.ConstructionJobOrganization;
+import Business.Organization.JobProvider.GeneralJobOrganization;
+import Business.Organization.JobProvider.ITJobOrganization;
+import Business.Organization.JobProvider.SecurityJobOrganization;
 import Business.Organization.NGO.ChildrenNGOOrganization;
 import Business.Organization.NGO.HomelessNGOOrganization;
 import Business.Organization.NGO.OldAgeNGOOrganization;
 import Business.Organization.NGO.RaceNGOOrganization;
 import Business.Organization.TrainingProvider.CarpentryTrainingOrganization;
 import Business.Organization.TrainingProvider.ConstructionTrainingOrganization;
+//import Business.Organization.TrainingProvider.CossssnstructionTrainingOrganization;
 import Business.Organization.TrainingProvider.GeneralTrainingOrganization;
 import Business.Organization.TrainingProvider.SecurityTrainingOrganization;
 import com.db4o.collections.ActivatableArrayList;
@@ -35,8 +41,9 @@ public class OrganizationDirectory {
         this.organizationList = organizationList;
     }
     
-     public Organization createOrganization(Organization.Type type,String name){
+     public Organization createOrganization(Organization.Type type,Organization.JobProviderType ty,String name){
         Organization organization = null;
+        if(type != null){
         if (type.getValue().equals(Organization.Type.DataCollector.getValue())){
             organization = new DataCollectorOrganization(name);
             organizationList.add(organization);
@@ -47,6 +54,10 @@ public class OrganizationDirectory {
         }
         else if (type.getValue().equals(Organization.Type.JobManager.getValue())){
             organization = new JobRequestManagerOrganization(name);
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(Organization.Type.JobProcessManager.getValue())){
+            organization = new JobProcessOrganization(name);
             organizationList.add(organization);
         }
         else if (type.getValue().equals(Organization.Type.TrainingManager.getValue())){
@@ -74,7 +85,7 @@ public class OrganizationDirectory {
             organizationList.add(organization);
         }
         else if (type.getValue().equals(Organization.Type.TrainingProcessManager.getValue())){
-            organization = new TrainingProcessOrganization(name);
+            organization = new TrainingProcessOrganization(Organization.Type.TrainingProcessManager.getValue());
             organizationList.add(organization);
         }
         else if (type.getValue().equals(Organization.Type.TrainingProvider.getValue())){
@@ -97,7 +108,30 @@ public class OrganizationDirectory {
             organization = new GeneralTrainingOrganization(name);
             organizationList.add(organization);
         }
-        
+        }
+        else
+        {
+            if (ty.getValue().equals(Organization.JobProviderType.Carpentry.getValue())){
+            organization = new CarpentryJobOrganization(name);
+            organizationList.add(organization);
+        }
+        else if (ty.getValue().equals(Organization.JobProviderType.Construction.getValue())){
+            organization = new ConstructionJobOrganization(name);
+            organizationList.add(organization);
+        }
+        else if (ty.getValue().equals(Organization.JobProviderType.Security.getValue())){
+            organization = new SecurityJobOrganization(name);
+            organizationList.add(organization);
+        }
+        else if (ty.getValue().equals(Organization.JobProviderType.General.getValue())){
+            organization = new GeneralJobOrganization(name);
+            organizationList.add(organization);
+        }
+            else if (ty.getValue().equals(Organization.JobProviderType.IT.getValue())){
+            organization = new ITJobOrganization(name);
+            organizationList.add(organization);
+        }
+        }
         
         return organization;
     }

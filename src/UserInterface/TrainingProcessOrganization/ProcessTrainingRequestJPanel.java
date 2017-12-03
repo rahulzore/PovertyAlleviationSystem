@@ -40,6 +40,7 @@ private JPanel userProcessContainer;
         this.enterprise = enterprise;
         this.userAccount = userAccount;
         this.business = business;
+        //this.request = request;
         valueLabel.setText(enterprise.getName());
         populateTrainingRequestTable();
     }
@@ -49,13 +50,14 @@ private void populateTrainingRequestTable(){
         model.setRowCount(0);
          //WorkRequest request =organization.getWorkQueue().getWorkRequestList()
                  for(WorkRequest request :organization.getWorkQueue().getWorkRequestList()){
-                     Object[] row = new Object[6];
+                     Object[] row = new Object[7];
                      row[0] =request;
                      row[1] = ((TrainingRequest)request).getQuestionaire().getPersonalQuestionnaire().getName();
                       row[2]=((TrainingRequest)request).getQuestionaire().getTrainingQuestionaire().getTrainingField();
                     row[3]=((TrainingRequest)request).getQuestionaire().getTrainingQuestionaire().getInterest();
                     row[4]=((TrainingRequest)request).getQuestionaire().getTrainingQuestionaire().getDisability();
                     row[5]=((TrainingRequest)request).getQuestionaire().getTrainingQuestionaire().getTrainingDuration();
+                    row[6]=((TrainingRequest)request).getStatus();
                     model.addRow(row);
                  }
     }
@@ -94,11 +96,11 @@ private void populateTrainingRequestTable(){
 
             },
             new String [] {
-                "Request Id", "Individual Name", "Training Received", "Training Interest", "Disabilty", "Availability"
+                "Request Id", "Individual Name", "Training Received", "Training Interest", "Disabilty", "Availability", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -106,6 +108,15 @@ private void populateTrainingRequestTable(){
             }
         });
         jScrollPane1.setViewportView(requestTable);
+        if (requestTable.getColumnModel().getColumnCount() > 0) {
+            requestTable.getColumnModel().getColumn(0).setResizable(false);
+            requestTable.getColumnModel().getColumn(1).setResizable(false);
+            requestTable.getColumnModel().getColumn(2).setResizable(false);
+            requestTable.getColumnModel().getColumn(3).setResizable(false);
+            requestTable.getColumnModel().getColumn(4).setResizable(false);
+            requestTable.getColumnModel().getColumn(5).setResizable(false);
+            requestTable.getColumnModel().getColumn(6).setResizable(false);
+        }
 
         backJBtn.setText("<< Back");
         backJBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -199,6 +210,11 @@ private void populateTrainingRequestTable(){
 
         if (selectedRow >= 0) {
             request = (TrainingRequest) requestTable.getValueAt(selectedRow, 0);
+            if(request.getStatus().equalsIgnoreCase("Assigned"))
+            {
+                JOptionPane.showMessageDialog(null, "Training already assigned", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+            }
             TrainingSelectionJPanel panel = new TrainingSelectionJPanel(userProcessContainer, userAccount, organization, enterprise, business, request);
             userProcessContainer.add("TrainingSelectionJPanel",panel);
             CardLayout layout = (CardLayout)userProcessContainer.getLayout();

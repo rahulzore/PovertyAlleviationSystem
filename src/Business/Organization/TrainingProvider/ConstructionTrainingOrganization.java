@@ -15,9 +15,10 @@ import java.util.ArrayList;
  * @author sanch
  */
 public class ConstructionTrainingOrganization extends Organization{
-
+private int seats;
     public ConstructionTrainingOrganization(String name) {
         super(name, "");
+        seats = 0;
     }
 
     @Override
@@ -26,5 +27,11 @@ public class ConstructionTrainingOrganization extends Organization{
        roles.add(new TrainingProviderRole());
        return roles;
     }
-    
+    public int getSeats() {
+        return seats;
+    }
+
+    public void setSeats(int seats) {
+        this.seats = seats;
+    }
 }

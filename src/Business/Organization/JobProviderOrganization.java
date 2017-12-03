@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class JobProviderOrganization extends Organization{
 
     public JobProviderOrganization(String name) {
-        super(Organization.Type.JobProvider.getValue(),"");
+        super(name,"");
     }
 
     @Override

@@ -7,6 +7,7 @@ package Business.Organization.TrainingProvider;
 
 import Business.Organization.Organization;
 import Business.Role.Role;
+import Business.Role.TrainingProviderRole;
 import java.util.ArrayList;
 
 /**
@@ -14,14 +15,24 @@ import java.util.ArrayList;
  * @author sanch
  */
 public class SecurityTrainingOrganization extends Organization {
-
+private int seats;
     public SecurityTrainingOrganization(String name) {
         super(name, "");
+        seats = 0;
     }
 
     @Override
     public ArrayList<Role> getSupportedRole() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         ArrayList<Role> roles = new ArrayList<>();
+       roles.add(new TrainingProviderRole());
+       return roles;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+     public int getSeats() {
+        return seats;
+    }
+
+    public void setSeats(int seats) {
+        this.seats = seats;
+    }
 }
