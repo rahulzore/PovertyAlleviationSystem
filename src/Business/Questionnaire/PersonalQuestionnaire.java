@@ -5,6 +5,8 @@
  */
 package Business.Questionnaire;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Nishad
@@ -16,6 +18,24 @@ public class PersonalQuestionnaire {
     public int income;
     public String education;
     public String requestType;
+    public double ssn;
+    private ImageIcon idProof;
+
+    public ImageIcon getIdProof() {
+        return idProof;
+    }
+
+    public void setIdProof(ImageIcon idProof) {
+        this.idProof = idProof;
+    }
+
+    public double getSsn() {
+        return ssn;
+    }
+
+    public void setSsn(double ssn) {
+        this.ssn = ssn;
+    }
     public String getName() {
         return name;
     }

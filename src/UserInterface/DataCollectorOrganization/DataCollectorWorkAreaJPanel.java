@@ -132,7 +132,7 @@ public class DataCollectorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageDetailsJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageDetailsJButtonActionPerformed
         // TODO add your handling code here:
-         ManageIndividualDetailsJPanel manageIndividualDetailsJPanel = new ManageIndividualDetailsJPanel(userProcessContainer,userAccount,organization, enterprise,business);
+        ManageIndividualDetailsJPanel manageIndividualDetailsJPanel = new ManageIndividualDetailsJPanel(userProcessContainer,userAccount,organization, enterprise,business);
         userProcessContainer.add("manageIndividualDetailsJPanel", manageIndividualDetailsJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

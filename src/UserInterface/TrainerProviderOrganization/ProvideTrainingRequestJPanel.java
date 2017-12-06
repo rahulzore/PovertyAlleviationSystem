@@ -25,14 +25,9 @@ import javax.swing.table.DefaultTableModel;
  * @author sanch
  */
 public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
-<<<<<<< HEAD
 
     private JPanel userProcessContainer;
     private Organization organization;
-=======
- private JPanel userProcessContainer;
-    private SecurityTrainingOrganization organization;
->>>>>>> c7bb0e14c612ed5da0c2fb03c6f347dddce98ffc
     private Enterprise enterprise;
     private UserAccount userAccount;
     EcoSystem business;
@@ -42,13 +37,8 @@ public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
      */
     public ProvideTrainingRequestJPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem ecoSystem) {
         initComponents();
-<<<<<<< HEAD
         this.userProcessContainer = userProcessContainer;
         this.organization = (Organization) organization;
-=======
-           this.userProcessContainer = userProcessContainer;
-        this.organization =(SecurityTrainingOrganization) organization;
->>>>>>> c7bb0e14c612ed5da0c2fb03c6f347dddce98ffc
         this.enterprise = enterprise;
         this.userAccount = userAccount;
         this.business = ecoSystem;
@@ -94,15 +84,14 @@ public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        enterpriseLabel.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
+        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setForeground(new java.awt.Color(153, 0, 51));
         enterpriseLabel.setText("EnterPrise :");
 
-        valueLabel.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
         valueLabel.setForeground(new java.awt.Color(153, 0, 51));
         valueLabel.setText("<value>");
 
-        btnAssignJob.setBackground(new java.awt.Color(51, 255, 51));
+        btnAssignJob.setBackground(new java.awt.Color(51, 255, 0));
         btnAssignJob.setText("Confirm Training");
         btnAssignJob.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,51 +135,48 @@ public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel1.setText("Provide Training");
+        jLabel1.setText("Manage Job Request");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(78, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(223, 223, 223)
-                        .addComponent(btnAssignJob)))
-                .addGap(149, 149, 149))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addComponent(backJBtn))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(268, 268, 268)
+                        .addGap(232, 232, 232)
                         .addComponent(jLabel1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(backJBtn)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(64, 64, 64)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnAssignJob)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(0, 163, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(40, 40, 40)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(valueLabel))
+                    .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAssignJob)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addComponent(backJBtn)
-                .addGap(67, 67, 67))
+                .addGap(40, 40, 40))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -203,10 +189,9 @@ public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(255, 255, 255))
+                .addGap(0, 266, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -222,7 +207,7 @@ public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 780, Short.MAX_VALUE)
+            .addGap(0, 776, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -237,10 +222,6 @@ public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
-<<<<<<< HEAD
-
-=======
->>>>>>> c7bb0e14c612ed5da0c2fb03c6f347dddce98ffc
         }
 
         if (selectedRow >= 0) {
@@ -249,7 +230,6 @@ public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Please select different request to process", "Warning", JOptionPane.WARNING_MESSAGE);
                 return;
             }
-<<<<<<< HEAD
             if (!(request.getTrainingResult()==null)) {
                 JOptionPane.showMessageDialog(null, "Training Assigned already, please select a different row.", "Warning", JOptionPane.PLAIN_MESSAGE);
                 return;
@@ -258,12 +238,6 @@ public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
             userProcessContainer.add("ConfirmTrainingRequestJPanel", ConfirmTrainingRequestJPanel);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
             layout.next(userProcessContainer);
-=======
-           ConfirmTrainingRequestJPanel ConfirmTrainingRequestJPanel = new ConfirmTrainingRequestJPanel(userProcessContainer,userAccount,organization, enterprise,request);
-        userProcessContainer.add("ConfirmTrainingRequestJPanel", ConfirmTrainingRequestJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
->>>>>>> c7bb0e14c612ed5da0c2fb03c6f347dddce98ffc
         }
     }//GEN-LAST:event_btnAssignJobActionPerformed
 

@@ -69,7 +69,6 @@ public class ManageRestaurantRequestJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Enter Leftover Food Details");
 
         jLabel2.setText("Food Name :");
@@ -84,7 +83,7 @@ public class ManageRestaurantRequestJPanel extends javax.swing.JPanel {
         buttonGroup1.add(nonVegRadioBtn);
         nonVegRadioBtn.setText("Non - Veg");
 
-        sendJBtn.setBackground(new java.awt.Color(255, 0, 0));
+        sendJBtn.setBackground(new java.awt.Color(51, 255, 51));
         sendJBtn.setText("Send Alert");
         sendJBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +91,7 @@ public class ManageRestaurantRequestJPanel extends javax.swing.JPanel {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(255, 0, 0));
         jButton1.setText("<< Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,38 +104,36 @@ public class ManageRestaurantRequestJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(209, 209, 209)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(232, 232, 232)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(foodNameTxtField, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                            .addComponent(quantityTxtField)
+                        .addGap(208, 208, 208)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(vegRadioBtn)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2))
                                 .addGap(18, 18, 18)
-                                .addComponent(nonVegRadioBtn))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(foodNameTxtField)
+                                    .addComponent(quantityTxtField)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(vegRadioBtn)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(nonVegRadioBtn))
+                                    .addComponent(sendJBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel1)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(285, 285, 285)
-                        .addComponent(sendJBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(364, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jButton1)))
+                .addContainerGap(214, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(53, 53, 53)
+                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(foodNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -148,11 +146,11 @@ public class ManageRestaurantRequestJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(quantityTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
-                .addComponent(sendJBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 265, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
+                .addComponent(sendJBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77)
                 .addComponent(jButton1)
-                .addContainerGap())
+                .addContainerGap(133, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -167,8 +165,8 @@ public class ManageRestaurantRequestJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
 
         if ((foodNameTxtField.getText().trim().isEmpty())
-                || (quantityTxtField.getText().trim().isEmpty())
-                ||((!vegRadioBtn.isSelected())&&(!nonVegRadioBtn.isSelected()))) {
+            || (quantityTxtField.getText().trim().isEmpty())
+            ||((!vegRadioBtn.isSelected())&&(!nonVegRadioBtn.isSelected()))) {
             JOptionPane.showMessageDialog(null, "All fields are mandatory!!");
             return;
         }
@@ -191,7 +189,7 @@ public class ManageRestaurantRequestJPanel extends javax.swing.JPanel {
         request.setFoodName(foodName);
         request.setFoodQty(foodQty);
         request.setFoodType(foodType);
-        
+
         Organization org = null;
         int count=0;
         for (Network nt : business.getNetworkList()) {
@@ -199,9 +197,9 @@ public class ManageRestaurantRequestJPanel extends javax.swing.JPanel {
                 for (Enterprise ent : nt.getEnterpriseDirectory().getEnterpriseList()) {
                     for (Organization organization : ent.getOrganizationList().getOrganizationList()) {
                         if ((organization instanceof ChildrenNGOOrganization)
-                                || (organization instanceof HomelessNGOOrganization)
-                                || (organization instanceof OldAgeNGOOrganization)
-                                || (organization instanceof RaceNGOOrganization)) {
+                            || (organization instanceof HomelessNGOOrganization)
+                            || (organization instanceof OldAgeNGOOrganization)
+                            || (organization instanceof RaceNGOOrganization)) {
                             org = organization;
                             //break;
                             count++;
@@ -215,7 +213,7 @@ public class ManageRestaurantRequestJPanel extends javax.swing.JPanel {
 
         if (org != null) {
             userAccount.getWorkQueue().getWorkRequestList().add(request);
-            
+
         }
         if(count>0){
             JOptionPane.showMessageDialog(null, "Alert sent successfully!!");

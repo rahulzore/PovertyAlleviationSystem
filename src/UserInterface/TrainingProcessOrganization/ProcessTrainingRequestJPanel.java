@@ -72,15 +72,20 @@ private void populateTrainingRequestTable(){
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
-        btnAssignTraining = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         requestTable = new javax.swing.JTable();
+        btnAssignTraining = new javax.swing.JButton();
         backJBtn = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Process Training Request");
 
         enterpriseLabel.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
         enterpriseLabel.setForeground(new java.awt.Color(153, 0, 51));
@@ -89,14 +94,6 @@ private void populateTrainingRequestTable(){
         valueLabel.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
         valueLabel.setForeground(new java.awt.Color(153, 0, 51));
         valueLabel.setText("<value>");
-
-        btnAssignTraining.setBackground(new java.awt.Color(51, 255, 51));
-        btnAssignTraining.setText("Assign Training");
-        btnAssignTraining.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAssignTrainingActionPerformed(evt);
-            }
-        });
 
         requestTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -115,15 +112,14 @@ private void populateTrainingRequestTable(){
             }
         });
         jScrollPane1.setViewportView(requestTable);
-        if (requestTable.getColumnModel().getColumnCount() > 0) {
-            requestTable.getColumnModel().getColumn(0).setResizable(false);
-            requestTable.getColumnModel().getColumn(1).setResizable(false);
-            requestTable.getColumnModel().getColumn(2).setResizable(false);
-            requestTable.getColumnModel().getColumn(3).setResizable(false);
-            requestTable.getColumnModel().getColumn(4).setResizable(false);
-            requestTable.getColumnModel().getColumn(5).setResizable(false);
-            requestTable.getColumnModel().getColumn(6).setResizable(false);
-        }
+
+        btnAssignTraining.setBackground(new java.awt.Color(51, 255, 51));
+        btnAssignTraining.setText("Assign Training");
+        btnAssignTraining.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAssignTrainingActionPerformed(evt);
+            }
+        });
 
         backJBtn.setBackground(new java.awt.Color(255, 0, 0));
         backJBtn.setText("<< Back");
@@ -132,11 +128,6 @@ private void populateTrainingRequestTable(){
                 backJBtnActionPerformed(evt);
             }
         });
-
-        jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Process Training Request");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -211,7 +202,7 @@ private void populateTrainingRequestTable(){
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 781, Short.MAX_VALUE)
+            .addGap(0, 780, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -233,7 +224,7 @@ private void populateTrainingRequestTable(){
             if(request.getStatus().equalsIgnoreCase("Assigned"))
             {
                 JOptionPane.showMessageDialog(null, "Training already assigned", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
+                return;
             }
             TrainingSelectionJPanel panel = new TrainingSelectionJPanel(userProcessContainer, userAccount, organization, enterprise, business, request);
             userProcessContainer.add("TrainingSelectionJPanel",panel);

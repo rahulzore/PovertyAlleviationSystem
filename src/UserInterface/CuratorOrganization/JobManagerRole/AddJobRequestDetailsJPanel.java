@@ -20,6 +20,9 @@ import Business.Questionnaire.Questionnaire;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.JobWorkRequest;
 import java.awt.CardLayout;
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -34,11 +37,13 @@ private JPanel userProcessContainer;
     private UserAccount userAccount;
     EcoSystem business;
     JobWorkRequest request;
+    
     /**
      * Creates new form ManageJobRequestDetailsJPanel
      */
     public AddJobRequestDetailsJPanel() {
         initComponents();
+       
     }
 
     AddJobRequestDetailsJPanel(JPanel userProcessContainer, UserAccount userAccount, JobRequestManagerOrganization organization, Enterprise enterprise, EcoSystem business,JobWorkRequest workrequest) {
@@ -50,6 +55,13 @@ private JPanel userProcessContainer;
         this.business = business;
         this.request = workrequest;
         populateWorkRequestData();
+   
+        ImageIcon icon=request.getQuestionaire().getPersonalQuestionnaire().getIdProof();
+        nameIndividual.setText(request.getQuestionaire().getPersonalQuestionnaire().getName());
+
+        idProof.setIcon(new ImageIcon(icon.getImage().getScaledInstance(99, 99, Image.SCALE_DEFAULT)));
+        
+      
 //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -103,6 +115,9 @@ private JPanel userProcessContainer;
         rbDrugsNo = new javax.swing.JRadioButton();
         rbChkDrugCommNo = new javax.swing.JRadioButton();
         rbChkDrugCommYes = new javax.swing.JRadioButton();
+        idProof = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        nameIndividual = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -111,7 +126,7 @@ private JPanel userProcessContainer;
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Enter Individual job Details");
 
-        btnRequestJob.setBackground(new java.awt.Color(102, 255, 51));
+        btnRequestJob.setBackground(new java.awt.Color(51, 255, 51));
         btnRequestJob.setText("Request Job");
         btnRequestJob.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,7 +164,7 @@ private JPanel userProcessContainer;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rbComputerNo))
                     .addComponent(jLabel2))
-                .addContainerGap(576, Short.MAX_VALUE))
+                .addContainerGap(577, Short.MAX_VALUE))
         );
         jobPanelLayout.setVerticalGroup(
             jobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,11 +175,7 @@ private JPanel userProcessContainer;
                 .addGroup(jobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbComputerYes)
                     .addComponent(rbComputerNo))
-<<<<<<< HEAD
-                .addContainerGap(171, Short.MAX_VALUE))
-=======
-                .addContainerGap(115, Short.MAX_VALUE))
->>>>>>> c7bb0e14c612ed5da0c2fb03c6f347dddce98ffc
+                .addContainerGap(242, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Job Information", jobPanel);
@@ -204,7 +215,7 @@ private JPanel userProcessContainer;
                         .addComponent(rbReadYes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rbReadNo)))
-                .addContainerGap(634, Short.MAX_VALUE))
+                .addContainerGap(635, Short.MAX_VALUE))
         );
         educationPanelLayout.setVerticalGroup(
             educationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,11 +232,7 @@ private JPanel userProcessContainer;
                 .addGroup(educationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbWriteYes)
                     .addComponent(rbWriteNo))
-<<<<<<< HEAD
-                .addContainerGap(130, Short.MAX_VALUE))
-=======
-                .addContainerGap(74, Short.MAX_VALUE))
->>>>>>> c7bb0e14c612ed5da0c2fb03c6f347dddce98ffc
+                .addContainerGap(201, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Education Information", educationPanel);
@@ -260,13 +267,8 @@ private JPanel userProcessContainer;
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rbSingleParent)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-<<<<<<< HEAD
-                .addComponent(chkExtended)
-                .addContainerGap(217, Short.MAX_VALUE))
-=======
                 .addComponent(rbExtended)
-                .addContainerGap(188, Short.MAX_VALUE))
->>>>>>> c7bb0e14c612ed5da0c2fb03c6f347dddce98ffc
+                .addGap(216, 216, 216))
         );
         familyBackPanelLayout.setVerticalGroup(
             familyBackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,19 +276,11 @@ private JPanel userProcessContainer;
                 .addContainerGap()
                 .addGroup(familyBackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-<<<<<<< HEAD
-                    .addComponent(jChkNuclear)
-                    .addComponent(chkSibHld)
-                    .addComponent(chkSingleParent)
-                    .addComponent(chkExtended))
-                .addContainerGap(191, Short.MAX_VALUE))
-=======
                     .addComponent(rbNuclear)
                     .addComponent(rbSibling)
                     .addComponent(rbSingleParent)
                     .addComponent(rbExtended))
-                .addContainerGap(135, Short.MAX_VALUE))
->>>>>>> c7bb0e14c612ed5da0c2fb03c6f347dddce98ffc
+                .addContainerGap(262, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Family Background Information", familyBackPanel);
@@ -313,7 +307,7 @@ private JPanel userProcessContainer;
                         .addComponent(rbConvictedYes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rbConvictedNo)))
-                .addContainerGap(550, Short.MAX_VALUE))
+                .addContainerGap(551, Short.MAX_VALUE))
         );
         criminalPanelLayout.setVerticalGroup(
             criminalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -324,11 +318,7 @@ private JPanel userProcessContainer;
                 .addGroup(criminalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbConvictedYes)
                     .addComponent(rbConvictedNo))
-<<<<<<< HEAD
-                .addContainerGap(171, Short.MAX_VALUE))
-=======
-                .addContainerGap(115, Short.MAX_VALUE))
->>>>>>> c7bb0e14c612ed5da0c2fb03c6f347dddce98ffc
+                .addContainerGap(242, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Criminal Information", criminalPanel);
@@ -368,7 +358,7 @@ private JPanel userProcessContainer;
                         .addComponent(rbDrugsYes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rbDrugsNo)))
-                .addContainerGap(375, Short.MAX_VALUE))
+                .addContainerGap(376, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -385,14 +375,16 @@ private JPanel userProcessContainer;
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbChkDrugCommYes)
                     .addComponent(rbChkDrugCommNo))
-<<<<<<< HEAD
-                .addContainerGap(125, Short.MAX_VALUE))
-=======
-                .addContainerGap(69, Short.MAX_VALUE))
->>>>>>> c7bb0e14c612ed5da0c2fb03c6f347dddce98ffc
+                .addGap(159, 159, 159))
         );
 
         jTabbedPane.addTab("DrugAbuse Information", jPanel1);
+
+        idProof.setText("jLabel9");
+
+        jLabel9.setText("Name: ");
+
+        nameIndividual.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -404,30 +396,38 @@ private JPanel userProcessContainer;
                         .addContainerGap()
                         .addComponent(jTabbedPane))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(backJBtn))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(230, 230, 230)
-                                .addComponent(jLabel1)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap()
+                        .addComponent(backJBtn))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(292, 292, 292)
+                        .addComponent(btnRequestJob))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(230, 230, 230)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(idProof, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(nameIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnRequestJob)
-                .addGap(158, 158, 158))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(nameIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idProof, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRequestJob)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(backJBtn)
                 .addContainerGap())
         );
@@ -448,6 +448,7 @@ private JPanel userProcessContainer;
         rbDrugsNo.setSelected(!questionaire.getDrugAbuseQuestionaire().isIsConsumeDrug());
         rbChkDrugCommNo.setSelected(!questionaire.getDrugAbuseQuestionaire().isIsComDrug());
         String str =questionaire.getFamilyBackgroundQuestionaire().getFamilyBackground();
+        
         if(str != null && str.equalsIgnoreCase("Nuclear"))
         {
             rbNuclear.setSelected(true);
@@ -564,6 +565,7 @@ private JPanel userProcessContainer;
     private javax.swing.JPanel criminalPanel;
     private javax.swing.JPanel educationPanel;
     private javax.swing.JPanel familyBackPanel;
+    private javax.swing.JLabel idProof;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -572,9 +574,11 @@ private JPanel userProcessContainer;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JPanel jobPanel;
+    private javax.swing.JTextField nameIndividual;
     private javax.swing.JRadioButton rbChkDrugCommNo;
     private javax.swing.JRadioButton rbChkDrugCommYes;
     private javax.swing.JRadioButton rbComputerNo;

@@ -58,7 +58,7 @@ private JPanel userProcessContainer;
         disabilityCombo = new javax.swing.ButtonGroup();
         specificCombo = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         btnRequestJob = new javax.swing.JButton();
         backJBtn = new javax.swing.JButton();
         jTabbedPane = new javax.swing.JTabbedPane();
@@ -89,13 +89,11 @@ private JPanel userProcessContainer;
         jLabel4 = new javax.swing.JLabel();
         seekLabel = new javax.swing.JLabel();
         trainingInterestCombo = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Enter Individual job Details");
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         btnRequestJob.setBackground(new java.awt.Color(51, 255, 51));
         btnRequestJob.setText("Request Job");
@@ -117,7 +115,6 @@ private JPanel userProcessContainer;
 
         jLabel2.setText("Have you ever received any specific skill training ?");
 
-        trainingCombo.add(receivedTrainingNo);
         receivedTrainingNo.setText("No");
         receivedTrainingNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,7 +122,6 @@ private JPanel userProcessContainer;
             }
         });
 
-        trainingCombo.add(receivedTrainingYes);
         receivedTrainingYes.setText("Yes");
         receivedTrainingYes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,7 +164,7 @@ private JPanel userProcessContainer;
                 .addComponent(skillLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(trainingType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(161, Short.MAX_VALUE))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Training History", jobPanel);
@@ -177,7 +173,6 @@ private JPanel userProcessContainer;
 
         jLabel7.setText("Do you have any kind of disability ?");
 
-        disabilityCombo.add(disabilityNo);
         disabilityNo.setText("No");
         disabilityNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,7 +180,6 @@ private JPanel userProcessContainer;
             }
         });
 
-        disabilityCombo.add(disabilityYes);
         disabilityYes.setText("Yes");
         disabilityYes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -228,7 +222,7 @@ private JPanel userProcessContainer;
                 .addComponent(disableLabel)
                 .addGap(18, 18, 18)
                 .addComponent(disabilityType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Disabilities", educationPanel);
@@ -272,7 +266,7 @@ private JPanel userProcessContainer;
                     .addComponent(chkSibHld)
                     .addComponent(chkSingleParent)
                     .addComponent(chkExtended))
-                .addContainerGap(244, Short.MAX_VALUE))
+                .addContainerGap(207, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Family Background Information", familyBackPanel);
@@ -301,7 +295,7 @@ private JPanel userProcessContainer;
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(trainingDurationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(223, Short.MAX_VALUE))
+                .addContainerGap(186, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Training Duration", criminalPanel);
@@ -309,7 +303,6 @@ private JPanel userProcessContainer;
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setEnabled(false);
 
-        specificCombo.add(specificComboYes);
         specificComboYes.setText("Yes");
         specificComboYes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -317,7 +310,6 @@ private JPanel userProcessContainer;
             }
         });
 
-        specificCombo.add(specificComboNo);
         specificComboNo.setText("No");
         specificComboNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -368,64 +360,187 @@ private JPanel userProcessContainer;
 
         jTabbedPane.addTab("Specific Interests", jPanel2);
 
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jTabbedPane))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(backJBtn)
+                        .addGap(0, 372, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(310, 310, 310)
+                .addComponent(btnRequestJob)
+                .addContainerGap(594, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jTabbedPane)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRequestJob)
+                .addGap(44, 44, 44)
+                .addComponent(backJBtn)
+                .addContainerGap())
+        );
+
+        jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Enter Individual job Details");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jTabbedPane))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(backJBtn))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(292, 292, 292)
-                                .addComponent(btnRequestJob))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(204, 204, 204)
-                                .addComponent(jLabel1)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGap(220, 220, 220)
+                .addComponent(jLabel1)
+                .addContainerGap(556, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(15, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(32, 32, 32)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTabbedPane)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnRequestJob)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(backJBtn)
-                .addContainerGap())
+                .addContainerGap(430, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(58, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(25, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 997, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRequestJobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestJobActionPerformed
+        // TODO add your handling code here:
+
+        Questionnaire questionnaire = request.getQuestionaire();//business.getQuestionnaireList().addQuestionnaire();
+        questionnaire.setIsDetailsSet(true);
+        TrainingQuestionaire trainingQuestionaire = questionnaire.getTrainingQuestionaire() ;
+        trainingQuestionaire.setTrained(receivedTrainingYes.isSelected());
+        trainingQuestionaire.setDisabled(disabilityYes.isSelected());
+        trainingQuestionaire.setSpecificInterest(specificComboYes.isSelected());
+        if(disabilityYes.isSelected())
+        {
+            trainingQuestionaire.setDisability((String) disabilityType.getSelectedItem());
+        }
+        else if(disabilityNo.isSelected()){
+            trainingQuestionaire.setDisability("None");
+        }
+        if(specificComboYes.isSelected()){
+
+            trainingQuestionaire.setInterest((String) trainingInterestCombo.getSelectedItem());
+
+        }
+        else if(specificComboNo.isSelected()){
+            trainingQuestionaire.setInterest("None");
+        }
+        trainingQuestionaire.setTrainingDuration((String) trainingDurationCombo.getSelectedItem());
+        if(receivedTrainingYes.isSelected()){
+            trainingQuestionaire.setTrainingField((String) trainingType.getSelectedItem());
+        }
+        else if(receivedTrainingNo.isSelected()){
+            trainingQuestionaire.setTrainingField("None");
+        }
+
+        FamilyBackgroundQuestionaire FamilyBackgroundQuestionaire = questionnaire.getFamilyBackgroundQuestionaire();
+        FamilyBackgroundQuestionaire.setFamilyBackground("");
+        Organization org = null;
+        for(Network network :business.getNetworkList()){
+            if(network.getName().equalsIgnoreCase(enterprise.getNetworkName())){
+                for(Enterprise et : network.getEnterpriseDirectory().getEnterpriseList()){
+
+                    for (Organization organization : et.getOrganizationList().getOrganizationList()){
+
+                        if (organization instanceof TrainingProcessOrganization){
+                            org = organization;
+                            break;
+                        }
+
+                    }
+                }
+            }
+        }
+        if (org!=null){
+
+            request.setSender(userAccount);
+            request.setStatus("Sent");
+            request.setQuestionaire(questionnaire);
+            org.getWorkQueue().getWorkRequestList().add(request);
+            userAccount.getWorkQueue().getWorkRequestList().add(request);
+
+        }
+        JOptionPane.showMessageDialog(null, "Individual request created successfully", "Warning", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnRequestJobActionPerformed
+
+    private void backJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJBtnActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backJBtnActionPerformed
+
+    private void receivedTrainingNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_receivedTrainingNoActionPerformed
+        skillLabel.setEnabled(false);
+        trainingType.setEnabled(false);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_receivedTrainingNoActionPerformed
+
+    private void receivedTrainingYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_receivedTrainingYesActionPerformed
+        // TODO add your handling code here:
+        skillLabel.setEnabled(true);
+        trainingType.setEnabled(true);
+    }//GEN-LAST:event_receivedTrainingYesActionPerformed
+
+    private void disabilityNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disabilityNoActionPerformed
+        // TODO add your handling code here:
+        disabilityType.setEnabled(false);
+        disableLabel.setEnabled(false);
+    }//GEN-LAST:event_disabilityNoActionPerformed
+
+    private void disabilityYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disabilityYesActionPerformed
+        // TODO add your handling code here:
+        disabilityType.setEnabled(true);
+        disableLabel.setEnabled(true);
+    }//GEN-LAST:event_disabilityYesActionPerformed
+
+    private void specificComboYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specificComboYesActionPerformed
+        // TODO add your handling code here:
+        seekLabel.setEnabled(true);
+        specificComboYes.setSelected(true);
+    }//GEN-LAST:event_specificComboYesActionPerformed
+
+    private void specificComboNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specificComboNoActionPerformed
+        // TODO add your handling code here:
+        seekLabel.setEnabled(false);
+        specificComboYes.setSelected(false);
+    }//GEN-LAST:event_specificComboNoActionPerformed
     private void populateWorkRequestData(){
         Questionnaire questionaire = request.getQuestionaire();
         if(questionaire.isIsDetailsSet()){
@@ -466,112 +581,6 @@ private JPanel userProcessContainer;
         }
         
     }
-    private void btnRequestJobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestJobActionPerformed
-        // TODO add your handling code here:
-
-        Questionnaire questionnaire = request.getQuestionaire();//business.getQuestionnaireList().addQuestionnaire();
-        questionnaire.setIsDetailsSet(true);
-        TrainingQuestionaire trainingQuestionaire = questionnaire.getTrainingQuestionaire() ;
-        trainingQuestionaire.setTrained(receivedTrainingYes.isSelected());
-        trainingQuestionaire.setDisabled(disabilityYes.isSelected());
-        trainingQuestionaire.setSpecificInterest(specificComboYes.isSelected());
-        if(disabilityYes.isSelected())
-        {
-        trainingQuestionaire.setDisability((String) disabilityType.getSelectedItem());
-        }
-        else if(disabilityNo.isSelected()){
-            trainingQuestionaire.setDisability("None");
-        }
-        if(specificComboYes.isSelected()){
-
-        trainingQuestionaire.setInterest((String) trainingInterestCombo.getSelectedItem());
-
-        }
-        else if(specificComboNo.isSelected()){
-            trainingQuestionaire.setInterest("None");
-        }
-        trainingQuestionaire.setTrainingDuration((String) trainingDurationCombo.getSelectedItem());
-        if(receivedTrainingYes.isSelected()){
-              trainingQuestionaire.setTrainingField((String) trainingType.getSelectedItem());
-        }
-        else if(receivedTrainingNo.isSelected()){
-             trainingQuestionaire.setTrainingField("None");
-        }
-      
-        FamilyBackgroundQuestionaire FamilyBackgroundQuestionaire = questionnaire.getFamilyBackgroundQuestionaire();
-        FamilyBackgroundQuestionaire.setFamilyBackground("");
-        Organization org = null;
-        for(Network network :business.getNetworkList()){
-            if(network.getName().equalsIgnoreCase(enterprise.getNetworkName())){
-                for(Enterprise et : network.getEnterpriseDirectory().getEnterpriseList()){
-
-                    for (Organization organization : et.getOrganizationList().getOrganizationList()){
-
-                        if (organization instanceof TrainingProcessOrganization){
-                            org = organization;
-                            break;
-                        }
-
-                    }
-                }
-            }
-        }
-        if (org!=null){
-         
-                request.setSender(userAccount);
-                request.setStatus("Sent");
-                request.setQuestionaire(questionnaire);
-                org.getWorkQueue().getWorkRequestList().add(request);
-                userAccount.getWorkQueue().getWorkRequestList().add(request);
-               
-
-        }
-        JOptionPane.showMessageDialog(null, "Individual request created successfully", "Warning", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_btnRequestJobActionPerformed
-
-    private void backJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJBtnActionPerformed
-        // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_backJBtnActionPerformed
-
-    private void specificComboYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specificComboYesActionPerformed
-        // TODO add your handling code here:
-          seekLabel.setEnabled(true);
-specificComboYes.setSelected(true);
-    }//GEN-LAST:event_specificComboYesActionPerformed
-
-    private void specificComboNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specificComboNoActionPerformed
-        // TODO add your handling code here:
-             seekLabel.setEnabled(false);
-            specificComboYes.setSelected(false);
-    }//GEN-LAST:event_specificComboNoActionPerformed
-
-    private void disabilityYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disabilityYesActionPerformed
-        // TODO add your handling code here:
-         disabilityType.setEnabled(true);
-            disableLabel.setEnabled(true);
-    }//GEN-LAST:event_disabilityYesActionPerformed
-
-    private void disabilityNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disabilityNoActionPerformed
-        // TODO add your handling code here:
-         disabilityType.setEnabled(false);
-            disableLabel.setEnabled(false);
-    }//GEN-LAST:event_disabilityNoActionPerformed
-
-    private void receivedTrainingYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_receivedTrainingYesActionPerformed
-        // TODO add your handling code here:
-         skillLabel.setEnabled(true);
-            trainingType.setEnabled(true);
-    }//GEN-LAST:event_receivedTrainingYesActionPerformed
-
-    private void receivedTrainingNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_receivedTrainingNoActionPerformed
-  skillLabel.setEnabled(false);
-            trainingType.setEnabled(false);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_receivedTrainingNoActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJBtn;
@@ -596,6 +605,7 @@ specificComboYes.setSelected(true);
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JPanel jobPanel;
     private javax.swing.JRadioButton receivedTrainingNo;

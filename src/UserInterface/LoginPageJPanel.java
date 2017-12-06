@@ -69,10 +69,10 @@ Enterprise enterprise;
 
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        loginJButton = new javax.swing.JButton();
         userNameJTextField = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
+        loginJButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));

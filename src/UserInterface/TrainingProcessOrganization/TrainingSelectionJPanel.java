@@ -149,41 +149,53 @@ private JPanel userProcessContainer;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        treceivedtxt = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        tinteresttxt = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        availabeInstCombo = new javax.swing.JComboBox();
-        jLabel5 = new javax.swing.JLabel();
-        tTypetxt = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        seatstxt = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        tDurationtxt = new javax.swing.JTextField();
-        assignTrainerBtn = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
         nametxt = new javax.swing.JTextField();
-        enterpriseLabel = new javax.swing.JLabel();
+        tinteresttxt = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        treceivedtxt = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        tDurationtxt = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        seatstxt = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        tTypetxt = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        availabeInstCombo = new javax.swing.JComboBox();
         valueLabel = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        enterpriseLabel = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        assignTrainerBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setText("Training Received:");
-
-        treceivedtxt.setEnabled(false);
-
-        jLabel2.setText("Training Interest:");
-
-        tinteresttxt.setEnabled(false);
 
         jLabel3.setFont(new java.awt.Font("Lucida Bright", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 0, 51));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Assign Training Insitute ");
 
-        jLabel4.setText("Available training institues:");
+        nametxt.setEnabled(false);
+
+        tinteresttxt.setEnabled(false);
+
+        jLabel2.setText("Training Interest:");
+
+        treceivedtxt.setEnabled(false);
+
+        jLabel1.setText("Training Received:");
+
+        tDurationtxt.setEnabled(false);
+
+        jLabel7.setText("Training Duration:");
+
+        seatstxt.setEnabled(false);
+
+        jLabel6.setText("Seats Available:");
+
+        tTypetxt.setEnabled(false);
+
+        jLabel5.setText("Training Provided:");
 
         availabeInstCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         availabeInstCombo.addActionListener(new java.awt.event.ActionListener() {
@@ -192,17 +204,17 @@ private JPanel userProcessContainer;
             }
         });
 
-        jLabel5.setText("Training Provided:");
+        valueLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        valueLabel.setForeground(new java.awt.Color(153, 0, 51));
+        valueLabel.setText("<value>");
 
-        tTypetxt.setEnabled(false);
+        jLabel4.setText("Available training institues:");
 
-        jLabel6.setText("Seats Available:");
+        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterpriseLabel.setForeground(new java.awt.Color(153, 0, 51));
+        enterpriseLabel.setText("EnterPrise :");
 
-        seatstxt.setEnabled(false);
-
-        jLabel7.setText("Training Duration:");
-
-        tDurationtxt.setEnabled(false);
+        jLabel8.setText("Individual Name:");
 
         assignTrainerBtn.setBackground(new java.awt.Color(102, 255, 102));
         assignTrainerBtn.setText("Assign Training");
@@ -211,18 +223,6 @@ private JPanel userProcessContainer;
                 assignTrainerBtnActionPerformed(evt);
             }
         });
-
-        jLabel8.setText("Individual Name:");
-
-        nametxt.setEnabled(false);
-
-        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        enterpriseLabel.setForeground(new java.awt.Color(153, 0, 51));
-        enterpriseLabel.setText("EnterPrise :");
-
-        valueLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        valueLabel.setForeground(new java.awt.Color(153, 0, 51));
-        valueLabel.setText("<value>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -320,32 +320,31 @@ private JPanel userProcessContainer;
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void availabeInstComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_availabeInstComboActionPerformed
+        // TODO add your handling code here:
+        selecteddropdownOrg = (TrainingProviderOrganization) availabeInstCombo.getSelectedItem();
+        //        if(selecteddropdownOrg != null)
+        //        {
+            //            seatstxt.setText(String.valueOf( selecteddropdownOrg.getSeats()));
+            //        }
+    }//GEN-LAST:event_availabeInstComboActionPerformed
+
     private void assignTrainerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignTrainerBtnActionPerformed
         // TODO add your handling code here:
         Organization org = ( Organization) availabeInstCombo.getSelectedItem();
         if(org != null){
             org.getWorkQueue().getWorkRequestList().add(request);
         }
-//        if(org instanceof CarpentryTrainingOrganization){
-//            
-//        }
+        //        if(org instanceof CarpentryTrainingOrganization){
+            //
+            //        }
         //request.setMessage(message);
         UserAccount res = org.getUserAccountList().getUserAccountList().get(0);
         request.setReceiver(res);
         request.setStatus("assigned");
         UserAccount sd= request.getSender();
-    JOptionPane.showMessageDialog(null, "Distributor assigned successfully", "Warning", JOptionPane.INFORMATION_MESSAGE);
-
+        JOptionPane.showMessageDialog(null, "Distributor assigned successfully", "Warning", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_assignTrainerBtnActionPerformed
-
-    private void availabeInstComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_availabeInstComboActionPerformed
-        // TODO add your handling code here:
-        selecteddropdownOrg = (TrainingProviderOrganization) availabeInstCombo.getSelectedItem();
-//        if(selecteddropdownOrg != null)
-//        {
-//            seatstxt.setText(String.valueOf( selecteddropdownOrg.getSeats()));
-//        }
-    }//GEN-LAST:event_availabeInstComboActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

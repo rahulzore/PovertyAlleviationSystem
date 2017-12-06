@@ -45,21 +45,13 @@ public class DataCollectorWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
         manageRecordJButton = new javax.swing.JButton();
         manageDetailsJButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        enterpriseLabel = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel1.setText("My Work Area -Data Collector Role");
-
-        enterpriseLabel.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
-        enterpriseLabel.setForeground(new java.awt.Color(153, 0, 51));
-        enterpriseLabel.setText("EnterPrise :");
 
         valueLabel.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
         valueLabel.setForeground(new java.awt.Color(153, 0, 51));
@@ -83,6 +75,14 @@ public class DataCollectorWorkAreaJPanel extends javax.swing.JPanel {
                 manageDetailsJButtonActionPerformed(evt);
             }
         });
+
+        jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel1.setText("My Work Area -Data Collector Role");
+
+        enterpriseLabel.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
+        enterpriseLabel.setForeground(new java.awt.Color(153, 0, 51));
+        enterpriseLabel.setText("EnterPrise :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -133,7 +133,7 @@ public class DataCollectorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageDetailsJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageDetailsJButtonActionPerformed
         // TODO add your handling code here:
-         ManageIndividualDetailsJPanel manageIndividualDetailsJPanel = new ManageIndividualDetailsJPanel(userProcessContainer,userAccount,organization, enterprise,business);
+        ManageIndividualDetailsJPanel manageIndividualDetailsJPanel = new ManageIndividualDetailsJPanel(userProcessContainer,userAccount,organization, enterprise,business);
         userProcessContainer.add("manageIndividualDetailsJPanel", manageIndividualDetailsJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

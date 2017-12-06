@@ -28,12 +28,12 @@
               <Component id="valueLabel" min="-2" pref="130" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="246" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="manageRecordJButton" max="32767" attributes="0"/>
+                          <Component id="manageRecordJButton" alignment="1" max="32767" attributes="0"/>
                           <Component id="manageDetailsJButton" alignment="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -53,7 +53,7 @@
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="enterpriseLabel" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="enterpriseLabel" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                       <Component id="valueLabel" min="-2" max="-2" attributes="0"/>

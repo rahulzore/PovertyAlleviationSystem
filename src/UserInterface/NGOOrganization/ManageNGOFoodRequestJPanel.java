@@ -12,6 +12,8 @@ import Business.UserAccount.UserAccount;
 import Business.WorkQueue.FoodRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -20,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Rahul Zore
  */
-public class ManageNGOFoodRequestJPanel extends javax.swing.JPanel {
+public class ManageNGOFoodRequestJPanel extends javax.swing.JPanel implements ProgressJPanel.ProgressBarInterface {
 
     /**
      * Creates new form ManageNGOFoodRequestJPanel
@@ -33,6 +35,7 @@ public class ManageNGOFoodRequestJPanel extends javax.swing.JPanel {
 
     public ManageNGOFoodRequestJPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem ecoSystem) {
         initComponents();
+        progressJPanel1.pbr = this;
         this.userProcessContainer = userProcessContainer;
         this.userAccount = userAccount;
         this.organization = organization;
@@ -41,20 +44,21 @@ public class ManageNGOFoodRequestJPanel extends javax.swing.JPanel {
         populateFoodReqTable();
     }
 
-    public void populateFoodReqTable(){
-        DefaultTableModel dtm = (DefaultTableModel)foodRequestJTable.getModel();
+    public void populateFoodReqTable() {
+        DefaultTableModel dtm = (DefaultTableModel) foodRequestJTable.getModel();
         dtm.setRowCount(0);
-        
-        for(WorkRequest request : organization.getWorkQueue().getWorkRequestList()){
+
+        for (WorkRequest request : organization.getWorkQueue().getWorkRequestList()) {
             Object row[] = new Object[5];
-            row[0]=request;
-            row[1]=((FoodRequest)request).getFoodName();
-            row[2]=request.getSender();
-            row[3]=request.getReceiver()==null?"Unassigned":request.getReceiver();
-            row[4]=request.getStatus()==null?"Waiting":request.getStatus();
+            row[0] = request;
+            row[1] = ((FoodRequest) request).getFoodName();
+            row[2] = request.getSender();
+            row[3] = request.getReceiver() == null ? "Unassigned" : request.getReceiver();
+            row[4] = request.getStatus() == null ? "Waiting" : request.getStatus();
             dtm.addRow(row);
         }
-    }    
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -64,13 +68,35 @@ public class ManageNGOFoodRequestJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        backJBtn = new javax.swing.JButton();
+        progressJPanel1 = new UserInterface.NGOOrganization.ProgressJPanel();
+        progressLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         foodRequestJTable = new javax.swing.JTable();
-        backJBtn = new javax.swing.JButton();
         processJBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
+
+        backJBtn.setText("<< Back");
+        backJBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backJBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout progressJPanel1Layout = new javax.swing.GroupLayout(progressJPanel1);
+        progressJPanel1.setLayout(progressJPanel1Layout);
+        progressJPanel1Layout.setHorizontalGroup(
+            progressJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 452, Short.MAX_VALUE)
+        );
+        progressJPanel1Layout.setVerticalGroup(
+            progressJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 242, Short.MAX_VALUE)
+        );
+
+        progressLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 0, 51));
@@ -93,20 +119,6 @@ public class ManageNGOFoodRequestJPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(foodRequestJTable);
-        if (foodRequestJTable.getColumnModel().getColumnCount() > 0) {
-            foodRequestJTable.getColumnModel().getColumn(0).setResizable(false);
-            foodRequestJTable.getColumnModel().getColumn(1).setResizable(false);
-            foodRequestJTable.getColumnModel().getColumn(2).setResizable(false);
-            foodRequestJTable.getColumnModel().getColumn(3).setResizable(false);
-            foodRequestJTable.getColumnModel().getColumn(4).setResizable(false);
-        }
-
-        backJBtn.setText("<< Back");
-        backJBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJBtnActionPerformed(evt);
-            }
-        });
 
         processJBtn.setBackground(new java.awt.Color(51, 255, 51));
         processJBtn.setText("Process Request");
@@ -121,57 +133,107 @@ public class ManageNGOFoodRequestJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(backJBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(228, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(412, 412, 412))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(68, 68, 68)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(181, 181, 181)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(217, 217, 217)
+                                .addComponent(processJBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(267, 267, 267)
-                        .addComponent(processJBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(backJBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(progressLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
+                            .addComponent(progressJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(38, 38, 38)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(processJBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 233, Short.MAX_VALUE)
-                .addComponent(backJBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(progressJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(progressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(backJBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJBtnActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJBtnActionPerformed
 
     private void processJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJBtnActionPerformed
         // TODO add your handling code here:
-        int selectedRow = foodRequestJTable.getSelectedRow();
-        if(selectedRow < 0){
+//        int selectedRow = foodRequestJTable.getSelectedRow();
+//        if(selectedRow < 0){
+//            JOptionPane.showMessageDialog(null, "Please select a row to process request!!");
+//            return;
+//        }
+//        else{
+//            WorkRequest request = (WorkRequest) foodRequestJTable.getValueAt(selectedRow, 0);
+//            request.setStatus("Completed");
+//            request.setReceiver(userAccount);
+//            JOptionPane.showMessageDialog(null, "Food request processing is completed. Food will be collected and will be distributed to the needful people!!");
+//            populateFoodReqTable();
+//        }
+int selectedRow = foodRequestJTable.getSelectedRow();
+        if (selectedRow < 0) {
             JOptionPane.showMessageDialog(null, "Please select a row to process request!!");
             return;
         }
-        else{
+        if(selectedRow>=0){
             WorkRequest request = (WorkRequest) foodRequestJTable.getValueAt(selectedRow, 0);
-            request.setStatus("Completed");
-            request.setReceiver(userAccount);
-            JOptionPane.showMessageDialog(null, "Food request processing is completed. Food will be collected and will be distributed to the needful people!!");
-            populateFoodReqTable();
+            if (!(request.getStatus()==null)) {
+                JOptionPane.showMessageDialog(null, "This request has been completed. Please select some other request!!");
+                return;
+            } else {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        for (int i = 1; i <= 100; i++) {
+                            try {
+                                progressJPanel1.updateProgress(i);
+                                progressJPanel1.repaint();
+                                Thread.sleep(50);
+                                if (i == 50) {
+                                    Thread.sleep(1000);
+                                }
+                                if (i == 100) {
+
+                                   request.setStatus("Completed");
+                                    request.setReceiver(userAccount);
+                                    JOptionPane.showMessageDialog(null, "Food request processing is completed. Food has been distributed to the needful people!!");
+                                    populateFoodReqTable();
+                                }
+                            } catch (InterruptedException ex) {
+                                Logger.getLogger(ManageNGOFoodRequestJPanel.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    }
+                }).start();
+//            WorkRequest request = (WorkRequest) foodRequestJTable.getValueAt(selectedRow, 0);
+//            request.setStatus("Completed");
+//            request.setReceiver(userAccount);
+//            JOptionPane.showMessageDialog(null, "Food request processing is completed. Food will be collected and will be distributed to the needful people!!");
+//            populateFoodReqTable();
+            }
         }
     }//GEN-LAST:event_processJBtnActionPerformed
 
@@ -182,5 +244,29 @@ public class ManageNGOFoodRequestJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton processJBtn;
+    private UserInterface.NGOOrganization.ProgressJPanel progressJPanel1;
+    private javax.swing.JLabel progressLabel;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void OnProgressHalfComplete() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                progressLabel.setText("NGO has collected the leftover food from the Restaurant!!");
+            }
+        }).start();
+
+    }
+
+    @Override
+    public void OnProgressComplete() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                progressLabel.setText("NGO has successfully distributed the leftover food to needful people!!");
+            }
+        }).start();
+
+    }
 }

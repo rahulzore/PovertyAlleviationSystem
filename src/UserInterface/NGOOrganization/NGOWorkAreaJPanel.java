@@ -45,21 +45,21 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        manageReqJBtn = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        manageReqJBtn1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("NGO Work Area");
+        jLabel2.setFont(new java.awt.Font("Lucida Bright", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("NGO Work Area");
 
-        manageReqJBtn.setBackground(new java.awt.Color(51, 255, 51));
-        manageReqJBtn.setText("Manage Leftover Food Request");
-        manageReqJBtn.addActionListener(new java.awt.event.ActionListener() {
+        manageReqJBtn1.setBackground(new java.awt.Color(51, 255, 51));
+        manageReqJBtn1.setText("Manage Leftover Food Request");
+        manageReqJBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                manageReqJBtnActionPerformed(evt);
+                manageReqJBtn1ActionPerformed(evt);
             }
         });
 
@@ -68,34 +68,34 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(278, 278, 278)
+                .addGap(217, 217, 217)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(manageReqJBtn)
-                    .addComponent(jLabel1))
-                .addContainerGap(431, Short.MAX_VALUE))
+                    .addComponent(manageReqJBtn1)
+                    .addComponent(jLabel2))
+                .addContainerGap(255, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jLabel1)
+                .addComponent(jLabel2)
                 .addGap(93, 93, 93)
-                .addComponent(manageReqJBtn)
-                .addContainerGap(430, Short.MAX_VALUE))
+                .addComponent(manageReqJBtn1)
+                .addContainerGap(236, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void manageReqJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageReqJBtnActionPerformed
+    private void manageReqJBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageReqJBtn1ActionPerformed
         // TODO add your handling code here:
         ManageNGOFoodRequestJPanel panel = new ManageNGOFoodRequestJPanel(userProcessContainer, userAccount, organization, enterprise, ecoSystem);
         userProcessContainer.add("ManageNGOFoodRequestJPanel",panel);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_manageReqJBtnActionPerformed
+    }//GEN-LAST:event_manageReqJBtn1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton manageReqJBtn;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton manageReqJBtn1;
     // End of variables declaration//GEN-END:variables
 }
