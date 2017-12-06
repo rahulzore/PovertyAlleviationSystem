@@ -60,10 +60,16 @@ public class JobProviderWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel = new javax.swing.JLabel();
         btnManageRequest = new javax.swing.JButton();
         backJBtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        enterpriseLabel.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
+        enterpriseLabel.setForeground(new java.awt.Color(153, 0, 51));
         enterpriseLabel.setText("EnterPrise :");
 
+        valueLabel.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
+        valueLabel.setForeground(new java.awt.Color(153, 0, 51));
         valueLabel.setText("<value>");
 
         btnManageRequest.setText("Manage Individual Job Request");
@@ -73,6 +79,7 @@ public class JobProviderWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        backJBtn.setBackground(new java.awt.Color(255, 0, 0));
         backJBtn.setText("<< Back");
         backJBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,35 +87,45 @@ public class JobProviderWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Confirm Job Request");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(258, 258, 258))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(backJBtn))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(btnManageRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(147, Short.MAX_VALUE))
+                        .addGap(73, 73, 73)
+                        .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnManageRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(207, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 22, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(71, 71, 71)
                 .addComponent(btnManageRequest)
-                .addGap(159, 159, 159)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
                 .addComponent(backJBtn)
                 .addContainerGap())
         );
@@ -134,6 +151,7 @@ public class JobProviderWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton backJBtn;
     private javax.swing.JButton btnManageRequest;
     private javax.swing.JLabel enterpriseLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables
 }

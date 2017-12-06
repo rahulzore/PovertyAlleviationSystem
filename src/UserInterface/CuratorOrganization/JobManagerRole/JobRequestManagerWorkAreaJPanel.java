@@ -56,9 +56,15 @@ public class JobRequestManagerWorkAreaJPanel extends javax.swing.JPanel {
         btnManageRequest = new javax.swing.JButton();
         backJBtn = new javax.swing.JButton();
 
-        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(255, 255, 255));
+
+        enterpriseLabel.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
+        enterpriseLabel.setForeground(new java.awt.Color(153, 0, 51));
         enterpriseLabel.setText("EnterPrise :");
 
+        valueLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        valueLabel.setForeground(new java.awt.Color(153, 0, 51));
         valueLabel.setText("<value>");
 
         btnManageRequest.setText("ManageJob Request");
@@ -68,6 +74,7 @@ public class JobRequestManagerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        backJBtn.setBackground(new java.awt.Color(255, 51, 51));
         backJBtn.setText("<< Back");
         backJBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,7 +104,7 @@ public class JobRequestManagerWorkAreaJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 22, Short.MAX_VALUE)
+                .addGap(0, 23, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))

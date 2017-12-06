@@ -77,7 +77,7 @@ Enterprise enterprise;
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Lucida Bright", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(153, 0, 51));
         jLabel4.setText("Login Screen");
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -86,6 +86,7 @@ Enterprise enterprise;
 
         jLabel2.setText("Password");
 
+        loginJButton.setBackground(new java.awt.Color(102, 255, 0));
         loginJButton.setText("Login");
         loginJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

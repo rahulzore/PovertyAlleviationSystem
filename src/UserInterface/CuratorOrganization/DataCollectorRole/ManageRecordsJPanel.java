@@ -89,6 +89,8 @@ private void populateRequestTable(){
         viewRecordButton = new javax.swing.JButton();
         backJBtn = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         requestTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -108,10 +110,13 @@ private void populateRequestTable(){
         jScrollPane1.setViewportView(requestTable);
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterpriseLabel.setForeground(new java.awt.Color(153, 0, 51));
         enterpriseLabel.setText("EnterPrise :");
 
+        valueLabel.setForeground(new java.awt.Color(153, 0, 51));
         valueLabel.setText("<value>");
 
+        viewRecordButton.setBackground(new java.awt.Color(102, 255, 102));
         viewRecordButton.setText("View Record");
         viewRecordButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,6 +124,7 @@ private void populateRequestTable(){
             }
         });
 
+        backJBtn.setBackground(new java.awt.Color(255, 51, 51));
         backJBtn.setText("<< Back");
         backJBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,7 +159,7 @@ private void populateRequestTable(){
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(283, Short.MAX_VALUE)
+                .addContainerGap(281, Short.MAX_VALUE)
                 .addComponent(viewRecordButton)
                 .addGap(64, 64, 64)
                 .addComponent(backJBtn)
@@ -166,7 +172,7 @@ private void populateRequestTable(){
                         .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(18, 18, 18)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(144, Short.MAX_VALUE)))
+                    .addContainerGap(142, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 

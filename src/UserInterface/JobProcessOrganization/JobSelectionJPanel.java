@@ -128,9 +128,6 @@ private JPanel userProcessContainer;
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
         tabbedComputers = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        lblResultComputers = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         lblResultRead = new javax.swing.JLabel();
@@ -144,10 +141,16 @@ private JPanel userProcessContainer;
         lblResultDrugs = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         lblResultConDrugs = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        lblResultComputers = new javax.swing.JLabel();
         backJBtn = new javax.swing.JButton();
         backJBtn1 = new javax.swing.JButton();
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel3.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 0, 51));
         jLabel3.setText("Assign Job Organization");
 
         jLabel4.setText("Available job organization:");
@@ -159,6 +162,7 @@ private JPanel userProcessContainer;
             }
         });
 
+        assignTrainerBtn.setBackground(new java.awt.Color(51, 255, 51));
         assignTrainerBtn.setText("Assign Job");
         assignTrainerBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,37 +174,15 @@ private JPanel userProcessContainer;
 
         nametxt.setEnabled(false);
 
-        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterpriseLabel.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
+        enterpriseLabel.setForeground(new java.awt.Color(153, 0, 51));
         enterpriseLabel.setText("EnterPrise :");
 
+        valueLabel.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
+        valueLabel.setForeground(new java.awt.Color(153, 0, 51));
         valueLabel.setText("<value>");
 
-        jLabel2.setText("Computers:");
-
-        lblResultComputers.setText("jLabel5");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblResultComputers)
-                .addContainerGap(513, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(lblResultComputers))
-                .addContainerGap(86, Short.MAX_VALUE))
-        );
-
-        tabbedComputers.addTab("Computers", jPanel1);
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel5.setText("Read");
 
@@ -225,7 +207,7 @@ private JPanel userProcessContainer;
                         .addComponent(jLabel6)
                         .addGap(18, 18, 18)
                         .addComponent(lblResultWrite)))
-                .addContainerGap(535, Short.MAX_VALUE))
+                .addContainerGap(584, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,10 +220,12 @@ private JPanel userProcessContainer;
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(lblResultWrite))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
 
         tabbedComputers.addTab("Education", jPanel2);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel7.setText("Convited for Crime:");
 
@@ -256,7 +240,7 @@ private JPanel userProcessContainer;
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblResultCrime)
-                .addContainerGap(475, Short.MAX_VALUE))
+                .addContainerGap(524, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,10 +249,12 @@ private JPanel userProcessContainer;
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(lblResultCrime))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
 
         tabbedComputers.addTab("Criminal", jPanel3);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setText("Used Drugs:");
 
@@ -293,7 +279,7 @@ private JPanel userProcessContainer;
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblResultConDrugs)))
-                .addContainerGap(420, Short.MAX_VALUE))
+                .addContainerGap(469, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,10 +292,39 @@ private JPanel userProcessContainer;
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(lblResultConDrugs))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
 
         tabbedComputers.addTab("Drugs", jPanel4);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setText("Computers:");
+
+        lblResultComputers.setText("jLabel5");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblResultComputers)
+                .addContainerGap(562, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(lblResultComputers))
+                .addContainerGap(139, Short.MAX_VALUE))
+        );
+
+        tabbedComputers.addTab("Computers", jPanel1);
 
         backJBtn.setText("<< Back");
         backJBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -318,6 +333,7 @@ private JPanel userProcessContainer;
             }
         });
 
+        backJBtn1.setBackground(new java.awt.Color(255, 51, 51));
         backJBtn1.setText("<< Back");
         backJBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -340,26 +356,25 @@ private JPanel userProcessContainer;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(65, 65, 65)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel8))
-                                .addGap(18, 18, 18))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(backJBtn1)
-                                .addGap(50, 50, 50)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(assignTrainerBtn)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(availabeInstCombo, 0, 218, Short.MAX_VALUE)
-                                .addComponent(nametxt))))
+                            .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(availabeInstCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addComponent(tabbedComputers, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(74, Short.MAX_VALUE))
+                        .addComponent(tabbedComputers, javax.swing.GroupLayout.PREFERRED_SIZE, 677, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(backJBtn1)))
+                .addContainerGap(25, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(assignTrainerBtn)
+                .addGap(149, 149, 149))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(324, 324, 324)
@@ -381,17 +396,17 @@ private JPanel userProcessContainer;
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(25, 25, 25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(availabeInstCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(tabbedComputers, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(assignTrainerBtn)
-                    .addComponent(backJBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addComponent(tabbedComputers)
+                .addGap(18, 18, 18)
+                .addComponent(assignTrainerBtn)
+                .addGap(33, 33, 33)
+                .addComponent(backJBtn1)
+                .addGap(63, 63, 63))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(253, 253, 253)

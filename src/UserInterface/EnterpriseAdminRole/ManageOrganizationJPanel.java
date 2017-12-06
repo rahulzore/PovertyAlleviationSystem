@@ -119,13 +119,13 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         txtOrganization = new javax.swing.JTextField();
         backjButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "ID", "Name"
@@ -174,21 +174,22 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Manage Orgnanizations");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
-                .addGap(275, 275, 275))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
+                        .addGap(54, 54, 54)
                         .addComponent(backjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(295, 295, 295)
+                        .addGap(211, 211, 211)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -200,13 +201,21 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
                                     .addComponent(txtOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(78, 78, 78)
-                                .addComponent(addJButton)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(addJButton))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(257, 257, 257)
+                        .addComponent(jLabel3)))
+                .addContainerGap(291, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -220,7 +229,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
                 .addComponent(addJButton)
                 .addGap(24, 24, 24)
                 .addComponent(backjButton1)
-                .addContainerGap())
+                .addGap(20, 20, 20))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -279,6 +288,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
     private javax.swing.JButton backjButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox organizationJComboBox;
     private javax.swing.JTable organizationJTable;

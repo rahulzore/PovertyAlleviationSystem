@@ -48,9 +48,14 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         manageReqJBtn = new javax.swing.JButton();
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("NGO Work Area");
 
+        manageReqJBtn.setBackground(new java.awt.Color(51, 255, 51));
         manageReqJBtn.setText("Manage Leftover Food Request");
         manageReqJBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,23 +68,20 @@ public class NGOWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(278, 278, 278)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(342, 342, 342)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(330, 330, 330)
-                        .addComponent(manageReqJBtn)))
-                .addContainerGap(371, Short.MAX_VALUE))
+                    .addComponent(manageReqJBtn)
+                    .addComponent(jLabel1))
+                .addContainerGap(431, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(25, 25, 25)
                 .addComponent(jLabel1)
-                .addGap(148, 148, 148)
+                .addGap(93, 93, 93)
                 .addComponent(manageReqJBtn)
-                .addContainerGap(389, Short.MAX_VALUE))
+                .addContainerGap(430, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -76,6 +76,8 @@ public class ConfirmTrainingRequestJPanel extends javax.swing.JPanel {
         avatxt = new javax.swing.JTextField();
         distxt = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setText("Request Type:");
 
         txtRequestType.setEnabled(false);
@@ -88,6 +90,7 @@ public class ConfirmTrainingRequestJPanel extends javax.swing.JPanel {
 
         confirmationField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
 
+        backJBtn.setBackground(new java.awt.Color(255, 0, 0));
         backJBtn.setText("<< Back");
         backJBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,9 +98,12 @@ public class ConfirmTrainingRequestJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Lucida Bright", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Process Training Requst");
 
+        btnConfirm.setBackground(new java.awt.Color(51, 255, 51));
         btnConfirm.setText("Confirm");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,48 +134,49 @@ public class ConfirmTrainingRequestJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
+                        .addGap(23, 23, 23)
+                        .addComponent(backJBtn))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(191, 191, 191)
                         .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
+                        .addGap(225, 225, 225)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(backJBtn)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(136, 136, 136)
-                                .addComponent(btnConfirm))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel5))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nametxt)
-                            .addComponent(edutxt)
-                            .addComponent(avatxt)
-                            .addComponent(distxt, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel2)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtRequestType)
-                            .addComponent(txtSender)
-                            .addComponent(confirmationField, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(298, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel5))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(nametxt)
+                                    .addComponent(edutxt)
+                                    .addComponent(avatxt)
+                                    .addComponent(distxt, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnConfirm)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel1)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel3)
+                                                .addComponent(jLabel2)))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtRequestType)
+                                            .addComponent(txtSender)
+                                            .addComponent(confirmationField, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                .addContainerGap(234, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(19, 19, 19)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel7)
                     .addGroup(layout.createSequentialGroup()
@@ -198,9 +205,9 @@ public class ConfirmTrainingRequestJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(confirmationField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addComponent(btnConfirm)
                 .addGap(43, 43, 43)
+                .addComponent(btnConfirm)
+                .addGap(45, 45, 45)
                 .addComponent(backJBtn)
                 .addGap(43, 43, 43))
         );

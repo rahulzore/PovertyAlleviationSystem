@@ -48,7 +48,10 @@ public class EnterpriseAdminWorkAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 51));
         jLabel1.setText("My Work Area -Administrative Role");
 
         userJButton.setText("Manage User");
@@ -72,10 +75,13 @@ public class EnterpriseAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterpriseLabel.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
+        enterpriseLabel.setForeground(new java.awt.Color(153, 0, 51));
         enterpriseLabel.setText("EnterPrise :");
 
-        valueLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        valueLabel.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
+        valueLabel.setForeground(new java.awt.Color(153, 0, 51));
+        valueLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         valueLabel.setText("<value>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -88,34 +94,34 @@ public class EnterpriseAdminWorkAreaJPanel extends javax.swing.JPanel {
                         .addGap(179, 179, 179)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(203, 203, 203)
-                        .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(258, 258, 258)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(manageOrganizationJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                             .addComponent(manageEmployeeJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(userJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(163, Short.MAX_VALUE))
+                            .addComponent(userJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(223, 223, 223)
+                        .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(253, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(62, 62, 62)
                 .addComponent(jLabel1)
-                .addGap(65, 65, 65)
+                .addGap(66, 66, 66)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                    .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
                 .addComponent(manageOrganizationJButton)
                 .addGap(18, 18, 18)
                 .addComponent(manageEmployeeJButton)
                 .addGap(18, 18, 18)
                 .addComponent(userJButton)
-                .addContainerGap(218, Short.MAX_VALUE))
+                .addContainerGap(225, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

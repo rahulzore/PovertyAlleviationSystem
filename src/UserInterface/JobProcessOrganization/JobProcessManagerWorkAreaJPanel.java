@@ -58,10 +58,14 @@ public class JobProcessManagerWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel = new javax.swing.JLabel();
         btnManageRequest = new javax.swing.JButton();
         backJBtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterpriseLabel.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
+        enterpriseLabel.setForeground(new java.awt.Color(153, 0, 51));
         enterpriseLabel.setText("EnterPrise :");
 
+        valueLabel.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
+        valueLabel.setForeground(new java.awt.Color(153, 0, 51));
         valueLabel.setText("<value>");
 
         btnManageRequest.setText("Manage Individual Job Request");
@@ -71,12 +75,17 @@ public class JobProcessManagerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        backJBtn.setBackground(new java.awt.Color(255, 0, 0));
         backJBtn.setText("<< Back");
         backJBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJBtnActionPerformed(evt);
             }
         });
+
+        jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel1.setText("Job Process Manager Work Area");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -85,30 +94,35 @@ public class JobProcessManagerWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
+                        .addGap(39, 39, 39)
+                        .addComponent(backJBtn))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
                         .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(backJBtn))
+                        .addGap(172, 172, 172)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
+                        .addGap(212, 212, 212)
                         .addComponent(btnManageRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addContainerGap(186, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 22, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(64, 64, 64)
                 .addComponent(btnManageRequest)
-                .addGap(159, 159, 159)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                 .addComponent(backJBtn)
-                .addContainerGap())
+                .addGap(58, 58, 58))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -132,6 +146,7 @@ public class JobProcessManagerWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton backJBtn;
     private javax.swing.JButton btnManageRequest;
     private javax.swing.JLabel enterpriseLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables
 }

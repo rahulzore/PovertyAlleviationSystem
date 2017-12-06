@@ -108,6 +108,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane1.setDividerLocation(150);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         manageNetworkJButton.setText("Manage Network");
         manageNetworkJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,36 +140,41 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(manageAdminJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(manageNetworkJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(manageEnterpriseJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(manageAdminJButton)
+                        .addComponent(manageEnterpriseJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(217, 217, 217)
+                            .addComponent(manageNetworkJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(190, 190, 190)
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addComponent(selectedNodeJLabel)))
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addContainerGap(245, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(selectedNodeJLabel))
                 .addGap(50, 50, 50)
                 .addComponent(manageNetworkJButton)
-                .addGap(30, 30, 30)
+                .addGap(32, 32, 32)
                 .addComponent(manageEnterpriseJButton)
-                .addGap(33, 33, 33)
+                .addGap(38, 38, 38)
                 .addComponent(manageAdminJButton)
-                .addGap(269, 269, 269))
+                .addContainerGap())
         );
 
         jSplitPane1.setRightComponent(jPanel1);
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        JTree.setBackground(new java.awt.Color(153, 255, 153));
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("System");
         JTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         JTree.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
