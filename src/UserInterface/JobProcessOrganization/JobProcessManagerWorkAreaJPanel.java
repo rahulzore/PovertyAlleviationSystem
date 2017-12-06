@@ -70,6 +70,11 @@ public class JobProcessManagerWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel1.setText("<value>");
 
         btnManageRequest1.setText("Manage Individual Job Request");
+        btnManageRequest1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageRequest1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 0, 51));
@@ -109,6 +114,16 @@ public class JobProcessManagerWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap(231, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnManageRequest1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRequest1ActionPerformed
+        // TODO add your handling code here:
+        ProcessJobRequestJPanel panel = new ProcessJobRequestJPanel(userProcessContainer, userAccount, organization, enterprise, business);
+        userProcessContainer.add("ProcessJobRequestJPanel", panel);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        
+        
+    }//GEN-LAST:event_btnManageRequest1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

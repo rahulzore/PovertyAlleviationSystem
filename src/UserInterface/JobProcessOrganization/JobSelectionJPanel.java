@@ -90,6 +90,8 @@ private JPanel userProcessContainer;
         lblResultCrime.setText(request.getQuestionaire().getCriminalRelatedQuestionaire().isIsConvCrime()? "Yes": "No");
         lblResultDrugs.setText(request.getQuestionaire().getDrugAbuseQuestionaire().isIsConsumeDrug()? "Yes": "No");
         lblResultConDrugs.setText(request.getQuestionaire().getDrugAbuseQuestionaire().isIsComDrug()? "Yes": "No");
+        lblResultPhysical.setText(request.getQuestionaire().getPhysicalQuestionaire().isIsPhysicallyActive()?"Yes":"No");
+        lblResultGuard.setText(request.getQuestionaire().getGuardQuestionaire().isPreviousGuardExperience()?"Yes":"No");
     }
     private void populateTrainingCombo(){
         availabeInstCombo.removeAllItems();
@@ -179,6 +181,12 @@ private JPanel userProcessContainer;
         lblResultDrugs = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         lblResultConDrugs = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        lblResultPhysical = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        lblResultGuard = new javax.swing.JLabel();
         backJBtn = new javax.swing.JButton();
         backJBtn1 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
@@ -219,6 +227,8 @@ private JPanel userProcessContainer;
         valueLabel.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
         valueLabel.setForeground(new java.awt.Color(153, 0, 51));
         valueLabel.setText("<value>");
+
+        tabbedComputers.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -363,6 +373,64 @@ private JPanel userProcessContainer;
         );
 
         tabbedComputers.addTab("Drugs", jPanel4);
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel11.setText("Physically Active:");
+
+        lblResultPhysical.setText("jLabel12");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11)
+                .addGap(18, 18, 18)
+                .addComponent(lblResultPhysical)
+                .addContainerGap(472, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(lblResultPhysical))
+                .addContainerGap(86, Short.MAX_VALUE))
+        );
+
+        tabbedComputers.addTab("Physical", jPanel5);
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel13.setText("Previous Guarding Experience:");
+
+        lblResultGuard.setText("jLabel14");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13)
+                .addGap(18, 18, 18)
+                .addComponent(lblResultGuard)
+                .addContainerGap(408, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(lblResultGuard))
+                .addContainerGap(86, Short.MAX_VALUE))
+        );
+
+        tabbedComputers.addTab("Guarding Experience", jPanel6);
 
         backJBtn.setText("<< Back");
         backJBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -514,6 +582,8 @@ private JPanel userProcessContainer;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -526,10 +596,14 @@ private JPanel userProcessContainer;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel lblResultComputers;
     private javax.swing.JLabel lblResultConDrugs;
     private javax.swing.JLabel lblResultCrime;
     private javax.swing.JLabel lblResultDrugs;
+    private javax.swing.JLabel lblResultGuard;
+    private javax.swing.JLabel lblResultPhysical;
     private javax.swing.JLabel lblResultRead;
     private javax.swing.JLabel lblResultWrite;
     private javax.swing.JTextField nametxt;
