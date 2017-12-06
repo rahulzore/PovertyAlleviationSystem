@@ -340,7 +340,7 @@ private JPanel userProcessContainer;
 
     private void availabeInstComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_availabeInstComboActionPerformed
         // TODO add your handling code here:
-//        selecteddropdownOrg = (TrainingProviderOrganization) availabeInstCombo.getSelectedItem();
+        selecteddropdownOrg = (TrainingProviderOrganization) availabeInstCombo.getSelectedItem();
 //        if(selecteddropdownOrg != null)
 //        {
 //            seatstxt.setText(String.valueOf( selecteddropdownOrg.getSeats()));

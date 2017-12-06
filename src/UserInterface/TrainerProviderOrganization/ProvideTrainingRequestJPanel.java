@@ -25,9 +25,14 @@ import javax.swing.table.DefaultTableModel;
  * @author sanch
  */
 public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
+<<<<<<< HEAD
 
     private JPanel userProcessContainer;
     private Organization organization;
+=======
+ private JPanel userProcessContainer;
+    private SecurityTrainingOrganization organization;
+>>>>>>> c7bb0e14c612ed5da0c2fb03c6f347dddce98ffc
     private Enterprise enterprise;
     private UserAccount userAccount;
     EcoSystem business;
@@ -37,8 +42,13 @@ public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
      */
     public ProvideTrainingRequestJPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem ecoSystem) {
         initComponents();
+<<<<<<< HEAD
         this.userProcessContainer = userProcessContainer;
         this.organization = (Organization) organization;
+=======
+           this.userProcessContainer = userProcessContainer;
+        this.organization =(SecurityTrainingOrganization) organization;
+>>>>>>> c7bb0e14c612ed5da0c2fb03c6f347dddce98ffc
         this.enterprise = enterprise;
         this.userAccount = userAccount;
         this.business = ecoSystem;
@@ -227,7 +237,10 @@ public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c7bb0e14c612ed5da0c2fb03c6f347dddce98ffc
         }
 
         if (selectedRow >= 0) {
@@ -236,6 +249,7 @@ public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Please select different request to process", "Warning", JOptionPane.WARNING_MESSAGE);
                 return;
             }
+<<<<<<< HEAD
             if (!(request.getTrainingResult()==null)) {
                 JOptionPane.showMessageDialog(null, "Training Assigned already, please select a different row.", "Warning", JOptionPane.PLAIN_MESSAGE);
                 return;
@@ -244,6 +258,12 @@ public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
             userProcessContainer.add("ConfirmTrainingRequestJPanel", ConfirmTrainingRequestJPanel);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
             layout.next(userProcessContainer);
+=======
+           ConfirmTrainingRequestJPanel ConfirmTrainingRequestJPanel = new ConfirmTrainingRequestJPanel(userProcessContainer,userAccount,organization, enterprise,request);
+        userProcessContainer.add("ConfirmTrainingRequestJPanel", ConfirmTrainingRequestJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+>>>>>>> c7bb0e14c612ed5da0c2fb03c6f347dddce98ffc
         }
     }//GEN-LAST:event_btnAssignJobActionPerformed
 

@@ -14,6 +14,8 @@
     </Component>
     <Component class="javax.swing.ButtonGroup" name="buttonGroupComp">
     </Component>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroupFamily">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -160,7 +162,11 @@
                           <Component id="rbComputerYes" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="rbComputerNo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+<<<<<<< HEAD
                       <EmptySpace pref="171" max="32767" attributes="0"/>
+=======
+                      <EmptySpace pref="115" max="32767" attributes="0"/>
+>>>>>>> c7bb0e14c612ed5da0c2fb03c6f347dddce98ffc
                   </Group>
               </Group>
             </DimensionLayout>
@@ -243,7 +249,11 @@
                           <Component id="rbWriteYes" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="rbWriteNo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+<<<<<<< HEAD
                       <EmptySpace pref="130" max="32767" attributes="0"/>
+=======
+                      <EmptySpace pref="74" max="32767" attributes="0"/>
+>>>>>>> c7bb0e14c612ed5da0c2fb03c6f347dddce98ffc
                   </Group>
               </Group>
             </DimensionLayout>
@@ -313,15 +323,20 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jChkNuclear" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="chkSibHld" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="chkSingleParent" min="-2" max="-2" attributes="0"/>
+                      <Component id="rbNuclear" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="rbSibling" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <Component id="chkExtended" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="217" max="32767" attributes="0"/>
+=======
+                      <Component id="rbSingleParent" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="rbExtended" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="188" max="32767" attributes="0"/>
+>>>>>>> c7bb0e14c612ed5da0c2fb03c6f347dddce98ffc
                   </Group>
               </Group>
             </DimensionLayout>
@@ -331,12 +346,16 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jChkNuclear" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="chkSibHld" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="chkSingleParent" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="chkExtended" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rbNuclear" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rbSibling" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rbSingleParent" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rbExtended" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+<<<<<<< HEAD
                       <EmptySpace pref="191" max="32767" attributes="0"/>
+=======
+                      <EmptySpace pref="135" max="32767" attributes="0"/>
+>>>>>>> c7bb0e14c612ed5da0c2fb03c6f347dddce98ffc
                   </Group>
               </Group>
             </DimensionLayout>
@@ -347,23 +366,35 @@
                 <Property name="text" type="java.lang.String" value="What Type of family you are in: "/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jChkNuclear">
+            <Component class="javax.swing.JRadioButton" name="rbNuclear">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroupFamily"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Nuclear"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="chkSibHld">
+            <Component class="javax.swing.JRadioButton" name="rbSibling">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroupComp"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Sibling HouseHold"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="chkSingleParent">
+            <Component class="javax.swing.JRadioButton" name="rbSingleParent">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroupComp"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Single Parent"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="chkExtended">
+            <Component class="javax.swing.JRadioButton" name="rbExtended">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroupComp"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Extended"/>
               </Properties>
             </Component>
@@ -410,7 +441,11 @@
                           <Component id="rbConvictedYes" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="rbConvictedNo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+<<<<<<< HEAD
                       <EmptySpace pref="171" max="32767" attributes="0"/>
+=======
+                      <EmptySpace pref="115" max="32767" attributes="0"/>
+>>>>>>> c7bb0e14c612ed5da0c2fb03c6f347dddce98ffc
                   </Group>
               </Group>
             </DimensionLayout>
@@ -493,7 +528,11 @@
                           <Component id="rbChkDrugCommYes" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="rbChkDrugCommNo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+<<<<<<< HEAD
                       <EmptySpace pref="125" max="32767" attributes="0"/>
+=======
+                      <EmptySpace pref="69" max="32767" attributes="0"/>
+>>>>>>> c7bb0e14c612ed5da0c2fb03c6f347dddce98ffc
                   </Group>
               </Group>
             </DimensionLayout>
