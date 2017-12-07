@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
  * @author sanch
  */
 public class ProcessJobRequestJPanel extends javax.swing.JPanel {
-private JPanel userProcessContainer;
+    private JPanel userProcessContainer;
     private JobProcessOrganization organization;
     private Enterprise enterprise;
     private UserAccount userAccount;
@@ -209,6 +209,7 @@ private JPanel userProcessContainer;
     private void btnAssignJobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignJobActionPerformed
         int selectedRow = requestTable.getSelectedRow();
         JobWorkRequest request= null;
+        
         if(selectedRow<0) {
             JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
@@ -221,8 +222,10 @@ private JPanel userProcessContainer;
                 //                JOptionPane.showMessageDialog(null, "Job already assigned", "Warning", JOptionPane.WARNING_MESSAGE);
                 //            return;
                 //            }
+//            TemporaryPJpanel panel = new TemporaryPJpanel(userProcessContainer, userAccount, organization, enterprise, business, request);
             JobSelectionJPanel panel = new JobSelectionJPanel(userProcessContainer, userAccount, organization, enterprise, business, request);
             userProcessContainer.add("JobSelectionJPanel",panel);
+//              userProcessContainer.add("TemporaryPJpanel", panel);
             CardLayout layout = (CardLayout)userProcessContainer.getLayout();
             layout.next(userProcessContainer);
         }

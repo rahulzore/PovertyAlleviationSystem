@@ -25,6 +25,7 @@ public abstract class Organization {
     private static int counter;
     private String networkName;
     private Type type;
+    private JobProviderType jobProviderType;
     
     public Organization(String name, String networkName){
         counter++;
@@ -103,6 +104,10 @@ public abstract class Organization {
         return name;
     }
 
+    public JobProviderType getJobProviderType() {
+        return jobProviderType;
+    }
+    
     public Type getType() {
         return type;
     }

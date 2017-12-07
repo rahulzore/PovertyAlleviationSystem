@@ -13,6 +13,11 @@ import Business.Enterpise.JobProviderEnterprise;
 import Business.Enterpise.TrainingProviderEnterprise;
 import Business.Network.Network;
 import Business.Organization.JobProcessOrganization;
+import Business.Organization.JobProvider.CarpentryJobOrganization;
+import Business.Organization.JobProvider.ConstructionJobOrganization;
+import Business.Organization.JobProvider.GeneralJobOrganization;
+import Business.Organization.JobProvider.ITJobOrganization;
+import Business.Organization.JobProvider.SecurityJobOrganization;
 import Business.Organization.JobProviderOrganization;
 import Business.Organization.Organization;
 import Business.Questionnaire.Questionnaire;
@@ -22,6 +27,8 @@ import java.awt.CardLayout;
 //import Business.WorkQueue.TrainingRequest;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingWorker;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -47,41 +54,41 @@ private JPanel userProcessContainer;
           valueLabel.setText(enterprise.getName());
           populateDetails();
           populateTrainingCombo();
-          EvaluateSpecific();
+//          EvaluateSpecific();
     }
-    private void EvaluateSpecific(){
-        Questionnaire qus = request.getQuestionaire();
-        if(qus.getJobQuestionaire().isIsComputer() && request.getQuestionaire().getEducationQuestionaire().isIsRead()
-            && request.getQuestionaire().getEducationQuestionaire().isIsWrite() && !request.getQuestionaire().getCriminalRelatedQuestionaire().isIsConvCrime()
-             && !request.getQuestionaire().getDrugAbuseQuestionaire().isIsConsumeDrug() && !request.getQuestionaire().getDrugAbuseQuestionaire().isIsComDrug()      )
-        {
-            txtBestSuited.setText("IT related Jobs");
-        }
-        else if(qus.getJobQuestionaire().isIsComputer() && request.getQuestionaire().getEducationQuestionaire().isIsRead()
-            && request.getQuestionaire().getEducationQuestionaire().isIsWrite() && !request.getQuestionaire().getCriminalRelatedQuestionaire().isIsConvCrime()
-             && !request.getQuestionaire().getDrugAbuseQuestionaire().isIsConsumeDrug() && request.getQuestionaire().getDrugAbuseQuestionaire().isIsComDrug() )
-        {
-            txtBestSuited.setText("Carpentry related Jobs");
-        }
-        else if(!qus.getJobQuestionaire().isIsComputer() && request.getQuestionaire().getEducationQuestionaire().isIsRead()
-            && request.getQuestionaire().getEducationQuestionaire().isIsWrite() && !request.getQuestionaire().getCriminalRelatedQuestionaire().isIsConvCrime()
-             && request.getQuestionaire().getDrugAbuseQuestionaire().isIsConsumeDrug() && request.getQuestionaire().getDrugAbuseQuestionaire().isIsComDrug() )
-        {
-            txtBestSuited.setText("Carpentry related Jobs");
-        }
-        else if(!qus.getJobQuestionaire().isIsComputer() && !request.getQuestionaire().getEducationQuestionaire().isIsRead()
-            && !request.getQuestionaire().getEducationQuestionaire().isIsWrite() && !request.getQuestionaire().getCriminalRelatedQuestionaire().isIsConvCrime()
-             && request.getQuestionaire().getDrugAbuseQuestionaire().isIsConsumeDrug() && request.getQuestionaire().getDrugAbuseQuestionaire().isIsComDrug() )
-        {
-            txtBestSuited.setText("Construction related Jobs");
-        }
-        else if(!qus.getJobQuestionaire().isIsComputer() && !request.getQuestionaire().getEducationQuestionaire().isIsRead()
-            && !request.getQuestionaire().getEducationQuestionaire().isIsWrite() && !request.getQuestionaire().getCriminalRelatedQuestionaire().isIsConvCrime()
-             && request.getQuestionaire().getDrugAbuseQuestionaire().isIsConsumeDrug() && request.getQuestionaire().getDrugAbuseQuestionaire().isIsComDrug() )
-        {
-            txtBestSuited.setText("General Jobs");
-        }
-    }
+//    private void EvaluateSpecific(){
+//        Questionnaire qus = request.getQuestionaire();
+//        if(qus.getJobQuestionaire().isIsComputer() && request.getQuestionaire().getEducationQuestionaire().isIsRead()
+//            && request.getQuestionaire().getEducationQuestionaire().isIsWrite() && !request.getQuestionaire().getCriminalRelatedQuestionaire().isIsConvCrime()
+//             && !request.getQuestionaire().getDrugAbuseQuestionaire().isIsConsumeDrug() && !request.getQuestionaire().getDrugAbuseQuestionaire().isIsComDrug()      )
+//        {
+//            txtBestSuited.setText("IT related Jobs");
+//        }
+//        else if(qus.getJobQuestionaire().isIsComputer() && request.getQuestionaire().getEducationQuestionaire().isIsRead()
+//            && request.getQuestionaire().getEducationQuestionaire().isIsWrite() && !request.getQuestionaire().getCriminalRelatedQuestionaire().isIsConvCrime()
+//             && !request.getQuestionaire().getDrugAbuseQuestionaire().isIsConsumeDrug() && request.getQuestionaire().getDrugAbuseQuestionaire().isIsComDrug() )
+//        {
+//            txtBestSuited.setText("Carpentry related Jobs");
+//        }
+//        else if(!qus.getJobQuestionaire().isIsComputer() && request.getQuestionaire().getEducationQuestionaire().isIsRead()
+//            && request.getQuestionaire().getEducationQuestionaire().isIsWrite() && !request.getQuestionaire().getCriminalRelatedQuestionaire().isIsConvCrime()
+//             && request.getQuestionaire().getDrugAbuseQuestionaire().isIsConsumeDrug() && request.getQuestionaire().getDrugAbuseQuestionaire().isIsComDrug() )
+//        {
+//            txtBestSuited.setText("Carpentry related Jobs");
+//        }
+//        else if(!qus.getJobQuestionaire().isIsComputer() && !request.getQuestionaire().getEducationQuestionaire().isIsRead()
+//            && !request.getQuestionaire().getEducationQuestionaire().isIsWrite() && !request.getQuestionaire().getCriminalRelatedQuestionaire().isIsConvCrime()
+//             && request.getQuestionaire().getDrugAbuseQuestionaire().isIsConsumeDrug() && request.getQuestionaire().getDrugAbuseQuestionaire().isIsComDrug() )
+//        {
+//            txtBestSuited.setText("Construction related Jobs");
+//        }
+//        else if(!qus.getJobQuestionaire().isIsComputer() && !request.getQuestionaire().getEducationQuestionaire().isIsRead()
+//            && !request.getQuestionaire().getEducationQuestionaire().isIsWrite() && !request.getQuestionaire().getCriminalRelatedQuestionaire().isIsConvCrime()
+//             && request.getQuestionaire().getDrugAbuseQuestionaire().isIsConsumeDrug() && request.getQuestionaire().getDrugAbuseQuestionaire().isIsComDrug() )
+//        {
+//            txtBestSuited.setText("General Jobs");
+//        }
+//    }
     private void populateDetails(){
         nametxt.setText(request.getQuestionaire().getPersonalQuestionnaire().getName());
         lblResultComputers.setText(request.getQuestionaire().getJobQuestionaire().isIsComputer() ? "Yes": "No");
@@ -94,7 +101,7 @@ private JPanel userProcessContainer;
         lblResultGuard.setText(request.getQuestionaire().getGuardQuestionaire().isPreviousGuardExperience()?"Yes":"No");
     }
     private void populateTrainingCombo(){
-        availabeInstCombo.removeAllItems();
+//        availabeInstCombo.removeAllItems();
         Enterprise tm =null;
         for (Network network : business.getNetworkList()) {
                 for (Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()) {
@@ -138,7 +145,7 @@ private JPanel userProcessContainer;
 //        {
             
                     for (Organization org : tm.getOrganizationList().getOrganizationList()) {
-                        availabeInstCombo.addItem(org);
+//                        availabeInstCombo.addItem(org);
                     }
                 
 //        }
@@ -157,8 +164,6 @@ private JPanel userProcessContainer;
     private void initComponents() {
 
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        availabeInstCombo = new javax.swing.JComboBox();
         assignTrainerBtn = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         nametxt = new javax.swing.JTextField();
@@ -187,10 +192,12 @@ private JPanel userProcessContainer;
         jPanel6 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         lblResultGuard = new javax.swing.JLabel();
-        backJBtn = new javax.swing.JButton();
         backJBtn1 = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
-        txtBestSuited = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textArea = new javax.swing.JTextArea();
+        searchJButton = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jobsTable = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(153, 0, 51));
@@ -198,15 +205,6 @@ private JPanel userProcessContainer;
         jLabel3.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 0, 51));
         jLabel3.setText("Assign Job Organization");
-
-        jLabel4.setText("Available job organization:");
-
-        availabeInstCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        availabeInstCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                availabeInstComboActionPerformed(evt);
-            }
-        });
 
         assignTrainerBtn.setBackground(new java.awt.Color(51, 255, 51));
         assignTrainerBtn.setText("Assign Job");
@@ -254,7 +252,7 @@ private JPanel userProcessContainer;
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(lblResultComputers))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         tabbedComputers.addTab("Computers", jPanel1);
@@ -297,7 +295,7 @@ private JPanel userProcessContainer;
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(lblResultWrite))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         tabbedComputers.addTab("Education", jPanel2);
@@ -326,7 +324,7 @@ private JPanel userProcessContainer;
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(lblResultCrime))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         tabbedComputers.addTab("Criminal", jPanel3);
@@ -369,7 +367,7 @@ private JPanel userProcessContainer;
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(lblResultConDrugs))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         tabbedComputers.addTab("Drugs", jPanel4);
@@ -398,7 +396,7 @@ private JPanel userProcessContainer;
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(lblResultPhysical))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         tabbedComputers.addTab("Physical", jPanel5);
@@ -427,17 +425,10 @@ private JPanel userProcessContainer;
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(lblResultGuard))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         tabbedComputers.addTab("Guarding Experience", jPanel6);
-
-        backJBtn.setText("<< Back");
-        backJBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJBtnActionPerformed(evt);
-            }
-        });
 
         backJBtn1.setBackground(new java.awt.Color(255, 0, 0));
         backJBtn1.setText("<< Back");
@@ -447,16 +438,41 @@ private JPanel userProcessContainer;
             }
         });
 
-        jLabel10.setText("Best Suited Organization:");
+        textArea.setColumns(20);
+        textArea.setRows(5);
+        jScrollPane1.setViewportView(textArea);
 
-        txtBestSuited.setEnabled(false);
+        searchJButton.setText("Initiate Search");
+        searchJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchJButtonActionPerformed(evt);
+            }
+        });
+
+        jobsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Organization Name"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jobsTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(270, 270, 270)
                         .addComponent(jLabel3))
@@ -466,33 +482,27 @@ private JPanel userProcessContainer;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel8))
+                        .addGap(112, 112, 112)
+                        .addComponent(jLabel8)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(availabeInstCombo, 0, 218, Short.MAX_VALUE)
-                            .addComponent(nametxt)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(assignTrainerBtn))))
+                        .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(backJBtn1)
-                            .addComponent(tabbedComputers, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap()
+                        .addComponent(backJBtn1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(assignTrainerBtn))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtBestSuited, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(74, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(324, 324, 324)
-                    .addComponent(backJBtn)
-                    .addContainerGap(324, Short.MAX_VALUE)))
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(searchJButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(tabbedComputers, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -509,39 +519,40 @@ private JPanel userProcessContainer;
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(availabeInstCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(tabbedComputers, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tabbedComputers, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(searchJButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE))
+                .addGap(18, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtBestSuited, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addComponent(assignTrainerBtn)
-                .addGap(18, 18, 18)
-                .addComponent(backJBtn1)
-                .addContainerGap(79, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(253, 253, 253)
-                    .addComponent(backJBtn)
-                    .addContainerGap(253, Short.MAX_VALUE)))
+                    .addComponent(assignTrainerBtn)
+                    .addComponent(backJBtn1))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignTrainerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignTrainerBtnActionPerformed
         // TODO add your handling code here:
-        Organization org = ( Organization) availabeInstCombo.getSelectedItem();
-        if(org != null){
-            org.getWorkQueue().getWorkRequestList().add(request);
-        }
+//        Organization org = ( Organization) availabeInstCombo.getSelectedItem();
+//        if(org != null){
+//            org.getWorkQueue().getWorkRequestList().add(request);
+//        }
 //        if(org instanceof CarpentryTrainingOrganization){
 //            
 //        }
         //request.setMessage(message);
+        
+        int selectedRow = jobsTable.getSelectedRow();
+        if(selectedRow<0){
+            JOptionPane.showMessageDialog(null, "Please select and organization to send the request to!!");
+            return;
+        }
+        Organization org = (Organization) jobsTable.getValueAt(selectedRow, 0);
+        org.getWorkQueue().getWorkRequestList().add(request);
         UserAccount res = org.getUserAccountList().getUserAccountList().get(0);
         request.setReceiver(res);
         request.setStatus("assigned");
@@ -550,22 +561,6 @@ private JPanel userProcessContainer;
 
     }//GEN-LAST:event_assignTrainerBtnActionPerformed
 
-    private void availabeInstComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_availabeInstComboActionPerformed
-        // TODO add your handling code here:
-        //selecteddropdownOrg = (JobProviderOrganization) availabeInstCombo.getSelectedItem();
-//        if(selecteddropdownOrg != null)
-//        {
-//            seatstxt.setText(String.valueOf( selecteddropdownOrg.getSeats()));
-//        }
-    }//GEN-LAST:event_availabeInstComboActionPerformed
-
-    private void backJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJBtnActionPerformed
-        // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_backJBtnActionPerformed
-
     private void backJBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJBtn1ActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
@@ -573,20 +568,119 @@ private JPanel userProcessContainer;
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJBtn1ActionPerformed
 
+    private void searchJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchJButtonActionPerformed
+
+        // TODO add your handling code here:
+        new SwingWorker() {
+            @Override
+            protected Object doInBackground() throws Exception {
+
+                Enterprise tm = null;
+                for (Network network : business.getNetworkList()) {
+                    for (Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()) {
+                        if (ent instanceof JobProviderEnterprise) {
+                            tm = ent;
+                            break;
+                        }
+                    }
+                }
+                DefaultTableModel dtm = (DefaultTableModel) jobsTable.getModel();
+
+                Questionnaire qus = request.getQuestionaire();
+                textArea.append("Knows how to use Computer?\n");
+
+                Thread.sleep(2000);
+
+                if (qus.getJobQuestionaire().isIsComputer()) {
+                    for (Organization org : tm.getOrganizationList().getOrganizationList()) {
+                        if (org instanceof ITJobOrganization) {
+                            Object row[] = new Object[1];
+                            row[0] = org;
+                            dtm.addRow(row);
+                        }
+                    }
+
+                    textArea.append("Yes\n");
+
+                } else {
+                    textArea.append("No\n");
+
+                }
+                Thread.sleep(2000);
+                textArea.append("Knows how to read and write?\n");
+                Thread.sleep(2000);
+                if (qus.getEducationQuestionaire().isIsRead() && qus.getEducationQuestionaire().isIsWrite()) {
+                    for (Organization org : tm.getOrganizationList().getOrganizationList()) {
+                        if (org instanceof GeneralJobOrganization) {
+                            Object row[] = new Object[1];
+                            row[0] = org;
+                            dtm.addRow(row);
+                        }
+                    }
+
+                    textArea.append("Yes\n");
+
+                } else {
+                    textArea.append("No\n");
+
+                }
+
+                Thread.sleep(2000);
+                textArea.append("Is Physically strong and active?\n");
+                Thread.sleep(2000);
+                if (qus.getEducationQuestionaire().isIsRead() && qus.getEducationQuestionaire().isIsWrite()) {
+                    for (Organization org : tm.getOrganizationList().getOrganizationList()) {
+                        if (org instanceof ConstructionJobOrganization || org instanceof CarpentryJobOrganization) {
+                            Object row[] = new Object[1];
+                            row[0] = org;
+                            dtm.addRow(row);
+                        }
+                    }
+
+                    textArea.append("Yes\n");
+
+                } else {
+                    textArea.append("No\n");
+
+                }
+
+                Thread.sleep(2000);
+                textArea.append("Previous experience as a Guard?\n");
+                Thread.sleep(2000);
+                if (qus.getEducationQuestionaire().isIsRead() && qus.getEducationQuestionaire().isIsWrite()) {
+                    for (Organization org : tm.getOrganizationList().getOrganizationList()) {
+                        if (org instanceof SecurityJobOrganization) {
+                            Object row[] = new Object[1];
+                            row[0] = org;
+                            dtm.addRow(row);
+                        }
+                    }
+
+                    textArea.append("Yes\n");
+
+                } else {
+                    textArea.append("No\n");
+
+                }
+                Thread.sleep(2000);
+                textArea.append("Job Search Completed!!");
+                JOptionPane.showMessageDialog(null, "Job search has been completed. Please select the best job for the individual!!");
+                return null;
+            }
+        }.execute();
+
+    }//GEN-LAST:event_searchJButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton assignTrainerBtn;
-    private javax.swing.JComboBox availabeInstCombo;
-    private javax.swing.JButton backJBtn;
     private javax.swing.JButton backJBtn1;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -598,6 +692,9 @@ private JPanel userProcessContainer;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jobsTable;
     private javax.swing.JLabel lblResultComputers;
     private javax.swing.JLabel lblResultConDrugs;
     private javax.swing.JLabel lblResultCrime;
@@ -607,8 +704,9 @@ private JPanel userProcessContainer;
     private javax.swing.JLabel lblResultRead;
     private javax.swing.JLabel lblResultWrite;
     private javax.swing.JTextField nametxt;
+    private javax.swing.JButton searchJButton;
     private javax.swing.JTabbedPane tabbedComputers;
-    private javax.swing.JTextField txtBestSuited;
+    private javax.swing.JTextArea textArea;
     private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables
 
