@@ -255,7 +255,8 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         }
 
         String name = nameJTextField.getText();
-        if (name == "") {
+        if (!name.equalsIgnoreCase("")) {
+        } else {
             JOptionPane.showMessageDialog(null, "Invalid Input!");
         }
         Enterprise enterprise = network.getEnterpriseDirectory().createAndAddEnterprise(name, type, network.getName());

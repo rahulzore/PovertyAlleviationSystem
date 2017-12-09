@@ -66,25 +66,28 @@ private void populateRequestTable(){
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        enterpriseLabel = new javax.swing.JLabel();
+        valueLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         requestTable = new javax.swing.JTable();
         viewRecordButton = new javax.swing.JButton();
         backJBtn = new javax.swing.JButton();
-        enterpriseLabel = new javax.swing.JLabel();
-        valueLabel = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterpriseLabel.setText("EnterPrise :");
+
+        valueLabel.setText("<value>");
 
         requestTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Individual Name", "Request Type"
+                "Request ID", "Individual Name", "Request Type", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -93,7 +96,6 @@ private void populateRequestTable(){
         });
         jScrollPane1.setViewportView(requestTable);
 
-        viewRecordButton.setBackground(new java.awt.Color(51, 255, 51));
         viewRecordButton.setText("Add Training Details");
         viewRecordButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,21 +103,12 @@ private void populateRequestTable(){
             }
         });
 
-        backJBtn.setBackground(new java.awt.Color(255, 51, 51));
         backJBtn.setText("<< Back");
         backJBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJBtnActionPerformed(evt);
             }
         });
-
-        enterpriseLabel.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
-        enterpriseLabel.setForeground(new java.awt.Color(153, 0, 51));
-        enterpriseLabel.setText("EnterPrise :");
-
-        valueLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        valueLabel.setForeground(new java.awt.Color(153, 0, 51));
-        valueLabel.setText("<value>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -151,30 +144,30 @@ private void populateRequestTable(){
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
                 .addComponent(viewRecordButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(backJBtn)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewRecordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewRecordButtonActionPerformed
-        int selectedRow = requestTable.getSelectedRow();
-        TrainingRequest request = null;
-        if(selectedRow<0)
-        {
-            JOptionPane.showMessageDialog(null, "Please select a row", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
+int selectedRow = requestTable.getSelectedRow();
+TrainingRequest request = null;
+if(selectedRow<0)
+{
+    JOptionPane.showMessageDialog(null, "Please select a row", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
 
-        }
-        if(selectedRow>=0)
-        {
-            request = (TrainingRequest) requestTable.getValueAt(selectedRow, 0);
-            AddTrainingRequestDetailsJPanel AddTrainingRequestDetailsJPanel = new AddTrainingRequestDetailsJPanel(userProcessContainer,userAccount,organization, enterprise,business,request);
+}
+if(selectedRow>=0)
+{
+             request = (TrainingRequest) requestTable.getValueAt(selectedRow, 0);
+             AddTrainingRequestDetailsJPanel AddTrainingRequestDetailsJPanel = new AddTrainingRequestDetailsJPanel(userProcessContainer,userAccount,organization, enterprise,business,request);
             userProcessContainer.add("AddTrainingRequestDetailsJPanel", AddTrainingRequestDetailsJPanel);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
             layout.next(userProcessContainer);
-        }
-
+}
+        
     }//GEN-LAST:event_viewRecordButtonActionPerformed
 
     private void backJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJBtnActionPerformed

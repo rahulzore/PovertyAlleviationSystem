@@ -16,15 +16,10 @@ import Business.Questionnaire.DrugAbuseQuestionaire;
 import Business.Questionnaire.EducationQuestionaire;
 import Business.Questionnaire.FamilyBackgroundQuestionaire;
 import Business.Questionnaire.JobQuestionaire;
-import Business.Questionnaire.PhysicalQuestionaire;
 import Business.Questionnaire.Questionnaire;
-import Business.Questionnaire.SecurityGuardQuestionaire;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.JobWorkRequest;
 import java.awt.CardLayout;
-import java.awt.Image;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -39,13 +34,11 @@ private JPanel userProcessContainer;
     private UserAccount userAccount;
     EcoSystem business;
     JobWorkRequest request;
-    
     /**
      * Creates new form ManageJobRequestDetailsJPanel
      */
     public AddJobRequestDetailsJPanel() {
         initComponents();
-       
     }
 
     AddJobRequestDetailsJPanel(JPanel userProcessContainer, UserAccount userAccount, JobRequestManagerOrganization organization, Enterprise enterprise, EcoSystem business,JobWorkRequest workrequest) {
@@ -57,13 +50,6 @@ private JPanel userProcessContainer;
         this.business = business;
         this.request = workrequest;
         populateWorkRequestData();
-   
-        ImageIcon icon=request.getQuestionaire().getPersonalQuestionnaire().getIdProof();
-        nameIndividual.setText(request.getQuestionaire().getPersonalQuestionnaire().getName());
-
-        idProof.setIcon(new ImageIcon(icon.getImage().getScaledInstance(99, 99, Image.SCALE_DEFAULT)));
-        
-      
 //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -85,12 +71,10 @@ private JPanel userProcessContainer;
         buttonGroupCommDrugs = new javax.swing.ButtonGroup();
         buttonGroupComp = new javax.swing.ButtonGroup();
         buttonGroupFamily = new javax.swing.ButtonGroup();
-        buttonGroupPhysical = new javax.swing.ButtonGroup();
-        buttonGroupGuard = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         btnRequestJob = new javax.swing.JButton();
         backJBtn = new javax.swing.JButton();
-        tabbedPanel = new javax.swing.JTabbedPane();
+        jTabbedPane = new javax.swing.JTabbedPane();
         jobPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         rbComputerNo = new javax.swing.JRadioButton();
@@ -112,33 +96,17 @@ private JPanel userProcessContainer;
         jLabel6 = new javax.swing.JLabel();
         rbConvictedNo = new javax.swing.JRadioButton();
         rbConvictedYes = new javax.swing.JRadioButton();
-        drugPanel = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         rbDrugsYes = new javax.swing.JRadioButton();
         rbDrugsNo = new javax.swing.JRadioButton();
         rbChkDrugCommNo = new javax.swing.JRadioButton();
         rbChkDrugCommYes = new javax.swing.JRadioButton();
-        guardPanel = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        guardYes = new javax.swing.JRadioButton();
-        guardlNo = new javax.swing.JRadioButton();
-        physicalPanel = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        isPhysicalYes = new javax.swing.JRadioButton();
-        isPhysicalNo = new javax.swing.JRadioButton();
-        idProof = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        nameIndividual = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Enter Individual job Details");
 
-        btnRequestJob.setBackground(new java.awt.Color(51, 255, 51));
         btnRequestJob.setText("Request Job");
         btnRequestJob.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,15 +114,12 @@ private JPanel userProcessContainer;
             }
         });
 
-        backJBtn.setBackground(new java.awt.Color(255, 0, 0));
         backJBtn.setText("<< Back");
         backJBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJBtnActionPerformed(evt);
             }
         });
-
-        jobPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setText("Can you use computer?");
 
@@ -176,7 +141,7 @@ private JPanel userProcessContainer;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rbComputerNo))
                     .addComponent(jLabel2))
-                .addContainerGap(577, Short.MAX_VALUE))
+                .addContainerGap(549, Short.MAX_VALUE))
         );
         jobPanelLayout.setVerticalGroup(
             jobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,12 +152,10 @@ private JPanel userProcessContainer;
                 .addGroup(jobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbComputerYes)
                     .addComponent(rbComputerNo))
-                .addContainerGap(226, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
-        tabbedPanel.addTab("Job Information", jobPanel);
-
-        educationPanel.setBackground(new java.awt.Color(255, 255, 255));
+        jTabbedPane.addTab("Job Information", jobPanel);
 
         jLabel7.setText("Can you read?");
 
@@ -227,7 +190,7 @@ private JPanel userProcessContainer;
                         .addComponent(rbReadYes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rbReadNo)))
-                .addContainerGap(635, Short.MAX_VALUE))
+                .addContainerGap(607, Short.MAX_VALUE))
         );
         educationPanelLayout.setVerticalGroup(
             educationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,12 +207,10 @@ private JPanel userProcessContainer;
                 .addGroup(educationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbWriteYes)
                     .addComponent(rbWriteNo))
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
-        tabbedPanel.addTab("Education Information", educationPanel);
-
-        familyBackPanel.setBackground(new java.awt.Color(255, 255, 255));
+        jTabbedPane.addTab("Education Information", educationPanel);
 
         jLabel3.setText("What Type of family you are in: ");
 
@@ -280,7 +241,7 @@ private JPanel userProcessContainer;
                 .addComponent(rbSingleParent)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rbExtended)
-                .addGap(216, 216, 216))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
         familyBackPanelLayout.setVerticalGroup(
             familyBackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,12 +253,10 @@ private JPanel userProcessContainer;
                     .addComponent(rbSibling)
                     .addComponent(rbSingleParent)
                     .addComponent(rbExtended))
-                .addContainerGap(246, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
-        tabbedPanel.addTab("Family Background Information", familyBackPanel);
-
-        criminalPanel.setBackground(new java.awt.Color(255, 255, 255));
+        jTabbedPane.addTab("Family Background Information", familyBackPanel);
 
         jLabel6.setText("Do you ever convicted for a crime:");
 
@@ -319,7 +278,7 @@ private JPanel userProcessContainer;
                         .addComponent(rbConvictedYes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rbConvictedNo)))
-                .addContainerGap(551, Short.MAX_VALUE))
+                .addContainerGap(523, Short.MAX_VALUE))
         );
         criminalPanelLayout.setVerticalGroup(
             criminalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -330,12 +289,10 @@ private JPanel userProcessContainer;
                 .addGroup(criminalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbConvictedYes)
                     .addComponent(rbConvictedNo))
-                .addContainerGap(226, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
-        tabbedPanel.addTab("Criminal Information", criminalPanel);
-
-        drugPanel.setBackground(new java.awt.Color(255, 255, 255));
+        jTabbedPane.addTab("Criminal Information", criminalPanel);
 
         jLabel4.setText("Do you use drugs:");
 
@@ -353,126 +310,44 @@ private JPanel userProcessContainer;
         buttonGroupCommDrugs.add(rbChkDrugCommYes);
         rbChkDrugCommYes.setText("Yes");
 
-        javax.swing.GroupLayout drugPanelLayout = new javax.swing.GroupLayout(drugPanel);
-        drugPanel.setLayout(drugPanelLayout);
-        drugPanelLayout.setHorizontalGroup(
-            drugPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(drugPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(drugPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
-                    .addGroup(drugPanelLayout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(rbChkDrugCommYes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(rbChkDrugCommNo))
-                    .addGroup(drugPanelLayout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(rbDrugsYes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rbDrugsNo)))
-                .addContainerGap(376, Short.MAX_VALUE))
+                .addContainerGap(348, Short.MAX_VALUE))
         );
-        drugPanelLayout.setVerticalGroup(
-            drugPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(drugPanelLayout.createSequentialGroup()
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(drugPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbDrugsYes)
                     .addComponent(rbDrugsNo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(drugPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbChkDrugCommYes)
                     .addComponent(rbChkDrugCommNo))
-                .addGap(159, 159, 159))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
-        tabbedPanel.addTab("DrugAbuse Information", drugPanel);
-
-        guardPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel11.setText("Do you have any previous guarding experience:");
-
-        buttonGroupGuard.add(guardYes);
-        guardYes.setText("Yes");
-
-        buttonGroupGuard.add(guardlNo);
-        guardlNo.setText("No");
-
-        javax.swing.GroupLayout guardPanelLayout = new javax.swing.GroupLayout(guardPanel);
-        guardPanel.setLayout(guardPanelLayout);
-        guardPanelLayout.setHorizontalGroup(
-            guardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(guardPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(guardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addGroup(guardPanelLayout.createSequentialGroup()
-                        .addComponent(guardYes)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guardlNo)))
-                .addContainerGap(486, Short.MAX_VALUE))
-        );
-        guardPanelLayout.setVerticalGroup(
-            guardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(guardPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(guardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(guardYes)
-                    .addComponent(guardlNo))
-                .addContainerGap(226, Short.MAX_VALUE))
-        );
-
-        tabbedPanel.addTab("Previous Guarding Experience", guardPanel);
-
-        physicalPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel10.setText("Are you physically active:");
-
-        buttonGroupPhysical.add(isPhysicalYes);
-        isPhysicalYes.setText("Yes");
-
-        buttonGroupPhysical.add(isPhysicalNo);
-        isPhysicalNo.setText("No");
-
-        javax.swing.GroupLayout physicalPanelLayout = new javax.swing.GroupLayout(physicalPanel);
-        physicalPanel.setLayout(physicalPanelLayout);
-        physicalPanelLayout.setHorizontalGroup(
-            physicalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(physicalPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(physicalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addGroup(physicalPanelLayout.createSequentialGroup()
-                        .addComponent(isPhysicalYes)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(isPhysicalNo)))
-                .addContainerGap(594, Short.MAX_VALUE))
-        );
-        physicalPanelLayout.setVerticalGroup(
-            physicalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(physicalPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(physicalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(isPhysicalYes)
-                    .addComponent(isPhysicalNo))
-                .addContainerGap(226, Short.MAX_VALUE))
-        );
-
-        tabbedPanel.addTab("Physical Information", physicalPanel);
-
-        idProof.setText("jLabel9");
-
-        jLabel9.setText("Name: ");
-
-        nameIndividual.setEnabled(false);
+        jTabbedPane.addTab("DrugAbuse Information", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -481,38 +356,30 @@ private JPanel userProcessContainer;
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(tabbedPanel))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(106, 106, 106)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(backJBtn)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(backJBtn))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(292, 292, 292)
-                        .addComponent(btnRequestJob))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(230, 230, 230)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(idProof, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(nameIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTabbedPane)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(292, 292, 292)
+                .addComponent(btnRequestJob)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(nameIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(idProof, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tabbedPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTabbedPane)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRequestJob)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -529,19 +396,13 @@ private JPanel userProcessContainer;
         rbConvictedYes.setSelected(questionaire.getCriminalRelatedQuestionaire().isIsConvCrime());
         rbDrugsYes.setSelected(questionaire.getDrugAbuseQuestionaire().isIsConsumeDrug());
         rbChkDrugCommYes.setSelected(questionaire.getDrugAbuseQuestionaire().isIsComDrug());
-        guardYes.setSelected(questionaire.getGuardQuestionaire().isPreviousGuardExperience());
-        isPhysicalYes.setSelected(questionaire.getPhysicalQuestionaire().isIsPhysicallyActive());
         rbComputerNo.setSelected(!questionaire.getJobQuestionaire().isIsComputer());
         rbReadNo.setSelected(!questionaire.getEducationQuestionaire().isIsRead());
         rbWriteNo.setSelected(!questionaire.getEducationQuestionaire().isIsWrite());
         rbConvictedNo.setSelected(!questionaire.getCriminalRelatedQuestionaire().isIsConvCrime());
         rbDrugsNo.setSelected(!questionaire.getDrugAbuseQuestionaire().isIsConsumeDrug());
         rbChkDrugCommNo.setSelected(!questionaire.getDrugAbuseQuestionaire().isIsComDrug());
-        guardlNo.setSelected(!questionaire.getGuardQuestionaire().isPreviousGuardExperience());
-        isPhysicalNo.setSelected(!questionaire.getPhysicalQuestionaire().isIsPhysicallyActive());
-        
         String str =questionaire.getFamilyBackgroundQuestionaire().getFamilyBackground();
-        
         if(str != null && str.equalsIgnoreCase("Nuclear"))
         {
             rbNuclear.setSelected(true);
@@ -594,12 +455,6 @@ private JPanel userProcessContainer;
         DrugAbuseQuestionaire DrugAbuseQuestionaire = questionnaire.getDrugAbuseQuestionaire();
         DrugAbuseQuestionaire.setIsConsumeDrug(rbDrugsYes.isSelected());
         DrugAbuseQuestionaire.setIsComDrug(rbChkDrugCommYes.isSelected());
-        
-        PhysicalQuestionaire physicalQuestionaire = questionnaire.getPhysicalQuestionaire();
-        physicalQuestionaire.setIsPhysicallyActive(isPhysicalYes.isSelected());
-        
-        SecurityGuardQuestionaire securityGuardQuestionaire = questionnaire.getGuardQuestionaire();
-        securityGuardQuestionaire.setPreviousGuardExperience(guardYes.isSelected());
         //CriminalRelatedQuestionaire.set
         //jobQuestionaire.setIsWrite(true);
         //jobQuestionaire.setBasicKnowledge("Computer");
@@ -659,23 +514,12 @@ private JPanel userProcessContainer;
     private javax.swing.ButtonGroup buttonGroupCrime;
     private javax.swing.ButtonGroup buttonGroupDrugs;
     private javax.swing.ButtonGroup buttonGroupFamily;
-    private javax.swing.ButtonGroup buttonGroupGuard;
-    private javax.swing.ButtonGroup buttonGroupPhysical;
     private javax.swing.ButtonGroup buttonGroupRead;
     private javax.swing.ButtonGroup buttonGroupWrite;
     private javax.swing.JPanel criminalPanel;
-    private javax.swing.JPanel drugPanel;
     private javax.swing.JPanel educationPanel;
     private javax.swing.JPanel familyBackPanel;
-    private javax.swing.JPanel guardPanel;
-    private javax.swing.JRadioButton guardYes;
-    private javax.swing.JRadioButton guardlNo;
-    private javax.swing.JLabel idProof;
-    private javax.swing.JRadioButton isPhysicalNo;
-    private javax.swing.JRadioButton isPhysicalYes;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -683,10 +527,9 @@ private JPanel userProcessContainer;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JPanel jobPanel;
-    private javax.swing.JTextField nameIndividual;
-    private javax.swing.JPanel physicalPanel;
     private javax.swing.JRadioButton rbChkDrugCommNo;
     private javax.swing.JRadioButton rbChkDrugCommYes;
     private javax.swing.JRadioButton rbComputerNo;
@@ -703,6 +546,5 @@ private JPanel userProcessContainer;
     private javax.swing.JRadioButton rbSingleParent;
     private javax.swing.JRadioButton rbWriteNo;
     private javax.swing.JRadioButton rbWriteYes;
-    private javax.swing.JTabbedPane tabbedPanel;
     // End of variables declaration//GEN-END:variables
 }

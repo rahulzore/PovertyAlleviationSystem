@@ -49,12 +49,16 @@ public class UserAccountDirectory {
     }
     
      public UserAccount createUserAccount(String username, String password, Employee employee, Role role) {
-        UserAccount userAccount = new UserAccount();
+         UserAccount userAccount=null;
+         if(checkIfUsernameIsUnique(username)){
+             
+         userAccount= new UserAccount();
         userAccount.setUserID(username);
         userAccount.setUserPWD(password);
         userAccount.setEmployee(employee);
         userAccount.setRole(role);
         userAccountList.add(userAccount);
+         }
         return userAccount;
     }
 }

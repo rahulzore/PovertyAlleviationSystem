@@ -22,6 +22,7 @@ import Business.Organization.Organization.Type;
 import Business.Role.JobProcessManagerRole;
 import Business.Role.JobProviderRole;
 import Business.Role.TrainingProcessManagerRole;
+import Business.Validator;
 import javax.swing.JOptionPane;
 
 /**
@@ -269,9 +270,9 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         String username = usernameJTextField.getText();
         String password = String.valueOf(passwordJPasswordField.getPassword());
         String name = nameJTextField.getText();
-        if(username.equalsIgnoreCase("")||
-            password.equalsIgnoreCase("")||
-            name.equalsIgnoreCase(""))
+        if(Validator.StringEmpty(username)||
+            Validator.StringEmpty(password)||
+            Validator.StringEmpty(name))
 
         {
             JOptionPane.showMessageDialog(null, "Please enter all fields");
@@ -307,6 +308,11 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             }
             //if(enterprise.getEnterpriseType().Clinic )
             UserAccount account = enterprise.getUserAccountList().createUserAccount(username, password, employee, r);
+            if(account==null)
+            {
+                JOptionPane.showMessageDialog(null, "Please enter unique username");
+                return;
+            }
             populateTable();
             JOptionPane.showMessageDialog(null, "UserAccount created successfully");
     }//GEN-LAST:event_submitJButtonActionPerformed
