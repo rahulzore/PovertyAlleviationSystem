@@ -40,13 +40,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblSize" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="organizationEmpJComboBox" pref="170" max="32767" attributes="0"/>
                           <Component id="nameJTextField" max="32767" attributes="0"/>
-                          <Component id="txtSize" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -62,7 +60,7 @@
                   <Component id="organizationJComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="111" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -74,12 +72,7 @@
                   <Component id="nameJTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtSize" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblSize" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="backjButton1" min="-2" max="-2" attributes="0"/>
                   <Component id="addJButton" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -177,13 +170,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backjButton1ActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblSize">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Size:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtSize">
     </Component>
   </SubComponents>
 </Form>

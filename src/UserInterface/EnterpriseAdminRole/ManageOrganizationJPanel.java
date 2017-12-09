@@ -19,6 +19,7 @@ import Business.Organization.Organization.JobProviderType;
 import Business.Organization.Organization.Type;
 
 import Business.Organization.OrganizationDirectory;
+import Business.Validator;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -42,7 +43,17 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.directory = directory;
         this.enterprise = enterprise;
-
+        if(enterprise instanceof TrainingProviderEnterprise 
+            || enterprise instanceof JobProviderEnterprise )
+        {
+            lblSize.setVisible(true);
+            txtSize.setVisible(true);
+        }
+        else
+        {
+            lblSize.setVisible(false);
+            txtSize.setVisible(false);
+        }
         populateCombo();
         populateTable();
     }
@@ -119,6 +130,8 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         txtOrganization = new javax.swing.JTextField();
         backjButton1 = new javax.swing.JButton();
+        txtSize = new javax.swing.JTextField();
+        lblSize = new javax.swing.JLabel();
 
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -174,6 +187,8 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblSize.setText("Size:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -188,19 +203,23 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
                         .addGap(138, 138, 138)
                         .addComponent(backjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(377, 377, 377)
+                        .addComponent(addJButton))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(295, 295, 295)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblSize)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1))
                                 .addGap(37, 37, 37)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(organizationJComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(78, 78, 78)
-                                .addComponent(addJButton)))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addComponent(txtSize, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -216,9 +235,13 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSize))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(addJButton)
-                .addGap(24, 24, 24)
+                .addGap(4, 4, 4)
                 .addComponent(backjButton1)
                 .addContainerGap())
         );
@@ -233,11 +256,18 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
             return;
 
         }
+        if(lblSize.isVisible())
+        {
+            if(!Validator.isNumeric(txtSize.getText()).equalsIgnoreCase("")){
+           JOptionPane.showMessageDialog(null, Validator.isNumeric(txtSize.getText()), "Error", JOptionPane.ERROR_MESSAGE);
+           return;
+       }
+        }
         if(enterprise instanceof JobProviderEnterprise)
         {
             for (JobProviderType jt : Organization.JobProviderType.values()){
                 if(jt.toString().equals(type)){
-                directory.createOrganization(null,jt, sname);
+                directory.createOrganization(null,jt, sname,Integer.parseInt(txtSize.getText()));
             }
             }
         }
@@ -245,6 +275,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         {
         for(Type t : Organization.Type.values()){
             if(t.toString().equals(type)){
+                
                 directory.createOrganization(t,null, sname);
             }
         }
@@ -256,7 +287,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
 //            directory.createOrganization(cd,null,null,null);
 //        }
         //directory.createOrganization(obj, sname);
-
+        JOptionPane.showMessageDialog(null, "Organization added successfully!!!", "Information", JOptionPane.INFORMATION_MESSAGE);
         populateTable();
 
     }//GEN-LAST:event_addJButtonActionPerformed
@@ -280,8 +311,10 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblSize;
     private javax.swing.JComboBox organizationJComboBox;
     private javax.swing.JTable organizationJTable;
     private javax.swing.JTextField txtOrganization;
+    private javax.swing.JTextField txtSize;
     // End of variables declaration//GEN-END:variables
 }

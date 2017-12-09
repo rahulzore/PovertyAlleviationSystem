@@ -7,9 +7,14 @@ package UserInterface.EnterpriseAdminRole;
 
 import Business.Employee.Employee;
 import Business.Enterpise.Enterprise;
+import Business.Enterpise.JobProviderEnterprise;
 import Business.Enterpise.TrainingProviderEnterprise;
+import Business.Organization.DataCollectorOrganization;
+import Business.Organization.JobProviderOrganization;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
+import Business.Organization.TrainingProviderOrganization;
+import Business.Validator;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -33,16 +38,7 @@ public class ManageEnterpriseEmployeeJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.organizationDir = organizationDir;
         this.enterprise = enterprise;
-        if(enterprise instanceof TrainingProviderEnterprise)
-        {
-            lblSize.setVisible(true);
-            txtSize.setVisible(true);
-        }
-        else
-        {
-            lblSize.setVisible(false);
-            txtSize.setVisible(false);
-        }
+        
         populateOrganizationComboBox();
         populateOrganizationEmpComboBox();
     }
@@ -95,8 +91,6 @@ public class ManageEnterpriseEmployeeJPanel extends javax.swing.JPanel {
         addJButton = new javax.swing.JButton();
         organizationJComboBox = new javax.swing.JComboBox();
         backjButton1 = new javax.swing.JButton();
-        lblSize = new javax.swing.JLabel();
-        txtSize = new javax.swing.JTextField();
 
         jLabel1.setText("Organization");
 
@@ -161,8 +155,6 @@ public class ManageEnterpriseEmployeeJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblSize.setText("Size:");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -186,13 +178,11 @@ public class ManageEnterpriseEmployeeJPanel extends javax.swing.JPanel {
                         .addGap(153, 153, 153)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(lblSize))
+                            .addComponent(jLabel3))
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(organizationEmpJComboBox, 0, 170, Short.MAX_VALUE)
-                            .addComponent(nameJTextField)
-                            .addComponent(txtSize))))
+                            .addComponent(nameJTextField))))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -202,7 +192,7 @@ public class ManageEnterpriseEmployeeJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(organizationJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -212,11 +202,7 @@ public class ManageEnterpriseEmployeeJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSize))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(backjButton1)
                     .addComponent(addJButton))
@@ -228,7 +214,12 @@ public class ManageEnterpriseEmployeeJPanel extends javax.swing.JPanel {
 
         Organization organization = (Organization) organizationEmpJComboBox.getSelectedItem();
         String name = nameJTextField.getText();
-
+        if(Validator.StringEmpty(name)){
+        JOptionPane.showMessageDialog(null, "Please enter all the fields", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        
         organization.getEmployeeList().createEmployee(name);
         populateTable(organization);
 
@@ -243,6 +234,7 @@ public class ManageEnterpriseEmployeeJPanel extends javax.swing.JPanel {
 
     private void organizationEmpJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationEmpJComboBoxActionPerformed
         // TODO add your handling code here:
+       
     }//GEN-LAST:event_organizationEmpJComboBoxActionPerformed
 
     private void backjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backjButton1ActionPerformed
@@ -260,11 +252,9 @@ public class ManageEnterpriseEmployeeJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblSize;
     private javax.swing.JTextField nameJTextField;
     private javax.swing.JComboBox organizationEmpJComboBox;
     private javax.swing.JComboBox organizationJComboBox;
     private javax.swing.JTable organizationJTable;
-    private javax.swing.JTextField txtSize;
     // End of variables declaration//GEN-END:variables
 }

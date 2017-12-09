@@ -135,4 +135,59 @@ public class OrganizationDirectory {
         
         return organization;
     }
+     public Organization createOrganization(Organization.Type type,Organization.JobProviderType ty,String name,int Size){
+         Organization organization = null;
+         if(type != null){
+            if (type.getValue().equals(Organization.Type.Carpentry.getValue())){
+            organization = new CarpentryTrainingOrganization(name);
+            ((CarpentryTrainingOrganization)organization).setSeats(Size);
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(Organization.Type.Construction.getValue())){
+            organization = new ConstructionTrainingOrganization(name);
+            ((ConstructionTrainingOrganization)organization).setSeats(Size);
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(Organization.Type.Security.getValue())){
+            organization = new SecurityTrainingOrganization(name);
+            ((SecurityTrainingOrganization)organization).setSeats(Size);
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(Organization.Type.General.getValue())){
+            organization = new GeneralTrainingOrganization(name);
+            ((GeneralTrainingOrganization)organization).setSeats(Size);
+            organizationList.add(organization);
+        }
+         }
+         else
+         {
+              if (ty.getValue().equals(Organization.JobProviderType.Carpentry.getValue())){
+            organization = new CarpentryJobOrganization(name);
+            ((CarpentryJobOrganization)organization).setSeats(Size);
+            organizationList.add(organization);
+        }
+        else if (ty.getValue().equals(Organization.JobProviderType.Construction.getValue())){
+            organization = new ConstructionJobOrganization(name);
+            ((ConstructionJobOrganization)organization).setSeats(Size);
+            organizationList.add(organization);
+        }
+        else if (ty.getValue().equals(Organization.JobProviderType.Security.getValue())){
+            organization = new SecurityJobOrganization(name);
+            ((SecurityJobOrganization)organization).setSeats(Size);
+            organizationList.add(organization);
+        }
+        else if (ty.getValue().equals(Organization.JobProviderType.General.getValue())){
+            organization = new GeneralJobOrganization(name);
+            ((GeneralJobOrganization)organization).setSeats(Size);
+            organizationList.add(organization);
+        }
+            else if (ty.getValue().equals(Organization.JobProviderType.IT.getValue())){
+            organization = new ITJobOrganization(name);
+            ((ITJobOrganization)organization).setSeats(Size);
+            organizationList.add(organization);
+         }
+         
+     }
+         return organization;
+     }
 }
