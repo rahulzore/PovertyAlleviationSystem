@@ -5,6 +5,7 @@
  */
 package UserInterface.TrainingProcessOrganization;
 
+import Business.Constant;
 import Business.EcoSystem;
 import Business.Enterpise.Enterprise;
 import Business.Organization.JobProcessOrganization;
@@ -44,13 +45,13 @@ private JPanel userProcessContainer;
         valueLabel.setText(enterprise.getName());
         populateTrainingRequestTable();
     }
-private void populateTrainingRequestTable(){
+public void populateTrainingRequestTable(){
         DefaultTableModel model = (DefaultTableModel) requestTable.getModel();
         
         model.setRowCount(0);
          //WorkRequest request =organization.getWorkQueue().getWorkRequestList()
                  for(WorkRequest request :organization.getWorkQueue().getWorkRequestList()){
-                     Object[] row = new Object[7];
+                     Object[] row = new Object[8];
                      row[0] =request;
                      row[1] = ((TrainingRequest)request).getQuestionaire().getPersonalQuestionnaire().getName();
                       row[2]=((TrainingRequest)request).getQuestionaire().getTrainingQuestionaire().getTrainingField();
@@ -58,6 +59,7 @@ private void populateTrainingRequestTable(){
                     row[4]=((TrainingRequest)request).getQuestionaire().getTrainingQuestionaire().getDisability();
                     row[5]=((TrainingRequest)request).getQuestionaire().getTrainingQuestionaire().getTrainingDuration();
                     row[6]=((TrainingRequest)request).getStatus();
+                    row[7]=((TrainingRequest)request).getReceiver() != null ? ((TrainingRequest)request).getReceiver().getUserID() : "";
                     model.addRow(row);
                  }
     }
@@ -100,11 +102,11 @@ private void populateTrainingRequestTable(){
 
             },
             new String [] {
-                "Request Id", "Individual Name", "Training Received", "Training Interest", "Disabilty", "Availability", "Status"
+                "Request Id", "Individual Name", "Training Received", "Training Interest", "Disabilty", "Availability", "Status", "Assigned to"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -112,6 +114,16 @@ private void populateTrainingRequestTable(){
             }
         });
         jScrollPane1.setViewportView(requestTable);
+        if (requestTable.getColumnModel().getColumnCount() > 0) {
+            requestTable.getColumnModel().getColumn(0).setResizable(false);
+            requestTable.getColumnModel().getColumn(1).setResizable(false);
+            requestTable.getColumnModel().getColumn(2).setResizable(false);
+            requestTable.getColumnModel().getColumn(3).setResizable(false);
+            requestTable.getColumnModel().getColumn(4).setResizable(false);
+            requestTable.getColumnModel().getColumn(5).setResizable(false);
+            requestTable.getColumnModel().getColumn(6).setResizable(false);
+            requestTable.getColumnModel().getColumn(7).setResizable(false);
+        }
 
         btnAssignTraining.setBackground(new java.awt.Color(51, 255, 51));
         btnAssignTraining.setText("Assign Training");
@@ -168,7 +180,7 @@ private void populateTrainingRequestTable(){
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAssignTraining)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGap(67, 67, 67)
                 .addComponent(backJBtn)
                 .addGap(57, 57, 57))
         );
@@ -221,9 +233,15 @@ private void populateTrainingRequestTable(){
 
         if (selectedRow >= 0) {
             request = (TrainingRequest) requestTable.getValueAt(selectedRow, 0);
-            if(request.getStatus().equalsIgnoreCase("Assigned"))
+            
+            if(request.getStatus().equalsIgnoreCase(Constant.TR_REQUESTSTATUS_PROCESSED) )
             {
-                JOptionPane.showMessageDialog(null, "Training already assigned", "Warning", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Training already Processed from "+ organization.getName() + ".!!!", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            if(request.getStatus().equalsIgnoreCase(Constant.TR_REQUESTSTATUS_ASSIGNED))
+            {
+                JOptionPane.showMessageDialog(null, "Training already Assigned from "+ organization.getName() + ".!!!", "Warning", JOptionPane.WARNING_MESSAGE);
                 return;
             }
             TrainingSelectionJPanel panel = new TrainingSelectionJPanel(userProcessContainer, userAccount, organization, enterprise, business, request);

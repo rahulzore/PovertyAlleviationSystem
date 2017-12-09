@@ -7,6 +7,7 @@
 package UserInterface.JobProcessOrganization;
 
 
+import Business.Constant;
 import Business.EcoSystem;
 import Business.Enterpise.Enterprise;
 import Business.Enterpise.JobProviderEnterprise;
@@ -23,11 +24,15 @@ import Business.Organization.Organization;
 import Business.Questionnaire.Questionnaire;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.JobWorkRequest;
+import UserInterface.JobProviderOrganization.ProvideJobRequestJPanel;
 import java.awt.CardLayout;
+import java.awt.Component;
 //import Business.WorkQueue.TrainingRequest;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingWorker;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -54,6 +59,31 @@ private JPanel userProcessContainer;
           valueLabel.setText(enterprise.getName());
           populateDetails();
           populateTrainingCombo();
+          jobsTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+    @Override
+    public void valueChanged(ListSelectionEvent event) {
+        if (jobsTable.getSelectedRow() > -1) {
+            // print first column value from selected row
+            
+            Organization org = (Organization) jobsTable.getValueAt(jobsTable.getSelectedRow(), 0);
+            if(org instanceof CarpentryJobOrganization){
+                txtSize.setText(String.valueOf(((CarpentryJobOrganization) org).getSeats()));
+            }
+            else if(org instanceof ConstructionJobOrganization){
+                txtSize.setText(String.valueOf(((ConstructionJobOrganization) org).getSeats()));
+            }
+            else if(org instanceof SecurityJobOrganization){
+                txtSize.setText(String.valueOf(((SecurityJobOrganization) org).getSeats()));
+            }
+            else if(org instanceof ITJobOrganization){
+                txtSize.setText(String.valueOf(((ITJobOrganization) org).getSeats()));
+            }
+            else{
+                txtSize.setText(String.valueOf(((GeneralJobOrganization) org).getSeats()));
+            }
+        }
+    }
+});
 //          EvaluateSpecific();
     }
 //    private void EvaluateSpecific(){
@@ -97,9 +127,11 @@ private JPanel userProcessContainer;
         lblResultCrime.setText(request.getQuestionaire().getCriminalRelatedQuestionaire().isIsConvCrime()? "Yes": "No");
         lblResultDrugs.setText(request.getQuestionaire().getDrugAbuseQuestionaire().isIsConsumeDrug()? "Yes": "No");
         lblResultConDrugs.setText(request.getQuestionaire().getDrugAbuseQuestionaire().isIsComDrug()? "Yes": "No");
-        lblResultPhysical.setText(request.getQuestionaire().getPhysicalQuestionaire().isIsPhysicallyActive()?"Yes":"No");
-        lblResultGuard.setText(request.getQuestionaire().getGuardQuestionaire().isPreviousGuardExperience()?"Yes":"No");
+        //lblResultPhysical.setText(request.getQuestionaire().getPhysicalQuestionaire().isIsPhysicallyActive()?"Yes":"No");
+        //lblResultGuard.setText(request.getQuestionaire().getGuardQuestionaire().isPreviousGuardExperience()?"Yes":"No");
     }
+    
+     
     private void populateTrainingCombo(){
 //        availabeInstCombo.removeAllItems();
         Enterprise tm =null;
@@ -198,6 +230,8 @@ private JPanel userProcessContainer;
         searchJButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jobsTable = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
+        txtSize = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(153, 0, 51));
@@ -467,6 +501,10 @@ private JPanel userProcessContainer;
         });
         jScrollPane2.setViewportView(jobsTable);
 
+        jLabel4.setText("Size:");
+
+        txtSize.setEnabled(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -474,18 +512,10 @@ private JPanel userProcessContainer;
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(270, 270, 270)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(87, 87, 87)
                         .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(backJBtn1)
@@ -501,7 +531,21 @@ private JPanel userProcessContainer;
                         .addComponent(searchJButton))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(tabbedComputers, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tabbedComputers, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(112, 112, 112)
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18)
+                                .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(270, 270, 270)
+                                .addComponent(jLabel3)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSize, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(83, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -515,7 +559,9 @@ private JPanel userProcessContainer;
                         .addGap(63, 63, 63)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)
+                            .addComponent(txtSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -527,7 +573,7 @@ private JPanel userProcessContainer;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE))
-                .addGap(18, 31, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(assignTrainerBtn)
                     .addComponent(backJBtn1))
@@ -552,11 +598,33 @@ private JPanel userProcessContainer;
             return;
         }
         Organization org = (Organization) jobsTable.getValueAt(selectedRow, 0);
+        //Organization org = (Organization) jobsTable.getValueAt(jobsTable.getSelectedRow(), 0);
+            if(org instanceof CarpentryJobOrganization){
+                ((CarpentryJobOrganization) org).setSeats(((CarpentryJobOrganization) org).getSeats()-1);
+                txtSize.setText(String.valueOf(((CarpentryJobOrganization) org).getSeats()));
+            }
+            else if(org instanceof ConstructionJobOrganization){
+                ((ConstructionJobOrganization) org).setSeats(((ConstructionJobOrganization) org).getSeats()-1);
+                txtSize.setText(String.valueOf(((ConstructionJobOrganization) org).getSeats()));
+            }
+            else if(org instanceof SecurityJobOrganization){
+                ((SecurityJobOrganization) org).setSeats(((SecurityJobOrganization) org).getSeats()-1);
+                txtSize.setText(String.valueOf(((SecurityJobOrganization) org).getSeats()));
+            }
+            else if(org instanceof ITJobOrganization){
+                ((ITJobOrganization) org).setSeats(((ITJobOrganization) org).getSeats()-1);
+                txtSize.setText(String.valueOf(((ITJobOrganization) org).getSeats()));
+            }
+            else{
+                ((GeneralJobOrganization) org).setSeats(((GeneralJobOrganization) org).getSeats()-1);
+                txtSize.setText(String.valueOf(((GeneralJobOrganization) org).getSeats()));
+            }
         org.getWorkQueue().getWorkRequestList().add(request);
         UserAccount res = org.getUserAccountList().getUserAccountList().get(0);
         request.setReceiver(res);
-        request.setStatus("assigned");
+        request.setStatus(Constant.TR_REQUESTSTATUS_ASSIGNED);
         UserAccount sd= request.getSender();
+        
         JOptionPane.showMessageDialog(null, "Job Organization assigned successfully", "Warning", JOptionPane.INFORMATION_MESSAGE);
 
     }//GEN-LAST:event_assignTrainerBtnActionPerformed
@@ -564,7 +632,11 @@ private JPanel userProcessContainer;
     private void backJBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJBtn1ActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+         Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        ProcessJobRequestJPanel sysAdminwjp = (ProcessJobRequestJPanel) component;
+        sysAdminwjp.populateRequestTable();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJBtn1ActionPerformed
 
@@ -681,6 +753,7 @@ private JPanel userProcessContainer;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -707,6 +780,7 @@ private JPanel userProcessContainer;
     private javax.swing.JButton searchJButton;
     private javax.swing.JTabbedPane tabbedComputers;
     private javax.swing.JTextArea textArea;
+    private javax.swing.JTextField txtSize;
     private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables
 

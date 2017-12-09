@@ -5,6 +5,7 @@
  */
 package UserInterface.NGOOrganization;
 
+import Business.Constant;
 import Business.EcoSystem;
 import Business.Enterpise.Enterprise;
 import Business.Organization.Organization;
@@ -53,8 +54,8 @@ public class ManageNGOFoodRequestJPanel extends javax.swing.JPanel implements Pr
             row[0] = request;
             row[1] = ((FoodRequest) request).getFoodName();
             row[2] = request.getSender();
-            row[3] = request.getReceiver() == null ? "Unassigned" : request.getReceiver();
-            row[4] = request.getStatus() == null ? "Waiting" : request.getStatus();
+            row[3] = request.getReceiver() == null ? Constant.TR_REQUESTSTATUS_UNASSIGNED : request.getReceiver();
+            row[4] = request.getStatus() == null ? Constant.TR_REQUESTSTATUS_WAITING : request.getStatus();
             dtm.addRow(row);
         }
     }

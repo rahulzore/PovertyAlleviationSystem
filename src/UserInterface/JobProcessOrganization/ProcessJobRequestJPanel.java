@@ -5,6 +5,7 @@
  */
 package UserInterface.JobProcessOrganization;
 
+import Business.Constant;
 import UserInterface.CuratorOrganization.JobManagerRole.*;
 import Business.EcoSystem;
 import Business.Enterpise.Enterprise;
@@ -53,11 +54,12 @@ public class ProcessJobRequestJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
          //WorkRequest request =organization.getWorkQueue().getWorkRequestList()
                  for(WorkRequest request :organization.getWorkQueue().getWorkRequestList()){
-                     Object[] row = new Object[4];
+                     Object[] row = new Object[5];
                      row[0] =request;
                      row[1] = ((JobWorkRequest)request).getQuestionaire().getPersonalQuestionnaire().getName();
                      row[2] = ((JobWorkRequest)request).getQuestionaire().getPersonalQuestionnaire().getRequestType();
                      row[3] = ((JobWorkRequest)request).getStatus();
+                     row[4] =((JobWorkRequest)request).getReceiver() != null ? ((JobWorkRequest)request).getReceiver().getUserID() : "";
                       model.addRow(row);
                  }
     }
@@ -104,11 +106,11 @@ public class ProcessJobRequestJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Individual Name", "Request Type", "Status"
+                "RequestID", "Individual Name", "Request Type", "Status", "Assigned To"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -116,6 +118,13 @@ public class ProcessJobRequestJPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(requestTable);
+        if (requestTable.getColumnModel().getColumnCount() > 0) {
+            requestTable.getColumnModel().getColumn(0).setResizable(false);
+            requestTable.getColumnModel().getColumn(1).setResizable(false);
+            requestTable.getColumnModel().getColumn(2).setResizable(false);
+            requestTable.getColumnModel().getColumn(3).setResizable(false);
+            requestTable.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         backJBtn.setBackground(new java.awt.Color(255, 0, 0));
         backJBtn.setText("<< Back");
@@ -144,8 +153,7 @@ public class ProcessJobRequestJPanel extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1)
@@ -217,6 +225,12 @@ public class ProcessJobRequestJPanel extends javax.swing.JPanel {
 
         if (selectedRow >= 0) {
             request = (JobWorkRequest) requestTable.getValueAt(selectedRow, 0);
+            if(request.getStatus().equalsIgnoreCase(Constant.TR_REQUESTSTATUS_ASSIGNED)
+              || request.getStatus().equalsIgnoreCase(Constant.TR_REQUESTSTATUS_PROCESSED) )
+            {
+                JOptionPane.showMessageDialog(null, "Request already proceeded from "+ organization.getName() + ".!!!", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
             //            if(request.getStatus().equalsIgnoreCase("Assigned"))
             //            {
                 //                JOptionPane.showMessageDialog(null, "Job already assigned", "Warning", JOptionPane.WARNING_MESSAGE);
