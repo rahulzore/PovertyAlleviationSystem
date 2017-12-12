@@ -15,11 +15,19 @@ import java.util.ArrayList;
  * @author sanch
  */
 public class TrainingProviderOrganization extends Organization{
-    
+    private int seats;
     public TrainingProviderOrganization(String name)
     {
         super(name,"");
-        
+        seats = 0;
+    }
+
+    public int getSeats() {
+        return seats;
+    }
+
+    public void setSeats(int seats) {
+        this.seats = seats;
     }
 
     @Override

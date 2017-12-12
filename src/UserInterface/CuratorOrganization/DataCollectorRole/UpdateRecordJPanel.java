@@ -5,19 +5,57 @@
  */
 package UserInterface.CuratorOrganization.DataCollectorRole;
 
+import Business.EcoSystem;
+import Business.Enterpise.Enterprise;
+import Business.Organization.DataCollectorOrganization;
+import Business.Organization.Organization;
+import Business.Questionnaire.PersonalQuestionnaire;
+import Business.Questionnaire.Questionnaire;
+import Business.UserAccount.UserAccount;
+import Business.Validator;
+import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
+import java.awt.Component;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author sanch
  */
 public class UpdateRecordJPanel extends javax.swing.JPanel {
-
+private JPanel userProcessContainer;
+    private DataCollectorOrganization organization;
+    private Enterprise enterprise;
+    private UserAccount userAccount;
+    EcoSystem system;
+    private WorkRequest request;
     /**
      * Creates new form UpdateRecordJPanel
      */
-    public UpdateRecordJPanel() {
+    public UpdateRecordJPanel(JPanel userProcessContainer, EcoSystem system, WorkRequest request) {
         initComponents();
+        this.system=system;
+        this.userProcessContainer=userProcessContainer;
+        this.request=request;
+        populateDetails();
+        
     }
-
+private void populateDetails(){
+    
+    txtName.setText(request.getQuestionaire().getPersonalQuestionnaire().getName());
+    txtIncome.setText(String.valueOf(request.getQuestionaire().getPersonalQuestionnaire().getIncome()));
+    txtAge.setText(String.valueOf(request.getQuestionaire().getPersonalQuestionnaire().getAge()));
+    txtEdu.setText(String.valueOf(request.getQuestionaire().getPersonalQuestionnaire().getEducation()));
+    txtGender.setText(String.valueOf(request.getQuestionaire().getPersonalQuestionnaire().getGender()));
+    txtRequest.setText(String.valueOf(request.getQuestionaire().getPersonalQuestionnaire().getRequestType()));
+    ssnTxt.setText(String.valueOf(request.getQuestionaire().getPersonalQuestionnaire().getSsn()));
+    txtAddress.setText(String.valueOf(request.getQuestionaire().getPersonalQuestionnaire().getAddress()));
+    txtContact.setText(String.valueOf(request.getQuestionaire().getPersonalQuestionnaire().getContact()));
+    txtemailAddress.setText(String.valueOf(request.getQuestionaire().getPersonalQuestionnaire().getEmailAddress()));
+    
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,29 +65,60 @@ public class UpdateRecordJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        saveButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        txtAge = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
+        txtGender = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        txtEdu = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        txtRequest = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtIncome = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         addRecordButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        backJBtn = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        ssnTxt = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        txtemailAddress = new javax.swing.JTextField();
+        txtContact = new javax.swing.JTextField();
+        txtAddress = new javax.swing.JTextField();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(900, 800));
+
+        saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Name:");
 
+        txtAge.setEnabled(false);
+
+        txtName.setEnabled(false);
+
+        txtGender.setEnabled(false);
+
         jLabel3.setText("Age:");
+
+        txtEdu.setEnabled(false);
 
         jLabel4.setText("Gender:");
 
+        txtRequest.setEnabled(false);
+
         jLabel5.setText("Family Income:");
+
+        txtIncome.setEnabled(false);
 
         jLabel6.setText("Highest Education:");
 
@@ -62,72 +131,120 @@ public class UpdateRecordJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 51));
         jLabel1.setText("View Details");
 
-        jButton1.setText("Save");
+        backJBtn.setBackground(new java.awt.Color(255, 51, 51));
+        backJBtn.setText("<< Back");
+        backJBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backJBtnActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Enter SSN:");
+
+        ssnTxt.setEnabled(false);
+
+        jLabel9.setText("Email Address:");
+
+        jLabel10.setText("Phone number:");
+
+        jLabel11.setText("Address:");
+
+        txtemailAddress.setEnabled(false);
+
+        txtContact.setEnabled(false);
+
+        txtAddress.setEnabled(false);
+        txtAddress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAddressActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(174, 174, 174)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
+                                .addGap(51, 51, 51)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtName)
+                                        .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel7))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtIncome)
+                                    .addComponent(txtEdu)
+                                    .addComponent(txtRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(147, 147, 147)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel1)
+                                    .addGap(14, 14, 14))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel8)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(ssnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtemailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel11)
+                                            .addComponent(jLabel10))
+                                        .addGap(15, 15, 15)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(116, 116, 116)
                                 .addComponent(addRecordButton)
                                 .addGap(32, 32, 32)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(7, 7, 7)
-                                .addComponent(jTextField4)
-                                .addGap(78, 78, 78))))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jLabel6)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField3))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jTextField2))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtIncome))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel3))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(22, 22, 22)
-                                    .addComponent(jLabel1))))
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(112, Short.MAX_VALUE))
+                                .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(backJBtn))))
+                .addGap(519, 519, 519))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel1)
-                .addGap(57, 57, 57)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -135,41 +252,157 @@ public class UpdateRecordJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEdu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                    .addComponent(txtRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(ssnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(txtemailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addRecordButton)
-                    .addComponent(jButton1))
-                .addGap(46, 46, 46))
+                    .addComponent(saveButton))
+                .addGap(37, 37, 37)
+                .addComponent(backJBtn)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void addRecordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRecordButtonActionPerformed
         // TODO add your handling code here:
-        
+        txtName.setEnabled(true);
+        txtIncome.setEnabled(true);
+        txtAge.setEnabled(true);
+        txtEdu.setEnabled(true);
+        txtGender.setEnabled(true);
+        txtRequest.setEnabled(true);
+        ssnTxt.setEnabled(true);
+        txtAddress.setEnabled(true);
+        txtContact.setEnabled(true);
+        txtemailAddress.setEnabled(true);
 
     }//GEN-LAST:event_addRecordButtonActionPerformed
+
+    private void backJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJBtnActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        ManageRecordsJPanel sysAdminwjp = (ManageRecordsJPanel) component;
+        sysAdminwjp.populateRequestTable();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backJBtnActionPerformed
+
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        // TODO add your handling code here:
+         if(Validator.StringEmpty(txtName.getText()) 
+         || Validator.StringEmpty(txtAddress.getText())
+         || Validator.StringEmpty(txtContact.getText())
+         || Validator.StringEmpty(txtIncome.getText())
+         || Validator.StringEmpty(txtemailAddress.getText())
+         || Validator.StringEmpty(txtGender.getText())
+         || Validator.StringEmpty(txtAge.getText())
+         || Validator.StringEmpty(txtEdu.getText())
+         || Validator.StringEmpty(txtRequest.getText())
+         || Validator.StringEmpty(ssnTxt.getText()))
+           {
+            JOptionPane.showMessageDialog(null, "All fields are mandatory");
+            return;
+           }
+           else
+           {
+        String name = txtName.getText();
+        int age = Integer.parseInt( txtAge.getText());
+        String gender = txtGender.getText();
+        int income = Integer.parseInt(txtIncome.getText());
+         if(income>24000)
+        {
+             JOptionPane.showMessageDialog(null, "Ineligible Individual");
+             return;
+        }
+        String requestType=txtRequest.getText();
+        String ssn = ssnTxt.getText();
+        if(Validator.isSSNValid(ssnTxt.getText())==false)
+          {
+              JOptionPane.showMessageDialog(null, "Invalid SSN format.");
+              return;
+          }
+        String emailAddress = txtemailAddress.getText();
+        if(Validator.isEmailValid(txtemailAddress.getText())==false)
+                {
+                    JOptionPane.showMessageDialog(null, "Invalid email address format.");
+                    return;
+                }
+        String address = txtAddress.getText();
+        String contact = txtContact.getText();
+          if(Validator.isPhoneNumberValid(txtContact.getText())==false)
+                  {
+                      JOptionPane.showMessageDialog(null, "Invalid phone number format.");
+                    return;
+                  }
+        PersonalQuestionnaire questionnaire = request.getQuestionaire().getPersonalQuestionnaire();
+        questionnaire.setName(name);
+        questionnaire.setAge(age);
+        questionnaire.setEducation(requestType);
+        questionnaire.setGender(gender);
+        questionnaire.setIncome(income);
+        questionnaire.setRequestType(requestType);
+        questionnaire.setSsn(ssn);
+        questionnaire.setEmailAddress(emailAddress);
+        questionnaire.setContact(contact);
+        questionnaire.setAddress(address);
+     request.getQuestionaire().setPersonalQuestionnaire(questionnaire);
+        JOptionPane.showMessageDialog(null, "Deatils updated successfully");
+        
+        
+        
+    }//GEN-LAST:event_saveButtonActionPerformed
+    }
+    private void txtAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAddressActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addRecordButton;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton backJBtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton saveButton;
+    private javax.swing.JTextField ssnTxt;
+    private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtAge;
+    private javax.swing.JTextField txtContact;
+    private javax.swing.JTextField txtEdu;
+    private javax.swing.JTextField txtGender;
     private javax.swing.JTextField txtIncome;
     private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtRequest;
+    private javax.swing.JTextField txtemailAddress;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,7 @@
  */
 package UserInterface.JobProviderOrganization;
 
+import Business.Constant;
 import UserInterface.TrainerProviderOrganization.*;
 import Business.Enterpise.Enterprise;
 import Business.Organization.Organization;
@@ -240,13 +241,13 @@ public class ConfirmJobRequestJPanel extends javax.swing.JPanel {
         String str = (String)confirmationField.getSelectedItem();
         if(str.equalsIgnoreCase("Yes"))
         {
-            request.setStatus("Processed");
+            request.setStatus(Constant.TR_REQUESTSTATUS_PROCESSED);
             request.setTestResult("Accepted to Organization");
             //((TrainingProviderOrganization) organization).
         }
         else
         {
-            request.setStatus("Rejected");
+            request.setStatus(Constant.TR_REQUESTSTATUS_REJECTED);
             request.setTestResult("Sorry we can not process the request");
         }
         JOptionPane.showMessageDialog(null, "Confirmed", "Warning", JOptionPane.PLAIN_MESSAGE);

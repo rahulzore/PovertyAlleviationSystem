@@ -58,6 +58,7 @@ public class JobProcessManagerWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel1 = new javax.swing.JLabel();
         btnManageRequest1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnViewStatistics = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -80,6 +81,13 @@ public class JobProcessManagerWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(153, 0, 51));
         jLabel1.setText("Job Process Manager Work Area");
 
+        btnViewStatistics.setText("View Job Statistics");
+        btnViewStatistics.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewStatisticsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -97,7 +105,9 @@ public class JobProcessManagerWorkAreaJPanel extends javax.swing.JPanel {
                         .addComponent(valueLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(234, 234, 234)
-                        .addComponent(btnManageRequest1)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnManageRequest1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnViewStatistics, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -111,7 +121,9 @@ public class JobProcessManagerWorkAreaJPanel extends javax.swing.JPanel {
                     .addComponent(valueLabel1))
                 .addGap(80, 80, 80)
                 .addComponent(btnManageRequest1)
-                .addContainerGap(231, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnViewStatistics)
+                .addContainerGap(197, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -125,9 +137,18 @@ public class JobProcessManagerWorkAreaJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnManageRequest1ActionPerformed
 
+    private void btnViewStatisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewStatisticsActionPerformed
+        // TODO add your handling code here:
+        JobStatisticsJPanel panel = new JobStatisticsJPanel(userProcessContainer, userAccount, organization, enterprise, business);
+        userProcessContainer.add("JobStatisticsJPanel", panel);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnViewStatisticsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnManageRequest1;
+    private javax.swing.JButton btnViewStatistics;
     private javax.swing.JLabel enterpriseLabel1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel valueLabel1;

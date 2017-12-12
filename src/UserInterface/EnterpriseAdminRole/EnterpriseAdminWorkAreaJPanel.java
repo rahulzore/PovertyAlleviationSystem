@@ -48,7 +48,10 @@ public class EnterpriseAdminWorkAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 51));
         jLabel1.setText("My Work Area -Administrative Role");
 
         userJButton.setText("Manage User");
@@ -72,10 +75,13 @@ public class EnterpriseAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterpriseLabel.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
+        enterpriseLabel.setForeground(new java.awt.Color(153, 0, 51));
         enterpriseLabel.setText("EnterPrise :");
 
-        valueLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        valueLabel.setFont(new java.awt.Font("Lucida Bright", 1, 14)); // NOI18N
+        valueLabel.setForeground(new java.awt.Color(153, 0, 51));
+        valueLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         valueLabel.setText("<value>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

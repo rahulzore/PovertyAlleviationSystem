@@ -5,6 +5,7 @@
  */
 package UserInterface.TrainerProviderOrganization;
 
+import Business.Constant;
 import Business.Enterpise.Enterprise;
 import Business.Organization.Organization;
 import Business.Organization.TrainingProvider.SecurityTrainingOrganization;
@@ -230,13 +231,13 @@ public class ConfirmTrainingRequestJPanel extends javax.swing.JPanel {
         String str = (String)confirmationField.getSelectedItem();
         if(str.equalsIgnoreCase("Yes"))
         {
-            request.setStatus("Processed");
+            request.setStatus(Constant.TR_REQUESTSTATUS_PROCESSED);
             request.setTrainingResult("Accepted to Institute");
             //((TrainingProviderOrganization) organization).
         }
         else
         {
-            request.setStatus("Rejected");
+            request.setStatus(Constant.TR_REQUESTSTATUS_REJECTED);
             request.setTrainingResult("Sorry we can not process the request");
         }
         JOptionPane.showMessageDialog(null, "Confirmed", "Warning", JOptionPane.PLAIN_MESSAGE);

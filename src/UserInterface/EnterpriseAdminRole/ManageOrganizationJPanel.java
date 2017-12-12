@@ -275,8 +275,12 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         {
         for(Type t : Organization.Type.values()){
             if(t.toString().equals(type)){
-                
+                if(enterprise instanceof TrainingProviderEnterprise){
+                    directory.createOrganization(t,null, sname,Integer.parseInt(txtSize.getText()));
+                }else
+                {
                 directory.createOrganization(t,null, sname);
+                }
             }
         }
         }

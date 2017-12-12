@@ -20,8 +20,18 @@ public final class Constant {
     public static final  int NUMBER_EIGHT=8;
     public static final  int NUMBER_NINE=9;
     public static final  int NUMBER_TEN=10;
+    public static final  String TR_REQUESTSTATUS_PROCESSED="Processed";
+    public static final  String TR_REQUESTSTATUS_REJECTED="Rejected";
+    public static final  String TR_REQUESTSTATUS_ASSIGNED="Assigned";
+    public static final  String TR_REQUESTSTATUS_UNASSIGNED="Unassigned";
+    public static final  String TR_REQUESTSTATUS_WAITING="Waiting";
     public static final  String TR_REQUESTTYPE_EDU="edu";
     public static final  String TR_REQUESTTYPE_JOB="job";
     public static final  String TR_FOODTYPE_VEG="Veg";
     public static final  String TR_FOODTYPE_NONVEG="NonVeg";
+    public static final  String TR_JOBMAP="JOB Map";
+    public static final  String TR_SECTERWISEJOBMAP="SectorWise JOB Map";
+    public static final  String TR_JOBREQUESTED="JOB Requested";
+    public static final  String TR_REQUESTTYPE="REQUEST TYPE";
+    public static final  String TR_JOBSECTOR="Job Sector";
 }
