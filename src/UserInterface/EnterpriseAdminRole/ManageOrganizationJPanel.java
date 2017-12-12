@@ -133,6 +133,8 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         txtSize = new javax.swing.JTextField();
         lblSize = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
