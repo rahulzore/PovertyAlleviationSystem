@@ -13,6 +13,25 @@ public class JobQuestionaire {
     
     private String basicKnowledge;
     private boolean isComputer;
+     private boolean isOvernight;
+      private boolean isConstruction;
+
+    public boolean isIsOvernight() {
+        return isOvernight;
+    }
+
+    public void setIsOvernight(boolean isOvernight) {
+        this.isOvernight = isOvernight;
+    }
+
+    public boolean isIsConstruction() {
+        return isConstruction;
+    }
+
+    public void setIsConstruction(boolean isConstruction) {
+        this.isConstruction = isConstruction;
+    }
+    
     public JobQuestionaire(){
         
     }

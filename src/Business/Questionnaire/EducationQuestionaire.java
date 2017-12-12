@@ -12,6 +12,15 @@ package Business.Questionnaire;
 public class EducationQuestionaire {
      private boolean isRead;
     private boolean isWrite;
+    private boolean isNecessaryTraining;
+
+    public boolean isIsNecessaryTraining() {
+        return isNecessaryTraining;
+    }
+
+    public void setIsNecessaryTraining(boolean isNecessaryTraining) {
+        this.isNecessaryTraining = isNecessaryTraining;
+    }
     private String basicEducation;
 
     public boolean isIsRead() {

@@ -29,4 +29,9 @@ public final class Constant {
     public static final  String TR_REQUESTTYPE_JOB="job";
     public static final  String TR_FOODTYPE_VEG="Veg";
     public static final  String TR_FOODTYPE_NONVEG="NonVeg";
+    public static final  String TR_JOBMAP="JOB Map";
+    public static final  String TR_SECTERWISEJOBMAP="SectorWise JOB Map";
+    public static final  String TR_JOBREQUESTED="JOB Requested";
+    public static final  String TR_REQUESTTYPE="REQUEST TYPE";
+    public static final  String TR_JOBSECTOR="Job Sector";
 }
