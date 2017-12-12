@@ -8,6 +8,8 @@ package UserInterface.EnterpriseAdminRole;
 
 import Business.Enterpise.Enterprise;
 import Business.Enterpise.EnterpriseDirectory;
+import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -20,16 +22,25 @@ public class EnterpriseAdminWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form EnterpriseAdminWorkAreaJPanel
      */
-    JPanel userProcessContainer;
-    Enterprise enterprise;
-    EnterpriseDirectory enterpriseDirectory;
+    private JPanel userProcessContainer;
+    private Enterprise enterprise;
+    private EnterpriseDirectory enterpriseDirectory;
+    private UserAccount userAccount;
+    private Organization organization;
     
-    public EnterpriseAdminWorkAreaJPanel(JPanel userProcessContainer, Enterprise enterprise) {
+    
+    public EnterpriseAdminWorkAreaJPanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount userAccount, Organization organization) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
+        this.userAccount = userAccount;
+        this.organization = organization;
         
         valueLabel.setText(enterprise.getName());
+        loggedinLabel.setText(userAccount.getEmployee().getName());
+        roleLbl.setText(userAccount.getRole().toString());
+        orgLbl.setText(enterprise.getName());
+        
     }
 
     /**
@@ -47,6 +58,14 @@ public class EnterpriseAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageOrganizationJButton = new javax.swing.JButton();
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        loggedinLabel = new javax.swing.JLabel();
+        roleLbl = new javax.swing.JLabel();
+        orgLbl = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -84,32 +103,99 @@ public class EnterpriseAdminWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         valueLabel.setText("<value>");
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("User Details"));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setText("Log In as :");
+
+        loggedinLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        loggedinLabel.setText("jLabel2");
+
+        roleLbl.setText("jLabel2");
+
+        orgLbl.setText("jLabel3");
+
+        jLabel3.setText("Enterprise");
+
+        jLabel4.setText("Role :");
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel16.setText("Enterprise Admin Work Area");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(roleLbl)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(orgLbl)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(loggedinLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 255, Short.MAX_VALUE)
+                                .addComponent(jLabel16)))
+                        .addContainerGap())))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(loggedinLabel)
+                    .addComponent(jLabel16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(orgLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(roleLbl))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addGap(147, 147, 147)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(179, 179, 179)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(203, 203, 203)
+                        .addGap(24, 24, 24)
                         .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(258, 258, 258)
+                        .addGap(79, 79, 79)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(manageOrganizationJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                            .addComponent(manageOrganizationJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(manageEmployeeJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(userJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(163, Short.MAX_VALUE))
+                            .addComponent(userJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -121,13 +207,13 @@ public class EnterpriseAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(manageEmployeeJButton)
                 .addGap(18, 18, 18)
                 .addComponent(userJButton)
-                .addContainerGap(218, Short.MAX_VALUE))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
         // TODO add your handling code here:
-        ManageEnterpriseUserAccountJPanel muajp = new ManageEnterpriseUserAccountJPanel(userProcessContainer, enterprise);
+        ManageEnterpriseUserAccountJPanel muajp = new ManageEnterpriseUserAccountJPanel(userProcessContainer, enterprise, userAccount);
         userProcessContainer.add("ManageUserAccountJPanel", muajp);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -136,7 +222,7 @@ public class EnterpriseAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageEmployeeJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeJButtonActionPerformed
 
-        ManageEnterpriseEmployeeJPanel manageEmployeeJPanel = new ManageEnterpriseEmployeeJPanel(userProcessContainer, enterprise.getOrganizationList(),enterprise);
+        ManageEnterpriseEmployeeJPanel manageEmployeeJPanel = new ManageEnterpriseEmployeeJPanel(userProcessContainer, enterprise.getOrganizationList(),enterprise, userAccount);
         userProcessContainer.add("manageEmployeeJPanel", manageEmployeeJPanel);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -146,7 +232,7 @@ public class EnterpriseAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
 
-        ManageOrganizationJPanel manageOrganizationJPanel = new ManageOrganizationJPanel(userProcessContainer,enterprise, enterprise.getOrganizationList());
+        ManageOrganizationJPanel manageOrganizationJPanel = new ManageOrganizationJPanel(userProcessContainer,enterprise, enterprise.getOrganizationList(), userAccount);
         userProcessContainer.add("manageOrganizationJPanel", manageOrganizationJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -156,8 +242,16 @@ public class EnterpriseAdminWorkAreaJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel loggedinLabel;
     private javax.swing.JButton manageEmployeeJButton;
     private javax.swing.JButton manageOrganizationJButton;
+    private javax.swing.JLabel orgLbl;
+    private javax.swing.JLabel roleLbl;
     private javax.swing.JButton userJButton;
     private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables

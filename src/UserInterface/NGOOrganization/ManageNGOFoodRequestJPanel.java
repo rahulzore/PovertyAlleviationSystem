@@ -41,6 +41,7 @@ public class ManageNGOFoodRequestJPanel extends javax.swing.JPanel implements Pr
         this.organization = organization;
         this.enterprise = enterprise;
         this.ecoSystem = ecoSystem;
+        progressJPanel1.setVisible(false);
         populateFoodReqTable();
     }
 
@@ -199,11 +200,13 @@ int selectedRow = foodRequestJTable.getSelectedRow();
             return;
         }
         if(selectedRow>=0){
+            
             WorkRequest request = (WorkRequest) foodRequestJTable.getValueAt(selectedRow, 0);
             if (!(request.getStatus()==null)) {
                 JOptionPane.showMessageDialog(null, "This request has been completed. Please select some other request!!");
                 return;
             } else {
+                progressJPanel1.setVisible(true);
                 new Thread(new Runnable() {
                     @Override
                     public void run() {

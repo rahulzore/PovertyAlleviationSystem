@@ -19,6 +19,7 @@ import Business.Organization.Organization.JobProviderType;
 import Business.Organization.Organization.Type;
 
 import Business.Organization.OrganizationDirectory;
+import Business.UserAccount.UserAccount;
 import Business.Validator;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -37,12 +38,17 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
     private OrganizationDirectory directory;
     private JPanel userProcessContainer;
     private Enterprise enterprise;
+    private UserAccount userAccount;
 
-    public ManageOrganizationJPanel(JPanel userProcessContainer, Enterprise enterprise, OrganizationDirectory directory) {
+    public ManageOrganizationJPanel(JPanel userProcessContainer, Enterprise enterprise, OrganizationDirectory directory, UserAccount userAccount) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.directory = directory;
         this.enterprise = enterprise;
+        this.userAccount = userAccount;
+        loggedinLabel.setText(userAccount.getEmployee().getName());
+        roleLbl.setText(userAccount.getRole().toString());
+        orgLbl.setText(enterprise.getName());
         if(enterprise instanceof TrainingProviderEnterprise 
             || enterprise instanceof JobProviderEnterprise )
         {
@@ -129,9 +135,17 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtOrganization = new javax.swing.JTextField();
-        backjButton1 = new javax.swing.JButton();
         txtSize = new javax.swing.JTextField();
         lblSize = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        loggedinLabel = new javax.swing.JLabel();
+        roleLbl = new javax.swing.JLabel();
+        orgLbl = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        backJBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -181,53 +195,121 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Organization Name: ");
 
-        backjButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        backjButton1.setText("<< Back");
-        backjButton1.addActionListener(new java.awt.event.ActionListener() {
+        lblSize.setText("Size:");
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("User Details"));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setText("Log In as :");
+
+        loggedinLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        loggedinLabel.setText("jLabel2");
+
+        roleLbl.setText("jLabel2");
+
+        orgLbl.setText("jLabel3");
+
+        jLabel8.setText("Enterprise");
+
+        jLabel9.setText("Role :");
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel16.setText("Enterprise Admin Work Area");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
+                        .addComponent(roleLbl)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18)
+                                .addComponent(orgLbl)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(loggedinLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel16)))
+                        .addContainerGap())))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(loggedinLabel)
+                    .addComponent(jLabel16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(orgLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(roleLbl))
+                .addContainerGap())
+        );
+
+        backJBtn.setBackground(new java.awt.Color(255, 51, 51));
+        backJBtn.setText("<< Back");
+        backJBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backjButton1ActionPerformed(evt);
+                backJBtnActionPerformed(evt);
             }
         });
-
-        lblSize.setText("Size:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
-                .addGap(275, 275, 275))
-            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(backjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
+                        .addGap(375, 375, 375))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(377, 377, 377)
-                        .addComponent(addJButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(295, 295, 295)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblSize)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(organizationJComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(39, 39, 39)
-                                .addComponent(txtSize, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(249, 249, 249)
+                                .addComponent(addJButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(167, 167, 167)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblSize)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(37, 37, 37)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(organizationJComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(39, 39, 39)
+                                        .addComponent(txtSize, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(backJBtn))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -243,8 +325,8 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
                     .addComponent(lblSize))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(addJButton)
-                .addGap(4, 4, 4)
-                .addComponent(backjButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
+                .addComponent(backJBtn)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -270,6 +352,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
             for (JobProviderType jt : Organization.JobProviderType.values()){
                 if(jt.toString().equals(type)){
                 directory.createOrganization(null,jt, sname,Integer.parseInt(txtSize.getText()));
+                txtOrganization.setText("");
             }
             }
         }
@@ -279,9 +362,11 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
             if(t.toString().equals(type)){
                 if(enterprise instanceof TrainingProviderEnterprise){
                     directory.createOrganization(t,null, sname,Integer.parseInt(txtSize.getText()));
+                    txtOrganization.setText("");
                 }else
                 {
                 directory.createOrganization(t,null, sname);
+                txtOrganization.setText("");
                 }
             }
         }
@@ -303,23 +388,31 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_organizationJComboBoxActionPerformed
 
-    private void backjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backjButton1ActionPerformed
+    private void backJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJBtnActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
-    }//GEN-LAST:event_backjButton1ActionPerformed
+    }//GEN-LAST:event_backJBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addJButton;
-    private javax.swing.JButton backjButton1;
+    private javax.swing.JButton backJBtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblSize;
+    private javax.swing.JLabel loggedinLabel;
+    private javax.swing.JLabel orgLbl;
     private javax.swing.JComboBox organizationJComboBox;
     private javax.swing.JTable organizationJTable;
+    private javax.swing.JLabel roleLbl;
     private javax.swing.JTextField txtOrganization;
     private javax.swing.JTextField txtSize;
     // End of variables declaration//GEN-END:variables
