@@ -41,4 +41,8 @@ public final class Constant {
     public static final  String TR_FAMILYTYPE_SINGLEPARENT="SingleParent";
     public static final  String TR_YES="Yes";
     public static final  String TR_NO="No";
+    public static final  String TR_NOTIFICATIONEMAIL="povertyalleviationsystem@gmail.com";
+    public static final  String TR_NOTIFICATIONPASSWORD="Batman@10";
+    public static final  String TR_NOTIFICATIONHOST="smtp.gmail.com";
+    public static final  String TR_NOTIFICATIONHOSTPORT="587";
 }

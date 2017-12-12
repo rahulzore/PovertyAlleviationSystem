@@ -18,8 +18,45 @@ public class PersonalQuestionnaire {
     public int income;
     public String education;
     public String requestType;
-    public double ssn;
+    public String ssn;
     private ImageIcon idProof;
+    private String emailAddress;
+    private String address;
+    private String contact;
+    private Boolean isNotified;
+
+    public Boolean getIsNotified() {
+        return isNotified;
+    }
+
+    public void setIsNotified(Boolean isNotified) {
+        this.isNotified = isNotified;
+    }
+    
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+    
 
     public ImageIcon getIdProof() {
         return idProof;
@@ -29,11 +66,11 @@ public class PersonalQuestionnaire {
         this.idProof = idProof;
     }
 
-    public double getSsn() {
+    public String getSsn() {
         return ssn;
     }
 
-    public void setSsn(double ssn) {
+    public void setSsn(String ssn) {
         this.ssn = ssn;
     }
     public String getName() {
