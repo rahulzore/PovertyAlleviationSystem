@@ -19,7 +19,7 @@ public class Questionnaire {
     private JobQuestionaire jobQuestionaire;
     private TrainingQuestionaire trainingQuestionaire;
     private PhysicalQuestionaire physicalQuestionaire;
-    private SecurityGuardQuestionaire guardQuestionaire;
+    private PreviousExperienceQuestionaire guardQuestionaire;
     
     public Questionnaire(){
         personalQuestionnaire = new PersonalQuestionnaire();
@@ -30,7 +30,7 @@ public class Questionnaire {
         jobQuestionaire = new JobQuestionaire();
         trainingQuestionaire = new TrainingQuestionaire();
         physicalQuestionaire = new PhysicalQuestionaire();
-        guardQuestionaire = new SecurityGuardQuestionaire();
+        guardQuestionaire = new PreviousExperienceQuestionaire();
         isDetailsSet = false;
     }
 
@@ -42,11 +42,11 @@ public class Questionnaire {
         this.physicalQuestionaire = physicalQuestionaire;
     }
 
-    public SecurityGuardQuestionaire getGuardQuestionaire() {
+    public PreviousExperienceQuestionaire getGuardQuestionaire() {
         return guardQuestionaire;
     }
 
-    public void setGuardQuestionaire(SecurityGuardQuestionaire guardQuestionaire) {
+    public void setGuardQuestionaire(PreviousExperienceQuestionaire guardQuestionaire) {
         this.guardQuestionaire = guardQuestionaire;
     }
     

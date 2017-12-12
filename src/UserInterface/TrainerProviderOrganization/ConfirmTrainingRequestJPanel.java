@@ -229,7 +229,7 @@ public class ConfirmTrainingRequestJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
      
         String str = (String)confirmationField.getSelectedItem();
-        if(str.equalsIgnoreCase("Yes"))
+        if(str.equalsIgnoreCase(Constant.TR_YES))
         {
             request.setStatus(Constant.TR_REQUESTSTATUS_PROCESSED);
             request.setTrainingResult("Accepted to Institute");

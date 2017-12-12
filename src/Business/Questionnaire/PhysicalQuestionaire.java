@@ -11,6 +11,16 @@ package Business.Questionnaire;
  */
 public class PhysicalQuestionaire {
     private boolean isPhysicallyActive;
+     private boolean isMedicalCondition;
+
+    public boolean isIsMedicalCondition() {
+        return isMedicalCondition;
+    }
+
+    public void setIsMedicalCondition(boolean isMedicalCondition) {
+        this.isMedicalCondition = isMedicalCondition;
+    }
+    
 
     public boolean isIsPhysicallyActive() {
         return isPhysicallyActive;
