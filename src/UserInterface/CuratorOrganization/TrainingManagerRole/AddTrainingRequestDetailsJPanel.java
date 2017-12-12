@@ -43,6 +43,9 @@ private JPanel userProcessContainer;
         this.business = business;
         this.request = workrequest;
         populateWorkRequestData();
+        loggedinLabel5.setText(userAccount.getEmployee().getName());
+        roleLbl5.setText(userAccount.getRole().toString());
+        orgLbl5.setText(organization.getName());
     }
 
     /**
@@ -57,10 +60,14 @@ private JPanel userProcessContainer;
         trainingCombo = new javax.swing.ButtonGroup();
         disabilityCombo = new javax.swing.ButtonGroup();
         specificCombo = new javax.swing.ButtonGroup();
+<<<<<<< HEAD
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         btnRequestJob = new javax.swing.JButton();
         backJBtn = new javax.swing.JButton();
+=======
+        familyCombo = new javax.swing.ButtonGroup();
+>>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
         jTabbedPane = new javax.swing.JTabbedPane();
         jobPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -76,10 +83,10 @@ private JPanel userProcessContainer;
         disabilityType = new javax.swing.JComboBox<>();
         familyBackPanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jChkNuclear = new javax.swing.JCheckBox();
-        chkSibHld = new javax.swing.JCheckBox();
-        chkSingleParent = new javax.swing.JCheckBox();
-        chkExtended = new javax.swing.JCheckBox();
+        nuclearRadioBtn = new javax.swing.JRadioButton();
+        siblingRadioBtn = new javax.swing.JRadioButton();
+        parentRadioBtn = new javax.swing.JRadioButton();
+        extendedRadioBtn = new javax.swing.JRadioButton();
         criminalPanel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         trainingDurationCombo = new javax.swing.JComboBox<>();
@@ -89,6 +96,7 @@ private JPanel userProcessContainer;
         jLabel4 = new javax.swing.JLabel();
         seekLabel = new javax.swing.JLabel();
         trainingInterestCombo = new javax.swing.JComboBox<>();
+<<<<<<< HEAD
         jLabel1 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -110,6 +118,24 @@ private JPanel userProcessContainer;
                 backJBtnActionPerformed(evt);
             }
         });
+=======
+        btnRequestJob = new javax.swing.JButton();
+        backJBtn = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        loggedinLabel5 = new javax.swing.JLabel();
+        roleLbl5 = new javax.swing.JLabel();
+        orgLbl5 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jTabbedPane.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jobPanel.setBackground(new java.awt.Color(255, 255, 255));
+>>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
 
         jobPanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -149,7 +175,11 @@ private JPanel userProcessContainer;
                         .addComponent(receivedTrainingNo))
                     .addComponent(jLabel2)
                     .addComponent(skillLabel))
+<<<<<<< HEAD
                 .addContainerGap(722, Short.MAX_VALUE))
+=======
+                .addContainerGap(748, Short.MAX_VALUE))
+>>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
         );
         jobPanelLayout.setVerticalGroup(
             jobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,7 +194,11 @@ private JPanel userProcessContainer;
                 .addComponent(skillLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(trainingType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addContainerGap(124, Short.MAX_VALUE))
+=======
+                .addContainerGap(120, Short.MAX_VALUE))
+>>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
         );
 
         jTabbedPane.addTab("Training History", jobPanel);
@@ -207,7 +241,11 @@ private JPanel userProcessContainer;
                         .addComponent(disabilityNo))
                     .addComponent(disableLabel)
                     .addComponent(disabilityType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+<<<<<<< HEAD
                 .addContainerGap(786, Short.MAX_VALUE))
+=======
+                .addContainerGap(812, Short.MAX_VALUE))
+>>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
         );
         educationPanelLayout.setVerticalGroup(
             educationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,7 +260,11 @@ private JPanel userProcessContainer;
                 .addComponent(disableLabel)
                 .addGap(18, 18, 18)
                 .addComponent(disabilityType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addContainerGap(117, Short.MAX_VALUE))
+=======
+                .addContainerGap(113, Short.MAX_VALUE))
+>>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
         );
 
         jTabbedPane.addTab("Disabilities", educationPanel);
@@ -231,13 +273,13 @@ private JPanel userProcessContainer;
 
         jLabel3.setText("What Type of family you are in: ");
 
-        jChkNuclear.setText("Nuclear");
+        nuclearRadioBtn.setText("Nuclear");
 
-        chkSibHld.setText("Sibling HouseHold");
+        siblingRadioBtn.setText("Sibling Household");
 
-        chkSingleParent.setText("Single Parent");
+        parentRadioBtn.setText("Single Parent");
 
-        chkExtended.setText("Extended");
+        extendedRadioBtn.setText("Extended");
 
         javax.swing.GroupLayout familyBackPanelLayout = new javax.swing.GroupLayout(familyBackPanel);
         familyBackPanel.setLayout(familyBackPanelLayout);
@@ -246,15 +288,22 @@ private JPanel userProcessContainer;
             .addGroup(familyBackPanelLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jChkNuclear)
+                .addGap(18, 18, 18)
+                .addComponent(nuclearRadioBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(chkSibHld)
+                .addComponent(siblingRadioBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+<<<<<<< HEAD
                 .addComponent(chkSingleParent)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(chkExtended)
                 .addContainerGap(463, Short.MAX_VALUE))
+=======
+                .addComponent(parentRadioBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(extendedRadioBtn)
+                .addContainerGap(469, Short.MAX_VALUE))
+>>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
         );
         familyBackPanelLayout.setVerticalGroup(
             familyBackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,11 +311,19 @@ private JPanel userProcessContainer;
                 .addContainerGap()
                 .addGroup(familyBackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
+<<<<<<< HEAD
                     .addComponent(jChkNuclear)
                     .addComponent(chkSibHld)
                     .addComponent(chkSingleParent)
                     .addComponent(chkExtended))
                 .addContainerGap(207, Short.MAX_VALUE))
+=======
+                    .addComponent(nuclearRadioBtn)
+                    .addComponent(siblingRadioBtn)
+                    .addComponent(parentRadioBtn)
+                    .addComponent(extendedRadioBtn))
+                .addContainerGap(203, Short.MAX_VALUE))
+>>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
         );
 
         jTabbedPane.addTab("Family Background Information", familyBackPanel);
@@ -286,7 +343,11 @@ private JPanel userProcessContainer;
                 .addGroup(criminalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(trainingDurationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+<<<<<<< HEAD
                 .addContainerGap(838, Short.MAX_VALUE))
+=======
+                .addContainerGap(864, Short.MAX_VALUE))
+>>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
         );
         criminalPanelLayout.setVerticalGroup(
             criminalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,7 +356,11 @@ private JPanel userProcessContainer;
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(trainingDurationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addContainerGap(186, Short.MAX_VALUE))
+=======
+                .addContainerGap(182, Short.MAX_VALUE))
+>>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
         );
 
         jTabbedPane.addTab("Training Duration", criminalPanel);
@@ -320,8 +385,15 @@ private JPanel userProcessContainer;
         jLabel4.setText("Do you  have any specific interest in which you seek training ?");
 
         seekLabel.setText("Training Type:");
+<<<<<<< HEAD
 
         trainingInterestCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carpentry", "Security", "Construction", "Other" }));
+=======
+        seekLabel.setEnabled(false);
+
+        trainingInterestCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carpentry", "Security", "Construction", "Other" }));
+        trainingInterestCombo.setEnabled(false);
+>>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -360,6 +432,7 @@ private JPanel userProcessContainer;
 
         jTabbedPane.addTab("Specific Interests", jPanel2);
 
+<<<<<<< HEAD
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -421,12 +494,96 @@ private JPanel userProcessContainer;
                     .addContainerGap(58, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(25, Short.MAX_VALUE)))
+=======
+        btnRequestJob.setBackground(new java.awt.Color(51, 255, 51));
+        btnRequestJob.setText("Request Job");
+        btnRequestJob.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRequestJobActionPerformed(evt);
+            }
+        });
+
+        backJBtn.setBackground(new java.awt.Color(255, 51, 51));
+        backJBtn.setText("<< Back");
+        backJBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backJBtnActionPerformed(evt);
+            }
+        });
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("User Details"));
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel17.setText("Log In as :");
+
+        loggedinLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        loggedinLabel5.setText("jLabel2");
+
+        roleLbl5.setText("jLabel2");
+
+        orgLbl5.setText("jLabel3");
+
+        jLabel18.setText("Organization :");
+
+        jLabel19.setText("Role :");
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel20.setText("Training Manager Work Area");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel19)
+                        .addGap(18, 18, 18)
+                        .addComponent(roleLbl5)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addGap(18, 18, 18)
+                                .addComponent(orgLbl5)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addGap(18, 18, 18)
+                                .addComponent(loggedinLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel20)))
+                        .addContainerGap())))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel20)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel17)
+                        .addComponent(loggedinLabel5)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(orgLbl5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(roleLbl5))
+                .addContainerGap())
+>>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -437,6 +594,74 @@ private JPanel userProcessContainer;
         );
     }// </editor-fold>//GEN-END:initComponents
 
+=======
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(backJBtn)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jTabbedPane))
+                .addContainerGap())
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(399, 399, 399)
+                .addComponent(btnRequestJob)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jTabbedPane)
+                .addGap(18, 18, 18)
+                .addComponent(btnRequestJob)
+                .addGap(125, 125, 125)
+                .addComponent(backJBtn)
+                .addContainerGap())
+        );
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void receivedTrainingNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_receivedTrainingNoActionPerformed
+        skillLabel.setEnabled(false);
+        trainingType.setEnabled(false);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_receivedTrainingNoActionPerformed
+
+    private void receivedTrainingYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_receivedTrainingYesActionPerformed
+        // TODO add your handling code here:
+        skillLabel.setEnabled(true);
+        trainingType.setEnabled(true);
+    }//GEN-LAST:event_receivedTrainingYesActionPerformed
+
+    private void disabilityNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disabilityNoActionPerformed
+        // TODO add your handling code here:
+        disabilityType.setEnabled(false);
+        disableLabel.setEnabled(false);
+    }//GEN-LAST:event_disabilityNoActionPerformed
+
+    private void disabilityYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disabilityYesActionPerformed
+        // TODO add your handling code here:
+        disabilityType.setEnabled(true);
+        disableLabel.setEnabled(true);
+    }//GEN-LAST:event_disabilityYesActionPerformed
+
+    private void specificComboYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specificComboYesActionPerformed
+        // TODO add your handling code here:
+        seekLabel.setEnabled(true);
+        //        specificComboYes.setSelected(true);
+        trainingInterestCombo.setEnabled(true);
+    }//GEN-LAST:event_specificComboYesActionPerformed
+
+    private void specificComboNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specificComboNoActionPerformed
+        // TODO add your handling code here:
+        seekLabel.setEnabled(false);
+        //        specificComboYes.setSelected(false);
+        trainingInterestCombo.setEnabled(false);
+    }//GEN-LAST:event_specificComboNoActionPerformed
+
+>>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
     private void btnRequestJobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestJobActionPerformed
         // TODO add your handling code here:
 
@@ -470,7 +695,21 @@ private JPanel userProcessContainer;
         }
 
         FamilyBackgroundQuestionaire FamilyBackgroundQuestionaire = questionnaire.getFamilyBackgroundQuestionaire();
-        FamilyBackgroundQuestionaire.setFamilyBackground("");
+        String strfamily="";
+        if(nuclearRadioBtn.isSelected()){
+            strfamily = nuclearRadioBtn.isSelected() ? "Nuclear" : "";
+        }
+        else if (siblingRadioBtn.isSelected()){
+            strfamily = siblingRadioBtn.isSelected() ? "Sibling" : "";
+        }
+        else if (extendedRadioBtn.isSelected()){
+            strfamily = extendedRadioBtn.isSelected() ? "Extended" : "";
+        }
+        else if (parentRadioBtn.isSelected()){
+            strfamily = parentRadioBtn.isSelected() ? "SingleParent" : "";
+        }
+        FamilyBackgroundQuestionaire.setFamilyBackground(strfamily);
+
         Organization org = null;
         for(Network network :business.getNetworkList()){
             if(network.getName().equalsIgnoreCase(enterprise.getNetworkName())){
@@ -505,6 +744,7 @@ private JPanel userProcessContainer;
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJBtnActionPerformed
+<<<<<<< HEAD
 
     private void receivedTrainingNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_receivedTrainingNoActionPerformed
         skillLabel.setEnabled(false);
@@ -541,6 +781,8 @@ private JPanel userProcessContainer;
         seekLabel.setEnabled(false);
         specificComboYes.setSelected(false);
     }//GEN-LAST:event_specificComboNoActionPerformed
+=======
+>>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
     private void populateWorkRequestData(){
         Questionnaire questionaire = request.getQuestionaire();
         if(questionaire.isIsDetailsSet()){
@@ -565,9 +807,15 @@ private JPanel userProcessContainer;
         {
             disabilityYes.setSelected(false);
         }
+<<<<<<< HEAD
         String Interest = questionaire.getTrainingQuestionaire().getInterest().equalsIgnoreCase("None") ?"":questionaire.getTrainingQuestionaire().getDisability();
         if(!Interest.equalsIgnoreCase("")){
             trainingInterestCombo.setEnabled(true);
+=======
+        String Interest = questionaire.getTrainingQuestionaire().getInterest().equalsIgnoreCase("None") ?"":questionaire.getTrainingQuestionaire().getInterest();
+        if(!Interest.equalsIgnoreCase("")){
+        trainingInterestCombo.setEnabled(true);
+>>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
         trainingInterestCombo.setSelectedItem(Interest );
         specificComboYes.setSelected(true);
         seekLabel.setEnabled(true);
@@ -575,6 +823,10 @@ private JPanel userProcessContainer;
         else
         {
             specificComboYes.setSelected(false);
+<<<<<<< HEAD
+=======
+            
+>>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
         }
          String duration =questionaire.getTrainingQuestionaire().getTrainingDuration().equalsIgnoreCase("None") ?"":questionaire.getTrainingQuestionaire().getTrainingDuration();
         trainingDurationCombo.setSelectedItem(duration);
@@ -585,9 +837,6 @@ private JPanel userProcessContainer;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJBtn;
     private javax.swing.JButton btnRequestJob;
-    private javax.swing.JCheckBox chkExtended;
-    private javax.swing.JCheckBox chkSibHld;
-    private javax.swing.JCheckBox chkSingleParent;
     private javax.swing.JPanel criminalPanel;
     private javax.swing.ButtonGroup disabilityCombo;
     private javax.swing.JRadioButton disabilityNo;
@@ -595,22 +844,35 @@ private JPanel userProcessContainer;
     private javax.swing.JRadioButton disabilityYes;
     private javax.swing.JLabel disableLabel;
     private javax.swing.JPanel educationPanel;
+    private javax.swing.JRadioButton extendedRadioBtn;
     private javax.swing.JPanel familyBackPanel;
-    private javax.swing.JCheckBox jChkNuclear;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.ButtonGroup familyCombo;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+<<<<<<< HEAD
     private javax.swing.JPanel jPanel3;
+=======
+    private javax.swing.JPanel jPanel7;
+>>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
     private javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JPanel jobPanel;
+    private javax.swing.JLabel loggedinLabel5;
+    private javax.swing.JRadioButton nuclearRadioBtn;
+    private javax.swing.JLabel orgLbl5;
+    private javax.swing.JRadioButton parentRadioBtn;
     private javax.swing.JRadioButton receivedTrainingNo;
     private javax.swing.JRadioButton receivedTrainingYes;
+    private javax.swing.JLabel roleLbl5;
     private javax.swing.JLabel seekLabel;
+    private javax.swing.JRadioButton siblingRadioBtn;
     private javax.swing.JLabel skillLabel;
     private javax.swing.ButtonGroup specificCombo;
     private javax.swing.JRadioButton specificComboNo;

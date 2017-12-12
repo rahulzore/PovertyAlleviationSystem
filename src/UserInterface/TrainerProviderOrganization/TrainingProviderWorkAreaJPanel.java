@@ -47,21 +47,12 @@ public class TrainingProviderWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        backJBtn = new javax.swing.JButton();
         btnManageTrainingRequest = new javax.swing.JButton();
         valueLabel = new javax.swing.JLabel();
         enterpriseLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
-
-        backJBtn.setBackground(new java.awt.Color(255, 0, 0));
-        backJBtn.setText("<< Back");
-        backJBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJBtnActionPerformed(evt);
-            }
-        });
 
         btnManageTrainingRequest.setText("Manage Individual Training Request");
         btnManageTrainingRequest.addActionListener(new java.awt.event.ActionListener() {
@@ -94,9 +85,6 @@ public class TrainingProviderWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(backJBtn))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(191, 191, 191)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
@@ -117,18 +105,9 @@ public class TrainingProviderWorkAreaJPanel extends javax.swing.JPanel {
                     .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addComponent(btnManageTrainingRequest)
-                .addGap(162, 162, 162)
-                .addComponent(backJBtn)
-                .addContainerGap())
+                .addGap(196, 196, 196))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void backJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJBtnActionPerformed
-        // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_backJBtnActionPerformed
 
     private void btnManageTrainingRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageTrainingRequestActionPerformed
         // TODO add your handling code here:
@@ -140,7 +119,6 @@ public class TrainingProviderWorkAreaJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backJBtn;
     private javax.swing.JButton btnManageTrainingRequest;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;

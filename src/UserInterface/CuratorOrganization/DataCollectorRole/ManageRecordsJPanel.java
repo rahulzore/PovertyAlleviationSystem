@@ -194,6 +194,7 @@ public void populateRequestTable(){
 
     private void viewRecordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewRecordButtonActionPerformed
 
+<<<<<<< HEAD
          int selectedRow = requestTable.getSelectedRow();
        WorkRequest request =null;
 
@@ -210,6 +211,8 @@ public void populateRequestTable(){
 
             layout.next(userProcessContainer);
     }                                             
+=======
+>>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
     }//GEN-LAST:event_viewRecordButtonActionPerformed
 
 

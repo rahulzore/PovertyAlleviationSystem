@@ -52,10 +52,13 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="280" max="-2" attributes="0"/>
                       <Component id="submitJButton" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="deleteJButton1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="updateJButton" min="-2" max="-2" attributes="0"/>
+=======
+>>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
                   </Group>
               </Group>
               <EmptySpace pref="44" max="32767" attributes="0"/>
@@ -85,6 +88,7 @@
                   <Component id="nameJTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+<<<<<<< HEAD
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="submitJButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Group type="103" alignment="3" groupAlignment="3" attributes="0">
@@ -92,6 +96,9 @@
                       <Component id="updateJButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
+=======
+              <Component id="submitJButton" min="-2" max="-2" attributes="0"/>
+>>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
               <EmptySpace pref="52" max="32767" attributes="0"/>
               <Component id="backJButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
