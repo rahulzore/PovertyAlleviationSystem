@@ -442,7 +442,7 @@ Enterprise enterprise;
     }
     @Override
     public void menuSelected(MenuEvent e) {
-        LoginPageJPanel panel = new LoginPageJPanel(userProcessContainer, system,enterprise.getName());
+        LoginPageJPanel panel = new LoginPageJPanel(userProcessContainer, system,enterprise.getUserAccountList().getUserAccountList().get(0).getUserID());
 
                                 userProcessContainer.add("LoginPageJPanel",panel);
                                 CardLayout layout=(CardLayout)userProcessContainer.getLayout();
