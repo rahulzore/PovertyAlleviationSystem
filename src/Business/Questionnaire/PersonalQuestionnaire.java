@@ -23,7 +23,16 @@ public class PersonalQuestionnaire {
     private String emailAddress;
     private String address;
     private String contact;
+    private Boolean isNotified;
 
+    public Boolean getIsNotified() {
+        return isNotified;
+    }
+
+    public void setIsNotified(Boolean isNotified) {
+        this.isNotified = isNotified;
+    }
+    
     public String getEmailAddress() {
         return emailAddress;
     }

@@ -112,16 +112,6 @@ public void populateTrainingRequestTable(){
             }
         });
         jScrollPane1.setViewportView(requestTable);
-        if (requestTable.getColumnModel().getColumnCount() > 0) {
-            requestTable.getColumnModel().getColumn(0).setResizable(false);
-            requestTable.getColumnModel().getColumn(1).setResizable(false);
-            requestTable.getColumnModel().getColumn(2).setResizable(false);
-            requestTable.getColumnModel().getColumn(3).setResizable(false);
-            requestTable.getColumnModel().getColumn(4).setResizable(false);
-            requestTable.getColumnModel().getColumn(5).setResizable(false);
-            requestTable.getColumnModel().getColumn(6).setResizable(false);
-            requestTable.getColumnModel().getColumn(7).setResizable(false);
-        }
 
         backJBtn.setBackground(new java.awt.Color(255, 0, 0));
         backJBtn.setText("<< Back");
@@ -201,16 +191,6 @@ public void populateTrainingRequestTable(){
 
         if (selectedRow >= 0) {
             request = (TrainingRequest) requestTable.getValueAt(selectedRow, 0);
-<<<<<<< HEAD
-            
-            if(request.getStatus().equalsIgnoreCase(Constant.TR_REQUESTSTATUS_PROCESSED) )
-            {
-                JOptionPane.showMessageDialog(null, "Training already Processed from "+ organization.getName() + ".!!!", "Warning", JOptionPane.WARNING_MESSAGE);
-                return;
-            }
-            if(request.getStatus().equalsIgnoreCase(Constant.TR_REQUESTSTATUS_ASSIGNED))
-            {
-=======
 
             if(request.getStatus().equalsIgnoreCase(Constant.TR_REQUESTSTATUS_PROCESSED) )
             {
@@ -219,7 +199,6 @@ public void populateTrainingRequestTable(){
             }
             if(request.getStatus().equalsIgnoreCase(Constant.TR_REQUESTSTATUS_ASSIGNED))
             {
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
                 JOptionPane.showMessageDialog(null, "Training already Assigned from "+ organization.getName() + ".!!!", "Warning", JOptionPane.WARNING_MESSAGE);
                 return;
             }

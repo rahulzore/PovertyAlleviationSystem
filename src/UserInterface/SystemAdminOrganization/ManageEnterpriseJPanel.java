@@ -39,15 +39,15 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         populateComboBox();
     }
 
-    public void populateTable() {
+    private void populateTable() {
         DefaultTableModel model = (DefaultTableModel) enterpriseJTable.getModel();
 
         model.setRowCount(0);
         for (Network network : system.getNetworkList()) {
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
                 Object[] row = new Object[3];
-                row[0] = enterprise;
-                row[1] = network;
+                row[0] = enterprise.getName();
+                row[1] = network.getName();
                 row[2] = enterprise.getEnterpriseType().getValue();
 
                 model.addRow(row);
@@ -123,8 +123,6 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         enterpriseTypeJComboBox = new javax.swing.JComboBox();
         submitJButton = new javax.swing.JButton();
-        deleteJButton1 = new javax.swing.JButton();
-        updateJButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -177,22 +175,6 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
             }
         });
 
-        deleteJButton1.setBackground(new java.awt.Color(255, 0, 0));
-        deleteJButton1.setText("Delete");
-        deleteJButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteJButton1ActionPerformed(evt);
-            }
-        });
-
-        updateJButton.setBackground(new java.awt.Color(255, 153, 0));
-        updateJButton.setText("Update");
-        updateJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateJButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -200,14 +182,8 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(backJButton))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(235, 235, 235)
                         .addComponent(jLabel6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(229, 229, 229)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,15 +197,14 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                             .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(280, 280, 280)
-<<<<<<< HEAD
-                        .addComponent(submitJButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(deleteJButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(updateJButton)))
-=======
-                        .addComponent(submitJButton)))
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
+                        .addComponent(submitJButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addComponent(backJButton)))))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -252,16 +227,8 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
-<<<<<<< HEAD
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submitJButton)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(deleteJButton1)
-                        .addComponent(updateJButton)))
-=======
                 .addComponent(submitJButton)
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(backJButton)
                 .addContainerGap())
         );
@@ -299,50 +266,8 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         nameJTextField.setText("");
     }//GEN-LAST:event_submitJButtonActionPerformed
 
-    private void deleteJButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteJButton1ActionPerformed
-        // TODO add your handling code here:
-        int selectedRow = enterpriseJTable.getSelectedRow();
-        Network network=null;
-        Enterprise enterprise=null;
-
-        if (selectedRow < 0) {
-            JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        if (selectedRow >= 0) {
-            network = (Network)enterpriseJTable.getValueAt(selectedRow, 1);
-            enterprise = (Enterprise)enterpriseJTable.getValueAt(selectedRow, 0);
-            
-   network.getEnterpriseDirectory().getEnterpriseList().remove(enterprise);
-               JOptionPane.showMessageDialog(null, "Enterprise deleted", "Warning", JOptionPane.WARNING_MESSAGE);
-
-            populateTable();
-        }
-
-    }//GEN-LAST:event_deleteJButton1ActionPerformed
-
-    private void updateJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateJButtonActionPerformed
-        // TODO add your handling code here:
-        int selectedRow = enterpriseJTable.getSelectedRow();
-       Enterprise enterprise=null;
-
-        if (selectedRow < 0) {
-            JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        if (selectedRow >= 0) {
-            enterprise = (Enterprise)enterpriseJTable.getValueAt(selectedRow, 0);
-            UpdateEnterpriseJPanel UpdateEnterpriseJPanel = new UpdateEnterpriseJPanel(userProcessContainer, system,enterprise);
-            userProcessContainer.add("UpdateEnterpriseJPanel", UpdateEnterpriseJPanel);
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-
-            layout.next(userProcessContainer);
-    }//GEN-LAST:event_updateJButtonActionPerformed
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
-    private javax.swing.JButton deleteJButton1;
     private javax.swing.JTable enterpriseJTable;
     private javax.swing.JComboBox enterpriseTypeJComboBox;
     private javax.swing.JLabel jLabel1;
@@ -353,6 +278,5 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField nameJTextField;
     private javax.swing.JComboBox networkJComboBox;
     private javax.swing.JButton submitJButton;
-    private javax.swing.JButton updateJButton;
     // End of variables declaration//GEN-END:variables
 }

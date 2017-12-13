@@ -122,6 +122,7 @@ public class ManageRestaurantRequestJPanel extends javax.swing.JPanel {
                             .addComponent(sendJBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(301, 301, 301))))
             .addGroup(layout.createSequentialGroup()
+                .addGap(103, 103, 103)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -145,7 +146,7 @@ public class ManageRestaurantRequestJPanel extends javax.swing.JPanel {
                     .addComponent(quantityTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(sendJBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 295, Short.MAX_VALUE)
+                .addGap(126, 126, 126)
                 .addComponent(jButton1)
                 .addContainerGap())
         );

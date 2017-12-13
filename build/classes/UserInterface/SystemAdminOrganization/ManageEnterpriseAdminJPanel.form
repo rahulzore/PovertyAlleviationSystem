@@ -119,21 +119,12 @@
                   <Component id="nameJTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-<<<<<<< HEAD
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                       <Component id="deleteJButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="updateJButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="submitJButton" min="-2" max="-2" attributes="0"/>
-=======
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="submitJButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="3" groupAlignment="3" attributes="0">
-                      <Component id="deleteJButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="updateJButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
               </Group>
               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
               <Component id="backJButton" min="-2" max="-2" attributes="0"/>

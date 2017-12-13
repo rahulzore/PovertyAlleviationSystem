@@ -5,6 +5,7 @@
  */
 package UserInterface.CuratorOrganization.DataCollectorRole;
 
+import Business.Constant;
 import Business.EcoSystem;
 import Business.Enterpise.Enterprise;
 import Business.Network.Network;
@@ -12,12 +13,30 @@ import Business.Organization.DataCollectorOrganization;
 import Business.Organization.JobRequestManagerOrganization;
 import Business.Organization.Organization;
 import Business.Organization.TrainingRequestManagerOrganization;
+import Business.Questionnaire.Questionnaire;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.JobWorkRequest;
 import Business.WorkQueue.WorkQueue;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -32,6 +51,8 @@ public class ManageRecordsJPanel extends javax.swing.JPanel {
     private Enterprise enterprise;
     private UserAccount userAccount;
     EcoSystem business;
+    WorkRequest workRequest;
+    Questionnaire questionnaire;
     /**
      * Creates new form ManageRecordsJPanel
      */
@@ -42,6 +63,7 @@ public class ManageRecordsJPanel extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.userAccount = account;
         this.business = business;
+        valueLabel.setText(organization.getName());
         populateRequestTable();
     }
 public void populateRequestTable(){
@@ -90,6 +112,7 @@ public void populateRequestTable(){
         valueLabel = new javax.swing.JLabel();
         viewRecordButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnNotification = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -106,11 +129,11 @@ public void populateRequestTable(){
 
             },
             new String [] {
-                "Individual Name", "Request Type"
+                "Request ID", "Name", "Request Type", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -121,7 +144,7 @@ public void populateRequestTable(){
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setForeground(new java.awt.Color(153, 0, 51));
-        enterpriseLabel.setText("EnterPrise :");
+        enterpriseLabel.setText("Organization:");
 
         valueLabel.setForeground(new java.awt.Color(153, 0, 51));
         valueLabel.setText("<value>");
@@ -138,33 +161,40 @@ public void populateRequestTable(){
         jLabel1.setForeground(new java.awt.Color(153, 0, 51));
         jLabel1.setText("Manage Records");
 
+        btnNotification.setText("Send Notification");
+        btnNotification.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNotificationActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(67, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(viewRecordButton)
-                        .addGap(116, 116, 116))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnNotification)
+                .addGap(46, 46, 46)
+                .addComponent(viewRecordButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(247, 247, 247)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(backJBtn)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(247, 247, 247)
-                        .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(27, 27, 27)
+                                .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,13 +205,15 @@ public void populateRequestTable(){
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(viewRecordButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNotification)
+                    .addComponent(viewRecordButton))
+                .addGap(20, 20, 20)
                 .addComponent(backJBtn)
-                .addGap(34, 34, 34))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -194,7 +226,6 @@ public void populateRequestTable(){
 
     private void viewRecordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewRecordButtonActionPerformed
 
-<<<<<<< HEAD
          int selectedRow = requestTable.getSelectedRow();
        WorkRequest request =null;
 
@@ -205,19 +236,127 @@ public void populateRequestTable(){
 
         if (selectedRow >= 0) {
             request = (WorkRequest)requestTable.getValueAt(selectedRow, 0);
+            questionnaire =request.getQuestionaire();
+           
             UpdateRecordJPanel UpdateRecordJPanel = new UpdateRecordJPanel(userProcessContainer, business, request);
             userProcessContainer.add("UpdateRecordJPanel", UpdateRecordJPanel);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
 
             layout.next(userProcessContainer);
+            
     }                                             
-=======
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
     }//GEN-LAST:event_viewRecordButtonActionPerformed
 
+    private void btnNotificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNotificationActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = requestTable.getSelectedRow();
+       WorkRequest request =null;
+
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (selectedRow >= 0) {
+            request = (WorkRequest)requestTable.getValueAt(selectedRow, 0);
+            if(request.getStatus().equalsIgnoreCase(Constant.TR_REQUESTSTATUS_PROCESSED)){
+                questionnaire =request.getQuestionaire();
+                workRequest =request;
+                boolean isSend =questionnaire.getPersonalQuestionnaire().getIsNotified() == null ? false :true;
+             if(!isSend )
+            {
+                    try {
+                        sendEmailWithAttachments();
+                        questionnaire.getPersonalQuestionnaire().setIsNotified(Boolean.TRUE);
+                    } catch (MessagingException ex) {
+                        Logger.getLogger(ManageRecordsJPanel.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (IOException ex) {
+                        Logger.getLogger(ManageRecordsJPanel.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+            }
+             else
+             {
+                 JOptionPane.showMessageDialog(null, "Email Notification already sent to Person.", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+             }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Person will be notified once request is processed.", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+        JOptionPane.showMessageDialog(null, "Email notification sent successfully!!!", "Information", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_btnNotificationActionPerformed
+    public  void sendEmailWithAttachments()
+            throws AddressException, MessagingException, IOException {
+        String host = Constant.TR_NOTIFICATIONHOST;
+        String port = Constant.TR_NOTIFICATIONHOSTPORT;
+        String userName = Constant.TR_NOTIFICATIONEMAIL;
+        String password = Constant.TR_NOTIFICATIONPASSWORD;
+        String subject ="Job Notification from Poverty Alleviation Sytem";
+        String message = "Congratualtion you got hired." + workRequest.getReceiver() + " hired you.You will be notified for futher instruction."+
+                 "Details will be given to on address " + questionnaire.getPersonalQuestionnaire().getAddress() + ",mobile number "
+                + questionnaire.getPersonalQuestionnaire().getContact();
+        // sets SMTP server properties
+        Properties properties = new Properties();
+        properties.put("mail.smtp.host", host);
+        properties.put("mail.smtp.port", port);
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.user", userName);
+        properties.put("mail.password", password);
+ 
+        // creates a new session with an authenticator
+        Authenticator auth = new Authenticator() {
+            public PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(userName, password);
+            }
+        };
+        Session session = Session.getInstance(properties, auth);
+ 
+        // creates a new e-mail message
+        Message msg = new MimeMessage(session);
+ 
+        msg.setFrom(new InternetAddress(userName));
+        InternetAddress[] toAddresses = { new InternetAddress(questionnaire.getPersonalQuestionnaire().getEmailAddress()) };
+        msg.setRecipients(Message.RecipientType.TO, toAddresses);
+        msg.setSubject(subject);
+        msg.setSentDate(new Date());
+ 
+        // creates message part
+        MimeBodyPart messageBodyPart = new MimeBodyPart();
+        messageBodyPart.setContent(message, "text/html");
+ 
+        // creates multi-part
+        Multipart multipart = new MimeMultipart();
+        multipart.addBodyPart(messageBodyPart);
+ 
+        // adds attachments
+//        if (attachFiles != null && attachFiles.length > 0) {
+//            for (String filePath : attachFiles) {
+//                MimeBodyPart attachPart = new MimeBodyPart();
+// 
+//                try {
+//                    attachPart.attachFile(filePath);
+//                } catch (IOException ex) {
+//                    ex.printStackTrace();
+//                }
+// 
+//                multipart.addBodyPart(attachPart);
+//            }
+//        }
+ 
+        // sets the multi-part as e-mail's content
+        msg.setContent(multipart);
+ 
+        // sends the e-mail
+        Transport.send(msg);
+ 
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJBtn;
+    private javax.swing.JButton btnNotification;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

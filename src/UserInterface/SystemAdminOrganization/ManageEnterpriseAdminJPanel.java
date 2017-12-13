@@ -55,9 +55,9 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
                 for (UserAccount userAccount : enterprise.getUserAccountList().getUserAccountList()) {
                     Object[] row = new Object[3];
-                    row[0] = enterprise.getName();
-                    row[1] = network.getName();
-                    row[2] = userAccount.getUserID();
+                    row[0] = enterprise;
+                    row[1] = network;
+                    row[2] = userAccount;
 
                     model.addRow(row);
                 }
@@ -263,19 +263,11 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel5)
                     .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
-<<<<<<< HEAD
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(deleteJButton1)
                         .addComponent(updateJButton))
                     .addComponent(submitJButton))
-=======
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submitJButton)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(deleteJButton1)
-                        .addComponent(updateJButton)))
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
                 .addGap(9, 9, 9)
                 .addComponent(backJButton)
                 .addGap(22, 22, 22))
@@ -348,6 +340,9 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             UserAccount account = enterprise.getUserAccountList().createUserAccount(username, password, employee, r);
             populateTable();
             JOptionPane.showMessageDialog(null, "UserAccount created successfully");
+            nameJTextField.setText("");
+            passwordJPasswordField.setText("");
+            usernameJTextField.setText("");
     }//GEN-LAST:event_submitJButtonActionPerformed
     }
     private void updateJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateJButtonActionPerformed

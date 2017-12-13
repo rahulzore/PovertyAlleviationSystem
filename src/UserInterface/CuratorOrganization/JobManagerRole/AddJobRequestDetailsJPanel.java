@@ -5,6 +5,7 @@
  */
 package UserInterface.CuratorOrganization.JobManagerRole;
 
+import Business.Constant;
 import Business.EcoSystem;
 import Business.Enterpise.Enterprise;
 import Business.Network.Network;
@@ -21,7 +22,9 @@ import Business.Questionnaire.Questionnaire;
 import Business.Questionnaire.PreviousExperienceQuestionaire;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.JobWorkRequest;
+import UserInterface.JobProcessOrganization.ProcessJobRequestJPanel;
 import java.awt.CardLayout;
+import java.awt.Component;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -39,6 +42,7 @@ private JPanel userProcessContainer;
     private UserAccount userAccount;
     EcoSystem business;
     JobWorkRequest request;
+    boolean isRequested=false;
     
     /**
      * Creates new form ManageJobRequestDetailsJPanel
@@ -60,9 +64,9 @@ private JPanel userProcessContainer;
    
         ImageIcon icon=request.getQuestionaire().getPersonalQuestionnaire().getIdProof();
         nameIndividual.setText(request.getQuestionaire().getPersonalQuestionnaire().getName());
-
+        if(icon.getImage() != null){
         idProof.setIcon(new ImageIcon(icon.getImage().getScaledInstance(99, 99, Image.SCALE_DEFAULT)));
-        
+        }
       
 //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -265,13 +269,13 @@ private JPanel userProcessContainer;
         buttonGroupFamily.add(rbNuclear);
         rbNuclear.setText("Nuclear");
 
-        buttonGroupComp.add(rbSibling);
+        buttonGroupFamily.add(rbSibling);
         rbSibling.setText("Sibling HouseHold");
 
-        buttonGroupComp.add(rbSingleParent);
+        buttonGroupFamily.add(rbSingleParent);
         rbSingleParent.setText("Single Parent");
 
-        buttonGroupComp.add(rbExtended);
+        buttonGroupFamily.add(rbExtended);
         rbExtended.setText("Extended");
 
         javax.swing.GroupLayout familyBackPanelLayout = new javax.swing.GroupLayout(familyBackPanel);
@@ -426,7 +430,7 @@ private JPanel userProcessContainer;
         techGroup.add(techNo);
         techNo.setText("No");
 
-        buttonGroupGuard.add(techYes);
+        techGroup.add(techYes);
         techYes.setText("Yes");
 
         constGroup.add(constructionNo);
@@ -494,7 +498,7 @@ private JPanel userProcessContainer;
                 .addContainerGap(51, Short.MAX_VALUE))
         );
 
-        tabbedPanel.addTab("Previous Guarding Experience", guardPanel);
+        tabbedPanel.addTab("Previous Experience", guardPanel);
 
         physicalPanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -718,19 +722,19 @@ private JPanel userProcessContainer;
         
         String str =questionaire.getFamilyBackgroundQuestionaire().getFamilyBackground();
         
-        if(str != null && str.equalsIgnoreCase("Nuclear"))
+        if(str != null && str.equalsIgnoreCase(Constant.TR_FAMILYTYPE_NUCLEAR))
         {
             rbNuclear.setSelected(true);
         }
-        else if(str != null && str.equalsIgnoreCase("Sibling"))
+        else if(str != null && str.equalsIgnoreCase(Constant.TR_FAMILYTYPE_SIBLING))
         {
             rbSibling.setSelected(true);
         } 
-        else if(str != null && str.equalsIgnoreCase("Extended"))
+        else if(str != null && str.equalsIgnoreCase(Constant.TR_FAMILYTYPE_EXTENDED))
         {
             rbExtended.setSelected(true);
         } 
-        else if(str != null && str.equalsIgnoreCase("SingleParent"))
+        else if(str != null && str.equalsIgnoreCase(Constant.TR_FAMILYTYPE_SINGLEPARENT))
         {
             rbSingleParent.setSelected(true);
         }
@@ -738,7 +742,7 @@ private JPanel userProcessContainer;
     }
     private void btnRequestJobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestJobActionPerformed
         // TODO add your handling code here:
-       
+       if(!isRequested){
         Questionnaire questionnaire = request.getQuestionaire();//business.getQuestionnaireList().addQuestionnaire();
         questionnaire.setIsDetailsSet(true);
         JobQuestionaire jobQuestionaire = questionnaire.getJobQuestionaire() ;
@@ -808,8 +812,8 @@ private JPanel userProcessContainer;
         if (org!=null){
             //if(requestType.equalsIgnoreCase("job")){
             //    JobWorkRequest request = new JobWorkRequest();
-                request.setSender(userAccount);
-                request.setStatus("Sent");
+                request.setReceiver(userAccount);
+                request.setStatus(Constant.TR_REQUESTSTATUS_SENT);
                 request.setQuestionaire(questionnaire);
                 org.getWorkQueue().getWorkRequestList().add(request);
                 userAccount.getWorkQueue().getWorkRequestList().add(request);
@@ -824,14 +828,23 @@ private JPanel userProcessContainer;
 //            }
 
         }
-        JOptionPane.showMessageDialog(null, "Individual request created successfully", "Warning", JOptionPane.INFORMATION_MESSAGE);
-
+        JOptionPane.showMessageDialog(null, "Individual request created successfully.", "Warning", JOptionPane.INFORMATION_MESSAGE);
+        isRequested=true;
+       }
+       else
+       {
+          JOptionPane.showMessageDialog(null, "Request already forwarded.", "Warning", JOptionPane.INFORMATION_MESSAGE); 
+       }
     }//GEN-LAST:event_btnRequestJobActionPerformed
 
     private void backJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJBtnActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+         Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        ManageJobRequestJPanel sysAdminwjp = (ManageJobRequestJPanel) component;
+        sysAdminwjp.populateRequestTable();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJBtnActionPerformed
 

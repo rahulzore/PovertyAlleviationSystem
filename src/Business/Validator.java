@@ -65,7 +65,7 @@ return isValid;
 }
 catch (NumberFormatException e) {
      //Not an integer
-     msg = "Please enter correct income";
+     msg = "Please enter a number";
 }
         return msg; 
     }

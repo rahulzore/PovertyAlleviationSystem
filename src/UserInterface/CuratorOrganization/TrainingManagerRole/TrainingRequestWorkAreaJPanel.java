@@ -62,21 +62,9 @@ public class TrainingRequestWorkAreaJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
 
-<<<<<<< HEAD
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        enterpriseLabel.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
-        enterpriseLabel.setForeground(new java.awt.Color(153, 0, 51));
-        enterpriseLabel.setText("EnterPrise :");
-
-        valueLabel.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
-        valueLabel.setForeground(new java.awt.Color(153, 0, 51));
-        valueLabel.setText("<value>");
-=======
         setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
 
         btnManageRequest.setText("Manage Training Request");
         btnManageRequest.addActionListener(new java.awt.event.ActionListener() {
@@ -97,15 +85,7 @@ public class TrainingRequestWorkAreaJPanel extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-<<<<<<< HEAD
-                .addGap(0, 23, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-=======
                 .addContainerGap(135, Short.MAX_VALUE)
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
                 .addComponent(btnManageRequest)
                 .addGap(319, 319, 319))
         );

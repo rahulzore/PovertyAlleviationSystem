@@ -14,6 +14,7 @@ import Business.Organization.TrainingRequestManagerOrganization;
 import Business.Questionnaire.PersonalQuestionnaire;
 import Business.Questionnaire.Questionnaire;
 import Business.UserAccount.UserAccount;
+import Business.Validator;
 import Business.WorkQueue.JobWorkRequest;
 import Business.WorkQueue.TrainingRequest;
 import Business.WorkQueue.WorkRequest;
@@ -56,7 +57,7 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        requestGroup = new javax.swing.ButtonGroup();
+        reqBtnGroup = new javax.swing.ButtonGroup();
         jLabel3 = new javax.swing.JLabel();
         educationCombo = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
@@ -77,15 +78,12 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
         ssnTxt = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         ImageLabel = new javax.swing.JLabel();
-<<<<<<< HEAD
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         txtemailAddress = new javax.swing.JTextField();
         txtContact = new javax.swing.JTextField();
         txtAddress = new javax.swing.JTextField();
-=======
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -117,8 +115,10 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
 
         jLabel7.setText("Request type:");
 
+        reqBtnGroup.add(eduRadioButton);
         eduRadioButton.setText("Education");
 
+        reqBtnGroup.add(jobRadioButton);
         jobRadioButton.setSelected(true);
         jobRadioButton.setText("Job");
 
@@ -139,7 +139,6 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
         jLabel2.setText("Name:");
 
         jLabel8.setText("Enter SSN:");
-<<<<<<< HEAD
 
         jButton1.setText("Upload Valid ID Proof");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -161,26 +160,14 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
         txtAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAddressActionPerformed(evt);
-=======
-
-        jButton1.setText("Upload Valid ID Proof");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
             }
         });
-
-        ImageLabel.setBackground(new java.awt.Color(153, 255, 204));
-        ImageLabel.setForeground(new java.awt.Color(255, 255, 255));
-        ImageLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-<<<<<<< HEAD
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,13 +202,6 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
                                     .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addContainerGap()
-=======
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(41, 41, 41)
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel5)
@@ -231,11 +211,7 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                             .addComponent(jLabel4)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-<<<<<<< HEAD
                                             .addComponent(genderCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-=======
-                                            .addComponent(genderCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(ageCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -243,7 +219,6 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
                                                     .addComponent(jLabel2)
                                                     .addComponent(jLabel3))
                                                 .addGap(18, 18, 18)
-<<<<<<< HEAD
                                                 .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                         .addGap(9, 9, 9)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,47 +231,11 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(backJBtn)))
-=======
-                                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(addRecordButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jLabel7)
-                                            .addComponent(jLabel8))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(eduRadioButton)
-                                                .addGap(10, 10, 10)
-                                                .addComponent(jobRadioButton))
-                                            .addComponent(educationCombo, 0, 148, Short.MAX_VALUE)
-                                            .addComponent(ssnTxt))))))
-                        .addGap(12, 12, 12))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(backJBtn))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(261, 261, 261)
-                            .addComponent(jLabel1))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(114, 114, 114)
-                        .addComponent(ImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
                 .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-<<<<<<< HEAD
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(70, 70, 70)
@@ -307,13 +246,6 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(jLabel1)
                         .addGap(26, 26, 26)
-=======
-                .addGap(26, 26, 26)
-                .addComponent(jLabel1)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -331,7 +263,6 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-<<<<<<< HEAD
                             .addComponent(txtIncome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -363,38 +294,11 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addComponent(backJBtn)
                 .addContainerGap(60, Short.MAX_VALUE))
-=======
-                            .addComponent(txtIncome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(ImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1)))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(educationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(eduRadioButton)
-                    .addComponent(jobRadioButton))
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(ssnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(addRecordButton)
-                .addGap(38, 38, 38)
-                .addComponent(backJBtn)
-                .addContainerGap(34, Short.MAX_VALUE))
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void addRecordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRecordButtonActionPerformed
         // TODO add your handling code here:
-<<<<<<< HEAD
            if(Validator.StringEmpty(txtName.getText()) 
          || Validator.StringEmpty(txtAddress.getText())
          || Validator.StringEmpty(txtContact.getText())
@@ -410,13 +314,10 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
            }
            else
            {
-=======
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
         String name = txtName.getText();
         int age = Integer.parseInt( ageCombo.getSelectedItem().toString());
         String gender = genderCombo.getSelectedItem().toString();
         int income = Integer.parseInt(txtIncome.getText());
-<<<<<<< HEAD
         if(income>24000)
         {
              JOptionPane.showMessageDialog(null, "Ineligible Individual");
@@ -443,12 +344,6 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "Invalid email address format.");
                     return;
                 }
-=======
-        String requestType=jobRadioButton.isSelected() ? "job":"edu";
-         double ssn = Double.parseDouble(ssnTxt.getText());
-         
-
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
         Questionnaire qt = business.getQuestionnaireList().addQuestionnaire();
         PersonalQuestionnaire questionnaire = qt.getPersonalQuestionnaire();
         questionnaire.setName(name);
@@ -458,12 +353,9 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
         questionnaire.setIncome(income);
         questionnaire.setRequestType(requestType);
         questionnaire.setSsn(ssn);
-<<<<<<< HEAD
         questionnaire.setAddress(address);
         questionnaire.setContact(contact);
         questionnaire.setEmailAddress(emailAddress);
-=======
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
         questionnaire.setIdProof((ImageIcon) ImageLabel.getIcon());
         qt.setPersonalQuestionnaire(questionnaire);
         Organization org = null;
@@ -502,7 +394,6 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
 
         }
         JOptionPane.showMessageDialog(null, "Individual request created successfully", "Warning", JOptionPane.INFORMATION_MESSAGE);
-<<<<<<< HEAD
          ImageLabel.setIcon(null);
          txtemailAddress.setText("");
          txtIncome.setText("");
@@ -511,9 +402,6 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
          txtName.setText("");
          ssnTxt.setText("");
                                         
-=======
-
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
     }//GEN-LAST:event_addRecordButtonActionPerformed
     }
     private void backJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJBtnActionPerformed
@@ -535,7 +423,6 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
         String picture=file.getAbsolutePath();
         
           ImageIcon icon=new ImageIcon(picture);
-<<<<<<< HEAD
            ImageLabel.setIcon(new ImageIcon(new ImageIcon(picture).getImage().getScaledInstance(99, 99, Image.SCALE_DEFAULT)));
         
            
@@ -545,13 +432,6 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAddressActionPerformed
 
-=======
-          
-           ImageLabel.setIcon(new ImageIcon(new ImageIcon(picture).getImage().getScaledInstance(99, 99, Image.SCALE_DEFAULT)));
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ImageLabel;
@@ -572,18 +452,12 @@ public class ManageIndividualDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-<<<<<<< HEAD
     private javax.swing.JLabel jLabel9;
     private javax.swing.JRadioButton jobRadioButton;
-    private javax.swing.ButtonGroup requestGroup;
+    private javax.swing.ButtonGroup reqBtnGroup;
     private javax.swing.JTextField ssnTxt;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtContact;
-=======
-    private javax.swing.JRadioButton jobRadioButton;
-    private javax.swing.ButtonGroup requestGroup;
-    private javax.swing.JTextField ssnTxt;
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
     private javax.swing.JTextField txtIncome;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtemailAddress;

@@ -21,17 +21,8 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="viewRecordButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-=======
           <Component id="jPanel6" alignment="0" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -141,11 +132,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backJBtnActionPerformed"/>
       </Events>
     </Component>
-<<<<<<< HEAD
-    <Component class="javax.swing.JLabel" name="enterpriseLabel">
-=======
     <Component class="javax.swing.JLabel" name="enterpriseLabel1">
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Bright" size="18" style="1"/>
@@ -156,11 +143,7 @@
         <Property name="text" type="java.lang.String" value="EnterPrise :"/>
       </Properties>
     </Component>
-<<<<<<< HEAD
-    <Component class="javax.swing.JLabel" name="valueLabel">
-=======
     <Component class="javax.swing.JLabel" name="valueLabel1">
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="0"/>
@@ -171,8 +154,6 @@
         <Property name="text" type="java.lang.String" value="&lt;value&gt;"/>
       </Properties>
     </Component>
-<<<<<<< HEAD
-=======
     <Container class="javax.swing.JPanel" name="jPanel6">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -292,6 +273,5 @@
         </Component>
       </SubComponents>
     </Container>
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
   </SubComponents>
 </Form>

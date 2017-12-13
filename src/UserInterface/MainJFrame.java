@@ -355,18 +355,22 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
-        Component[] components = userProcessContainer.getComponents();
-        int a=userProcessContainer.countComponents();
-        for(int i = 0; i < components.length; i++) {
-            if(a> 0){
-                userProcessContainer.remove(0);
-                --a;
-            }
-            //        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-            //        layout.removeLayoutComponent(components[i]);
-
-        }
+//        Component[] components = userProcessContainer.getComponents();
+//        int a=userProcessContainer.countComponents();
+//        for(int i = 0; i < components.length; i++) {
+//            if(a> 0){
+//                userProcessContainer.remove(0);
+//                --a;
+//            }
+//            //        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+//            //        layout.removeLayoutComponent(components[i]);
+//
+//        }
         userProcessContainer.removeAll();
+        WelcomePanel panel = new WelcomePanel();
+        userProcessContainer.add(panel);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
         loginBtn.setEnabled(true);
         btnLogout.setEnabled(false);
         //createMenuBar();

@@ -194,8 +194,9 @@ public class UpdateEnterpriseAdminJPanel extends javax.swing.JPanel {
            
           
             JOptionPane.showMessageDialog(null, "Admin Details updated");
-            
-
+            adminNametxt.setText("");
+adminPasstxt.setText("");
+        adminUsernametxt.setText("");
         }
 
     }//GEN-LAST:event_saveNetActionPerformed

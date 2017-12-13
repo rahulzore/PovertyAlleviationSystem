@@ -135,7 +135,7 @@ public class ProvideTrainingRequestJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel1.setText("Manage Job Request");
+        jLabel1.setText("Manage Training Request");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

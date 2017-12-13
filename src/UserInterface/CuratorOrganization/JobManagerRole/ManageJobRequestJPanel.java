@@ -45,7 +45,7 @@ private JPanel userProcessContainer;
         valueLabel.setText(organization.getName());
     }
 
-    private void populateRequestTable(){
+    public void populateRequestTable(){
         DefaultTableModel model = (DefaultTableModel) requestTable.getModel();
         
         model.setRowCount(0);
@@ -102,11 +102,11 @@ private JPanel userProcessContainer;
 
             },
             new String [] {
-                "Individual Name", "Request Type"
+                "Request ID", "Individual Name", "Request Type", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -114,6 +114,12 @@ private JPanel userProcessContainer;
             }
         });
         jScrollPane1.setViewportView(requestTable);
+        if (requestTable.getColumnModel().getColumnCount() > 0) {
+            requestTable.getColumnModel().getColumn(0).setResizable(false);
+            requestTable.getColumnModel().getColumn(1).setResizable(false);
+            requestTable.getColumnModel().getColumn(2).setResizable(false);
+            requestTable.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         backJBtn.setBackground(new java.awt.Color(255, 0, 0));
         backJBtn.setText("<< Back");
@@ -208,12 +214,17 @@ private JPanel userProcessContainer;
         int selectedRow = requestTable.getSelectedRow();
         JobWorkRequest request= null;
         if(selectedRow<0) {
-            JOptionPane.showMessageDialog(null, "Please select a row from the table first", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please select a row from the table first.", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
         if (selectedRow >= 0) {
+            
             request = (JobWorkRequest) requestTable.getValueAt(selectedRow, 0);
+            if(request.getReceiver() != null){
+                JOptionPane.showMessageDialog(null, "Request Already forwarded.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+            }
             AddJobRequestDetailsJPanel AddJobRequestDetailsJPanel = new AddJobRequestDetailsJPanel(userProcessContainer,userAccount,organization, enterprise,business,request);
             userProcessContainer.add("AddJobRequestDetailsJPanel", AddJobRequestDetailsJPanel);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();

@@ -178,7 +178,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
                     .addComponent(submitJButton)
                     .addComponent(deleteJButton1)
                     .addComponent(updateJButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addGap(70, 70, 70)
                 .addComponent(backJButton)
                 .addGap(57, 57, 57))
         );

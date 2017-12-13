@@ -21,6 +21,7 @@ public final class Constant {
     public static final  int NUMBER_NINE=9;
     public static final  int NUMBER_TEN=10;
     public static final  String TR_REQUESTSTATUS_PROCESSED="Processed";
+    public static final  String TR_REQUESTSTATUS_SENT="Sent";
     public static final  String TR_REQUESTSTATUS_REJECTED="Rejected";
     public static final  String TR_REQUESTSTATUS_ASSIGNED="Assigned";
     public static final  String TR_REQUESTSTATUS_UNASSIGNED="Unassigned";
@@ -34,4 +35,14 @@ public final class Constant {
     public static final  String TR_JOBREQUESTED="JOB Requested";
     public static final  String TR_REQUESTTYPE="REQUEST TYPE";
     public static final  String TR_JOBSECTOR="Job Sector";
+    public static final  String TR_FAMILYTYPE_NUCLEAR="Nuclear";
+    public static final  String TR_FAMILYTYPE_SIBLING="Sibling";
+    public static final  String TR_FAMILYTYPE_EXTENDED="Extended";
+    public static final  String TR_FAMILYTYPE_SINGLEPARENT="SingleParent";
+    public static final  String TR_YES="Yes";
+    public static final  String TR_NO="No";
+    public static final  String TR_NOTIFICATIONEMAIL="povertyalleviationsystem@gmail.com";
+    public static final  String TR_NOTIFICATIONPASSWORD="Batman@10";
+    public static final  String TR_NOTIFICATIONHOST="smtp.gmail.com";
+    public static final  String TR_NOTIFICATIONHOSTPORT="587";
 }

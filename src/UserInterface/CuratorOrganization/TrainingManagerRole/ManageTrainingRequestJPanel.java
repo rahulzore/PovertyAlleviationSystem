@@ -73,10 +73,6 @@ private void populateRequestTable(){
         requestTable = new javax.swing.JTable();
         viewRecordButton = new javax.swing.JButton();
         backJBtn = new javax.swing.JButton();
-<<<<<<< HEAD
-        enterpriseLabel = new javax.swing.JLabel();
-        valueLabel = new javax.swing.JLabel();
-=======
         enterpriseLabel1 = new javax.swing.JLabel();
         valueLabel1 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -87,7 +83,6 @@ private void populateRequestTable(){
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -126,15 +121,6 @@ private void populateRequestTable(){
             }
         });
 
-<<<<<<< HEAD
-        enterpriseLabel.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
-        enterpriseLabel.setForeground(new java.awt.Color(153, 0, 51));
-        enterpriseLabel.setText("EnterPrise :");
-
-        valueLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        valueLabel.setForeground(new java.awt.Color(153, 0, 51));
-        valueLabel.setText("<value>");
-=======
         enterpriseLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
         enterpriseLabel1.setForeground(new java.awt.Color(153, 0, 51));
         enterpriseLabel1.setText("EnterPrise :");
@@ -209,7 +195,6 @@ private void populateRequestTable(){
                     .addComponent(roleLbl4))
                 .addContainerGap())
         );
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -239,11 +224,7 @@ private void populateRequestTable(){
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(viewRecordButton)
-<<<<<<< HEAD
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-=======
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
->>>>>>> 27ef48ad10a7ae8ee7df17a3baf722c85265b744
                 .addComponent(backJBtn)
                 .addContainerGap())
         );

@@ -64,7 +64,7 @@ public class JobProcessManagerWorkAreaJPanel extends javax.swing.JPanel {
 
         enterpriseLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
         enterpriseLabel1.setForeground(new java.awt.Color(153, 0, 51));
-        enterpriseLabel1.setText("EnterPrise :");
+        enterpriseLabel1.setText("Organization :");
 
         valueLabel1.setFont(new java.awt.Font("Lucida Bright", 0, 14)); // NOI18N
         valueLabel1.setForeground(new java.awt.Color(153, 0, 51));
@@ -93,18 +93,18 @@ public class JobProcessManagerWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(152, Short.MAX_VALUE)
+                .addGap(100, 100, 100)
                 .addComponent(jLabel1)
-                .addGap(118, 118, 118))
+                .addContainerGap(70, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
+                        .addGap(100, 100, 100)
                         .addComponent(enterpriseLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(valueLabel1))
+                        .addComponent(valueLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(234, 234, 234)
+                        .addGap(150, 150, 150)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnManageRequest1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnViewStatistics, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))

@@ -350,7 +350,7 @@
             <Component class="javax.swing.JRadioButton" name="rbSibling">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroupComp"/>
+                  <ComponentRef name="buttonGroupFamily"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Sibling HouseHold"/>
               </Properties>
@@ -358,7 +358,7 @@
             <Component class="javax.swing.JRadioButton" name="rbSingleParent">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroupComp"/>
+                  <ComponentRef name="buttonGroupFamily"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Single Parent"/>
               </Properties>
@@ -366,7 +366,7 @@
             <Component class="javax.swing.JRadioButton" name="rbExtended">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroupComp"/>
+                  <ComponentRef name="buttonGroupFamily"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Extended"/>
               </Properties>
@@ -555,8 +555,8 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Previous Guarding Experience">
-                <Property name="tabTitle" type="java.lang.String" value="Previous Guarding Experience"/>
+              <JTabbedPaneConstraints tabName="Previous Experience">
+                <Property name="tabTitle" type="java.lang.String" value="Previous Experience"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -696,7 +696,7 @@
             <Component class="javax.swing.JRadioButton" name="techYes">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroupGuard"/>
+                  <ComponentRef name="techGroup"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Yes"/>
               </Properties>
