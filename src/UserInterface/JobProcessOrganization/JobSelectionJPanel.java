@@ -3,9 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package UserInterface.JobProcessOrganization;
-
 
 import Business.Constant;
 import Business.EcoSystem;
@@ -40,51 +38,53 @@ import javax.swing.table.DefaultTableModel;
  * @author sanch
  */
 public class JobSelectionJPanel extends javax.swing.JPanel {
-private JPanel userProcessContainer;
+
+    private JPanel userProcessContainer;
     private JobProcessOrganization organization;
     private Enterprise enterprise;
     private UserAccount userAccount;
     EcoSystem business;
     JobWorkRequest request;
-    boolean isRequested=false;
+    boolean isRequested = false;
+
     //private JobProviderOrganization selecteddropdownOrg;
-    /** Creates new form TrainingSelectionJPanel */
+    /**
+     * Creates new form TrainingSelectionJPanel
+     */
     public JobSelectionJPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, EcoSystem business, JobWorkRequest request) {
         initComponents();
-         this.userProcessContainer = userProcessContainer;
-        this.organization =(JobProcessOrganization) organization;
+        this.userProcessContainer = userProcessContainer;
+        this.organization = (JobProcessOrganization) organization;
         this.enterprise = enterprise;
         this.userAccount = userAccount;
         this.business = business;
         this.request = request;
-          valueLabel.setText(enterprise.getName());
-          populateDetails();
-          populateTrainingCombo();
-          jobsTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-    @Override
-    public void valueChanged(ListSelectionEvent event) {
-        if (jobsTable.getSelectedRow() > -1) {
-            // print first column value from selected row
-            
-            Organization org = (Organization) jobsTable.getValueAt(jobsTable.getSelectedRow(), 0);
-            if(org instanceof CarpentryJobOrganization){
-                txtSize.setText(String.valueOf(((CarpentryJobOrganization) org).getSeats()));
+          loggedinLabel.setText(userAccount.getEmployee().getName());
+        orgLbl.setText(organization.getName());
+        roleLbl.setText(userAccount.getRole().toString());
+        populateDetails();
+        populateTrainingCombo();
+        jobsTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent event) {
+                if (jobsTable.getSelectedRow() > -1) {
+                    // print first column value from selected row
+
+                    Organization org = (Organization) jobsTable.getValueAt(jobsTable.getSelectedRow(), 0);
+                    if (org instanceof CarpentryJobOrganization) {
+                        txtSize.setText(String.valueOf(((CarpentryJobOrganization) org).getSeats()));
+                    } else if (org instanceof ConstructionJobOrganization) {
+                        txtSize.setText(String.valueOf(((ConstructionJobOrganization) org).getSeats()));
+                    } else if (org instanceof SecurityJobOrganization) {
+                        txtSize.setText(String.valueOf(((SecurityJobOrganization) org).getSeats()));
+                    } else if (org instanceof ITJobOrganization) {
+                        txtSize.setText(String.valueOf(((ITJobOrganization) org).getSeats()));
+                    } else {
+                        txtSize.setText(String.valueOf(((GeneralJobOrganization) org).getSeats()));
+                    }
+                }
             }
-            else if(org instanceof ConstructionJobOrganization){
-                txtSize.setText(String.valueOf(((ConstructionJobOrganization) org).getSeats()));
-            }
-            else if(org instanceof SecurityJobOrganization){
-                txtSize.setText(String.valueOf(((SecurityJobOrganization) org).getSeats()));
-            }
-            else if(org instanceof ITJobOrganization){
-                txtSize.setText(String.valueOf(((ITJobOrganization) org).getSeats()));
-            }
-            else{
-                txtSize.setText(String.valueOf(((GeneralJobOrganization) org).getSeats()));
-            }
-        }
-    }
-});
+        });
 //          EvaluateSpecific();
     }
 //    private void EvaluateSpecific(){
@@ -120,42 +120,42 @@ private JPanel userProcessContainer;
 //            txtBestSuited.setText("General Jobs");
 //        }
 //    }
-    private void populateDetails(){
+
+    private void populateDetails() {
         nametxt.setText(request.getQuestionaire().getPersonalQuestionnaire().getName());
-        lblResultComputers.setText(request.getQuestionaire().getJobQuestionaire().isIsComputer() ? Constant.TR_YES: Constant.TR_NO);
-        lblResultConstruction.setText(request.getQuestionaire().getJobQuestionaire().isIsConstruction()?Constant.TR_YES: Constant.TR_NO);
-        lblResultOvernight.setText(request.getQuestionaire().getJobQuestionaire().isIsOvernight()? Constant.TR_YES: Constant.TR_NO);
-        
-        lblResultRead.setText(request.getQuestionaire().getEducationQuestionaire().isIsRead()? Constant.TR_YES: Constant.TR_NO);
-        lblResultWrite.setText(request.getQuestionaire().getEducationQuestionaire().isIsWrite()? Constant.TR_YES: Constant.TR_NO);
-        lblResultNesTraining.setText(request.getQuestionaire().getEducationQuestionaire().isIsNecessaryTraining()? Constant.TR_YES: Constant.TR_NO);
-        
-        lblResultCrime.setText(request.getQuestionaire().getCriminalRelatedQuestionaire().isIsConvCrime()? Constant.TR_YES: Constant.TR_NO);
-        lblResultDrugs.setText(request.getQuestionaire().getDrugAbuseQuestionaire().isIsConsumeDrug()? Constant.TR_YES: Constant.TR_NO);
-        lblResultConDrugs.setText(request.getQuestionaire().getDrugAbuseQuestionaire().isIsComDrug()? Constant.TR_YES: Constant.TR_NO);
-        
-        lblResultPhysical.setText(request.getQuestionaire().getPhysicalQuestionaire().isIsPhysicallyActive()? Constant.TR_YES: Constant.TR_NO);
-        lblResultMedicalCondition.setText(request.getQuestionaire().getPhysicalQuestionaire().isIsMedicalCondition()? Constant.TR_YES: Constant.TR_NO);
-        
-        lblResultCarpen.setText(request.getQuestionaire().getGuardQuestionaire().isPreviousCarpentryExperience()? Constant.TR_YES: Constant.TR_NO);
-        lblResultContruct.setText(request.getQuestionaire().getGuardQuestionaire().isPreviousConstructionExperience()? Constant.TR_YES: Constant.TR_NO);
-        lblResultGuard.setText(request.getQuestionaire().getGuardQuestionaire().isPreviousGuardExperience()? Constant.TR_YES: Constant.TR_NO);
-        lblResultTech.setText(request.getQuestionaire().getGuardQuestionaire().isPreviousTechExperience()? Constant.TR_YES: Constant.TR_NO);
+        lblResultComputers.setText(request.getQuestionaire().getJobQuestionaire().isIsComputer() ? Constant.TR_YES : Constant.TR_NO);
+        lblResultConstruction.setText(request.getQuestionaire().getJobQuestionaire().isIsConstruction() ? Constant.TR_YES : Constant.TR_NO);
+        lblResultOvernight.setText(request.getQuestionaire().getJobQuestionaire().isIsOvernight() ? Constant.TR_YES : Constant.TR_NO);
+
+        lblResultRead.setText(request.getQuestionaire().getEducationQuestionaire().isIsRead() ? Constant.TR_YES : Constant.TR_NO);
+        lblResultWrite.setText(request.getQuestionaire().getEducationQuestionaire().isIsWrite() ? Constant.TR_YES : Constant.TR_NO);
+        lblResultNesTraining.setText(request.getQuestionaire().getEducationQuestionaire().isIsNecessaryTraining() ? Constant.TR_YES : Constant.TR_NO);
+
+        lblResultCrime.setText(request.getQuestionaire().getCriminalRelatedQuestionaire().isIsConvCrime() ? Constant.TR_YES : Constant.TR_NO);
+        lblResultDrugs.setText(request.getQuestionaire().getDrugAbuseQuestionaire().isIsConsumeDrug() ? Constant.TR_YES : Constant.TR_NO);
+        lblResultConDrugs.setText(request.getQuestionaire().getDrugAbuseQuestionaire().isIsComDrug() ? Constant.TR_YES : Constant.TR_NO);
+
+        lblResultPhysical.setText(request.getQuestionaire().getPhysicalQuestionaire().isIsPhysicallyActive() ? Constant.TR_YES : Constant.TR_NO);
+        lblResultMedicalCondition.setText(request.getQuestionaire().getPhysicalQuestionaire().isIsMedicalCondition() ? Constant.TR_YES : Constant.TR_NO);
+
+        lblResultCarpen.setText(request.getQuestionaire().getGuardQuestionaire().isPreviousCarpentryExperience() ? Constant.TR_YES : Constant.TR_NO);
+        lblResultContruct.setText(request.getQuestionaire().getGuardQuestionaire().isPreviousConstructionExperience() ? Constant.TR_YES : Constant.TR_NO);
+        lblResultGuard.setText(request.getQuestionaire().getGuardQuestionaire().isPreviousGuardExperience() ? Constant.TR_YES : Constant.TR_NO);
+        lblResultTech.setText(request.getQuestionaire().getGuardQuestionaire().isPreviousTechExperience() ? Constant.TR_YES : Constant.TR_NO);
         //lblResultPhysical.setText(request.getQuestionaire().getPhysicalQuestionaire().isIsPhysicallyActive()?"Yes":"No");
         //lblResultGuard.setText(request.getQuestionaire().getGuardQuestionaire().isPreviousGuardExperience()?"Yes":"No");
     }
-    
-     
-    private void populateTrainingCombo(){
+
+    private void populateTrainingCombo() {
 //        availabeInstCombo.removeAllItems();
-        Enterprise tm =null;
+        Enterprise tm = null;
         for (Network network : business.getNetworkList()) {
-                for (Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()) {
-                    if(ent instanceof JobProviderEnterprise){
-                        tm = ent;
-                        break;
-                    }
+            for (Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()) {
+                if (ent instanceof JobProviderEnterprise) {
+                    tm = ent;
+                    break;
                 }
+            }
         }
 //        if(request.getQuestionaire().getTrainingQuestionaire().getInterest() != null ){
 //            if(request.getQuestionaire().getTrainingQuestionaire().getInterest().equalsIgnoreCase("Carpentry"))
@@ -189,32 +189,26 @@ private JPanel userProcessContainer;
 //        }
 //        else
 //        {
-            
-                    for (Organization org : tm.getOrganizationList().getOrganizationList()) {
-//                        availabeInstCombo.addItem(org);
-                    }
-                
-//        }
- 
-    }
-    
-    
 
-    /** This method is called from within the constructor to
-     * initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is
-     * always regenerated by the Form Editor.
+        for (Organization org : tm.getOrganizationList().getOrganizationList()) {
+//                        availabeInstCombo.addItem(org);
+        }
+
+//        }
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
         assignTrainerBtn = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         nametxt = new javax.swing.JTextField();
-        enterpriseLabel = new javax.swing.JLabel();
-        valueLabel = new javax.swing.JLabel();
         tabbedComputers = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -260,13 +254,17 @@ private JPanel userProcessContainer;
         jobsTable = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         txtSize = new javax.swing.JTextField();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        loggedinLabel = new javax.swing.JLabel();
+        roleLbl = new javax.swing.JLabel();
+        orgLbl = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(153, 0, 51));
-
-        jLabel3.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel3.setText("Assign Job Organization");
 
         assignTrainerBtn.setBackground(new java.awt.Color(51, 255, 51));
         assignTrainerBtn.setText("Assign Job");
@@ -279,14 +277,6 @@ private JPanel userProcessContainer;
         jLabel8.setText("Individual Name:");
 
         nametxt.setEnabled(false);
-
-        enterpriseLabel.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
-        enterpriseLabel.setForeground(new java.awt.Color(153, 0, 51));
-        enterpriseLabel.setText("EnterPrise :");
-
-        valueLabel.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
-        valueLabel.setForeground(new java.awt.Color(153, 0, 51));
-        valueLabel.setText("<value>");
 
         tabbedComputers.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -584,7 +574,7 @@ private JPanel userProcessContainer;
 
         tabbedComputers.addTab("Previous Experience", jPanel6);
 
-        backJBtn1.setBackground(new java.awt.Color(255, 0, 0));
+        backJBtn1.setBackground(new java.awt.Color(0, 102, 255));
         backJBtn1.setText("<< Back");
         backJBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -621,71 +611,129 @@ private JPanel userProcessContainer;
         });
         jScrollPane2.setViewportView(jobsTable);
 
-        jLabel4.setText("Size:");
+        jLabel4.setText("Vacancy:");
 
         txtSize.setEnabled(false);
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("User Details"));
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel19.setText("Log In as :");
+
+        loggedinLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        loggedinLabel.setText("jLabel2");
+
+        roleLbl.setText("jLabel2");
+
+        orgLbl.setText("jLabel3");
+
+        jLabel20.setText("Enterprise");
+
+        jLabel21.setText("Role :");
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel22.setText("Assign Job Work Area");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addGap(18, 18, 18)
+                        .addComponent(roleLbl)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel20)
+                                .addGap(18, 18, 18)
+                                .addComponent(orgLbl)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addGap(18, 18, 18)
+                                .addComponent(loggedinLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 424, Short.MAX_VALUE)
+                                .addComponent(jLabel22)))
+                        .addContainerGap())))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(loggedinLabel)
+                    .addComponent(jLabel22))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(orgLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(roleLbl))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(backJBtn1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(assignTrainerBtn))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(searchJButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(tabbedComputers, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addComponent(assignTrainerBtn))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addComponent(searchJButton))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addComponent(tabbedComputers, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(112, 112, 112)
-                                .addComponent(jLabel8)
-                                .addGap(18, 18, 18)
-                                .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel4))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(270, 270, 270)
-                                .addComponent(jLabel3)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSize, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(83, Short.MAX_VALUE))
+                                .addContainerGap()
+                                .addComponent(backJBtn1)))
+                        .addGap(0, 0, 0)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSize, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(txtSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(backJBtn1)
+                .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
                 .addComponent(tabbedComputers, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(searchJButton)
@@ -694,9 +742,7 @@ private JPanel userProcessContainer;
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE))
                 .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(assignTrainerBtn)
-                    .addComponent(backJBtn1))
+                .addComponent(assignTrainerBtn)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -711,46 +757,40 @@ private JPanel userProcessContainer;
 //            
 //        }
         //request.setMessage(message);
-        if(!isRequested){
-        int selectedRow = jobsTable.getSelectedRow();
-        if(selectedRow<0){
-            JOptionPane.showMessageDialog(null, "Please select and organization to send the request to!!");
-            return;
-        }
-        Organization org = (Organization) jobsTable.getValueAt(selectedRow, 0);
-        //Organization org = (Organization) jobsTable.getValueAt(jobsTable.getSelectedRow(), 0);
-            if(org instanceof CarpentryJobOrganization){
-                ((CarpentryJobOrganization) org).setSeats(((CarpentryJobOrganization) org).getSeats()-1);
+        if (!isRequested) {
+            int selectedRow = jobsTable.getSelectedRow();
+            if (selectedRow < 0) {
+                JOptionPane.showMessageDialog(null, "Please select and organization to send the request to!!");
+                return;
+            }
+            Organization org = (Organization) jobsTable.getValueAt(selectedRow, 0);
+            //Organization org = (Organization) jobsTable.getValueAt(jobsTable.getSelectedRow(), 0);
+            if (org instanceof CarpentryJobOrganization) {
+                ((CarpentryJobOrganization) org).setSeats(((CarpentryJobOrganization) org).getSeats() - 1);
                 txtSize.setText(String.valueOf(((CarpentryJobOrganization) org).getSeats()));
-            }
-            else if(org instanceof ConstructionJobOrganization){
-                ((ConstructionJobOrganization) org).setSeats(((ConstructionJobOrganization) org).getSeats()-1);
+            } else if (org instanceof ConstructionJobOrganization) {
+                ((ConstructionJobOrganization) org).setSeats(((ConstructionJobOrganization) org).getSeats() - 1);
                 txtSize.setText(String.valueOf(((ConstructionJobOrganization) org).getSeats()));
-            }
-            else if(org instanceof SecurityJobOrganization){
-                ((SecurityJobOrganization) org).setSeats(((SecurityJobOrganization) org).getSeats()-1);
+            } else if (org instanceof SecurityJobOrganization) {
+                ((SecurityJobOrganization) org).setSeats(((SecurityJobOrganization) org).getSeats() - 1);
                 txtSize.setText(String.valueOf(((SecurityJobOrganization) org).getSeats()));
-            }
-            else if(org instanceof ITJobOrganization){
-                ((ITJobOrganization) org).setSeats(((ITJobOrganization) org).getSeats()-1);
+            } else if (org instanceof ITJobOrganization) {
+                ((ITJobOrganization) org).setSeats(((ITJobOrganization) org).getSeats() - 1);
                 txtSize.setText(String.valueOf(((ITJobOrganization) org).getSeats()));
-            }
-            else{
-                ((GeneralJobOrganization) org).setSeats(((GeneralJobOrganization) org).getSeats()-1);
+            } else {
+                ((GeneralJobOrganization) org).setSeats(((GeneralJobOrganization) org).getSeats() - 1);
                 txtSize.setText(String.valueOf(((GeneralJobOrganization) org).getSeats()));
             }
-        org.getWorkQueue().getWorkRequestList().add(request);
-        UserAccount res = org.getUserAccountList().getUserAccountList().get(0);
-        request.setReceiver(res);
-        request.setStatus(Constant.TR_REQUESTSTATUS_ASSIGNED);
-        request.setTestResult("");
-        UserAccount sd= request.getSender();
-        
-        JOptionPane.showMessageDialog(null, "Job Organization assigned successfully.", "Warning", JOptionPane.INFORMATION_MESSAGE);
-        isRequested =true;
-        }
-        else
-        {
+            org.getWorkQueue().getWorkRequestList().add(request);
+            UserAccount res = org.getUserAccountList().getUserAccountList().get(0);
+            request.setReceiver(res);
+            request.setStatus(Constant.TR_REQUESTSTATUS_ASSIGNED);
+            request.setTestResult("");
+            UserAccount sd = request.getSender();
+
+            JOptionPane.showMessageDialog(null, "Job Organization assigned successfully.", "Warning", JOptionPane.INFORMATION_MESSAGE);
+            isRequested = true;
+        } else {
             JOptionPane.showMessageDialog(null, "Request already forwarded.", "Warning", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_assignTrainerBtnActionPerformed
@@ -758,7 +798,7 @@ private JPanel userProcessContainer;
     private void backJBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJBtn1ActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
-         Component[] componentArray = userProcessContainer.getComponents();
+        Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         ProcessJobRequestJPanel sysAdminwjp = (ProcessJobRequestJPanel) component;
         sysAdminwjp.populateRequestTable();
@@ -771,16 +811,18 @@ private JPanel userProcessContainer;
         assignTrainerBtn.setVisible(false);
         // TODO add your handling code here:
         new SwingWorker() {
-            
+
             @Override
             protected Object doInBackground() throws Exception {
 
                 Enterprise tm = null;
                 for (Network network : business.getNetworkList()) {
-                    for (Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()) {
-                        if (ent instanceof JobProviderEnterprise) {
-                            tm = ent;
-                            break;
+                    if (network.getName().equalsIgnoreCase(enterprise.getNetworkName())) {
+                        for (Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()) {
+                            if (ent instanceof JobProviderEnterprise) {
+                                tm = ent;
+                                break;
+                            }
                         }
                     }
                 }
@@ -870,14 +912,13 @@ private JPanel userProcessContainer;
                 return null;
             }
         }.execute();
-        
+
     }//GEN-LAST:event_searchJButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton assignTrainerBtn;
     private javax.swing.JButton backJBtn1;
-    private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -888,8 +929,11 @@ private JPanel userProcessContainer;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -902,6 +946,7 @@ private JPanel userProcessContainer;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jobsTable;
@@ -920,12 +965,14 @@ private JPanel userProcessContainer;
     private javax.swing.JLabel lblResultRead;
     private javax.swing.JLabel lblResultTech;
     private javax.swing.JLabel lblResultWrite;
+    private javax.swing.JLabel loggedinLabel;
     private javax.swing.JTextField nametxt;
+    private javax.swing.JLabel orgLbl;
+    private javax.swing.JLabel roleLbl;
     private javax.swing.JButton searchJButton;
     private javax.swing.JTabbedPane tabbedComputers;
     private javax.swing.JTextArea textArea;
     private javax.swing.JTextField txtSize;
-    private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables
 
 }

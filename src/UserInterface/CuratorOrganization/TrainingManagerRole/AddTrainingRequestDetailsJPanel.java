@@ -31,6 +31,7 @@ private JPanel userProcessContainer;
     private UserAccount userAccount;
     EcoSystem business;
     TrainingRequest request;
+    boolean isRequested=false;
     /**
      * Creates new form ManageTraining
      */
@@ -108,6 +109,7 @@ private JPanel userProcessContainer;
 
         jLabel2.setText("Have you ever received any specific skill training ?");
 
+        trainingCombo.add(receivedTrainingNo);
         receivedTrainingNo.setText("No");
         receivedTrainingNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,6 +117,7 @@ private JPanel userProcessContainer;
             }
         });
 
+        trainingCombo.add(receivedTrainingYes);
         receivedTrainingYes.setText("Yes");
         receivedTrainingYes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,6 +169,7 @@ private JPanel userProcessContainer;
 
         jLabel7.setText("Do you have any kind of disability ?");
 
+        disabilityCombo.add(disabilityNo);
         disabilityNo.setText("No");
         disabilityNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,6 +177,7 @@ private JPanel userProcessContainer;
             }
         });
 
+        disabilityCombo.add(disabilityYes);
         disabilityYes.setText("Yes");
         disabilityYes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,12 +229,16 @@ private JPanel userProcessContainer;
 
         jLabel3.setText("What Type of family you are in: ");
 
+        familyCombo.add(nuclearRadioBtn);
         nuclearRadioBtn.setText("Nuclear");
 
+        familyCombo.add(siblingRadioBtn);
         siblingRadioBtn.setText("Sibling Household");
 
+        familyCombo.add(parentRadioBtn);
         parentRadioBtn.setText("Single Parent");
 
+        familyCombo.add(extendedRadioBtn);
         extendedRadioBtn.setText("Extended");
 
         javax.swing.GroupLayout familyBackPanelLayout = new javax.swing.GroupLayout(familyBackPanel);
@@ -296,6 +305,7 @@ private JPanel userProcessContainer;
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setEnabled(false);
 
+        specificCombo.add(specificComboYes);
         specificComboYes.setText("Yes");
         specificComboYes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -303,6 +313,7 @@ private JPanel userProcessContainer;
             }
         });
 
+        specificCombo.add(specificComboNo);
         specificComboNo.setText("No");
         specificComboNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -356,7 +367,7 @@ private JPanel userProcessContainer;
         jTabbedPane.addTab("Specific Interests", jPanel2);
 
         btnRequestJob.setBackground(new java.awt.Color(51, 255, 51));
-        btnRequestJob.setText("Request Job");
+        btnRequestJob.setText("Request Training");
         btnRequestJob.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRequestJobActionPerformed(evt);
@@ -445,11 +456,12 @@ private JPanel userProcessContainer;
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
                         .addComponent(backJBtn)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTabbedPane))
-                .addContainerGap())
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(399, 399, 399)
@@ -464,9 +476,9 @@ private JPanel userProcessContainer;
                 .addComponent(jTabbedPane)
                 .addGap(18, 18, 18)
                 .addComponent(btnRequestJob)
-                .addGap(125, 125, 125)
+                .addGap(56, 56, 56)
                 .addComponent(backJBtn)
-                .addContainerGap())
+                .addContainerGap(80, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -510,7 +522,7 @@ private JPanel userProcessContainer;
 
     private void btnRequestJobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestJobActionPerformed
         // TODO add your handling code here:
-
+        if(!isRequested){
         Questionnaire questionnaire = request.getQuestionaire();//business.getQuestionnaireList().addQuestionnaire();
         questionnaire.setIsDetailsSet(true);
         TrainingQuestionaire trainingQuestionaire = questionnaire.getTrainingQuestionaire() ;
@@ -582,6 +594,12 @@ private JPanel userProcessContainer;
 
         }
         JOptionPane.showMessageDialog(null, "Individual request created successfully", "Warning", JOptionPane.INFORMATION_MESSAGE);
+        isRequested = true;
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Request already forwarded", "Warning", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_btnRequestJobActionPerformed
 
     private void backJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJBtnActionPerformed

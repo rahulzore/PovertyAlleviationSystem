@@ -49,7 +49,6 @@ public class ViewEnterpriseUserAccountJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         empNametxt = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         updateBtn = new javax.swing.JButton();
@@ -70,10 +69,6 @@ public class ViewEnterpriseUserAccountJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel1.setText("View Employee Details");
-
         empNametxt.setEnabled(false);
 
         jLabel2.setText("Name:");
@@ -93,7 +88,7 @@ public class ViewEnterpriseUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        backJBtn.setBackground(new java.awt.Color(255, 51, 51));
+        backJBtn.setBackground(new java.awt.Color(0, 102, 255));
         backJBtn.setText("<< Back");
         backJBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,7 +122,7 @@ public class ViewEnterpriseUserAccountJPanel extends javax.swing.JPanel {
         jLabel9.setText("Role :");
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel16.setText("Enterprise Admin Work Area");
+        jLabel16.setText("User Account Details Area");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -152,7 +147,7 @@ public class ViewEnterpriseUserAccountJPanel extends javax.swing.JPanel {
                                 .addComponent(jLabel7)
                                 .addGap(18, 18, 18)
                                 .addComponent(loggedinLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 375, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 404, Short.MAX_VALUE)
                                 .addComponent(jLabel16)))
                         .addContainerGap())))
         );
@@ -183,7 +178,7 @@ public class ViewEnterpriseUserAccountJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(248, 248, 248)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -199,31 +194,24 @@ public class ViewEnterpriseUserAccountJPanel extends javax.swing.JPanel {
                                         .addComponent(empUsernametxt)
                                         .addComponent(empPasstxt, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(empNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
-<<<<<<< HEAD
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(backJBtn)))
-                        .addGap(0, 0, 0)))
-=======
-                            .addComponent(backJBtn))
-                        .addGap(0, 0, Short.MAX_VALUE)))
->>>>>>> e46e7f24872fe62b36a2219965da200e94c79a10
+                                .addGap(23, 23, 23)
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(empNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(backJBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(backJBtn)
+                .addGap(91, 91, 91)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(empNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -239,13 +227,7 @@ public class ViewEnterpriseUserAccountJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(updateBtn)
                     .addComponent(saveBtn))
-<<<<<<< HEAD
-                .addGap(57, 57, 57)
-=======
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
->>>>>>> e46e7f24872fe62b36a2219965da200e94c79a10
-                .addComponent(backJBtn)
-                .addContainerGap())
+                .addContainerGap(144, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -297,7 +279,6 @@ public class ViewEnterpriseUserAccountJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField empNametxt;
     private javax.swing.JPasswordField empPasstxt;
     private javax.swing.JTextField empUsernametxt;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

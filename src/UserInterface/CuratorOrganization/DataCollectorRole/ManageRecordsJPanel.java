@@ -21,7 +21,6 @@ import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import java.io.IOException;
 import java.util.ArrayList;
-<<<<<<< HEAD
 import java.util.Date;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -39,8 +38,6 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.swing.JOptionPane;
-=======
->>>>>>> e46e7f24872fe62b36a2219965da200e94c79a10
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -66,10 +63,13 @@ public class ManageRecordsJPanel extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.userAccount = account;
         this.business = business;
-        valueLabel.setText(organization.getName());
+         loggedinLabel2.setText(userAccount.getEmployee().getName());
+        orgLbl2.setText(organization.getName());
+        roleLbl2.setText(userAccount.getRole().toString());
+     
         populateRequestTable();
     }
-private void populateRequestTable(){
+public void populateRequestTable(){
         DefaultTableModel model = (DefaultTableModel) requestTable.getModel();
         ArrayList<WorkRequest> worklist = new ArrayList<>();
         model.setRowCount(0);
@@ -111,15 +111,20 @@ private void populateRequestTable(){
         backJBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         requestTable = new javax.swing.JTable();
-        enterpriseLabel = new javax.swing.JLabel();
-        valueLabel = new javax.swing.JLabel();
         viewRecordButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         btnNotification = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        loggedinLabel2 = new javax.swing.JLabel();
+        roleLbl2 = new javax.swing.JLabel();
+        orgLbl2 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        backJBtn.setBackground(new java.awt.Color(255, 51, 51));
+        backJBtn.setBackground(new java.awt.Color(0, 102, 255));
         backJBtn.setText("<< Back");
         backJBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,13 +150,6 @@ private void populateRequestTable(){
         });
         jScrollPane1.setViewportView(requestTable);
 
-        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        enterpriseLabel.setForeground(new java.awt.Color(153, 0, 51));
-        enterpriseLabel.setText("Organization:");
-
-        valueLabel.setForeground(new java.awt.Color(153, 0, 51));
-        valueLabel.setText("<value>");
-
         viewRecordButton.setBackground(new java.awt.Color(102, 255, 102));
         viewRecordButton.setText("View Record");
         viewRecordButton.addActionListener(new java.awt.event.ActionListener() {
@@ -160,10 +158,6 @@ private void populateRequestTable(){
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel1.setText("Manage Records");
-
         btnNotification.setText("Send Notification");
         btnNotification.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,52 +165,106 @@ private void populateRequestTable(){
             }
         });
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("User Details"));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel15.setText("Log In as :");
+
+        loggedinLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        loggedinLabel2.setText("jLabel2");
+
+        roleLbl2.setText("jLabel2");
+
+        orgLbl2.setText("jLabel3");
+
+        jLabel16.setText("Enterprise");
+
+        jLabel18.setText("Role :");
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel19.setText("Manage Records Area");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel18)
+                        .addGap(18, 18, 18)
+                        .addComponent(roleLbl2)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addGap(18, 18, 18)
+                        .addComponent(orgLbl2)
+                        .addContainerGap(667, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addGap(18, 18, 18)
+                        .addComponent(loggedinLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel19))))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(loggedinLabel2)
+                    .addComponent(jLabel19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(orgLbl2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(roleLbl2))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnNotification)
-                .addGap(46, 46, 46)
-                .addComponent(viewRecordButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(247, 247, 247)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(backJBtn)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)
-                                .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(38, Short.MAX_VALUE))
+                                .addGap(265, 265, 265)
+                                .addComponent(btnNotification)
+                                .addGap(46, 46, 46)
+                                .addComponent(viewRecordButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(86, 86, 86)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(backJBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(backJBtn)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNotification)
                     .addComponent(viewRecordButton))
-                .addGap(20, 20, 20)
-                .addComponent(backJBtn)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addGap(172, 172, 172))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -229,7 +277,6 @@ private void populateRequestTable(){
 
     private void viewRecordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewRecordButtonActionPerformed
 
-<<<<<<< HEAD
          int selectedRow = requestTable.getSelectedRow();
        WorkRequest request =null;
 
@@ -240,17 +287,19 @@ private void populateRequestTable(){
 
         if (selectedRow >= 0) {
             request = (WorkRequest)requestTable.getValueAt(selectedRow, 0);
+            if(request.getStatus().equalsIgnoreCase(Constant.TR_REQUESTSTATUS_PROCESSED)){
+                JOptionPane.showMessageDialog(null, "Processed Request cannot be updated.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+            }
             questionnaire =request.getQuestionaire();
            
-            UpdateRecordJPanel UpdateRecordJPanel = new UpdateRecordJPanel(userProcessContainer, business, request);
+            UpdateRecordJPanel UpdateRecordJPanel = new UpdateRecordJPanel(userProcessContainer, business, request,userAccount,organization);
             userProcessContainer.add("UpdateRecordJPanel", UpdateRecordJPanel);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
 
             layout.next(userProcessContainer);
             
     }                                             
-=======
->>>>>>> e46e7f24872fe62b36a2219965da200e94c79a10
     }//GEN-LAST:event_viewRecordButtonActionPerformed
 
     private void btnNotificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNotificationActionPerformed
@@ -271,7 +320,15 @@ private void populateRequestTable(){
              if(!isSend )
             {
                     try {
-                        sendEmailWithAttachments();
+                        if(request.getQuestionaire().getPersonalQuestionnaire().getRequestType().equalsIgnoreCase(Constant.TR_REQUESTTYPE_JOB)){
+                            
+                        
+                        sendJobEmailWithAttachments();
+                        }
+                        else
+                        {
+                            sendEduEmailWithAttachments();
+                        }
                         questionnaire.getPersonalQuestionnaire().setIsNotified(Boolean.TRUE);
                     } catch (MessagingException ex) {
                         Logger.getLogger(ManageRecordsJPanel.class.getName()).log(Level.SEVERE, null, ex);
@@ -293,7 +350,7 @@ private void populateRequestTable(){
         JOptionPane.showMessageDialog(null, "Email notification sent successfully!!!", "Information", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnNotificationActionPerformed
-    public  void sendEmailWithAttachments()
+    public  void sendJobEmailWithAttachments()
             throws AddressException, MessagingException, IOException {
         String host = Constant.TR_NOTIFICATIONHOST;
         String port = Constant.TR_NOTIFICATIONHOSTPORT;
@@ -359,15 +416,87 @@ private void populateRequestTable(){
         Transport.send(msg);
  
     }
+    
+    public  void sendEduEmailWithAttachments()
+            throws AddressException, MessagingException, IOException {
+        String host = Constant.TR_NOTIFICATIONHOST;
+        String port = Constant.TR_NOTIFICATIONHOSTPORT;
+        String userName = Constant.TR_NOTIFICATIONEMAIL;
+        String password = Constant.TR_NOTIFICATIONPASSWORD;
+        String subject ="Training Education Notification from Poverty Alleviation Sytem";
+        String message = "Congratualtion you got shortlisted for training." + workRequest.getReceiver() + " training institute selected you based on your interest.You will be notified for futher instruction."+
+                 "Details will be given to on address " + questionnaire.getPersonalQuestionnaire().getAddress() + ",mobile number "
+                + questionnaire.getPersonalQuestionnaire().getContact();
+        // sets SMTP server properties
+        Properties properties = new Properties();
+        properties.put("mail.smtp.host", host);
+        properties.put("mail.smtp.port", port);
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.user", userName);
+        properties.put("mail.password", password);
+ 
+        // creates a new session with an authenticator
+        Authenticator auth = new Authenticator() {
+            public PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(userName, password);
+            }
+        };
+        Session session = Session.getInstance(properties, auth);
+ 
+        // creates a new e-mail message
+        Message msg = new MimeMessage(session);
+ 
+        msg.setFrom(new InternetAddress(userName));
+        InternetAddress[] toAddresses = { new InternetAddress(questionnaire.getPersonalQuestionnaire().getEmailAddress()) };
+        msg.setRecipients(Message.RecipientType.TO, toAddresses);
+        msg.setSubject(subject);
+        msg.setSentDate(new Date());
+ 
+        // creates message part
+        MimeBodyPart messageBodyPart = new MimeBodyPart();
+        messageBodyPart.setContent(message, "text/html");
+ 
+        // creates multi-part
+        Multipart multipart = new MimeMultipart();
+        multipart.addBodyPart(messageBodyPart);
+ 
+        // adds attachments
+//        if (attachFiles != null && attachFiles.length > 0) {
+//            for (String filePath : attachFiles) {
+//                MimeBodyPart attachPart = new MimeBodyPart();
+// 
+//                try {
+//                    attachPart.attachFile(filePath);
+//                } catch (IOException ex) {
+//                    ex.printStackTrace();
+//                }
+// 
+//                multipart.addBodyPart(attachPart);
+//            }
+//        }
+ 
+        // sets the multi-part as e-mail's content
+        msg.setContent(multipart);
+ 
+        // sends the e-mail
+        Transport.send(msg);
+ 
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJBtn;
     private javax.swing.JButton btnNotification;
-    private javax.swing.JLabel enterpriseLabel;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel loggedinLabel2;
+    private javax.swing.JLabel orgLbl2;
     private javax.swing.JTable requestTable;
-    private javax.swing.JLabel valueLabel;
+    private javax.swing.JLabel roleLbl2;
     private javax.swing.JButton viewRecordButton;
     // End of variables declaration//GEN-END:variables
 }

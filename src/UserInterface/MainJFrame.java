@@ -225,6 +225,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Poverty Alleviation System");
 
         loginPanel.setBackground(new java.awt.Color(255, 255, 255));
 

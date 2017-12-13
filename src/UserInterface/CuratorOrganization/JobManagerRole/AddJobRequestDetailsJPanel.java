@@ -60,6 +60,9 @@ private JPanel userProcessContainer;
         this.userAccount = userAccount;
         this.business = business;
         this.request = workrequest;
+         loggedinLabel2.setText(userAccount.getEmployee().getName());
+        orgLbl2.setText(organization.getName());
+        roleLbl2.setText(userAccount.getRole().toString());
         populateWorkRequestData();
    
         ImageIcon icon=request.getQuestionaire().getPersonalQuestionnaire().getIdProof();
@@ -98,7 +101,6 @@ private JPanel userProcessContainer;
         carpenGroup = new javax.swing.ButtonGroup();
         techGroup = new javax.swing.ButtonGroup();
         constGroup = new javax.swing.ButtonGroup();
-        jLabel1 = new javax.swing.JLabel();
         btnRequestJob = new javax.swing.JButton();
         backJBtn = new javax.swing.JButton();
         tabbedPanel = new javax.swing.JTabbedPane();
@@ -162,13 +164,16 @@ private JPanel userProcessContainer;
         idProof = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         nameIndividual = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        loggedinLabel2 = new javax.swing.JLabel();
+        roleLbl2 = new javax.swing.JLabel();
+        orgLbl2 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Enter Individual job Details");
 
         btnRequestJob.setBackground(new java.awt.Color(51, 255, 51));
         btnRequestJob.setText("Request Job");
@@ -178,7 +183,7 @@ private JPanel userProcessContainer;
             }
         });
 
-        backJBtn.setBackground(new java.awt.Color(255, 0, 0));
+        backJBtn.setBackground(new java.awt.Color(0, 102, 255));
         backJBtn.setText("<< Back");
         backJBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -305,7 +310,7 @@ private JPanel userProcessContainer;
                     .addComponent(rbSibling)
                     .addComponent(rbSingleParent)
                     .addComponent(rbExtended))
-                .addContainerGap(246, Short.MAX_VALUE))
+                .addContainerGap(199, Short.MAX_VALUE))
         );
 
         tabbedPanel.addTab("Family Background Information", familyBackPanel);
@@ -332,7 +337,7 @@ private JPanel userProcessContainer;
                         .addComponent(rbConvictedYes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rbConvictedNo)))
-                .addContainerGap(551, Short.MAX_VALUE))
+                .addContainerGap(619, Short.MAX_VALUE))
         );
         criminalPanelLayout.setVerticalGroup(
             criminalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,7 +348,7 @@ private JPanel userProcessContainer;
                 .addGroup(criminalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbConvictedYes)
                     .addComponent(rbConvictedNo))
-                .addContainerGap(226, Short.MAX_VALUE))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
 
         tabbedPanel.addTab("Criminal Information", criminalPanel);
@@ -383,7 +388,7 @@ private JPanel userProcessContainer;
                         .addComponent(rbDrugsYes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rbDrugsNo)))
-                .addContainerGap(376, Short.MAX_VALUE))
+                .addContainerGap(444, Short.MAX_VALUE))
         );
         drugPanelLayout.setVerticalGroup(
             drugPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -466,7 +471,7 @@ private JPanel userProcessContainer;
                     .addComponent(jLabel16)
                     .addComponent(jLabel17)
                     .addComponent(jLabel18))
-                .addContainerGap(436, Short.MAX_VALUE))
+                .addContainerGap(504, Short.MAX_VALUE))
         );
         guardPanelLayout.setVerticalGroup(
             guardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -495,7 +500,7 @@ private JPanel userProcessContainer;
                 .addGroup(guardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(constructionYes)
                     .addComponent(constructionNo))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tabbedPanel.addTab("Previous Experience", guardPanel);
@@ -535,7 +540,7 @@ private JPanel userProcessContainer;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(isPhysicalNo))
                     .addComponent(jLabel15))
-                .addContainerGap(543, Short.MAX_VALUE))
+                .addContainerGap(611, Short.MAX_VALUE))
         );
         physicalPanelLayout.setVerticalGroup(
             physicalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -552,7 +557,7 @@ private JPanel userProcessContainer;
                 .addGroup(physicalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(medicalYes)
                     .addComponent(medicalNo))
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         tabbedPanel.addTab("Physical Information", physicalPanel);
@@ -605,7 +610,7 @@ private JPanel userProcessContainer;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rbReadNo))
                     .addComponent(jLabel14))
-                .addContainerGap(468, Short.MAX_VALUE))
+                .addContainerGap(536, Short.MAX_VALUE))
         );
         educationPanelLayout.setVerticalGroup(
             educationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -628,7 +633,7 @@ private JPanel userProcessContainer;
                 .addGroup(educationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(necYes)
                     .addComponent(necNo))
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         tabbedPanel.addTab("Education Information", educationPanel);
@@ -639,6 +644,69 @@ private JPanel userProcessContainer;
 
         nameIndividual.setEnabled(false);
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("User Details"));
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel19.setText("Log In as :");
+
+        loggedinLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        loggedinLabel2.setText("jLabel2");
+
+        roleLbl2.setText("jLabel2");
+
+        orgLbl2.setText("jLabel3");
+
+        jLabel20.setText("Enterprise");
+
+        jLabel21.setText("Role :");
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel22.setText("Add Training Details Area");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addGap(18, 18, 18)
+                        .addComponent(roleLbl2)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel20)
+                        .addGap(18, 18, 18)
+                        .addComponent(orgLbl2)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel19)
+                        .addGap(18, 18, 18)
+                        .addComponent(loggedinLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel22))))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(loggedinLabel2)
+                    .addComponent(jLabel22))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(orgLbl2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(roleLbl2))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -648,40 +716,36 @@ private JPanel userProcessContainer;
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(tabbedPanel))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(backJBtn))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(292, 292, 292)
-                        .addComponent(btnRequestJob))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(230, 230, 230)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
+                        .addComponent(backJBtn)
+                        .addGap(173, 173, 173)
                         .addComponent(idProof, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(nameIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(358, 358, 358)
+                .addComponent(btnRequestJob)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(nameIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(idProof, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tabbedPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(backJBtn)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(nameIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(idProof, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9)))
+                .addGap(22, 22, 22)
+                .addComponent(tabbedPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnRequestJob)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(backJBtn)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -879,7 +943,6 @@ private JPanel userProcessContainer;
     private javax.swing.JLabel idProof;
     private javax.swing.JRadioButton isPhysicalNo;
     private javax.swing.JRadioButton isPhysicalYes;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -889,7 +952,11 @@ private JPanel userProcessContainer;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -897,7 +964,9 @@ private JPanel userProcessContainer;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jobPanel;
+    private javax.swing.JLabel loggedinLabel2;
     private javax.swing.ButtonGroup medicalCombo;
     private javax.swing.JRadioButton medicalNo;
     private javax.swing.JRadioButton medicalYes;
@@ -905,6 +974,7 @@ private JPanel userProcessContainer;
     private javax.swing.JRadioButton necNo;
     private javax.swing.ButtonGroup necTrainCombo;
     private javax.swing.JRadioButton necYes;
+    private javax.swing.JLabel orgLbl2;
     private javax.swing.JPanel physicalPanel;
     private javax.swing.JRadioButton rbChkDrugCommNo;
     private javax.swing.JRadioButton rbChkDrugCommYes;
@@ -926,6 +996,7 @@ private JPanel userProcessContainer;
     private javax.swing.JRadioButton rbSingleParent;
     private javax.swing.JRadioButton rbWriteNo;
     private javax.swing.JRadioButton rbWriteYes;
+    private javax.swing.JLabel roleLbl2;
     private javax.swing.JTabbedPane tabbedPanel;
     private javax.swing.ButtonGroup techGroup;
     private javax.swing.JRadioButton techNo;

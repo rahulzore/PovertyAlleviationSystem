@@ -202,14 +202,12 @@ private void populateRequestTable(){
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(backJBtn)
                         .addGap(0, 707, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1)))
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(328, 328, 328)
@@ -224,7 +222,7 @@ private void populateRequestTable(){
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(viewRecordButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                .addGap(119, 119, 119)
                 .addComponent(backJBtn)
                 .addContainerGap())
         );
@@ -242,6 +240,10 @@ private void populateRequestTable(){
         if(selectedRow>=0)
         {
             request = (TrainingRequest) requestTable.getValueAt(selectedRow, 0);
+            if(request.getReceiver() != null){
+                JOptionPane.showMessageDialog(null, "Request Already forwarded.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+            }
             AddTrainingRequestDetailsJPanel AddTrainingRequestDetailsJPanel = new AddTrainingRequestDetailsJPanel(userProcessContainer,userAccount,organization, enterprise,business,request);
             userProcessContainer.add("AddTrainingRequestDetailsJPanel", AddTrainingRequestDetailsJPanel);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
