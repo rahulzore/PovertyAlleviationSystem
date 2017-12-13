@@ -171,6 +171,12 @@ public class ViewEnterpriseEmployeeDetailsJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
+=======
+                                .addContainerGap()
+                                .addComponent(backJBtn))
+                            .addGroup(layout.createSequentialGroup()
+>>>>>>> e46e7f24872fe62b36a2219965da200e94c79a10
                                 .addGap(267, 267, 267)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -188,10 +194,13 @@ public class ViewEnterpriseEmployeeDetailsJPanel extends javax.swing.JPanel {
                         .addGap(0, 296, Short.MAX_VALUE))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+<<<<<<< HEAD
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(backJBtn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+>>>>>>> e46e7f24872fe62b36a2219965da200e94c79a10
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -291,7 +291,11 @@ public class ManageEnterpriseEmployeeJPanel extends javax.swing.JPanel {
                                         .addComponent(organizationEmpJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(addJButton))))
                             .addComponent(backJBtn))
+<<<<<<< HEAD
                         .addGap(300, 300, 300)))
+=======
+                        .addGap(0, 300, Short.MAX_VALUE)))
+>>>>>>> e46e7f24872fe62b36a2219965da200e94c79a10
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -320,9 +324,15 @@ public class ManageEnterpriseEmployeeJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addComponent(addJButton)
+<<<<<<< HEAD
                 .addGap(35, 35, 35)
                 .addComponent(backJBtn)
                 .addContainerGap(78, Short.MAX_VALUE))
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                .addComponent(backJBtn)
+                .addContainerGap())
+>>>>>>> e46e7f24872fe62b36a2219965da200e94c79a10
         );
     }// </editor-fold>//GEN-END:initComponents
 

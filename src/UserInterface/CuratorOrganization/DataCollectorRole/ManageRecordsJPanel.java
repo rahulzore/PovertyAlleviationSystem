@@ -21,6 +21,7 @@ import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import java.io.IOException;
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Date;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -38,6 +39,8 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.swing.JOptionPane;
+=======
+>>>>>>> e46e7f24872fe62b36a2219965da200e94c79a10
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -66,7 +69,7 @@ public class ManageRecordsJPanel extends javax.swing.JPanel {
         valueLabel.setText(organization.getName());
         populateRequestTable();
     }
-public void populateRequestTable(){
+private void populateRequestTable(){
         DefaultTableModel model = (DefaultTableModel) requestTable.getModel();
         ArrayList<WorkRequest> worklist = new ArrayList<>();
         model.setRowCount(0);
@@ -226,6 +229,7 @@ public void populateRequestTable(){
 
     private void viewRecordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewRecordButtonActionPerformed
 
+<<<<<<< HEAD
          int selectedRow = requestTable.getSelectedRow();
        WorkRequest request =null;
 
@@ -245,6 +249,8 @@ public void populateRequestTable(){
             layout.next(userProcessContainer);
             
     }                                             
+=======
+>>>>>>> e46e7f24872fe62b36a2219965da200e94c79a10
     }//GEN-LAST:event_viewRecordButtonActionPerformed
 
     private void btnNotificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNotificationActionPerformed

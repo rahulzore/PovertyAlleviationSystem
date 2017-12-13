@@ -18,8 +18,9 @@ public class PersonalQuestionnaire {
     public int income;
     public String education;
     public String requestType;
-    public String ssn;
+    public double ssn;
     private ImageIcon idProof;
+<<<<<<< HEAD
     private String emailAddress;
     private String address;
     private String contact;
@@ -57,6 +58,8 @@ public class PersonalQuestionnaire {
         this.contact = contact;
     }
     
+=======
+>>>>>>> e46e7f24872fe62b36a2219965da200e94c79a10
 
     public ImageIcon getIdProof() {
         return idProof;
@@ -66,11 +69,11 @@ public class PersonalQuestionnaire {
         this.idProof = idProof;
     }
 
-    public String getSsn() {
+    public double getSsn() {
         return ssn;
     }
 
-    public void setSsn(String ssn) {
+    public void setSsn(double ssn) {
         this.ssn = ssn;
     }
     public String getName() {

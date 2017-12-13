@@ -206,10 +206,15 @@ public class ViewEnterpriseUserAccountJPanel extends javax.swing.JPanel {
                                         .addComponent(jLabel2)
                                         .addGap(18, 18, 18)
                                         .addComponent(empNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
+<<<<<<< HEAD
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(14, 14, 14)
                                 .addComponent(backJBtn)))
                         .addGap(0, 0, 0)))
+=======
+                            .addComponent(backJBtn))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+>>>>>>> e46e7f24872fe62b36a2219965da200e94c79a10
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -234,7 +239,11 @@ public class ViewEnterpriseUserAccountJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(updateBtn)
                     .addComponent(saveBtn))
+<<<<<<< HEAD
                 .addGap(57, 57, 57)
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
+>>>>>>> e46e7f24872fe62b36a2219965da200e94c79a10
                 .addComponent(backJBtn)
                 .addContainerGap())
         );

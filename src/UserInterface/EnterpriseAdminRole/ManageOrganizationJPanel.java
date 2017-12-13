@@ -302,9 +302,13 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addGap(39, 39, 39)
                                         .addComponent(txtSize, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
+<<<<<<< HEAD
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(71, 71, 71)
                                 .addComponent(backJBtn)))
+=======
+                            .addComponent(backJBtn))
+>>>>>>> e46e7f24872fe62b36a2219965da200e94c79a10
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -327,9 +331,15 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
                     .addComponent(lblSize))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(addJButton)
+<<<<<<< HEAD
                 .addGap(18, 18, 18)
                 .addComponent(backJBtn)
                 .addGap(129, 129, 129))
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
+                .addComponent(backJBtn)
+                .addContainerGap())
+>>>>>>> e46e7f24872fe62b36a2219965da200e94c79a10
         );
     }// </editor-fold>//GEN-END:initComponents
 

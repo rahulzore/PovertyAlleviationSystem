@@ -197,6 +197,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                             .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(280, 280, 280)
+<<<<<<< HEAD
                         .addComponent(submitJButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
@@ -205,6 +206,9 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(66, 66, 66)
                                 .addComponent(backJButton)))))
+=======
+                        .addComponent(submitJButton)))
+>>>>>>> e46e7f24872fe62b36a2219965da200e94c79a10
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -228,7 +232,11 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                     .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addComponent(submitJButton)
+<<<<<<< HEAD
                 .addGap(18, 18, 18)
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+>>>>>>> e46e7f24872fe62b36a2219965da200e94c79a10
                 .addComponent(backJButton)
                 .addContainerGap())
         );

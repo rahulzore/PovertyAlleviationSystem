@@ -44,6 +44,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="280" max="-2" attributes="0"/>
                       <Component id="submitJButton" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
@@ -54,6 +55,8 @@
                               <Component id="backJButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+=======
+>>>>>>> e46e7f24872fe62b36a2219965da200e94c79a10
                   </Group>
               </Group>
               <EmptySpace pref="44" max="32767" attributes="0"/>
@@ -84,7 +87,11 @@
               </Group>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Component id="submitJButton" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
               <EmptySpace type="separate" max="-2" attributes="0"/>
+=======
+              <EmptySpace pref="52" max="32767" attributes="0"/>
+>>>>>>> e46e7f24872fe62b36a2219965da200e94c79a10
               <Component id="backJButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
